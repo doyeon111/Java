@@ -5,10 +5,10 @@ import java.util.Date;
 public class DateTest {
 
 	public static void main(String[] args) {
-		Date today = new Date(); //dateÀ» ÀÌ¿ëÇÏ±â À§ÇÔ
+		Date today = new Date(); //dateì„ ë°›ì•„ì˜¤ê¸° ìœ„í•´ ì‚¬ìš©
 		
 		int year = today.getYear() + 1900;
-		int month = today.getMonth() + 1; //0~11ÀÌ±â ¶§¹®¿¡ + 1À» ´õÇØÁØ´Ù.
+		int month = today.getMonth() + 1; //0~11ì´ê¸° ë•Œë¬¸ì— + 1ì„ ë”í•´ì¤€ë‹¤.
 		int date = today.getDate();
 		int hour = today.getHours();
 		int minute = today.getMinutes();
@@ -16,8 +16,8 @@ public class DateTest {
 
 		
 		System.out.println
-		("ÇöÀç´Â " + year +"³â " + month + "¿ù " + date + "ÀÏ " + 
-			hour + "½Ã " + minute + "ºĞ " + second + "ÃÊ ÀÔ´Ï´Ù.");
+		("í˜„ì¬ëŠ” " + year +"ë…„ " + month + "ì›” " + date + "ì¼ " + 
+			hour + "ì‹œ " + minute + "ë¶„ " + second + "ì´ˆ ì…ë‹ˆë‹¤.");
 	}
 
 }
