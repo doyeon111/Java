@@ -10,16 +10,16 @@ public class HospitalTest {
 		String name;
 		int age;
 		
-		System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
-		System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		age = sc.nextInt();
 	
 		
-		if (age >= 40) {
-			System.out.println(name + "´Ô, ¾Ï °ËÁø ´ë»óÀÚÀÔ´Ï´Ù.");
+		if (age >= 40) { //ë‚˜ì´ê°€ 40ì‚´ ì´ìƒì¸ ê²½ìš° ì•”ê²€ì§„ ëŒ€ìƒì
+			System.out.println(name + "ë‹˜, ì•” ê²€ì§„ ëŒ€ìƒìì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println(name + "´Ô, ¾Ï °ËÁø ´ë»óÀÚ°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println(name + "ë‹˜, ì•” ê²€ì§„ ëŒ€ìƒìê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 
 	}
