@@ -6,18 +6,18 @@ public class practice06 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String drive, dir, file, a;
+		String drive, dir, file, a; //ê°ê°ì˜ ë³€ìˆ˜
 		
-		System.out.print("µå¶óÀÌºê ÀÌ¸§: ");
+		System.out.print("ë“œë¼ì´ë¸Œ ì´ë¦„: ");
 		drive = sc.next();
-		System.out.print("µğ·ºÅÍ¸® ÀÌ¸§: ");
+		System.out.print("ë””ë ‰í„°ë¦¬ ì´ë¦„: ");
 		dir = sc.next();
-		System.out.print("ÆÄÀÏ ÀÌ¸§: ");
+		System.out.print("íŒŒì¼ ì´ë¦„: ");
 		file = sc.next();
-		System.out.print("È®ÀåÀÚ: ");
+		System.out.print("í™•ì¥ì: ");
 		a = sc.next();
 		
-		System.out.print("¿ÏÀüÇÑ ÀÌ¸§Àº " + drive +":" + dir + file + "." + a);
+		System.out.print("ì™„ì „í•œ ì´ë¦„ì€ " + drive +":" + dir + file + "." + a);
 
 	}
 
