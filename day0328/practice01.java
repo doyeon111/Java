@@ -9,13 +9,13 @@ public class practice01 {
 		
 		int orange, a, b;
 		
-		System.out.print("¿À·»ÁöÀÇ °³¼ö¸¦ ÀÔ·ÂÇÏ½Ã¿À: ");
+		System.out.print("ì˜¤ë Œì§€ì˜ ê°œìˆ˜ë¥¼ ì…ë ¥í•˜ì‹œì˜¤: ");
 		orange = sc.nextInt();
 		
-		a = orange / 10;
-		b = orange % 10;
+		a = orange / 10; //ì˜¤ë Œì§€ë¥¼ 10ìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ ê°’
+		b = orange % 10; // ì˜¤ë Œì§€ë¥¼ 10ìœ¼ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ì˜ ê°’
 		
-		System.out.println(a + "¹Ú½º°¡ ÇÊ¿äÇÏ°í " + b + "°³°¡ ³²½À´Ï´Ù.");
+		System.out.println(a + "ë°•ìŠ¤ê°€ í•„ìš”í•˜ê³  " + b + "ê°œê°€ ë‚¨ìŠµë‹ˆë‹¤.");
 		
 		
 
