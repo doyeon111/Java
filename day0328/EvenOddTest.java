@@ -11,16 +11,16 @@ public class EvenOddTest {
 		
 		String result = "";
 		
-		System.out.print("���ڸ� �Է��ϼ���: ");
+		System.out.print("숫자를 입력하세요: "); 
 		n = sc.nextInt();
 		
-		if ( n % 2 == 0) {
-			result = "¦��";
+		if ( n % 2 == 0) { //n을 2로 나눴을 때 나머지가 0인 경우
+			result = "짝수";
 		} else {
-			result = "Ȧ��";
+			result = "홀수";
 		}
 
-		System.out.println(n + "�� " + result + "�Դϴ�.");
+		System.out.println(n + "은 " + result + "입니다.");
 	}
 
 }
