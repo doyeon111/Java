@@ -9,13 +9,13 @@ public class AgePractice {
 		
 		int age;
 		
-		System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		age = sc.nextInt();
 		
-		if (age >= 20) {
-			System.out.println("ÀÔÀå°¡´É");
+		if (age >= 20) { //ë‚˜ì´ê°€ 20ì‚´ ì´ìƒì´ë©´ ì…ì¥ê°€ëŠ¥
+			System.out.println("ì…ì¥ê°€ëŠ¥");
 		} else {
-			System.out.println("ÀÔÀåºÒ°¡´É");
+			System.out.println("ì…ì¥ë¶ˆê°€ëŠ¥");
 		}
 
 	}
