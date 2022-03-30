@@ -9,13 +9,13 @@ public class AgeTest {
 		
 		int age;
 		
-		System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		age = sc.nextInt();
 		
-		if (age >= 10 && age <= 19) {
-			System.out.println("10´ë ÀÔ´Ï´Ù.");
+		if (age >= 10 && age <= 19) { //10~19ì‚´ ê¹Œì§€ 
+			System.out.println("10ëŒ€ ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("10´ë°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("10ëŒ€ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 		
 
