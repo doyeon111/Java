@@ -12,7 +12,7 @@ public class AgePractice {
 		System.out.print("나이를 입력하세요: ");
 		age = sc.nextInt();
 		
-		if (age >= 20) { //나이가 20살 이상이면 입장가능
+		if (age >= 20) { //.나이가 20살 이상이면 입장가능
 			System.out.println("입장가능");
 		} else {
 			System.out.println("입장불가능");
