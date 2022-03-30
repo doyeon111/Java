@@ -10,11 +10,11 @@ public class BooleanPractice {
 		int age;
 		boolean a;
 		
-		System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		age = sc.nextInt();
 		
-		a = age >= 20;
-		System.out.println(age + "ÀÌ¹Ç·Î " + a);
+		a = age >= 20; //ë‚˜ì´ê°€ 20ì‚´ ì´ìƒ
+		System.out.println(age + "ì´ë¯€ë¡œ " + a);
 	}
 
 }
