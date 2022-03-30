@@ -9,11 +9,11 @@ public class practice08 {
 		
 		double r, vol;
 		
-		System.out.print("±¸ÀÇ ¹İÁö¸§: ");
+		System.out.print("êµ¬ì˜ ë°˜ì§€ë¦„: ");
 		r = sc.nextDouble();
 		
-		vol = (r * r * r * (double)4) / (double)3; //±¸ÀÇ ºÎÇÇ °ø½Ä
-		System.out.println("±¸ÀÇ ºÎÇÇ: " + vol);
+		vol = (r * r * r * (double)4) / (double)3; //êµ¬ì˜ ë¶€í”¼ ê³µì‹
+		System.out.println("êµ¬ì˜ ë¶€í”¼: " + vol);
 
 	}
 
