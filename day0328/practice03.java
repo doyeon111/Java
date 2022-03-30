@@ -14,21 +14,21 @@ public class practice03 {
 		System.out.print("y: ");
 		y = sc.nextInt();
 		
-		add = x + y;
-		m = x - y;
-		g = x * y;
-		avg = add / 2;
+		add = x + y; //x,yë¥¼ ë”í•œ ê°’
+		m = x - y; //x,yë¥¼ ëº€ ê°’
+		g = x * y; //x,yë¥¼ ê³±í•œ ê°’
+		avg = add / 2; //x,yì˜ í‰ê·  ê°’
 		
-		System.out.println("µÎ ¼öÀÇ ÇÕ: " + add);
-		System.out.println("µÎ ¼öÀÇ Â÷: " + m);
-		System.out.println("µÎ ¼öÀÇ °ö: " + g);
-		System.out.println("µÎ ¼öÀÇ Æò±Õ: " + avg);
+		System.out.println("ë‘ ìˆ˜ì˜ í•©: " + add);
+		System.out.println("ë‘ ìˆ˜ì˜ ì°¨: " + m);
+		System.out.println("ë‘ ìˆ˜ì˜ ê³±: " + g);
+		System.out.println("ë‘ ìˆ˜ì˜ í‰ê· : " + avg);
 		
-		max = (x>y) ? x:y;
-		min = (x<y) ? x:y;
+		max = (x>y) ? x:y; //x,y ì¤‘ í° ê°’
+		min = (x<y) ? x:y; //x,y ì¤‘ ì‘ì€ ê°’
 		
-		System.out.println("Å« ¼ö: " + max);
-		System.out.println("ÀÛÀº ¼ö: " + min);
+		System.out.println("í° ìˆ˜: " + max);
+		System.out.println("ì‘ì€ ìˆ˜: " + min);
 		
 		
 		
