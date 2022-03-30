@@ -3,11 +3,11 @@ package day0329;
 public class BitOperator {
 
 	public static void main(String[] args) {
-		int a = 10; //2Áø¼ö: 1010
-		int b = 5;  //2Áø¼ö: 0101
-		int i = a & b;
-		int j = a | b;
-		int k = a ^ b;
+		int a = 10; //2ì§„ìˆ˜: 1010
+		int b = 5;  //2ì§„ìˆ˜: 0101
+		int i = a & b; //ë¹„íŠ¸ê³±
+		int j = a | b; //ë¹„íŠ¸í•©
+		int k = a ^ b; //ë¹„íŠ¸ì°¨
 		
 		System.out.println("i: " + i);
 		System.out.println("j: " + j);
