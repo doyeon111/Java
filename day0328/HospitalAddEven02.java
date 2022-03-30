@@ -7,30 +7,30 @@ public class HospitalAddEven02 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Date today = new Date(); // Áö±İ ÇöÀçÀÇ ¿À´Ã ³¯Â¥¸¦ °¡Á®¿È.
-		int thisYear = today.getYear() + 1900;
+		Date today = new Date(); // ì§€ê¸ˆ í˜„ì¬ì˜ ì˜¤ëŠ˜ ë‚ ì§œë¥¼ ê°€ì ¸ì˜´.
+		int thisYear = today.getYear() + 1900; //ì´ë²ˆë…„ë„ë¥¼ ì§ì ‘ ê°€ì ¸ì˜´.
 		String name;
 		int userYear;
 		int age;
 		
-		System.out.println("*** ¹«·á ¾Ï°ËÁø ´ë»óÀÚ È®ÀÎ ÇÁ·Î±×·¥ ***");
-		System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.println("*** ë¬´ë£Œ ì•”ê²€ì§„ ëŒ€ìƒì í™•ì¸ í”„ë¡œê·¸ë¨ ***");
+		System.out.print("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
-		System.out.print("Ãâ»ı³âµµ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì¶œìƒë…„ë„ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		userYear = sc.nextInt();
 		
-		age = thisYear - userYear; //¿ÃÇØÀÇ ³ªÀÌ ±¸ÇÏ±â
+		age = thisYear - userYear; //ì˜¬í•´ì˜ ë‚˜ì´ êµ¬í•˜ê¸°
 		
-		System.out.println("*** °á°ú È®ÀÎ ***");
-//		System.out.println("ÀÌ¸§: " + name);
-		System.out.println("ÀÌ¹ø³âµµ: " + thisYear);
-		System.out.println("Ãâ»ı³âµµ: " + userYear);
-		System.out.println("³ªÀÌ: " + age);
+		System.out.println("*** ê²°ê³¼ í™•ì¸ ***");
+//		System.out.println("ì´ë¦„: " + name);
+		System.out.println("ì´ë²ˆë…„ë„: " + thisYear);
+		System.out.println("ì¶œìƒë…„ë„: " + userYear);
+		System.out.println("ë‚˜ì´: " + age);
 		
 		if (age >= 40 && thisYear % 2 == userYear % 2) {
-			System.out.println(name + "´Ô, ¹«·á ¾Ï°ËÁø ´ë»óÀÚÀÔ´Ï´Ù.");
+			System.out.println(name + "ë‹˜, ë¬´ë£Œ ì•”ê²€ì§„ ëŒ€ìƒìì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println(name + "´Ô, ¹«·á ¾Ï°ËÁø ´ë»óÀÚ°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println(name + "ë‹˜, ë¬´ë£Œ ì•”ê²€ì§„ ëŒ€ìƒìê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 		
 		
