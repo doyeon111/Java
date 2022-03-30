@@ -9,15 +9,15 @@ public class AgePractice02 {
 		
 		int firstAge, secondAge;
 		
-		System.out.print("Ã¹ ¹øÂ° »ç¶÷ÀÇ ³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì²« ë²ˆì§¸ ì‚¬ëŒì˜ ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		firstAge = sc.nextInt();
-		System.out.print("µÎ ¹øÂ° »ç¶÷ÀÇ ³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë‘ ë²ˆì§¸ ì‚¬ëŒì˜ ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		secondAge = sc.nextInt();
 		
-		if (firstAge == secondAge) {
-			System.out.println("³ªÀÌ°¡ °°½À´Ï´Ù.");
+		if (firstAge == secondAge) { //ì²«ë²ˆì§¸ ì‚¬ëŒê³¼ ë‘ë²ˆì§¸ ì‚¬ëŒì˜ ë‚˜ì´ê°€ ê°™ì„ê²½ìš°
+			System.out.println("ë‚˜ì´ê°€ ê°™ìŠµë‹ˆë‹¤.");
 		} else {
-			System.out.println("³ªÀÌ°¡ °°Áö ¾Ê½À´Ï´Ù.");
+			System.out.println("ë‚˜ì´ê°€ ê°™ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		}
 
 	}
