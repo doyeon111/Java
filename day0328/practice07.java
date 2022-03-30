@@ -9,15 +9,15 @@ public class practice07 {
 		
 		int money, price, surtax, s;
 		
-		System.out.print("���� ��: ");
+		System.out.print("받은 돈: ");
 		money = sc.nextInt();
-		System.out.print("��ǰ ����: ");
+		System.out.print("상품 가격: ");
 		price = sc.nextInt();
 		
-		surtax = price * 10 / 100;
-		System.out.println("�ΰ���: " + surtax);
-		s = (money - price);
-		System.out.println("�ܵ�: " + s);		
+		surtax = price * 10 / 100; //10% 세일했을 때의 가격
+		System.out.println("부가세: " + surtax);
+		s = (money - price); //받은 돈 - 상품가격을 한 잔돈의 값
+		System.out.println("잔돈: " + s);		
 
 
 	}
