@@ -10,34 +10,34 @@ public class StudentTest {
 		String name;
 		int kor, eng, math, tot, avg;
 		
-		System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name =  sc.next();
-		System.out.print("±¹¾î Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("êµ­ì–´ ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		kor =  sc.nextInt();
-		System.out.print("¿µ¾î Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì˜ì–´ ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		eng =  sc.nextInt();
-		System.out.print("¼öÇĞ Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ìˆ˜í•™ ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		math =  sc.nextInt();
 		
-		tot = kor + eng + math;
-		avg = tot / 3;
+		tot = kor + eng + math; // êµ­ì–´, ì˜ì–´, ìˆ˜í•™ ì ìˆ˜ì˜ ì´í•©
+		avg = tot / 3; // êµ­ì–´, ì˜ì–´, ìˆ˜í•™ ì ìˆ˜ì˜ í‰ê· 
 		
 		String result = "";
 		
-		if (avg >= 60) {
-			result = "ÇÕ°İ";
+		if (avg >= 60) { //í‰ê· ì´ 60ì  ì´ìƒì´ë©´ í•©ê²©
+			result = "í•©ê²©";
 		} else {
-			result ="ºÒÇÕ°İ";
+			result ="ë¶ˆí•©ê²©";
 		}
 		
-		System.out.println("*** ¼ºÀû Ã³¸® °á°ú ***");
-		System.out.println("ÀÌ¸§: " + name);
-		System.out.println("±¹¾î: " + kor);
-		System.out.println("¿µ¾î: " + eng);
-		System.out.println("¼öÇĞ: " + math);
-		System.out.println("ÃÑÁ¡: " + tot);
-		System.out.println("Æò±Õ: " + avg);
-		System.out.println("°á°ú: " + result);
+		System.out.println("*** ì„±ì  ì²˜ë¦¬ ê²°ê³¼ ***");
+		System.out.println("ì´ë¦„: " + name);
+		System.out.println("êµ­ì–´: " + kor);
+		System.out.println("ì˜ì–´: " + eng);
+		System.out.println("ìˆ˜í•™: " + math);
+		System.out.println("ì´ì : " + tot);
+		System.out.println("í‰ê· : " + avg);
+		System.out.println("ê²°ê³¼: " + result);
 		
 	}
 
