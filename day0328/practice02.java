@@ -8,15 +8,15 @@ public class practice02 {
 		Scanner sc = new Scanner(System.in);
 		
 		double m;
-		double k = 1.609;
+		double k = 1.609; //1ë§ˆì¼ì€ 1.609
 		double sum;
 		
-		System.out.print("¸¶ÀÏÀ» ÀÔ·ÂÇÏ½Ã¿À: ");
+		System.out.print("ë§ˆì¼ì„ ì…ë ¥í•˜ì‹œì˜¤: ");
 		m = sc.nextDouble();
 		
 		sum = m * k;
 		
-		System.out.println(m + "¸¶ÀÏÀº " + sum + "Å³·Î¹ÌÅÍ ÀÔ´Ï´Ù.");
+		System.out.println(m + "ë§ˆì¼ì€ " + sum + "í‚¬ë¡œë¯¸í„° ì…ë‹ˆë‹¤.");
 		
 		
 
