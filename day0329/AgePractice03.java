@@ -10,17 +10,17 @@ public class AgePractice03 {
 		int age;
 		double h;
 		
-		System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
-		System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë‚˜ì´ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 		age = sc.nextInt();
-		System.out.print("Å°¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("í‚¤ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 		h = sc.nextDouble();
 		
-		if (age >= 30 && h <= 160) {
-			System.out.println(name + "´Ô, ÀÔÀå°¡´É");
+		if (age >= 30 && h <= 160) { //30ì‚´ ì´ìƒì´ê³ , í‚¤ê°€ 160 ì´í•˜ì¸ ì‚¬ëžŒë§Œ ìž…ìž¥ê°€ëŠ¥
+			System.out.println(name + "ë‹˜, ìž…ìž¥ê°€ëŠ¥");
 		} else {
-			System.out.println(name + "´Ô, ÀÔÀåºÒ°¡´É");
+			System.out.println(name + "ë‹˜, ìž…ìž¥ë¶ˆê°€ëŠ¥");
 		}
 
 	}
