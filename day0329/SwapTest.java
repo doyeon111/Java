@@ -3,16 +3,16 @@ package day0329;
 public class SwapTest {
 
 	public static void main(String[] args) {
-		// µÎ °³ÀÇ º¯¼öÀÇ °ªÀ» ¼­·Î ¸Â¹Ù²Ù¾î º¾½Ã´Ù.
+		// ë‘ ê°œì˜ ë³€ìˆ˜ì˜ ê°’ì„ ì„œë¡œ ë§ë°”ê¾¸ì–´ ë´…ì‹œë‹¤.
 		int a = 17;
 		int b = 24;
 		System.out.println("a: " + a);
 		System.out.println("b: " + b);
 		
-		int temp; //ÀÓ½Ãº¯¼ö
+		int temp; //ì„ì‹œë³€ìˆ˜
 		temp = a;
 		a = b;
-		b = temp; // a¿Í bÀÇ °ªÀ» ¼­·Î ¸Â¹Ù²ãÁö´Â °ÍÀ» È®ÀÎ
+		b = temp; // aì™€ bì˜ ê°’ì„ ì„œë¡œ ë§ë°”ê¿”ì§€ëŠ” ê²ƒì„ í™•ì¸.
 		
 		System.out.println("a: " + a);
 		System.out.println("b: " + b);
