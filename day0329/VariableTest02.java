@@ -4,10 +4,10 @@ public class VariableTest02 {
 
 	public static void main(String[] args) {
 		String cup;
-		cup = "¿ìÀ¯";
-		System.out.println(cup); //¿ìÀ¯ Ãâ·Â
-		cup = "Ä¿ÇÇ";
-		System.out.println(cup); //cupÀÇ °ªÀÌ °è¼Ó ¹Ù²ñ.
+		cup = "ìš°ìœ ";
+		System.out.println(cup); //ìš°ìœ  ì¶œë ¥
+		cup = "ì»¤í”¼";
+		System.out.println(cup); //cupì˜ ê°’ì´ ê³„ì† ë°”ë€œ. 
 
 	}
 
