@@ -26,7 +26,7 @@ public class IfPractice02 {
 			if (b > c) { //b와 c를 비교하여 b가 더 클 경우
 				max = b; //b가 최대값
 			} else { //b와 c를 비교하여 c가 더 클 경우
-				max = c; // c의 값이 max
+				max = c; // c의 값이 max이다.
 			}
 
 		}
