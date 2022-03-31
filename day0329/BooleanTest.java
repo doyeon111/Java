@@ -10,7 +10,7 @@ public class BooleanTest {
 		current = false;
 		System.out.println(current);
 		
-		int score = 80;
+		int score = 80; //점수가 80점일 때 
 		boolean isPassed;
 		isPassed = score >= 60;
 		System.out.println(isPassed);
