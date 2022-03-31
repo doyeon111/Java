@@ -10,15 +10,15 @@ public class LogicalUsingBit {
 		int age;
 		double height;
 		
-		System.out.print("³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		age = sc.nextInt();
-		System.out.print("Å°¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("í‚¤ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		height = sc.nextInt();
 		
-		if(age >= 30 & height <= 160) { // & ³í¸®°ö ¿¬»êÀÚ -> ³í¸®¿¬»êÀÚ·Î »ç¿ë°¡´É
-			System.out.println("ÀÔÀå°¡´É");
+		if(age >= 30 & height <= 160) { // & ë…¼ë¦¬ê³± ì—°ì‚°ì -> ë…¼ë¦¬ì—°ì‚°ìë¡œ ì‚¬ìš©ê°€ëŠ¥í•˜ë‹¤.
+			System.out.println("ì…ì¥ê°€ëŠ¥");
 		} else {
-			System.out.println("ÀÔÀåºÒ°¡´É");
+			System.out.println("ì…ì¥ë¶ˆê°€ëŠ¥");
 		}
 	}
 
