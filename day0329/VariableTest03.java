@@ -5,15 +5,15 @@ public class VariableTest03 {
 	public static void main(String[] args) {
 		String korea;
 		korea = "hello";
-		System.out.println(korea); //º¯¼ö¾È¿¡ ÀÖ´Â ³»¿ëÀ» Ãâ·Â //º¯¼ö(¹®ÀÚ¿­ º¯¼ö) 
-		System.out.println("korea"); //korea ±ÛÀÚ Ãâ·Â 	//»ó¼ö(¹®ÀÚ¿­ »ó¼ö)
+		System.out.println(korea); //ë³€ìˆ˜ì•ˆì— ìˆëŠ” ë‚´ìš©ì„ ì¶œë ¥ //ë³€ìˆ˜(ë¬¸ìì—´ ë³€ìˆ˜) 
+		System.out.println("korea"); //korea ê¸€ì ì¶œë ¥ 	//ìƒìˆ˜(ë¬¸ìì—´ ìƒìˆ˜)
 		
-		System.out.println(100); //Á¤¼öÇü »ó¼ö				//»ó¼ö(Á¤¼öÇü »ó¼ö)
-		System.out.println("100"); //¹®ÀÚ¿­ »ó¼ö			//»ó¼ö(¹®ÀÚ¿­ »ó¼ö)
+		System.out.println(100); //ì •ìˆ˜í˜• ìƒìˆ˜				//ìƒìˆ˜(ì •ìˆ˜í˜• ìƒìˆ˜)
+		System.out.println("100"); //ë¬¸ìì—´ ìƒìˆ˜			//ìƒìˆ˜(ë¬¸ìì—´ ìƒìˆ˜)
 		
-		System.out.println(100+200); //300À¸·Î °è»êÇÑ °ªÀÌ ³ª¿È. (¼ıÀÚ³¢¸® ¿À¸é ´õÇÏ±â ¿¬»êÀ» ÇÔ)
-		System.out.println("100" + "200"); // ¹®ÀÚ¿­³¢¸® ¿À¸é ¿¬°á
-		System.out.println("100" + 200); // ¾Õ¿¡ ¹®ÀÚ¿­ÀÌ ¿À¸é ¿¬°á
+		System.out.println(100+200); //300ìœ¼ë¡œ ê³„ì‚°í•œ ê°’ì´ ë‚˜ì˜´. (ìˆ«ìë¼ë¦¬ ì˜¤ë©´ ë”í•˜ê¸° ì—°ì‚°ì„ í•¨)
+		System.out.println("100" + "200"); // ë¬¸ìì—´ë¼ë¦¬ ì˜¤ë©´ ì—°ê²° 
+		System.out.println("100" + 200); // ì•ì— ë¬¸ìì—´ì´ ì˜¤ë©´ ì—°ê²°
 	}
 
 }
