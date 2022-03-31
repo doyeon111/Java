@@ -4,7 +4,7 @@ public class ShortCutOperation {
 
 	public static void main(String[] args) {
 		int a, b, c, d;
-		a = b = c = d = 5; //5¸¦ d¿¡ ³Ö°í d¸¦ c¿¡ ³Ö°í....
+		a = b = c = d = 5; //5ë¥¼ dì— ë„£ê³  dë¥¼ cì— ë„£ê³ ....
 		
 		
 		if(++c > 100 & ++d >100) {
@@ -29,5 +29,5 @@ public class ShortCutOperation {
 
 }
 
-//µÑ´Ù ³í¸®°öÀ» »ç¿ëÇÏÁö¸¸ (&)¿¬»êÀÚ´Â Ã¹¹ø¤Š Á¶°Ç½ÄÀÌ °ÅÁþÀÌ´õ¶óµµ µÚ¿¡ Á¶°Ç½ÄÀ» µ¿ÀÛ½ÃÅ²´Ù.
-//ÇÏÁö¸¸ &&¿¬»êÀÚ´Â Ã¹¹øÂ° Á¶°Ç½ÄÀÌ °ÅÁþÀÌ¸é µÚ¿¡ Á¶°Ç½ÄÀ» µ¿ÀÛ½ÃÅ°Áö ¾Ê´Â´Ù. µû¶ó¼­ shortcut operationÀÌ¶ó ºÎ¸¥´Ù.
+//ë‘˜ë‹¤ ë…¼ë¦¬ê³±ì„ ì‚¬ìš©í•˜ì§€ë§Œ (&)ì—°ì‚°ìžëŠ” ì²«ë²ˆì§¸ ì¡°ê±´ì‹ì´ ê±°ì§“ì´ë”ë¼ë„ ë’¤ì— ì¡°ê±´ì‹ì„ ë™ìž‘ì‹œí‚¨ë‹¤.
+//í•˜ì§€ë§Œ &&ì—°ì‚°ìžëŠ” ì²«ë²ˆì§¸ ì¡°ê±´ì‹ì´ ê±°ì§“ì´ë©´ ë’¤ì— ì¡°ê±´ì‹ì„ ë™ìž‘ì‹œí‚¤ì§€ ì•ŠëŠ”ë‹¤. ë”°ë¼ì„œ shortcut operationì´ë¼ ë¶€ë¥¸ë‹¤.
