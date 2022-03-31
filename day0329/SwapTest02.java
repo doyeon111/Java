@@ -3,8 +3,8 @@ package day0329;
 public class SwapTest02 {
 
 	public static void main(String[] args) {
-		String cup1 = "»çÀÌ´Ù";
-		String cup2 = "Äİ¶ó";
+		String cup1 = "ì‚¬ì´ë‹¤";
+		String cup2 = "ì½œë¼";
 		
 		System.out.println("cup1: " + cup1);
 		System.out.println("cup2: " + cup2);
@@ -17,7 +17,7 @@ public class SwapTest02 {
 		
 		System.out.println("cup1: " + cup1);
 		System.out.println("cup2: " + cup2);
-		// µÎ º¯¼öÀÇ °ªÀ» ¼­·Î ¸Â¹Ù²Ù¾î Ãâ·ÂÇØ º¸±â
+		// ë‘ ë³€ìˆ˜ì˜ ê°’ì„ ì„œë¡œ ë§ë°”ê¾¸ì–´ ì¶œë ¥í•´ ë³´ê¸° 
 
 	}
 
