@@ -10,9 +10,9 @@ public class ConditionalOperator {
 		String c = (a > 0) ? "OK" : "NO";
 		System.out.println(c);
 		//(a>0)?System.out.print("ok");:System.out.print("no");
-		//Ç×2¿Í Ç×3¿¡´Â ¹®ÀåÀÌ ¿Ã ¼ö ¾ø´Ù.
-		// ¼ö½ÄÀÌ³ª º¯¼ö³ª »ó¼ö°¡ ¿Ã ¼ö ÀÖ´Ù.
-		System.out.println((a>0) ? "ok" : "no"); //ÀÌ·¸°Ô´Â »ç¿ë°¡´ÉÇÏ´Ù.
+		//í•­2ì™€ í•­3ì—ëŠ” ë¬¸ìž¥ì´ ì˜¬ ìˆ˜ ì—†ë‹¤.
+		// ìˆ˜ì‹ì´ë‚˜ ë³€ìˆ˜ë‚˜ ìƒìˆ˜ê°€ ì˜¬ ìˆ˜ ìžˆë‹¤. ì¡°ê±´ì—°ì‚°ìž
+		System.out.println((a>0) ? "ok" : "no"); //ì´ë ‡ê²ŒëŠ” ì‚¬ìš©ê°€ëŠ¥í•˜ë‹¤.
 	}
 
 }
