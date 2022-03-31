@@ -4,15 +4,15 @@ public class IncrementDecrement {
 
 	public static void main(String[] args) {
 		
-		//Áõ°¨ ¿¬»êÀÚ°¡ º¯¼ö¸í ¾Õ, µÚ¿¡ ¿Ã ¼ö ÀÖ´Ù.
-		//Áõ°¨ ¿¬»êÀÚ°¡ ´Üµ¶À¸·Î »ç¿ëµÇ¸é ¾Õ¿¡ ¿À°Å³ª µÚ¿¡ ¿À°Å³ª µ¿ÀÏÇÏ°Ô °ªÀ» Ãâ·ÂÇÑ´Ù.
-		//±×·¯³ª, ´Ù¸¥ ¿¬»êÀÚ¿Í °°ÀÌ »ç¿ëµÇ¸é ÀÇ¹Ì°¡ ´Þ¶óÁø´Ù.
+		//ì¦ê° ì—°ì‚°ìžê°€ ë³€ìˆ˜ëª… ì•ž, ë’¤ì— ì˜¬ ìˆ˜ ìžˆë‹¤.
+		//ì¦ê° ì—°ì‚°ìžê°€ ë‹¨ë…ìœ¼ë¡œ ì‚¬ìš©ë˜ë©´ ì•žì— ì˜¤ê±°ë‚˜ ë’¤ì— ì˜¤ê±°ë‚˜ ë™ì¼í•˜ê²Œ ê°’ì„ ì¶œë ¥í•œë‹¤.
+		//ê·¸ëŸ¬ë‚˜, ë‹¤ë¥¸ ì—°ì‚°ìžì™€ ê°™ì´ ì‚¬ìš©ë˜ë©´ ì˜ë¯¸ê°€ ë‹¬ë¼ì§„ë‹¤.
 		
 		
 		int a = 5;
 		int b = 5;
 		
-		int i = a++;
+		int i = a++; //ì¦ê°ì—°ì‚°ìž
 		int j = ++b;
 		
 		System.out.println("a: " + a); //6
