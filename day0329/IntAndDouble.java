@@ -6,10 +6,10 @@ public class IntAndDouble {
 		int a = 5;
 		int b = 2;
 		
-		double r = a / b; // °ªÀÌ 2.5°¡ ¾Æ´Ñ 2.0ÀÌ ³ª¿È. ±× ÀÌÀ¯´Â, a¿Í b°¡ ¸ğµÎ int ÀÌ±â ¶§¹®
+		double r = a / b; // ê°’ì´ 2.5ê°€ ì•„ë‹Œ 2.0ì´ ë‚˜ì˜´. ê·¸ ì´ìœ ëŠ”, aì™€ bê°€ ëª¨ë‘ int ì´ê¸° ë•Œë¬¸.
 		System.out.println(r);
 		
-		double r2 = a / (double)b; //¿øÇÏ´Â 2.5¸¦ ¾òÀ» ¼ö ÀÖ´Ù.
+		double r2 = a / (double)b; //ì›í•˜ëŠ” 2.5ë¥¼ ì–»ì„ ìˆ˜ ìˆë‹¤.
 		System.out.println(r2);
 	}
 
