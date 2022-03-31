@@ -4,7 +4,7 @@ public class OverFlowAndUnderFlow {
 
 	public static void main(String[] args) {
 		byte a = 127;
-		a = (byte)(a + 1); //¾ç¼ö 128ÀÌ ¾Æ´Ñ À½¼ö 128ÀÌ ³ª¿È. 
+		a = (byte)(a + 1); //ì–‘ìˆ˜ 128ì´ ì•„ë‹Œ ìŒìˆ˜ 128ì´ ë‚˜ì˜´. 
 		System.out.println(a); //overflow
 		
 		byte b = -128;
