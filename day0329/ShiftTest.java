@@ -1,11 +1,12 @@
+//shiftì—°ì‚°
 package day0329;
 
 public class ShiftTest {
 
 	public static void main(String[] args) {
-		int i = 8; //2Áø¼ö 0000 1000
-		int a = i << 1; // 0001 0000 = 16 // ±× ¼öÀÇ * 2 ÇÑ °á°ú °ª°ú °°´Ù.
-		int b = i >> 1; // 0000 0100 = 4 // ±× ¼öÀÇ / 2 ÇÑ °á°ú °ª°ú °°´Ù.
+		int i = 8; //2ì§„ìˆ˜ 0000 1000
+		int a = i << 1; // 0001 0000 = 16 // ê·¸ ìˆ˜ì˜ * 2 í•œ ê²°ê³¼ ê°’ê³¼ ê°™ë‹¤.
+		int b = i >> 1; // 0000 0100 = 4 // ê·¸ ìˆ˜ì˜ / 2 í•œ ê²°ê³¼ ê°’ê³¼ ê°™ë‹¤.
 		
 		System.out.println("a: " + a);
 		System.out.println("b: " + b);
