@@ -6,21 +6,21 @@ public class IdentifierTest {
 		
 		int number1 = 7;
 		//int 2number = 7;
-		//½Äº°ÀÚ Ã¹ ±ÛÀÚ¿¡ ¼ýÀÚ°¡ ¿Ã ¼ö ¾ø´Ù.
+		//ì‹ë³„ìž ì²« ê¸€ìžì— ìˆ«ìžê°€ ì˜¬ ìˆ˜ ì—†ë‹¤.
 		
 		//int your age = 5;
-		//½Äº°ÀÚ¿¡ °ø¹éÀ» Æ÷ÇÔÇÒ ¼ö ¾ø´Ù.
+		//ì‹ë³„ìžì— ê³µë°±ì„ í¬í•¨í•  ìˆ˜ ì—†ë‹¤.
 		
 		//int public = 5;
-		// ¿¹¾à¾î¸¦ ½Äº°ÀÚ·Î »ç¿ëx
+		// ì˜ˆì•½ì–´ë¥¼ ì‹ë³„ìžë¡œ ì‚¬ìš©x
 		String name;
-		name = "È«±æµ¿";
+		name = "í™ê¸¸ë™";
 		
-		String addr = "¼­¿ï½Ã ¸¶Æ÷±¸ ¼­±³µ¿";
-		// º¯¼ö¸¦ ¼±¾ðÇÔ°ú µ¿½Ã¿¡ °ªÀ» ÀúÀåÇÒ ¼ö ÀÖ´Ù.
+		String addr = "ì„œìš¸ì‹œ ë§ˆí¬êµ¬ ì„œêµë™";
+		// ë³€ìˆ˜ë¥¼ ì„ ì–¸í•¨ê³¼ ë™ì‹œì— ê°’ì„ ì €ìž¥í•  ìˆ˜ ìžˆë‹¤.
 		
 		int myAge;
-		myAge = 20; //º¯¼ö¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â ¹Ýµå½Ã ¼±¾ðÇÏ°í »ç¿ëÇØ¾ßÇÔ.
+		myAge = 20; //ë³€ìˆ˜ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ë°˜ë“œì‹œ ì„ ì–¸í•˜ê³  ì‚¬ìš©í•´ì•¼í•¨
 		System.out.println(myAge);
 
 	}
