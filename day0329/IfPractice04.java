@@ -9,19 +9,19 @@ public class IfPractice04 {
 		
 		int m;
 		
-		System.out.print("¿ùÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì›”ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		m = sc.nextInt();
 		
-		if (m == 3 || m == 4 || m == 5) {
-			System.out.println(m + "¿ùÀº º½ÀÔ´Ï´Ù." );
-		} else if (m == 6 || m == 7 || m == 8) {
-			System.out.println(m + "¿ùÀº ¿©¸§ÀÔ´Ï´Ù." );
-		} else if (m == 9 || m == 10 || m == 11) {
-			System.out.println(m + "¿ùÀº °¡À»ÀÔ´Ï´Ù." );
-		} else if (m == 12 || m == 1 || m == 2) {
-		System.out.println(m + "¿ùÀº °Ü¿ïÀÔ´Ï´Ù." );
+		if (m == 3 || m == 4 || m == 5) { //ì…ë ¥ë°›ì€ mì´ 3,4,5ì›” ì¼ ê²½ìš° ë´„
+			System.out.println(m + "ì›”ì€ ë´„ì…ë‹ˆë‹¤." );
+		} else if (m == 6 || m == 7 || m == 8) { //ì…ë ¥ë°›ì€ mì´ 6,7,8ì›” ì¼ ê²½ìš° ì—¬ë¦„
+			System.out.println(m + "ì›”ì€ ì—¬ë¦„ì…ë‹ˆë‹¤." );
+		} else if (m == 9 || m == 10 || m == 11) { //ì…ë ¥ë°›ì€ mì´ 9,10,11ì›” ì¼ ê²½ìš° ê°€ì„
+			System.out.println(m + "ì›”ì€ ê°€ì„ì…ë‹ˆë‹¤." );
+		} else if (m == 12 || m == 1 || m == 2) { ////ì…ë ¥ë°›ì€ mì´ 12,1,2ì›” ì¼ ê²½ìš° ê²¨ìš¸
+		System.out.println(m + "ì›”ì€ ê²¨ìš¸ì…ë‹ˆë‹¤." );
 		}else {
-			System.out.println("Àß¸øµÈ ¿ù ÀÔ·ÂÀÔ´Ï´Ù.");
+			System.out.println("ì˜ëª»ëœ ì›” ì…ë ¥ì…ë‹ˆë‹¤.");
 		}
 
 	}
