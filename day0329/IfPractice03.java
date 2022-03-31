@@ -2,7 +2,7 @@ package day0329;
 
 import java.util.Scanner;
 
-//»ç¿ëÀÚ¿¡°Ô nÀ» ÀÔ·Â¹Ş¾Æ ¾ç¼öÀÎÁö, 0ÀÎÁö, À½¼öÀÎÁö ÆÇº°ÇÏ´Â ÇÁ·Î±×·¥
+//ì‚¬ìš©ìì—ê²Œ nì„ ì…ë ¥ë°›ì•„ ì–‘ìˆ˜ì¸ì§€, 0ì¸ì§€, ìŒìˆ˜ì¸ì§€ íŒë³„í•˜ëŠ” í”„ë¡œê·¸ë¨
 public class IfPractice03 {
 
 	public static void main(String[] args) {
@@ -10,15 +10,15 @@ public class IfPractice03 {
 		
 		int n;
 		
-		System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
-		if (n > 0) {
-			System.out.println("¾ç¼ö");
-		} else if (n < 0) {
-			System.out.println("À½¼ö");
+		if (n > 0) { //nì´ 0ë³´ë‹¤ í° ê²½ìš°
+			System.out.println("ì–‘ìˆ˜"); //ì–‘ìˆ˜
+		} else if (n < 0) { //nì´ 0ë³´ë‹¤ ì‘ì„ê²½ìš°ëŠ” ìŒìˆ˜
+			System.out.println("ìŒìˆ˜");
 		} else {
-			System.out.println("¿µ");
+			System.out.println("ì˜"); //ëª¨ë‘ í•´ë‹¹ì´ ë˜ì§€ ì•Šìœ¼ë©´ 0
 		}
 
 	}
