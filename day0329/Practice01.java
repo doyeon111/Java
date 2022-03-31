@@ -9,10 +9,10 @@ public class Practice01 {
 		
 		int a;
 		
-		System.out.print("Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 		a = sc.nextInt();
 		
-		if (a > 0 && a <= 9) {
+		if (a > 0 && a <= 9) { //aê°€ 0ë³´ë‹¤ í¬ê³ , aê°€ 9 ì´í•˜ì¸ ê²½ìš°
 			if (a == 1) {
 				System.out.println("ONE");
 			} else if (a == 2) {
