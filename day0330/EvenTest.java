@@ -3,12 +3,12 @@ package day0330;
 public class EvenTest {
 
 	public static void main(String[] args) {
-		//1¿¡¼­ 100±îÁöÀÇ Â¦¼ö¸¸ ¸ğµÎ Ãâ·Â
-		for(int i = 1; i <= 100; i++) {
-			if(i % 2 == 0) {
-				System.out.print(i + " ");
+		//1ì—ì„œ 100ê¹Œì§€ì˜ ì§ìˆ˜ë§Œ ëª¨ë‘ ì¶œë ¥
+		for(int i = 1; i <= 100; i++) { //iê°€ 1ë¶€í„° 100ê¹Œì§€ 1ì”© ì¦ê°€
+			if(i % 2 == 0) { //iê°€ 2ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ ë‚˜ë¨¸ì§€ê°€ 0ì¸ ê²½ìš°
+				System.out.print(i + " "); //iì¶œë ¥
 			}
-		} System.out.println();//ºóÁÙ
+		} System.out.println();//ë¹ˆì¤„
 		for (int j = 2; j <= 100; j=j+2) {
 			System.out.print(j + " ");
 		}
