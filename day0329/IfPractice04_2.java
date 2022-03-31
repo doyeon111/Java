@@ -9,21 +9,21 @@ public class IfPractice04_2 {
 		
 		int m;
 		
-		System.out.print("¿ùÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì›”ì„ ìž…ë ¥í•˜ì„¸ìš”: ");
 		m = sc.nextInt();
 		
-		if (m >= 1 && m <= 12) {
+		if (m >= 1 && m <= 12) { //ì›”ì„ 1~12ì›”ê¹Œì§€ ì„¤ì •í•˜ê¸° 
 			if (m == 3 || m == 4 || m == 5) {
-				System.out.println(m + "¿ùÀº º½ÀÔ´Ï´Ù." );
+				System.out.println(m + "ì›”ì€ ë´„ìž…ë‹ˆë‹¤." );
 			} else if (m == 6 || m == 7 || m == 8) {
-				System.out.println(m + "¿ùÀº ¿©¸§ÀÔ´Ï´Ù." );
+				System.out.println(m + "ì›”ì€ ì—¬ë¦„ìž…ë‹ˆë‹¤." );
 			} else if (m == 9 || m == 10 || m == 11) {
-				System.out.println(m + "¿ùÀº °¡À»ÀÔ´Ï´Ù." );
+				System.out.println(m + "ì›”ì€ ê°€ì„ìž…ë‹ˆë‹¤." );
 			} else {
-				System.out.println(m + "¿ùÀº °Ü¿ïÀÔ´Ï´Ù." );
+				System.out.println(m + "ì›”ì€ ê²¨ìš¸ìž…ë‹ˆë‹¤." );
 			}
 		} else {
-			System.out.println("Àß¸øµÈ ¿ù ÀÔ·ÂÀÔ´Ï´Ù.");
+			System.out.println("ìž˜ëª»ëœ ì›” ìž…ë ¥ìž…ë‹ˆë‹¤."); //mì´ ì„¤ì •ë²”ìœ„ë¥¼ ë„˜ìœ¼ë©´ ì¶œë ¥
 		}
 		
 		}
