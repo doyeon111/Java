@@ -4,8 +4,8 @@ public class DoubleAndFloat {
 
 	public static void main(String[] args) {
 		double a = 32.5;
-		float b = (float)32.5; //floatÀ¸·Î Çüº¯È¯ ÇØÁà¶ó.
-		float c = 32.5f; //µÚ¿¡ Á¢¹Ì»ç¸¦ ºÙ¿©µµ µÊ.
+		float b = (float)32.5; //floatìœ¼ë¡œ í˜•ë³€í™˜ í•´ì¤˜ë¼.
+		float c = 32.5f; //ë’¤ì— ì ‘ë¯¸ì‚¬ë¥¼ ë¶™ì—¬ë„ ë¨
 		
 		System.out.println(a);
 		System.out.println(b);
