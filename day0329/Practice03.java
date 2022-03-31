@@ -9,64 +9,64 @@ public class Practice03 {
 		int n,n10,n1; 
 		//24
 		
-		System.out.print("0~99»çÀÌÀÇ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("0~99ì‚¬ì´ì˜ ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
-		if(n >= 0 && n <= 99) {
+		if(n >= 0 && n <= 99) { //nì´ 0ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ê³ , nì´ 99ì´í•˜ì¼ ê²½ìš°
 			if(n == 0) {
-				System.out.println("¿µ!");
+				System.out.println("ì˜!");
 			}else {
 				n10 = n / 10;
 				n1 = n % 10;
-				//½ÊÀÇÀÚ¸®ÀÇ Ã³¸®
+				//ì‹­ì˜ìžë¦¬ì˜ ì²˜ë¦¬
 				if(n10 == 0) {
 					System.out.print("");
 				}
 				else if(n10 == 1) {
-					System.out.print("½Ê");
+					System.out.print("ì‹­");
 				}else if(n10 == 2) {
-					System.out.print("ÀÌ½Ê");
+					System.out.print("ì´ì‹­");
 				}else if(n10 == 3) {
-					System.out.print("»ï½Ê");
+					System.out.print("ì‚¼ì‹­");
 				}else if(n10 == 4) {
-					System.out.print("»ç½Ê");
+					System.out.print("ì‚¬ì‹­");
 				}else if(n10 == 5) {
-					System.out.print("¿À½Ê");
+					System.out.print("ì˜¤ì‹­");
 				}else if(n10 == 6) {
-					System.out.print("À°½Ê");
+					System.out.print("ìœ¡ì‹­");
 				}else if(n10 == 7) {
-					System.out.print("Ä¥½Ê");
+					System.out.print("ì¹ ì‹­");
 				}else if(n10 == 8) {
-					System.out.print("ÆÈ½Ê");
+					System.out.print("íŒ”ì‹­");
 				}else if(n10 == 9) {
-					System.out.print("±¸½Ê");
+					System.out.print("êµ¬ì‹­");
 				}
 				
-				//ÀÏÀÇÀÚ¸®ÀÇ Ã³¸®
+				//ì¼ì˜ìžë¦¬ì˜ ì²˜ë¦¬
 				if(n1 == 0) {
 					System.out.println("");
 				}else if(n1 == 1) {
-					System.out.println("ÀÏ");
+					System.out.println("ì¼");
 				}else if(n1 == 2) {
-					System.out.println("ÀÌ");
+					System.out.println("ì´");
 				}else if(n1 == 3) {
-					System.out.println("»ï");
+					System.out.println("ì‚¼");
 				}else if(n1 == 4) {
-					System.out.println("»ç");
+					System.out.println("ì‚¬");
 				}else if(n1 == 5) {
-					System.out.println("¿À");
+					System.out.println("ì˜¤");
 				}else if(n1 == 6) {
-					System.out.println("À°");
+					System.out.println("ìœ¡");
 				}else if(n1 == 7) {
-					System.out.println("Ä¥");
+					System.out.println("ì¹ ");
 				}else if(n1 == 8) {
-					System.out.println("ÆÈ");
+					System.out.println("íŒ”");
 				}else if(n1 == 9) {
-					System.out.println("±¸");
+					System.out.println("êµ¬");
 				}
 			}
 		}else {
-			System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.");
+			System.out.println("ìž˜ëª»ëœ ìž…ë ¥ìž…ë‹ˆë‹¤.");
 		
 		}
 
