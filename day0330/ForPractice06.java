@@ -6,21 +6,21 @@ public class ForPractice06 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int n, cnt = 0; //nÀº »ç¿ëÀÚ·Î ºÎÅÍ ÀÔ·Â¹Ş±â À§ÇÑ º¯¼ö, cnt´Â ÀÔ·Â¹ŞÀº nÀÇ ¾à¼öÀÇ °³¼ö¸¦ À§ÇÑ º¯¼ö
+		int n, cnt = 0; //nì€ ì‚¬ìš©ìë¡œ ë¶€í„° ì…ë ¥ë°›ê¸° ìœ„í•œ ë³€ìˆ˜, cntëŠ” ì…ë ¥ë°›ì€ nì˜ ì•½ìˆ˜ì˜ ê°œìˆ˜ë¥¼ ìœ„í•œ ë³€ìˆ˜
 		
-		System.out.print("nÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("nì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
 		for(int i = 1; i <= n; i++) {
-			if(n % i == 0) { //nÀÇ ¾à¼ö¸¦ ±¸ÇÏ±â
-				cnt++; //¾à¼öÀÇ °³¼ö¸¦ Áõ°¡½ÃÅ´.
+			if(n % i == 0) { //nì˜ ì•½ìˆ˜ë¥¼ êµ¬í•˜ê¸°
+				cnt++; //ì•½ìˆ˜ì˜ ê°œìˆ˜ë¥¼ ì¦ê°€ì‹œí‚´.
 			}
 			
 		}
-		if(cnt == 2) { //¾à¼öÀÇ °³¼ö°¡ 2°³ÀÌ¸é ¼Ò¼ö
-			System.out.println(n + "Àº ¼Ò¼öÀÔ´Ï´Ù.");
+		if(cnt == 2) { //ì•½ìˆ˜ì˜ ê°œìˆ˜ê°€ 2ê°œì´ë©´ ì†Œìˆ˜ 
+			System.out.println(n + "ì€ ì†Œìˆ˜ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println(n + "Àº ¼Ò¼ö°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println(n + "ì€ ì†Œìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 	}
 
