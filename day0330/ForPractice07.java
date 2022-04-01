@@ -8,20 +8,20 @@ public class ForPractice07 {
 		Scanner sc = new Scanner(System.in);
 		int n, i; 
 		
-		System.out.print("nÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("nì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
 		for(i = 2; i < n; i++) {
 			if(n % i == 0) { 
-				break; //ÇÏ³ª¶óµµ ³ª´©¾î Áö´Â °ÍÀÌ ÀÖÀ¸¸é Å»Ãâ
+				break; //í•˜ë‚˜ë¼ë„ ë‚˜ëˆ„ì–´ ì§€ëŠ” ê²ƒì´ ìˆìœ¼ë©´ íƒˆì¶œ
 			}
 			
 		}
-		//¸¸¾à¿¡ nÀÌ ¼Ò¼ö¶ó¸é i´Â n°ú °°À» ¶§ ¹İº¹¹®À» Å»Ãâ
+		//ë§Œì•½ì— nì´ ì†Œìˆ˜ë¼ë©´ iëŠ” nê³¼ ê°™ì„ ë•Œ ë°˜ë³µë¬¸ì„ íƒˆì¶œ 
 		if(i == n) {
-			System.out.println(n + "Àº ¼Ò¼öÀÔ´Ï´Ù.");
+			System.out.println(n + "ì€ ì†Œìˆ˜ì…ë‹ˆë‹¤.");
 		} else { 
-			System.out.println(n + "Àº ¼Ò¼ö°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println(n + "ì€ ì†Œìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 	}
 
