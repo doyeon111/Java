@@ -7,28 +7,28 @@ public class ForPractice03 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int n; //»ç¿ëÀÚÀÇ ÀÔ·Â°ª ÀúÀåÇÏ±â À§ÇÑ º¯¼ö
-		int even_sum = 0, even_cnt = 0; //sum = Â¦¼öÀÇ ÇÕ, cnt = Â¦¼öÀÇ ¼ö
-		int odd_sum = 0, odd_cnt = 0; // sum = È¦¼öÀÇ ÇÕ, cnt = È¦¼öÀÇ ¼ö
+		int n; //ì‚¬ìš©ìì˜ ì…ë ¥ê°’ ì €ì¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+		int even_sum = 0, even_cnt = 0; //sum = ì§ìˆ˜ì˜ í•©, cnt = ì§ìˆ˜ì˜ ìˆ˜
+		int odd_sum = 0, odd_cnt = 0; // sum = í™€ìˆ˜ì˜ í•©, cnt = í™€ìˆ˜ì˜ ìˆ˜
 		
-		System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
 		for(int i = 1; i <= n; i++) {
-			if (i % 2 == 0) {
-				even_sum += i; //Â¦¼öÀÇ ÇÕ ´©Àû
-				even_cnt++; //Â¦¼öÀÇ ¼ö
+			if (i % 2 == 0) { //ië¥¼ 2ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ ë‚˜ë¨¸ì§€ê°€ 0ì´ë©´
+				even_sum += i; //ì§ìˆ˜ì˜ í•© ëˆ„ì 
+				even_cnt++; //ì§ìˆ˜ì˜ ìˆ˜
 			} else {
-				odd_sum += i; //È¦¼öÀÇ ÇÕ ´©Àû
-				odd_cnt++; // È¦¼öÀÇ ¼ö
+				odd_sum += i; //í™€ìˆ˜ì˜ í•© ëˆ„ì 
+				odd_cnt++; // í™€ìˆ˜ì˜ ìˆ˜
 			}
 		}
 			
 
-		System.out.println("1¿¡¼­ " + n + "±îÁöÀÇ Â¦¼öÀÇ ¼ö:" + even_cnt);
-		System.out.println("1¿¡¼­ " + n + "±îÁöÀÇ Â¦¼öÀÇ ÇÕ:" + even_sum);
-		System.out.println("1¿¡¼­ " + n + "±îÁöÀÇ È¦¼öÀÇ ¼ö:" + odd_cnt);
-		System.out.println("1¿¡¼­ " + n + "±îÁöÀÇ È¦¼öÀÇ ÇÕ:" + odd_sum);
+		System.out.println("1ì—ì„œ " + n + "ê¹Œì§€ì˜ ì§ìˆ˜ì˜ ìˆ˜:" + even_cnt);
+		System.out.println("1ì—ì„œ " + n + "ê¹Œì§€ì˜ ì§ìˆ˜ì˜ í•©:" + even_sum);
+		System.out.println("1ì—ì„œ " + n + "ê¹Œì§€ì˜ í™€ìˆ˜ì˜ ìˆ˜:" + odd_cnt);
+		System.out.println("1ì—ì„œ " + n + "ê¹Œì§€ì˜ í™€ìˆ˜ì˜ í•©:" + odd_sum);
 	}
 
 }
