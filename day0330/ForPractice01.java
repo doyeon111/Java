@@ -9,11 +9,11 @@ public class ForPractice01 {
 		
 		int n;
 		
-		System.out.print("���ڸ� �Է��ϼ���: ");
+		System.out.print("숫자를 입력하세요: ");
 		n = sc.nextInt();
 		
-		for (int i = 1; i <= n; i++) {
-			System.out.println(i);
+		for (int i = 1; i <= n; i++) { //i가 1부터 입력받은 n까지 실행
+			System.out.println(i); //i를 출력
 		}
 
 	}
