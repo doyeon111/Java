@@ -9,11 +9,11 @@ public class ForPractice10 {
 		
 		int a;
 		
-		System.out.print("ÁÙ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì¤„ ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 		a = sc.nextInt();
 		
 		for(int i=1; i<=a; i++) {
-			for(int j=1; j<=i; j++) {
+			for(int j=1; j<=i; j++) { 
 				System.out.print("*");
 			}
 			System.out.println("");
