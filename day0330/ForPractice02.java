@@ -10,13 +10,13 @@ public class ForPractice02 {
 		int n;
 		int sum = 0;
 		
-		System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
-		for(int i = 1; i <= n; i++) {
-			sum += i;
+		for(int i = 1; i <= n; i++) { //iê°€ ì…ë ¥ë°›ì€ nê¹Œì§€ ì‹¤í–‰
+			sum += i; //iê°’ì„ ëˆ„ì í•œ ê°’
 		}
-		System.out.println("1¿¡¼­ " + n + "±îÁöÀÇ ÇÕÀº " + sum);
+		System.out.println("1ì—ì„œ " + n + "ê¹Œì§€ì˜ í•©ì€ " + sum);
 	}
 
 }
