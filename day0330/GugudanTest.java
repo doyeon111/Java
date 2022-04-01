@@ -4,7 +4,7 @@ public class GugudanTest {
 
 	public static void main(String[] args) {
 		int i;
-		int dan = 2;
+		int dan = 2; //2단
 		
 		for(i = 1 ; i <= 9; i++) {
 			System.out.println(dan + "*" + i + "=" + (dan*i));
