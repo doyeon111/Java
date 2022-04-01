@@ -8,7 +8,7 @@ public class ForPractice08 {
 		Scanner sc = new Scanner(System.in);
 		int n; 
 		
-		System.out.print("nÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("nì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
 		boolean isPrimeNumber = true;
@@ -20,9 +20,9 @@ public class ForPractice08 {
 			}
 		}
 	if (isPrimeNumber == true) {
-		System.out.println(n + "Àº ¼Ò¼öÀÔ´Ï´Ù.");
+		System.out.println(n + "ì€ ì†Œìˆ˜ì…ë‹ˆë‹¤.");
 	} else {
-		System.out.println(n + "Àº ¼Ò¼ö°¡ ¾Æ´Õ´Ï´Ù.");
+		System.out.println(n + "ì€ ì†Œìˆ˜ê°€ ì•„ë‹™ë‹ˆë‹¤."); 
 	}
 	}
 
