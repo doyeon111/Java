@@ -9,10 +9,10 @@ public class GugudanTest02 {
 		
 		int dan;
 		
-		System.out.print("±¸±¸´Ü Áß¿¡ ¸î´ÜÀ» Ãâ·ÂÇÒ±î¿ä? ");
-		dan = sc.nextInt();
+		System.out.print("êµ¬êµ¬ë‹¨ ì¤‘ì— ëª‡ë‹¨ì„ ì¶œë ¥í• ê¹Œìš”? ");
+		dan = sc.nextInt(); //êµ¬êµ¬ë‹¨ì„ ì…ë ¥ë°›ìŒ
 		
-		for(int i = 1 ; i <= 9; i++) {
+		for(int i = 1 ; i <= 9; i++) { //1ë¶€í„° 9ê¹Œì§€ ê³±í•˜ê¸°
 			System.out.println(dan + "*" + i + "=" + (dan*i));
 		}
 
