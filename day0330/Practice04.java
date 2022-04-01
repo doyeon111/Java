@@ -4,13 +4,13 @@ public class Practice04 {
 
 	public static void main(String[] args) {
 		int sum = 0;
-		for(int i=1; i<=100; i++) { //1ºÎÅÍ 100±îÁö ¼ýÀÚ
-			if(i % 3 == 0 || i % 4 == 0) { //3ÀÇ ¹è¼ö ¶Ç´Â 4ÀÇ ¹è¼ö
-				sum += i; // ¹è¼öµéÀÇ ÇÕ
+		for(int i=1; i<=100; i++) { //1ë¶€í„° 100ê¹Œì§€ ìˆ«ìž
+			if(i % 3 == 0 || i % 4 == 0) { //3ì˜ ë°°ìˆ˜ ë˜ëŠ” 4ì˜ ë°°ìˆ˜
+				sum += i; // ë°°ìˆ˜ë“¤ì˜ í•©
 			}
 		}
-		System.out.println("3 ¶Ç´Â 4ÀÇ ¹è¼öÀÇ ÇÕ: " + sum);
-
+		System.out.println("3 ë˜ëŠ” 4ì˜ ë°°ìˆ˜ì˜ í•©: " + sum);
+  
 	}
 
 }
