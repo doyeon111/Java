@@ -5,10 +5,10 @@ public class Practice06 {
 	public static void main(String[] args) {
 		int x, y;
 		
-		for(x=0; x<=10; x++) { //xÀÇ °ª 0~10±îÁö
-			for(y=0; y<=10; y++) { //yÀÇ °ª 0~10±îÁö
-				if(3 * x + 10 * y == 100) { //3x+10y=100À» ¸¸Á·ÇÒ ¶§
-					System.out.println("(" + x + "," + y + ")");
+		for(x=0; x<=10; x++) { //xì˜ ê°’ 0~10ê¹Œì§€
+			for(y=0; y<=10; y++) { //yì˜ ê°’ 0~10ê¹Œì§€
+				if(3 * x + 10 * y == 100) { //3x+10y=100ì„ ë§Œì¡±í•  ë•Œ
+					System.out.println("(" + x + "," + y + ")");  
 				}
 			}
 		}
