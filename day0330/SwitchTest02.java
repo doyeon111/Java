@@ -6,30 +6,30 @@ public class SwitchTest02 {
 		int n = 2;
 		
 		
-		//ÇØ´ç caseºÎÅÍ ³¡±îÁö µ¿ÀÛ
-		//¸¸¾à, ÇØ´ç case¿¡ ÀÖ´Â ¸í·É¾î(µé)¸¸ µ¿ÀÛ½ÃÅ°·Á¸é °¢ case¹® ³¡¿¡ break¸¦ µÓ´Ï´Ù.
-		switch(n+1) {// n+1À» ¾²°ÔµÇ¸é °è»êÇÑ °ªºÎÅÍ ¾Æ·¡ °ªµéÀÌ ´Ù ³ª¿Â´Ù.
+		//í•´ë‹¹ caseë¶€í„° ëê¹Œì§€ ë™ì‘
+		//ë§Œì•½, í•´ë‹¹ caseì— ìˆëŠ” ëª…ë ¹ì–´(ë“¤)ë§Œ ë™ì‘ì‹œí‚¤ë ¤ë©´ ê° caseë¬¸ ëì— breakë¥¼ ë‘¡ë‹ˆë‹¤.
+		switch(n+1) {// n+1ì„ ì“°ê²Œë˜ë©´ ê³„ì‚°í•œ ê°’ë¶€í„° ì•„ë˜ ê°’ë“¤ì´ ë‹¤ ë‚˜ì˜¨ë‹¤.
 			case 1: 
-				System.out.println("ÀÏ"); 
+				System.out.println("ì¼"); 
 				break;
 			case 2: 
-				System.out.println("ÀÌ");
+				System.out.println("ì´");
 				break;
 			case 3: 
-				System.out.println("»ï");
+				System.out.println("ì‚¼");
 				break;
 			case 4: 
-				System.out.println("»ç");
+				System.out.println("ì‚¬");
 				break;
 			case 5: 
-				System.out.println("¿À");
+				System.out.println("ì˜¤");
 				break;
 			default:
-				System.out.println("1¿¡¼­ 5»çÀÌÀÇ °ªÀÌ ¾Æ´Õ´Ï´Ù.");
+				System.out.println("1ì—ì„œ 5ì‚¬ì´ì˜ ê°’ì´ ì•„ë‹™ë‹ˆë‹¤.");
 		
 		
 		
-		}
+		} 
 
 	}
 
