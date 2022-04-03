@@ -12,7 +12,7 @@ public class ForTest02 {
 				break;
 			}
 		}
-		System.out.println("Á¾·á");
+		System.out.println("ì¢…ë£Œ");
 	}
 
 }
