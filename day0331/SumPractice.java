@@ -10,15 +10,16 @@ public class SumPractice {
 		int a;
 		int sum = 0;
 
-		System.out.print("1ºÎÅÍ ¾îµğ±îÁö ´õÇÒ±î¿ä? ");
+		System.out.print("1ë¶€í„° ì–´ë””ê¹Œì§€ ë”í• ê¹Œìš”? ");
 		a = sc.nextInt();
 
 		int i = 1;
 		do {
-			sum += i; //´©ÀûÀ¸·Î ´õÇÏ±â
+			sum += i; //ëˆ„ì ìœ¼ë¡œ ë”í•˜ê¸°
 			i++;
 		} while (i <= a);
-		System.out.println("1ºÎÅÍ " + a + "±îÁöÀÇ ÇÕÀº " + sum + "ÀÔ´Ï´Ù.");
+		System.out.println("1ë¶€í„° " + a + "ê¹Œì§€ì˜ í•©ì€ " + sum + "ì…ë‹ˆë‹¤.");
 	}
 
 }
+ 
