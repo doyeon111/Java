@@ -12,12 +12,12 @@ public class Practice130_12 {
 		int total=0;
 		
 		for(int i=0; i<data.length;) {
-			System.out.print("¼ºÀûÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
-			 int n = sc.nextInt(); //ÀÔ·Â °ªÀ» n¿¡ ÀúÀå
+			System.out.print("ì„±ì ì„ ìž…ë ¥í•˜ì„¸ìš”: ");
+			 int n = sc.nextInt(); //ìž…ë ¥ ê°’ì„ nì— ì €ìž¥
 			 
-			 if(n == -1) { //nÀÌ -1ÀÌµÇ¸é ¹Ýº¹À» Á¾·á
+			 if(n == -1) { //nì´ -1ì´ë˜ë©´ ë°˜ë³µì„ ì¢…ë£Œ
 				 break;
-			 } else { //nÀÌ -1ÀÌ ¾Æ´Ï¸é n¿¡ °ªÀ» ³Ö°í i¸¦ Áõ°¨
+			 } else { //nì´ -1ì´ ì•„ë‹ˆë©´ nì— ê°’ì„ ë„£ê³  ië¥¼ ì¦ê°
 				 data[i]=n;
 				 i++;
 			 }
@@ -27,14 +27,14 @@ public class Practice130_12 {
 //			}
 
 		}
-		
+		 
 		for(int i=0; i<data.length; i++) {
-			total += data[i]; //data[i]ÀÇ ÃÑÇÕ
+			total += data[i]; //data[i]ì˜ ì´í•©
 		}
-		double avg = total / (double)data.length; //data[i]°ªÀÇ Æò±Õ°ª
+		double avg = total / (double)data.length; //data[i]ê°’ì˜ í‰ê· ê°’
 		
-		System.out.println("ÇÕ°è: " + total);
-		System.out.println("Æò±Õ: " + avg);
+		System.out.println("í•©ê³„: " + total);
+		System.out.println("í‰ê· : " + avg);
 
 	}
 
