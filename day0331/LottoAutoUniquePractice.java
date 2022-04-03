@@ -1,22 +1,22 @@
 package day0331;
 
 import java.util.Random;
-//ÄÄÇ»ÅÍ°¡ ÀÚµ¿À¸·Î ·Î¶Ç¹øÈ£¸¦ Ãâ·Â
+//ì»´í“¨í„°ê°€ ìžë™ìœ¼ë¡œ ë¡œë˜ë²ˆí˜¸ë¥¼ ì¶œë ¥
 public class LottoAutoUniquePractice {
 
 	public static void main(String[] args) {
 		
 		int []data = new int[6];
-		//1~45»çÀÌÀÇ ¾Æ¹« ¼ýÀÚ¸¦ ¸¸µé¾î¾ß µÊ. ==>  ³­¼ö
+		//1~45ì‚¬ì´ì˜ ì•„ë¬´ ìˆ«ìžë¥¼ ë§Œë“¤ì–´ì•¼ ë¨. ==>  ë‚œìˆ˜
 		
-		Random r = new Random(); //³­¼ö 
+		Random r = new Random(); //ë‚œìˆ˜ 
 		
 		for(int i=0; i<data.length;) {
 			int n = r.nextInt(45) + 1;
-			//nÀÌ data ¹è¿­¿¡ ÀÌ¹Ì ÀÖ´ÂÁö ÆÇº°ÇÏ¿© Áßº¹ÀÌ µÇÁö ¾Êµµ·Ï Ã³¸®ÇÏ±â.
+			//nì´ data ë°°ì—´ì— ì´ë¯¸ ìžˆëŠ”ì§€ íŒë³„í•˜ì—¬ ì¤‘ë³µì´ ë˜ì§€ ì•Šë„ë¡ ì²˜ë¦¬í•˜ê¸°.
 			int j;
 			for(j=0; j<i; j++) { 
-				if(n == data[j]) { //¾Õ¿¡ ¼ýÀÚ¿Í Áßº¹µÈ °ªÀÌ ÀÖ´ÂÁö ÆÇº° ÈÄ °°Àº °ªÀÌ ÀÖÀ¸¸é Å»Ãâ
+				if(n == data[j]) { //ì•žì— ìˆ«ìžì™€ ì¤‘ë³µëœ ê°’ì´ ìžˆëŠ”ì§€ íŒë³„ í›„ ê°™ì€ ê°’ì´ ìžˆìœ¼ë©´ íƒˆì¶œ
 					break;
 				}
 			}
@@ -31,8 +31,9 @@ public class LottoAutoUniquePractice {
 			System.out.print(data[i] + " ");
 		}
 		
-
+ 
 
 	}
 
 }
+ 
