@@ -13,7 +13,7 @@ public class WhileTest02 {
 				flag = true;
 			}
 		}
-		System.out.println("Á¾·á");
+		System.out.println("ì¢…ë£Œ");
 		System.out.println("i: " + i);
 		
 		
@@ -22,16 +22,16 @@ public class WhileTest02 {
 		/*
 		int i = 1;
 		boolean flag = true;
-		while (flag) { //while¹®ÀÇ Á¶°Ç½ÄÀÇ °á°ú´Â ¹İµå½Ã booleanÀÌ¾î¾ß ÇÑ´Ù. (true, false)°°Àº.. true´Â °è¼Ó ÂüÀÌ¶ó´Â ¶æ.
-			if(i > 3) { //i°¡ 3º¸´Ù Å©¸é Å»Ãâ
+		while (flag) { //whileë¬¸ì˜ ì¡°ê±´ì‹ì˜ ê²°ê³¼ëŠ” ë°˜ë“œì‹œ booleanì´ì–´ì•¼ í•œë‹¤. (true, false)ê°™ì€.. trueëŠ” ê³„ì† ì°¸ì´ë¼ëŠ” ëœ».
+			if(i > 3) { //iê°€ 3ë³´ë‹¤ í¬ë©´ íƒˆì¶œ
 				break;
 			}
 			System.out.println("hello");
 			
 			i++;
 		}
-		System.out.println("Á¾·á");
-		System.out.println("i: " + i); //iÀÇ °ªÀÌ 4°¡ µÇ¸é Å»Ãâ */
+		System.out.println("ì¢…ë£Œ");
+		System.out.println("i: " + i); //iì˜ ê°’ì´ 4ê°€ ë˜ë©´ íƒˆì¶œ */
 	}
 
-}
+} 
