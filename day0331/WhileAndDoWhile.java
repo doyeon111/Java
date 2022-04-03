@@ -1,11 +1,11 @@
 package day0331;
 
 public class WhileAndDoWhile {
-//while¹®°ú do~while¹®ÀÇ Â÷ÀÌ
+//whileë¬¸ê³¼ do~whileë¬¸ì˜ ì°¨ì´
 	public static void main(String[] args) {
 		
 		int i = 10;
-		while (i <= 5) { //Ã³À½ºÎÅÍ Á¶°ÇÀ» ¸¸Á·ÇÏÁö ¾Ê´Â´Ù¸é ÇÑ ¹øµµ ½ÇÇàµÇÁö ¾Ê´Â´Ù.(while¹®)
+		while (i <= 5) { //ì²˜ìŒë¶€í„° ì¡°ê±´ì„ ë§Œì¡±í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´ í•œ ë²ˆë„ ì‹¤í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤.(whileë¬¸)
 			System.out.println("hello");
 			i++;
 		}
@@ -13,7 +13,7 @@ public class WhileAndDoWhile {
 		System.out.println("---------------------------------------");
 
 		int j = 10;
-		do { //Ã³À½ºÎÅÍ Á¶°ÇÀÌ ¸¸Á·ÇÏÁö ¾Ê¾Æµµ, ÀÏ´Ü ¸ÕÀú ÇÑ ¹øÀº ½ÇÇàÀ» ÇÑ´Ù.(do~while¹®)
+		do { //ì²˜ìŒë¶€í„° ì¡°ê±´ì´ ë§Œì¡±í•˜ì§€ ì•Šì•„ë„, ì¼ë‹¨ ë¨¼ì € í•œ ë²ˆì€ ì‹¤í–‰ì„ í•œë‹¤.(do~whileë¬¸)
 			System.out.println("hello");
 			j++;
 		} while (j <= 5);
@@ -21,3 +21,4 @@ public class WhileAndDoWhile {
 	}
 
 }
+ 
