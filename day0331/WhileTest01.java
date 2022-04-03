@@ -3,14 +3,15 @@ package day0331;
 public class WhileTest01 {
 
 	public static void main(String[] args) {
-		int i=1; //ÃÊ±â°ªÀÌ ¹Ì¸®¿Â´Ù.
+		int i=1; //ì´ˆê¸°ê°’ì´ ë¯¸ë¦¬ì˜¨ë‹¤.
 		
 		while(i <= 5) {
 			System.out.println("hello");
-			i++; //Áõ°¨½ÄÀ» while¹® ¾È¿¡ ÀÛ¼ºÇØÁØ´Ù.
+			i++; //ì¦ê°ì‹ì„ whileë¬¸ ì•ˆì— ì‘ì„±í•´ì¤€ë‹¤.
 		}
-		System.out.println("Á¾·á");
-		System.out.println(i); //i°¡ 6¹øÂ° ÀÏ ¶§ while¹®À» Å»ÃâÇÑ´Ù´Â °Í.
+		System.out.println("ì¢…ë£Œ");
+		System.out.println(i); //iê°€ 6ë²ˆì§¸ ì¼ ë•Œ whileë¬¸ì„ íƒˆì¶œí•œë‹¤ëŠ” ê²ƒ.
 	}
 
 }
+ 
