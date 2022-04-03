@@ -5,7 +5,7 @@ import java.util.Random;
 public class AutoLottoSortPractice {
 
 	public static void main(String[] args) {
-		//·Î¶Ç¹øÈ£¸¦ Áßº¹µÇÁö ¾Êµµ·Ï ÀÚµ¿À¸·Î »ı¼ºÇÏ°í, ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ¿© Ãâ·Â
+		//ë¡œë˜ë²ˆí˜¸ë¥¼ ì¤‘ë³µë˜ì§€ ì•Šë„ë¡ ìë™ìœ¼ë¡œ ìƒì„±í•˜ê³ , ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì—¬ ì¶œë ¥
 		
 
 		int []data = new int[6];
@@ -13,29 +13,29 @@ public class AutoLottoSortPractice {
 		Random r = new Random(); 
 		
 		for(int i=0; i<data.length;) {
-			int n = r.nextInt(45) + 1; //0~44±îÁö ³­¼ö°¡ ¸¸µé¾îÁü. +1À» ÇÔÀ¸·Î½á 45¸¦ ¸¸µé¾îÁÖ±â
+			int n = r.nextInt(45) + 1; //0~44ê¹Œì§€ ë‚œìˆ˜ê°€ ë§Œë“¤ì–´ì§. +1ì„ í•¨ìœ¼ë¡œì¨ 45ë¥¼ ë§Œë“¤ì–´ì£¼ê¸°
 			int j;
 			for(j=0; j<i; j++) { 
-				if(n == data[j]) { //¹ß»ıÇÑ ³­¼ö nÀÌ ÀÌ¹Ì ÀÖ´ÂÁö Á¶»çÇÏ±â
+				if(n == data[j]) { //ë°œìƒí•œ ë‚œìˆ˜ nì´ ì´ë¯¸ ìˆëŠ”ì§€ ì¡°ì‚¬í•˜ê¸°
 					break;
 				}
 			}
 			
-			if(j == i) { //j°¡ i¿Í °°¾ÆÁú ¶§ Å»Ãâ
+			if(j == i) { //jê°€ iì™€ ê°™ì•„ì§ˆ ë•Œ íƒˆì¶œ
 				data[i] = n;
 				i++;	
 			}
 		}
-		//Á¤·Ä
+		//ì •ë ¬
 		for (int i = 0; i < data.length; i++) {
-			for (int j = i + 1; j < data.length; j++) { // i+1¹øºÎÅÍ ºñ±³
+			for (int j = i + 1; j < data.length; j++) { // i+1ë²ˆë¶€í„° ë¹„êµ
 				if (data[j] < data[i]) {
-					int temp = data[i]; //¿À¸§Â÷¼øÀ¸·Î Á¤·Ä
+					int temp = data[i]; //ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 					data[i] = data[j];
 					data[j] = temp;
 				}
 			} 
-
+ 
 		}
 		
 		for(int i=0; i<data.length; i++) {
