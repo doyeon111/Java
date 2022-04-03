@@ -2,21 +2,21 @@ package day0330;
 
 import java.util.Scanner;
 
-//»ç¿ëÀÚÇÑÅ× ¹®ÀÚ¿­À» ÀÔ·Â¹Ş¾Æ ±× ¹®ÀÚ¿­ÀÌ "hello"¿Í °°Àº Áö ÆÇº°ÇÏ´Â ÇÁ·Î±×·¥
+//ì‚¬ìš©ìí•œí…Œ ë¬¸ìì—´ì„ ì…ë ¥ë°›ì•„ ê·¸ ë¬¸ìì—´ì´ "hello"ì™€ ê°™ì€ ì§€ íŒë³„í•˜ëŠ” í”„ë¡œê·¸ë¨
 public class StringEqualsTest {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
 		String data;
-		System.out.print("¹®ÀÚ¿­À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë¬¸ìì—´ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		data = sc.next();
 		
 		//if(data == "hello") {
-		if(data.equals("hello")) { //¹®ÀÚ¿­ÀÌ °°ÀºÁö ÆÇ´ÜÇÏ·Á¸é equals¸¦ ½á¾ßÇÔ.
-			System.out.println("¸Â¾Æ¿ä.");
+		if(data.equals("hello")) { //ë¬¸ìì—´ì´ ê°™ì€ì§€ íŒë‹¨í•˜ë ¤ë©´ equalsë¥¼ ì¨ì•¼í•¨.
+			System.out.println("ë§ì•„ìš”.");
 		} else {
-			System.out.println("Æ²·Á¿ä.");
+			System.out.println("í‹€ë ¤ìš”."); 
 		}
 
 	}
