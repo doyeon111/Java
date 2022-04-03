@@ -9,42 +9,42 @@ public class SwitchPractice {
 		
 		int n;
 		
-		System.out.print("0~9»çÀÌÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("0~9ì‚¬ì´ì˜ ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
 		switch (n) {
 		case 0:
-			System.out.println("¿µ");
+			System.out.println("ì˜");
 			break;
 		case 1:
-			System.out.println("ÀÏ");
+			System.out.println("ì¼");
 			break;
 		case 2:
-			System.out.println("ÀÌ");
+			System.out.println("ì´");
 			break;
 		case 3:
-			System.out.println("»ï");
+			System.out.println("ì‚¼");
 			break;
 		case 4:
-			System.out.println("»ç");
+			System.out.println("ì‚¬");
 			break;
 		case 5:
-			System.out.println("¿À");
+			System.out.println("ì˜¤");
 			break;
 		case 6:
-			System.out.println("À°");
+			System.out.println("ìœ¡");
 			break;
 		case 7:
-			System.out.println("Ä¥");
+			System.out.println("ì¹ ");
 			break;
 		case 8:
-			System.out.println("ÆÈ");
+			System.out.println("íŒ”");
 			break;
 		case 9:
-			System.out.println("±¸");
+			System.out.println("êµ¬");
 			break;
 		default:
-			System.out.println("0~9»çÀÌÀÇ ¼ıÀÚ°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("0~9ì‚¬ì´ì˜ ìˆ«ìê°€ ì•„ë‹™ë‹ˆë‹¤."); 
 		}
 
 	}
