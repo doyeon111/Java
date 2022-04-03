@@ -9,12 +9,12 @@ public class FactorialPractice {
 		int n;
 		int sum=1;
 		
-		System.out.print("nÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("nì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextInt();
 		
-		int i=n; //iÀÇ ÃÊ±â°ªÀÌ nºÎÅÍ ½ÃÀÛ
-		while(i>=1) { //i°¡ 1º¸´Ù Å©°Å³ª °°À»¶§¿¡
-			sum *= i; //i¸¦ °öÇÑ °ªÀ» ´©Àû
+		int i=n; //iì˜ ì´ˆê¸°ê°’ì´ në¶€í„° ì‹œì‘
+		while(i>=1) { //iê°€ 1ë³´ë‹¤ í¬ê±°ë‚˜ ê°™ì„ë•Œì—
+			sum *= i; //ië¥¼ ê³±í•œ ê°’ì„ ëˆ„ì 
 			System.out.print(i);
 			if(i != 1) {
 				System.out.print("*");
@@ -26,3 +26,4 @@ public class FactorialPractice {
 	}
 
 }
+ 
