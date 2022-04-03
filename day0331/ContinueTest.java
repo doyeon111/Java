@@ -6,14 +6,15 @@ public class ContinueTest {
 		
 		int i;
 		for(i=1; i<=10; i++) {
-			if(i%3==0) { //3,6,9 Á¦¿Ü
+			if(i%3==0) { //3,6,9 ì œì™¸
 				continue;
 			}
 			System.out.print(i + " ");
 		}
 
-		System.out.println("Á¾·á");
-		System.out.println("¹Ýº¹¹® Å»Ãâ ÈÄ¿¡ i°ª: " + i); 
+		System.out.println("ì¢…ë£Œ");
+		System.out.println("ë°˜ë³µë¬¸ íƒˆì¶œ í›„ì— iê°’: " + i); 
 	}
 
 }
+ 
