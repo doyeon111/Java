@@ -4,17 +4,17 @@ public class StringCountTest {
 
 	public static void main(String[] args) {
 		String data = "hello java";
-		//¹İº¹¹®À» ÀÌ¿ëÇÏ¿© ÇÑ ±ÛÀÚ¾¿ °¡Á®¿Í Ãâ·Â
+		//ë°˜ë³µë¬¸ì„ ì´ìš©í•˜ì—¬ í•œ ê¸€ìì”© ê°€ì ¸ì™€ ì¶œë ¥
 
-		for(int i = 0; i < data.length(); i++) {
-			char ch = data.charAt(i);
+		for(int i = 0; i < data.length(); i++) { //iê°€ 0ë¶€í„° dataì˜ ê¸¸ì´ë§Œí¼ ì‹¤í–‰
+			char ch = data.charAt(i); 
 			System.out.print(ch + " ");
 		}
 		
 
 		
 		
-//		int cnt = data.length();//¹®ÀÚ¿­ÀÌ ¸ğµÎ ¸î ±ÛÀÚÀÎÁö ¾Ë·ÁÁÜ.
+//		int cnt = data.length();//ë¬¸ìì—´ì´ ëª¨ë‘ ëª‡ ê¸€ìì¸ì§€ ì•Œë ¤ì¤Œ.
 //		System.out.println(cnt);
 //		
 //		char ch = data.charAt(0);
@@ -25,7 +25,7 @@ public class StringCountTest {
 //		System.out.println(ch2);
 //		
 //		char ch3 = data.charAt(5);
-//		System.out.println("|" + ch3 + "|"); //°ø¹é ¹®ÀÚµµ ¾ö¿¬È÷ ÇÏ³ªÀÇ ¹®ÀÚ·Î Ã³¸®µÊ.
+//		System.out.println("|" + ch3 + "|"); //ê³µë°± ë¬¸ìë„ ì—„ì—°íˆ í•˜ë‚˜ì˜ ë¬¸ìë¡œ ì²˜ë¦¬ë¨.
 	}
 
 }
