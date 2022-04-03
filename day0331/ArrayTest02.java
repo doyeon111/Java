@@ -1,7 +1,7 @@
 package day0331;
-//±è´ÙÁ¤, ¼­µ¿Çä, ÀÌÈñ½Â, Á¶ÅÂÇå, ÃÖ¿ì¸²
+//ê¹€ë‹¤ì •, ì„œë™í—‰, ì´í¬ìŠ¹, ì¡°íƒœí—Œ, ìµœìš°ë¦¼
 //28, 27, 27, 25, 26
-//¹è¿­À» ÀÌ¿ëÇÏ¿© 2Á¶ÀÇ Æò±Õ³ªÀÌ¸¦ °è»êÇÏ¿© Ãâ·ÂÇÏ±â.
+//ë°°ì—´ì„ ì´ìš©í•˜ì—¬ 2ì¡°ì˜ í‰ê· ë‚˜ì´ë¥¼ ê³„ì‚°í•˜ì—¬ ì¶œë ¥í•˜ê¸°.
 public class ArrayTest02 {
 
 	public static void main(String[] args) {
@@ -14,10 +14,11 @@ public class ArrayTest02 {
 			total += data[i];
 			
 		}
-		avg = total / data.length; //data.length: µ¥ÀÌÅÍÀÇ ±æÀÌ¸¦ ¾Ë·ÁÁÖ´Â °Í
+		avg = total / data.length; //data.length: ë°ì´í„°ì˜ ê¸¸ì´ë¥¼ ì•Œë ¤ì£¼ëŠ” ê²ƒ
 		
-		System.out.println("2Á¶ÀÇ Æò±Õ³ªÀÌ: " + avg);
+		System.out.println("2ì¡°ì˜ í‰ê· ë‚˜ì´: " + avg);
 
 	}
 
 }
+ 
