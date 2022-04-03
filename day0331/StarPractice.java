@@ -9,21 +9,21 @@ public class StarPractice {
 
 		int a, b;
 
-		System.out.print("ÁÙ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì¤„ ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 		a = sc.nextInt();
-		System.out.print("Ä­ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì¹¸ ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 		b = sc.nextInt();
 
 		int i = 1;
-		while (i <= a) { //1ºÎÅÍ ÀÔ·Â¹ÞÀº ÁÙ ¼ö a¸¸Å­ ½ÇÇà
+		while (i <= a) { //1ë¶€í„° ìž…ë ¥ë°›ì€ ì¤„ ìˆ˜ aë§Œí¼ ì‹¤í–‰
 			int j = 1;
-			while (j <= b) { //1ºÎÅÍ ÀÔ·Â¹ÞÀº Ä­ ¼ö b¸¸Å­ ½ÇÇà
+			while (j <= b) { //1ë¶€í„° ìž…ë ¥ë°›ì€ ì¹¸ ìˆ˜ bë§Œí¼ ì‹¤í–‰
 				System.out.print("*"); 
 				j++;
 			}
-			System.out.println("");// À§ÂÊ while¹®À» Å»ÃâÇÏ¸é ´ÙÀ½ ÁÙ·Î ³Ñ¾î°¨.
+			System.out.println("");// ìœ„ìª½ whileë¬¸ì„ íƒˆì¶œí•˜ë©´ ë‹¤ìŒ ì¤„ë¡œ ë„˜ì–´ê°.
 			i++;
 		}
 	}
 
-}
+} 
