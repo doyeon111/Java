@@ -10,19 +10,19 @@ public class SwitchPractice06 {
 		int m;
 		String result="";
 		
-		System.out.print("¿ùÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì›”ì„ ìž…ë ¥í•˜ì„¸ìš”: ");
 		m = sc.nextInt();
 		
-		if(m >= 1 && m <= 12) {
+		if(m >= 1 && m <= 12) { //ìž…ë ¥ë°›ì€ ì›”ì„ 1ì›”ë¶€í„° 12ì›” ì‚¬ì´ê¹Œì§€ ë²”ìœ„ì„¤ì •í•˜ê¸°
 			switch (m) {
-				case 3,4,5: result="º½"; break;
-				case 6,7,8: result="¿©¸§"; break;
-				case 9,10,11: result="°¡À»"; break;
-				case 12,1,2:result="°Ü¿ï"; break;
+				case 3,4,5: result="ë´„"; break;
+				case 6,7,8: result="ì—¬ë¦„"; break;
+				case 9,10,11: result="ê°€ì„"; break;
+				case 12,1,2:result="ê²¨ìš¸"; break;
 				
-			}  	System.out.println(m + "¿ùÀº " + result + "ÀÔ´Ï´Ù.");
+			}  	System.out.println(m + "ì›”ì€ " + result + "ìž…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("ÀÔ·Â¹üÀ§¸¦ ¹þ¾î³µ½À´Ï´Ù.");
+			System.out.println("ìž…ë ¥ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤.");
 		}
 		
 	}
