@@ -3,10 +3,11 @@ package day0331;
 public class ForTest {
 
 	public static void main(String[] args) {
-		for ( ; ; ) { //hello°¡ È­¸é¿¡ ³¡¾øÀÌ Ãâ·ÂµÊ
+		for ( ; ; ) { //helloê°€ í™”ë©´ì— ëì—†ì´ ì¶œë ¥ë¨
 			System.out.println("hello");
 		}
-		//System.out.println("Á¾·á"); ¿À·ù°¡³²
+		//System.out.println("ì¢…ë£Œ"); ì˜¤ë¥˜ê°€ë‚¨
 	}
 
 }
+ 
