@@ -11,21 +11,22 @@ public class StudentPractice {
 		int total = 0;
 
 		for (int i = 0; i < student.length; i++) {
-			System.out.print((i+1) + "¹øÂ° ÇÐ»ýÀÇ Á¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i+1) + "ë²ˆì§¸ í•™ìƒì˜ ì ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 			student[i] = sc.nextInt();
 		}
 		
-		System.out.println("*** ¼ºÀû Ã³¸® °á°ú ***");
+		System.out.println("*** ì„±ì  ì²˜ë¦¬ ê²°ê³¼ ***");
 		
 		for(int i=0; i<student.length; i++) {
-			System.out.println((i+1) + "¹øÂ° ÇÐ»ýÀÇ Á¡¼ö: " + student[i]);
+			System.out.println((i+1) + "ë²ˆì§¸ í•™ìƒì˜ ì ìˆ˜: " + student[i]);
 			total += student[i];
 		}
 		
 		double avg = total / (double)student.length;
-		System.out.println("Á¡¼öÀÇ ÃÑÇÕ: " + total);
-		System.out.println("Á¡¼öÀÇ Æò±Õ: " + avg);
+		System.out.println("ì ìˆ˜ì˜ ì´í•©: " + total);
+		System.out.println("ì ìˆ˜ì˜ í‰ê· : " + avg);
 
 	}
 
 }
+ 
