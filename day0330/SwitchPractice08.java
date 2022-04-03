@@ -12,28 +12,28 @@ public class SwitchPractice08 {
 		//31: 1, 3, 5, 7, 8, 10, 12
 		//28: 2
 		
-		System.out.print("¿ùÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì›”ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		m = sc.nextInt();
 		
 //		if (m >= 1 && m <= 12) {
 //			switch (m) {
-//			case 1,3,5,7,8,10,12: System.out.print(m + "¿ùÀº 31ÀÏ±îÁö ÀÖ¾î¿ä!"); break;
-//			case 2: System.out.print(m + "¿ùÀº 28ÀÏ±îÁö ÀÖ¾î¿ä!"); break;
-//			case 4,6,9,11: System.out.print(m + "¿ùÀº 30ÀÏ±îÁö ÀÖ¾î¿ä!"); break;
+//			case 1,3,5,7,8,10,12: System.out.print(m + "ì›”ì€ 31ì¼ê¹Œì§€ ìˆì–´ìš”!"); break;
+//			case 2: System.out.print(m + "ì›”ì€ 28ì¼ê¹Œì§€ ìˆì–´ìš”!"); break;
+//			case 4,6,9,11: System.out.print(m + "ì›”ì€ 30ì¼ê¹Œì§€ ìˆì–´ìš”!"); break;
 //
 //			}
 //		} else {
-//			System.out.println("ÀÔ·Â ¹üÀ§¸¦ ¹ş¾î³µ½À´Ï´Ù.");
+//			System.out.println("ì…ë ¥ ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤.");
 //		}
 		
 		if (m < 1 || m > 12) {
-			System.out.println("ÀÔ·Â ¹üÀ§¸¦ ³Ñ¾ú½À´Ï´Ù.");
+			System.out.println("ì…ë ¥ ë²”ìœ„ë¥¼ ë„˜ì—ˆìŠµë‹ˆë‹¤.");
 			return;
 		}
 		switch (m) {
-		case 2: date = 28;
+		case 2: date = 28; //2ì›”ì€ 28ì¼ê¹Œì§€
 		case 4,6,9,11: date = 30;
-		} System.out.println(m + "¿ùÀº " + date + "ÀÏ ±îÁö ÀÖ¾î¿ä!");
+		} System.out.println(m + "ì›”ì€ " + date + "ì¼ ê¹Œì§€ ìˆì–´ìš”!");
 	}
 
 }
