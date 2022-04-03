@@ -1,18 +1,18 @@
 package day0331;
 
 import java.util.Random;
-//ÄÄÇ»ÅÍ°¡ ÀÚµ¿À¸·Î ·Î¶Ç¹øÈ£¸¦ Ãâ·Â
+//ì»´í“¨í„°ê°€ ìžë™ìœ¼ë¡œ ë¡œë˜ë²ˆí˜¸ë¥¼ ì¶œë ¥
 public class LottoAutoPractice {
 
 	public static void main(String[] args) {
 		
 		int []data = new int[6];
-		//1~45»çÀÌÀÇ ¾Æ¹« ¼ýÀÚ¸¦ ¸¸µé¾î¾ß µÊ. ==>  ³­¼ö
+		//1~45ì‚¬ì´ì˜ ì•„ë¬´ ìˆ«ìžë¥¼ ë§Œë“¤ì–´ì•¼ ë¨. ==>  ë‚œìˆ˜
 		
-		Random r = new Random(); //³­¼ö 
+		Random r = new Random(); //ë‚œìˆ˜ 
 		
 		for(int i=0; i<data.length; i++) {
-			data[i] = r.nextInt(45) + 1; //0ºÎÅÍ ½ÃÀÛÇÏ±â ¶§¹®¿¡ +1À» ÇØÁÖ¸é ¿øÇÏ´Â ¼ýÀÚ°¡ ³ª¿È.
+			data[i] = r.nextInt(45) + 1; //0ë¶€í„° ì‹œìž‘í•˜ê¸° ë•Œë¬¸ì— +1ì„ í•´ì£¼ë©´ ì›í•˜ëŠ” ìˆ«ìžê°€ ë‚˜ì˜´.
 		}
 		
 		for(int i=0; i<data.length; i++) {
@@ -24,3 +24,4 @@ public class LottoAutoPractice {
 	}
 
 }
+ 
