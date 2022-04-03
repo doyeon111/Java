@@ -5,7 +5,7 @@ public class GugudanAllDoWhilePractice {
 	public static void main(String[] args) {
 		int i = 2;
 		do {
-			System.out.println(i + "´Ü");
+			System.out.println(i + "ë‹¨");
 			int j = 1;
 			do {
 				System.out.println(i + "*" + j + "=" + (i * j));
