@@ -11,17 +11,17 @@ public class StringCountPractice {
 		String data; 
 
 		
-		System.out.println("¹®ÀÚ¿­À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.println("ë¬¸ìì—´ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		data = sc.next();
 		
-		for(int i = 0; i < data.length(); i++) {
-			char ch = data.charAt(i);
-			if (ch == 'a') {
+		for(int i = 0; i < data.length(); i++) { //iê°€ 0ë¶€í„° dataì— ìˆëŠ” ê¸¸ì´ê¹Œì§€ ì‹¤í–‰
+			char ch = data.charAt(i); // dataì— ìˆëŠ” ië¥¼ chì— ì €ì¥
+			if (ch == 'a') { //chê°€ aì´ë©´ cnt ì¦ê°€
 				cnt++;
 			}
 		}
 
-			System.out.println("¼Ò¹®ÀÚ aÀÇ ¼ö´Â " + cnt);
+			System.out.println("ì†Œë¬¸ì aì˜ ìˆ˜ëŠ” " + cnt);
 		
 
 	}
