@@ -3,7 +3,7 @@ package day0330;
 public class SumTest {
 
 	public static void main(String[] args) {
-		//1¿¡¼­ n±îÁö ÇÕÀ» ´©ÀûÇÏ´Â ÇÁ·Î±×·¥
+		//1ì—ì„œ nê¹Œì§€ í•©ì„ ëˆ„ì í•˜ëŠ” í”„ë¡œê·¸ë¨
 		int i = 1;
 		int sum = 0;
 		int n = 10;
@@ -11,7 +11,7 @@ public class SumTest {
 		for(i = 1; i <= n; i++) {
 			sum += i;
 		}
-		System.out.println("1¿¡¼­ " + n + "±îÁöÀÇ ÇÕÀº " + sum);
-	}
+		System.out.println("1ì—ì„œ " + n + "ê¹Œì§€ì˜ í•©ì€ " + sum);
+	} 
 
 }
