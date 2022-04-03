@@ -8,8 +8,9 @@ public class BreakTest {
 		for(i=1; i<=10; i++) {
 			System.out.print(i + " ");
 		}
-		System.out.println("Á¾·á");
-		System.out.println("¹Ýº¹¹® Å»Ãâ ÈÄÀÇ i°ª: " + i); //i´Â 11
+		System.out.println("ì¢…ë£Œ");
+		System.out.println("ë°˜ë³µë¬¸ íƒˆì¶œ í›„ì˜ iê°’: " + i); //iëŠ” 11
 	}
 
 }
+ 
