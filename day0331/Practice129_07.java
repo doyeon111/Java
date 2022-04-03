@@ -3,12 +3,12 @@ package day0331;
 public class Practice129_07 {
 
 	public static void main(String[] args) {
-		System.out.print("2ºÎÅÍ 100»çÀÌÀÇ ¸ğµç ¼Ò¼ö: ");
+		System.out.print("2ë¶€í„° 100ì‚¬ì´ì˜ ëª¨ë“  ì†Œìˆ˜: ");
 		int k = 2;
 		do {
 			int j = 2;
 			do {
-				if (k % 2 == 0) {//ÇÏ³ª¶óµµ ³ª´©¾îÁö´Â °ÍÀÌ ÀÖÀ¸¸é ºüÁ®³ª¿È.
+				if (k % 2 == 0) {//í•˜ë‚˜ë¼ë„ ë‚˜ëˆ„ì–´ì§€ëŠ” ê²ƒì´ ìˆìœ¼ë©´ ë¹ ì ¸ë‚˜ì˜´.
 					break;
 				}
 				j++;
@@ -18,7 +18,7 @@ public class Practice129_07 {
 			}
 			k++;
 
-		} while (k <= 100);
+		} while (k <= 100); 
 
 	}
 
