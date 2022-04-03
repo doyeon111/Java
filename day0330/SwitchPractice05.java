@@ -9,16 +9,17 @@ public class SwitchPractice05 {
 		
 		int m;
 		
-		System.out.print("¿ùÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì›”ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		m = sc.nextInt();
 		
 		switch (m) {
-		case 3,4,5: System.out.println(m + "¿ùÀº º½ÀÔ´Ï´Ù."); break;
-		case 6,7,8: System.out.println(m + "¿ùÀº ¿©¸§ÀÔ´Ï´Ù."); break;
-		case 9,10,11: System.out.println(m + "¿ùÀº °¡À»ÀÔ´Ï´Ù."); break;
-		case 12,1,2: System.out.println(m + "¿ùÀº °Ü¿ïÀÔ´Ï´Ù."); break;
-		default: System.out.println("¹üÀ§¸¦ ¹ş¾î³µ½À´Ï´Ù.");
+		case 3,4,5: System.out.println(m + "ì›”ì€ ë´„ì…ë‹ˆë‹¤."); break;
+		case 6,7,8: System.out.println(m + "ì›”ì€ ì—¬ë¦„ì…ë‹ˆë‹¤."); break;
+		case 9,10,11: System.out.println(m + "ì›”ì€ ê°€ì„ì…ë‹ˆë‹¤."); break;
+		case 12,1,2: System.out.println(m + "ì›”ì€ ê²¨ìš¸ì…ë‹ˆë‹¤."); break;
+		default: System.out.println("ë²”ìœ„ë¥¼ ë²—ì–´ë‚¬ìŠµë‹ˆë‹¤.");
 		}
 	}
 
 }
+ 
