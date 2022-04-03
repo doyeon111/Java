@@ -8,15 +8,16 @@ public class Practice129_10 {
 		
 		for(int i=0; i<data.length; i++) {
 			System.out.print(data[i] + " ");
-			sum += data[i];  //i°ªÀ» ´©Àû
+			sum += data[i];  //iê°’ì„ ëˆ„ì 
 			
-			if(data[i] > max) { //ÃÖ´ë°ª Ãâ·Â
+			if(data[i] > max) { //ìµœëŒ€ê°’ ì¶œë ¥
 				max = data[i];
 			}
 		}
 		System.out.println();
-		System.out.println("ÇÕÀº " + sum);
-		System.out.println("ÃÖ´ë°ªÀº " + max);
+		System.out.println("í•©ì€ " + sum);
+		System.out.println("ìµœëŒ€ê°’ì€ " + max);
 	}
 
 }
+ 
