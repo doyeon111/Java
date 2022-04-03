@@ -8,7 +8,7 @@ public class GugudanPractice {
 		Scanner sc = new Scanner(System.in);
 		int dan;
 		
-		System.out.print("±¸±¸´Ü Áß¿¡ ¸î ´ÜÀ» Ãâ·ÂÇÒ±î¿ä? ");
+		System.out.print("êµ¬êµ¬ë‹¨ ì¤‘ì— ëª‡ ë‹¨ì„ ì¶œë ¥í• ê¹Œìš”? ");
 		dan = sc.nextInt();
 		
 		int i = 1;
@@ -20,3 +20,4 @@ public class GugudanPractice {
 	}
 
 }
+ 
