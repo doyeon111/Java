@@ -6,23 +6,23 @@ public class SwitchPractice02 {
 	public static void main(String[] args) {
 
 		int n = 3;
-		//¹İµå½Ã °¢°¢ÀÇ case¹® ³¡¿¡ break°¡ ÀÖ¾î¾ß ÇÏ´Â °ÍÀº ¾Æ´Õ´Ï´Ù.
-		//³»°¡ ÇØ°áÇØ¾ß ÇÒ ¹®Á¦¿¡ µû¶ó¼­ ÀûÀıÇÑ °÷¿¡ break¸¦ µÑ ¼ö ÀÖ´Ù.
-		//°¢ case °ªÀÇ Å©±â ¼ø¼­´ë·Î ¿Ã ÇÊ¿ä´Â ¾ø´Ù. ±×·¯³ª, caseÀÇ °ªÀÌ Áßº¹ÀÌ µÇµµ·Ï ÇÏ¸é ¾ÈµÊ.
+		//ë°˜ë“œì‹œ ê°ê°ì˜ caseë¬¸ ëì— breakê°€ ìˆì–´ì•¼ í•˜ëŠ” ê²ƒì€ ì•„ë‹™ë‹ˆë‹¤.
+		//ë‚´ê°€ í•´ê²°í•´ì•¼ í•  ë¬¸ì œì— ë”°ë¼ì„œ ì ì ˆí•œ ê³³ì— breakë¥¼ ë‘˜ ìˆ˜ ìˆë‹¤.
+		//ê° case ê°’ì˜ í¬ê¸° ìˆœì„œëŒ€ë¡œ ì˜¬ í•„ìš”ëŠ” ì—†ë‹¤. ê·¸ëŸ¬ë‚˜, caseì˜ ê°’ì´ ì¤‘ë³µì´ ë˜ë„ë¡ í•˜ë©´ ì•ˆë¨.
 		switch (n) {
 		case 0: 
 		case 1: 
-		case 2: System.out.println("ÀÌ"); break;
+		case 2: System.out.println("ì´"); break;
 		case 4:
 		case 3: 
 		case 5:
-		case 6: System.out.println("À°");
+		case 6: System.out.println("ìœ¡");
 		case 7:
 		case 8:
-		case 9:System.out.println("±¸"); break;
-		default: System.out.println("0~9»çÀÌÀÇ ¼ıÀÚ°¡ ¾Æ´Õ´Ï´Ù.");
+		case 9:System.out.println("êµ¬"); break;
+		default: System.out.println("0~9ì‚¬ì´ì˜ ìˆ«ìê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
-		System.out.println("ÀÛ¾÷Á¾·á");
+		System.out.println("ì‘ì—…ì¢…ë£Œ");
 	}
-
+ 
 }
