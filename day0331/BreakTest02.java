@@ -6,13 +6,13 @@ public class BreakTest02 {
 		
 		int i;
 		for(i=1; i<=10; i++) {
-			if(i%3 == 0) {
+			if(i%3 == 0) { //ië¥¼ 3ìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ ë‚˜ë¨¸ì§€ê°€ 0ì´ë©´ íƒˆì¶œ
 				break;
 			}
 			System.out.print(i + " ");
 		}
-		System.out.println("Á¾·á");
-		System.out.println("¹İº¹¹® Å»Ãâ ÈÄÀÇ i°ª: " + i); //i´Â 11
+		System.out.println("ì¢…ë£Œ");
+		System.out.println("ë°˜ë³µë¬¸ íƒˆì¶œ í›„ì˜ iê°’: " + i); //iëŠ” 11
 	}
 
 }
