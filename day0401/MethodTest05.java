@@ -1,8 +1,8 @@
 package day0401;
 
 public class MethodTest05 {
-	public static void gugudan(int dan) { // (int dan) À» ¸Å°³º¯¼ö¶ó°í ÇÔ.
-		System.out.println("*** " + dan + "´Ü ***");
+	public static void gugudan(int dan) { // (int dan)ì„ ë§¤ê°œë³€ìˆ˜ë¼ê³  í•¨.
+		System.out.println("*** " + dan + "ë‹¨ ***");
 		for (int i = 1; i <= 9; i++) {
 			System.out.println(dan + "*" + i + "=" + (dan * i));
 		}
