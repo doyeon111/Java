@@ -1,19 +1,19 @@
 package day0401;
 
-//°¢ ¹è¿­¿¡ ÀÖ´Â »ç¶÷°ú Á¡¼ö°¡ µ¿ÀÏÇÏ´Ù. ±× Áß ÃÖ°í Á¡¼öÀÎ »ç¶÷ÀÇ ÀÌ¸§À» Ãâ·ÂÇÏ¼¼¿ä. +ÃÖ°íÁ¡ »ç¶÷ÀÌ µÎ¸íÀÏ °æ¿ì
+//ê° ë°°ì—´ì— ìžˆëŠ” ì‚¬ëžŒê³¼ ì ìˆ˜ê°€ ë™ì¼í•˜ë‹¤. ê·¸ ì¤‘ ìµœê³  ì ìˆ˜ì¸ ì‚¬ëžŒì˜ ì´ë¦„ì„ ì¶œë ¥í•˜ì„¸ìš”. +ìµœê³ ì  ì‚¬ëžŒì´ ë‘ëª…ì¼ ê²½ìš°
 public class MaxTest03 {
 
 	public static void main(String[] args) {
-		String[] name = { "È«±æµ¿", "À¯°ü¼ø", "ÀÌ¼ø½Å", "±èÀ¯½Å", "°­°¨Âù","°íÁÖÈñ" };
+		String[] name = { "í™ê¸¸ë™", "ìœ ê´€ìˆœ", "ì´ìˆœì‹ ", "ê¹€ìœ ì‹ ", "ê°•ê°ì°¬","ê³ ì£¼í¬" };
 		int[] score = { 40, 70, 30, 100, 90, 100 };
 
-		//1. ÀÏ´Ü, max¸¦ ±¸ÇÑ´Ù.
-		//2. score ¹è¿­ Áß¿¡ max¿Í °°Àº °ªÀ» °®´Â ÀÎµ¦½ºµéÀ» ±¸ÇÑ´Ù.
-		//3. ±× ÀÎµ¦½ºµé¿¡ ÇØ´çÇÏ´Â ÇÐ»ýÀÌ¸§À» Ãâ·ÂÇÑ´Ù.
+		//1. ì¼ë‹¨, maxë¥¼ êµ¬í•œë‹¤.
+		//2. score ë°°ì—´ ì¤‘ì— maxì™€ ê°™ì€ ê°’ì„ ê°–ëŠ” ì¸ë±ìŠ¤ë“¤ì„ êµ¬í•œë‹¤.
+		//3. ê·¸ ì¸ë±ìŠ¤ë“¤ì— í•´ë‹¹í•˜ëŠ” í•™ìƒì´ë¦„ì„ ì¶œë ¥í•œë‹¤.
 		
 		
-		//1. ÀÏ´Ü, max¸¦ ±¸ÇÑ´Ù.
-		int max = score[0]; //max¸¦ ¸ÕÀú ±¸ÇÑ´Ù.
+		//1. ì¼ë‹¨, maxë¥¼ êµ¬í•œë‹¤.
+		int max = score[0]; //maxë¥¼ ë¨¼ì € êµ¬í•œë‹¤.
 		
 		for(int i=1; i<score.length; i++) {
 			if(score[i] > max) {
@@ -22,23 +22,23 @@ public class MaxTest03 {
 			}
 		}
 		
-		//2. score ¹è¿­ Áß¿¡ max¿Í °°Àº °ªÀ» °®´Â ÀÎµ¦½ºµéÀ» ±¸ÇÑ´Ù.
-		int []n = new int[score.length]; //scoreÀÇ ±æÀÌ¸¸Å­ Á¤ÇÑ´Ù.
+		//2. score ë°°ì—´ ì¤‘ì— maxì™€ ê°™ì€ ê°’ì„ ê°–ëŠ” ì¸ë±ìŠ¤ë“¤ì„ êµ¬í•œë‹¤.
+		int []n = new int[score.length]; //scoreì˜ ê¸¸ì´ë§Œí¼ ì •í•œë‹¤.
 		//									max  =  100
-		//[3][5][][][][]						n¹è¿­	j=0,1
-		//[40][70][30][100][90][100]		score   i=0,1,2,3 //i°¡ 3¹øÂ°ÀÏ¶§ 100°ú °°´Ù. µû¶ó¼­ jÀÇ 0¹øÂ° ÀÎµ¦½º¿¡ 3À» ³Ö¾îÁØ´Ù. 
+		//[3][5][][][][]						në°°ì—´	j=0,1
+		//[40][70][30][100][90][100]		score   i=0,1,2,3 //iê°€ 3ë²ˆì§¸ì¼ë•Œ 100ê³¼ ê°™ë‹¤. ë”°ë¼ì„œ jì˜ 0ë²ˆì§¸ ì¸ë±ìŠ¤ì— 3ì„ ë„£ì–´ì¤€ë‹¤. 
 		
 		int j=0;
 		for (int i=0; i<score.length; i++) {
-			if(score[i] == max) { //score i°ªÀÌ max¿Í °°À¸¸é n¹è¿­ÀÇ j¿¡ i°ªÀ» Áý¾î³Ö¾î¶ó.
+			if(score[i] == max) { //score iê°’ì´ maxì™€ ê°™ìœ¼ë©´ në°°ì—´ì˜ jì— iê°’ì„ ì§‘ì–´ë„£ì–´ë¼.
 				n[j] = i;
 				j++;
 			}
 		}
-		System.out.println("ÃÖ°íÁ¡¼ö: " + max);
-		System.out.print("ÃÖ°íÁ¡¼öÀÇ ÇÐ»ý: ");
+		System.out.println("ìµœê³ ì ìˆ˜: " + max);
+		System.out.print("ìµœê³ ì ìˆ˜ì˜ í•™ìƒ: ");
 		
-		//jº¯¼ö¸¦ ÅëÇÏ¿© max¿Í µ¿ÀÏÇÑ °ªÀ» °®´Â »ç¶÷ÀÇ ¼ö¸¦ ¾Ë ¼ö ÀÖ´Ù. 
+		//jë³€ìˆ˜ë¥¼ í†µí•˜ì—¬ maxì™€ ë™ì¼í•œ ê°’ì„ ê°–ëŠ” ì‚¬ëžŒì˜ ìˆ˜ë¥¼ ì•Œ ìˆ˜ ìžˆë‹¤. 
 		for(int i=0; i<j; i++) {
 			System.out.print(name[n[i]]+ " "); 
 		}
@@ -46,3 +46,4 @@ public class MaxTest03 {
 	}	
 
 }
+ 
