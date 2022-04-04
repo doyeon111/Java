@@ -3,30 +3,30 @@ package day0401;
 public class MethodPractic04 {
 	public static boolean isEquals(int[] a, int[] b) {
 		boolean flag = true;
-		if (a.length != b.length) { //a¹è¿­ÀÇ ¼ö¿Í b ¹è¿­ÀÇ °³¼ö°¡ °°Áö ¾ÊÀ¸¸é false ¹İÈ¯. (³¡)
+		if (a.length != b.length) { //aë°°ì—´ì˜ ìˆ˜ì™€ b ë°°ì—´ì˜ ê°œìˆ˜ê°€ ê°™ì§€ ì•Šìœ¼ë©´ false ë°˜í™˜. (ë)
 			return false;
 		}
 		
-		for (int i=0; i<a.length; i++) { // aÀÇ i°ª°ú bÀÇ i°ªÀÌ °°Áö¾ÊÀ¸¸é Å»Ãâ
+		for (int i=0; i<a.length; i++) { // aì˜ iê°’ê³¼ bì˜ iê°’ì´ ê°™ì§€ì•Šìœ¼ë©´ íƒˆì¶œ
 			if(a[i] != b[i]) {
 				flag = false;
 				break;
 			}
 		}
 
-		return flag; // ÇÏ³ª¶óµµ Æ²¸®´Â °ÍÀÌ ÀÖÀ¸¸é false ¹İÈ¯
+		return flag; // í•˜ë‚˜ë¼ë„ í‹€ë¦¬ëŠ” ê²ƒì´ ìˆìœ¼ë©´ false ë°˜í™˜
 	}
 
 	public static void main(String[] args) {
 		int[] a = { 1, 2, 3, 4, 5 };
 		int[] b = { 1, 2, 3, 4, 5 };
 		
-		if(isEquals(a,b)) { //µÎ ¹è¿­ÀÌ °°À» °æ¿ì
-			System.out.println("µÎ ¹è¿­ÀÌ °°¾Æ¿ä!");
+		if(isEquals(a,b)) { //ë‘ ë°°ì—´ì´ ê°™ì„ ê²½ìš°
+			System.out.println("ë‘ ë°°ì—´ì´ ê°™ì•„ìš”!");
 		} else {
-			System.out.println("µÎ ¹è¿­ÀÌ ´Ş¶ó¿ä!");
+			System.out.println("ë‘ ë°°ì—´ì´ ë‹¬ë¼ìš”!");
 		}
 
 	}
 
-}
+} 
