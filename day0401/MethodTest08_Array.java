@@ -1,15 +1,15 @@
 package day0401;
-// ÇĞ»ıÀÇ ÀÌ¸§¹è¿­°ú Á¡¼ö¹è¿­À» ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ Á¡¼ö°¡ °¡Àå ³ôÀº ÇĞ»ıÀÇ ÀÌ¸§À» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ(´Ü, Áßº¹µÈ Á¡¼ö°¡ ¾ø´Ù°í °¡Á¤)
+// í•™ìƒì˜ ì´ë¦„ë°°ì—´ê³¼ ì ìˆ˜ë°°ì—´ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ì ìˆ˜ê°€ ê°€ì¥ ë†’ì€ í•™ìƒì˜ ì´ë¦„ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜(ë‹¨, ì¤‘ë³µëœ ì ìˆ˜ê°€ ì—†ë‹¤ê³  ê°€ì •)
 
 public class MethodTest08_Array {
 	public static String getScoreName(String[] name, int[] score) {
 		String max_name = "";
 		int max = score[0];
-		int idx = 0; // ÀÎµ¦½º°¡ ±Ã±İ
-		for (int i = 1; i < score.length; i++) { // Á¡¼ö°¡ °¡Àå ³ôÀº»ç¶÷ÀÇ ÀÚ¸®¸¦ ±¸ÇÏ±â
+		int idx = 0; // ì¸ë±ìŠ¤ê°€ ê¶ê¸ˆ
+		for (int i = 1; i < score.length; i++) { // ì ìˆ˜ê°€ ê°€ì¥ ë†’ì€ì‚¬ëŒì˜ ìë¦¬ë¥¼ êµ¬í•˜ê¸°
 			if (score[i] > max) {
 				max = score[i];
-				idx = i; // i¸¦ ÀÎµ¦½º¿¡ ´ã´Â´Ù.
+				idx = i; // ië¥¼ ì¸ë±ìŠ¤ì— ë‹´ëŠ”ë‹¤.
 			}
 		}
 		max_name = name[idx];
@@ -17,10 +17,11 @@ public class MethodTest08_Array {
 	}
 
 	public static void main(String[] args) {
-		String[] name = { "À¯°ü¼ø", "ÀÌ¼ø½Å", "È«±æµ¿", "±èÀ¯½Å", "°­°¨Âù" };
+		String[] name = { "ìœ ê´€ìˆœ", "ì´ìˆœì‹ ", "í™ê¸¸ë™", "ê¹€ìœ ì‹ ", "ê°•ê°ì°¬" };
 		int[] score = { 60, 70, 80, 100, 50 };
 
-		System.out.println("°¡Àå ³ôÀº Á¡¼öÀÇ ÇĞ»ıÀÌ¸§Àº: " + getScoreName(name, score));
+		System.out.println("ê°€ì¥ ë†’ì€ ì ìˆ˜ì˜ í•™ìƒì´ë¦„ì€: " + getScoreName(name, score));
 	}
 
 }
+ 
