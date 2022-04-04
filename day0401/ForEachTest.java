@@ -5,9 +5,10 @@ public class ForEachTest {
 	public static void main(String[] args) {
 		int []data = {10,20,30,40,50};
 		
-		for(int n : data) { //¹è¿­¿¡ ÀÖ´Â ¸ğµç ¿ä¼ÒµéÀ» Ãâ·ÂÇØ¿À±â.
+		for(int n : data) { //ë°°ì—´ì— ìˆëŠ” ëª¨ë“  ìš”ì†Œë“¤ì„ ì¶œë ¥í•´ì˜¤ê¸°.
 			System.out.println(n);
 		}
 	}
 
 }
+ 
