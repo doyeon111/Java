@@ -2,25 +2,26 @@ package day0401;
 
 public class MethodTest04 {
 
-	public static void sayHello(String name, int n) { // ¸Ş¼ÒµåÀÇ Á¤ÀÇ , ÀÌ¸§À» Àü´ŞÇØÁÖ±â À§ÇÑ nameÀ» ¼±¾ğÇÔ
+	public static void sayHello(String name, int n) { // ë©”ì†Œë“œì˜ ì •ì˜ , ì´ë¦„ì„ ì „ë‹¬í•´ì£¼ê¸° ìœ„í•œ nameì„ ì„ ì–¸í•¨
 		for (int i = 1; i <= n; i++) {
-			System.out.println(name + "¾ß(¾Æ) ¾È³ç");
+			System.out.println(name + "ì•¼(ì•„) ì•ˆë…•");
 		}
-		return; // È£ÃâÇÑ °÷À¸·Î µÇµ¹¾Æ°¡.
+		return; // í˜¸ì¶œí•œ ê³³ìœ¼ë¡œ ë˜ëŒì•„ê°€.
 	}
 
 	public static void main(String[] args) {
-		sayHello("¹ÎÁö", 10); // ¸Ş¼ÒµåÀÇ ÀÌ¸§À» È£Ãâ
+		sayHello("ë¯¼ì§€", 10); // ë©”ì†Œë“œì˜ ì´ë¦„ì„ í˜¸ì¶œ
 
 		int year = 2022;
 
-		System.out.println("¿ÃÇØ´Â " + year + "¿¬µµ ÀÔ´Ï´Ù.");
-		sayHello("ÁÖÈñ", 5); // ¸Ş¼ÒµåÀÇ È£Ãâ
+		System.out.println("ì˜¬í•´ëŠ” " + year + "ì—°ë„ ì…ë‹ˆë‹¤.");
+		sayHello("ì£¼í¬", 5); // ë©”ì†Œë“œì˜ í˜¸ì¶œ
 
-		String title = "½Ö¿ë±³À°¼¾ÅÍ";
-		System.out.println(title + "¿¡¼­ ÈÆ·Ã¹Ş°í ÀÖ¾î¿ä.");
+		String title = "ìŒìš©êµìœ¡ì„¼í„°";
+		System.out.println(title + "ì—ì„œ í›ˆë ¨ë°›ê³  ìˆì–´ìš”.");
 
-		sayHello("´ÙÁ¤", 2); // ¸Ş¼ÒµåÀÇ È£Ãâ
+		sayHello("ë‹¤ì •", 2); // ë©”ì†Œë“œì˜ í˜¸ì¶œ
 	}
 
 }
+ 
