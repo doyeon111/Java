@@ -11,7 +11,7 @@ public class Practice130_14 {
 				System.out.print(a[i][j] + " \t");
 				
 			}
-			System.out.println(); // ÁÙÀÌ ³¡³¯ ¶§¸¶´Ù ÁÙ¹Ù²Ş
+			System.out.println(); //ì¤„ì´ ëë‚  ë•Œë§ˆë‹¤ ì¤„ë°”ê¿ˆ
 		}
 		
 
