@@ -2,39 +2,39 @@ package day0401;
 
 import java.util.Scanner;
 
-//0331 4¹ø ¼÷Á¦
+//0331 4ë²ˆ ìˆ™ì œ
 public class Practice04 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		int []dap = {1,2,3,4,1,2,3,4,1,2}; //10°³ÀÇ ¸ğ¹ü´ä¾ÈÀ» ¹Ì¸® »ı¼º
+		int []dap = {1,2,3,4,1,2,3,4,1,2}; //10ê°œì˜ ëª¨ë²”ë‹µì•ˆì„ ë¯¸ë¦¬ ìƒì„±
 		int []user = new int[10];
 		
 		for(int i=0; i<user.length; i++) {
-			System.out.print((i+1) + "¹ø ´äÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i+1) + "ë²ˆ ë‹µì„ ì…ë ¥í•˜ì„¸ìš”: ");
 			user[i] = sc.nextInt();
 			
 		}
 		
-		for (int i=1; i<=10; i++) { //¹®Á¦¸¦ Ãâ·Â
-			System.out.print(i + "  "); //1~10¹ø ¹®Á¦¸¦ Ãâ·Â
+		for (int i=1; i<=10; i++) { //ë¬¸ì œë¥¼ ì¶œë ¥
+			System.out.print(i + "  "); //1~10ë²ˆ ë¬¸ì œë¥¼ ì¶œë ¥
 		}
-		System.out.println(); //ÁÙ¹Ù²Ş
+		System.out.println(); //ì¤„ë°”ê¿ˆ
 		
-		int n = 0;//Á¤´ä¼ö¸¦ À§ÇÑ nÀ» ¼±¾ğ
+		int n = 0;//ì •ë‹µìˆ˜ë¥¼ ìœ„í•œ nì„ ì„ ì–¸
 		for(int i=0; i<10; i++) {
-			if(dap[i] == user[i]) { //¹è¿­¿¡ ÀÖ´Â ´ä°ú user°¡ ¾´ ´äÀÌ °°À» ¶§
-				System.out.print("O  "); //OÀ» Ãâ·Â
+			if(dap[i] == user[i]) { //ë°°ì—´ì— ìˆëŠ” ë‹µê³¼ userê°€ ì“´ ë‹µì´ ê°™ì„ ë•Œ
+				System.out.print("O  "); //Oì„ ì¶œë ¥
 				n++;
-			} else { //°°Áö ¾Ê´Ù¸é
-				System.out.print("X  "); //x¸¦ Ãâ·Â
+			} else { //ê°™ì§€ ì•Šë‹¤ë©´
+				System.out.print("X  "); //xë¥¼ ì¶œë ¥
 			}
 		}
 		
 		System.out.println();
-		System.out.println("Á¤´ä ¼ö:" + n);
-		System.out.println("Æ²¸°´ä ¼ö: " +(10-n));
+		System.out.println("ì •ë‹µ ìˆ˜:" + n);
+		System.out.println("í‹€ë¦°ë‹µ ìˆ˜: " +(10-n));
 	}
 
-}
+} 
