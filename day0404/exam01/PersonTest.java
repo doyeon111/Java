@@ -5,24 +5,25 @@ public class PersonTest {
 	public static void main(String[] args) {
 		Person kim;
 		kim = new Person();
-//		kim.name = "±è¹ÎÇõ";
+//		kim.name = "ê¹€ë¯¼í˜";
 //		kim.age = 28; 
-		//name°ú age´Â private ¿µ¿ªÀÌ¶ó¼­ Á÷Á¢ Á¢±ÙÇÒ ¼ö ¾ø´Ù.
+		//nameê³¼ ageëŠ” private ì˜ì—­ì´ë¼ì„œ ì§ì ‘ ì ‘ê·¼í•  ìˆ˜ ì—†ë‹¤.
 		
 		
-		//public¿¡ ÀÖ´Â ¸Þ¼Òµå¸¦ ÅëÇØ¼­ private ¸É¹öº¯¼ö¿¡ Á¢±ÙÇÑ´Ù.
-		kim.setName("±è¹ÎÇõ");
+		//publicì— ìžˆëŠ” ë©”ì†Œë“œë¥¼ í†µí•´ì„œ private ë§´ë²„ë³€ìˆ˜ì— ì ‘ê·¼í•œë‹¤.
+		kim.setName("ê¹€ë¯¼í˜");
 		kim.setAge(28);
 		
-		System.out.println(kim.getName()); //ÀÌ¸§À» ºÒ·¯¿Ã ¼ö ÀÖ´Ù. 
-		System.out.println(kim.getAge()); //³ªÀÌ¸¦ ºÒ·¯¿Ã ¼ö ÀÖ´Ù.
-		//¸É¹ö¿¡ Á¢±ÙÇÏ¿© °ªÀ» º¯°æÇÏ´Â °Í »Ó¸¸ ¾Æ´Ï¶ó, ¸É¹öÀÇ Á¢±ÙÇÏ¿© °ªÀ» ÀÐ¾î¿À´Â °Íµµ ºÒ°¡´ÉÇÏ´Ù. --> getÀ¸·Î ¹Þ¾Æ¿È.
+		System.out.println(kim.getName()); //ì´ë¦„ì„ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìžˆë‹¤. 
+		System.out.println(kim.getAge()); //ë‚˜ì´ë¥¼ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìžˆë‹¤.
+		//ë§´ë²„ì— ì ‘ê·¼í•˜ì—¬ ê°’ì„ ë³€ê²½í•˜ëŠ” ê²ƒ ë¿ë§Œ ì•„ë‹ˆë¼, ë§´ë²„ì˜ ì ‘ê·¼í•˜ì—¬ ê°’ì„ ì½ì–´ì˜¤ëŠ” ê²ƒë„ ë¶ˆê°€ëŠ¥í•˜ë‹¤. --> getìœ¼ë¡œ ë°›ì•„ì˜´.
 		
-		kim.eat("¿ìÀ¯");
-		kim.wash("¼¤Çª");
+		kim.eat("ìš°ìœ ");
+		kim.wash("ìƒ´í‘¸");
 		
 		
 
 	}
 
 }
+ 
