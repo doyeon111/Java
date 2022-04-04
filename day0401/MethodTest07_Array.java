@@ -1,15 +1,15 @@
 package day0401;
 
 public class MethodTest07_Array {
-	// Á¤¼öÇü ¹è¿­À» ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ±× Áß¿¡ °¡Àå Å« ¼ö¸¦ Ã£¾Æ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
-	public static void printMax(int[] a) { // ¹è¿­À» Àü´Ş¹Ş±â
+	// ì •ìˆ˜í˜• ë°°ì—´ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ê·¸ ì¤‘ì— ê°€ì¥ í° ìˆ˜ë¥¼ ì°¾ì•„ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
+	public static void printMax(int[] a) { // ë°°ì—´ì„ ì „ë‹¬ë°›ê¸°
 		int max = a[0];
 		for (int i = 1; i < a.length; i++) {
 			if (a[i] > max) {
 				max = a[i];
 			}
 		}
-		System.out.println("¹è¿­ Áß¿¡ °¡Àå Å« ¼ö´Â: " + max);
+		System.out.println("ë°°ì—´ ì¤‘ì— ê°€ì¥ í° ìˆ˜ëŠ”: " + max);
 	}
 
 	public static void main(String[] args) {
@@ -18,3 +18,4 @@ public class MethodTest07_Array {
 	}
 
 }
+ 
