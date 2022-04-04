@@ -7,7 +7,7 @@ public class Practice131_15 {
 	public static void main(String[] args) {
 		int[][] a = new int[3][5];
 
-		Random r = new Random(); // ³­¼ö
+		Random r = new Random(); // ë‚œìˆ˜
 
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[i].length; j++) {
@@ -15,10 +15,11 @@ public class Practice131_15 {
 
 				System.out.print(a[i][j] + "\t");
 			}
-				System.out.println(); // ÁÙÀÌ ³¡³¯ ¶§¸¶´Ù ÁÙ¹Ù²Þ
+				System.out.println(); // ì¤„ì´ ëë‚  ë•Œë§ˆë‹¤ ì¤„ë°”ê¿ˆ
 			
 
 		}
 	}
 
 }
+ 
