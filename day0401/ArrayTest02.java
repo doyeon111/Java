@@ -23,7 +23,7 @@ public class ArrayTest02 {
 		a[2] = new int[3];
 		
 		
-		//°¢ ¹è¿­ÀÇ ¿ä¼Ò¿¡ 1ºÎÅÍ 1¾¿ Áõ°¡ÇÑ °ªÀ» ÀúÀåÇØº¸ÀÚ.
+		//ê° ë°°ì—´ì˜ ìš”ì†Œì— 1ë¶€í„° 1ì”© ì¦ê°€í•œ ê°’ì„ ì €ì¥í•´ë³´ì.
 		int n=1;
 		for(int i=0; i<a.length; i++) {
 			for(int j=0; j<a[i].length; j++) {
@@ -33,15 +33,15 @@ public class ArrayTest02 {
 
 		}
 		
-		//¸ğµç ¹è¿­ÀÇ ¿ä¼Ò¸¦ Ãâ·Â
+		//ëª¨ë“  ë°°ì—´ì˜ ìš”ì†Œë¥¼ ì¶œë ¥
 		for (int i=0; i<a.length; i++) {
 			for(int j=0; j<a[i].length; j++) {
 				System.out.print(a[i][j] + " \t");
 			}
-			System.out.println(); // ÁÙÀÌ ³¡³¯ ¶§¸¶´Ù ÁÙ¹Ù²Ş
+			System.out.println(); // ì¤„ì´ ëë‚  ë•Œë§ˆë‹¤ ì¤„ë°”ê¿ˆ
 		}
 		
 	}
 
-
+ 
 }
