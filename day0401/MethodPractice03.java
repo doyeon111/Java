@@ -16,7 +16,7 @@ public class MethodPractice03 {
 	public static void main(String[] args) {
 		double[] n = {2.5, 6.7, 3.2};
 		
-		System.out.println("¹è¿­ÀÇ Æò±Õ: " +getAvg(n));
+		System.out.println("ë°°ì—´ì˜ í‰ê· : " +getAvg(n));
 	}
 
 }
