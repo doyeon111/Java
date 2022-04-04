@@ -3,24 +3,25 @@ package day0401;
 public class MethodTest01 {
 
 	public static void main(String[] args) {
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
 		
 		
 		int year = 2022;
 		
-		System.out.println("¿ÃÇØ´Â " + year + "¿¬µµ ÀÔ´Ï´Ù.");
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
+		System.out.println("ì˜¬í•´ëŠ” " + year + "ì—°ë„ ì…ë‹ˆë‹¤.");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
 		
-		String title = "½Ö¿ë±³À°¼¾ÅÍ";
-		System.out.println(title + "¿¡¼­ ÈÆ·Ã¹Ş°í ÀÖ¾î¿ä.");
+		String title = "ìŒìš©êµìœ¡ì„¼í„°";
+		System.out.println(title + "ì—ì„œ í›ˆë ¨ë°›ê³  ìˆì–´ìš”.");
 		
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
-		System.out.println("ÁÖÈñ¾ß ¾È³ç");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
+		System.out.println("ì£¼í¬ì•¼ ì•ˆë…•");
 	}
 
 }
+ 
