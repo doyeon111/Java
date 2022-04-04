@@ -1,6 +1,6 @@
 package day0401;
 
-//µÎ °³ÀÇ Á¤¼ö¸¦ ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ±× Áß¿¡ Å« ¼ö¸¦ Ã£¾Æ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
+//ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ê·¸ ì¤‘ì— í° ìˆ˜ë¥¼ ì°¾ì•„ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
 public class MethodTest06 {
 	public static void max(int a, int b) {
 		int r;
@@ -9,7 +9,7 @@ public class MethodTest06 {
 		} else {
 			r = b;
 		}
-		System.out.println("Å« ¼ö´Â " + r + "ÀÔ´Ï´Ù.");
+		System.out.println("í° ìˆ˜ëŠ” " + r + "ì…ë‹ˆë‹¤.");
 	}
 
 	public static void main(String[] args) {
@@ -18,3 +18,4 @@ public class MethodTest06 {
 	}
 
 }
+ 
