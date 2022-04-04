@@ -3,7 +3,7 @@ package day0401;
 public class ArrayPractice {
 
 	public static void main(String[] args) {
-		int[][] a = new int[4][5]; // 3Çà 4¿­ÀÇ 2Â÷¿ø ¹è¿­ ==> 12°³ÀÇ Á¤¼öÇü ¸Þ¸ð¸®°¡ ÀâÈù´Ù.
+		int[][] a = new int[4][5]; // 3í–‰ 4ì—´ì˜ 2ì°¨ì› ë°°ì—´ ==> 12ê°œì˜ ì •ìˆ˜í˜• ë©”ëª¨ë¦¬ê°€ ìž¡ížŒë‹¤.
 		
 		/*
 		 		  0  1  2  3  4
@@ -16,24 +16,24 @@ public class ArrayPractice {
 		
 		
 		
-		// ÁßÃ¸¹Ýº¹¹®À» ÀÌ¿ëÇÏ¿© °¢ ¹è¿­¿¡ ¿ä¼Ò¿¡ 1ºÎÅÍ 1¾¿ Áõ°¡ÇÑ °ªÀ» ÀúÀåÇØº¸ÀÚ.
+		// ì¤‘ì²©ë°˜ë³µë¬¸ì„ ì´ìš©í•˜ì—¬ ê° ë°°ì—´ì— ìš”ì†Œì— 1ë¶€í„° 1ì”© ì¦ê°€í•œ ê°’ì„ ì €ìž¥í•´ë³´ìž.
 		int n = 1;
-		for (int i = 0; i < 4; i++) { // ÁÙ ¼ö(Çà ¼ö)
-			for (int j = 0; j < 4; j++) { // ¿­ ¼öÀÎµ¥ ¸¶Áö¸·Àº ´õÇØÁØ °ªÀ» ÀúÀåÇÏ±â À§ÇÏ¿© 4±îÁö¸¸ ¼³Á¤ÇØÁØ´Ù.
+		for (int i = 0; i < 4; i++) { // ì¤„ ìˆ˜(í–‰ ìˆ˜)
+			for (int j = 0; j < 4; j++) { // ì—´ ìˆ˜ì¸ë° ë§ˆì§€ë§‰ì€ ë”í•´ì¤€ ê°’ì„ ì €ìž¥í•˜ê¸° ìœ„í•˜ì—¬ 4ê¹Œì§€ë§Œ ì„¤ì •í•´ì¤€ë‹¤.
 				a[i][j] = n++;
 				a[i][4] += a[i][j];
 			}
 		}
 
-		// ¸ðµç ¹è¿­ÀÇ ¿ä¼Ò¸¦ Ãâ·ÂÇØº¸ÀÚ.
+		// ëª¨ë“  ë°°ì—´ì˜ ìš”ì†Œë¥¼ ì¶œë ¥í•´ë³´ìž.
 
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[i].length; j++) {
-				System.out.print(a[i][j] + " \t"); // \t ÅÇ¼³Á¤ÇÏ´Â ¸¸Å­ °ø¹éÀ» ¼³Á¤
+				System.out.print(a[i][j] + " \t"); // \t íƒ­ì„¤ì •í•˜ëŠ” ë§Œí¼ ê³µë°±ì„ ì„¤ì •
 			}
-			System.out.println(); // ÁÙÀÌ ³¡³¯ ¶§¸¶´Ù ÁÙ¹Ù²Þ
+			System.out.println(); // ì¤„ì´ ëë‚  ë•Œë§ˆë‹¤ ì¤„ë°”ê¿ˆ
 		}
 
 	}
-
+ 
 }
