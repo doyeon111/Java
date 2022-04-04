@@ -1,10 +1,10 @@
 package day0401;
 
-//3Â÷¿ø ¹è¿­ , Ã¹¹øÂ° ¸é¿¡´Â ¸ğµÎ 0ÀÌ, µÎ¹øÂ° ¸é¿¡´Â ¸ğµÎ 1ÀÌ µé¾î°¡µµ·Ï ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ¼¼¿ä.
+//3ì°¨ì› ë°°ì—´ , ì²«ë²ˆì§¸ ë©´ì—ëŠ” ëª¨ë‘ 0ì´, ë‘ë²ˆì§¸ ë©´ì—ëŠ” ëª¨ë‘ 1ì´ ë“¤ì–´ê°€ë„ë¡ í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì„¸ìš”.
 public class ThreeDArrayTest {
 
 	public static void main(String[] args) {
-		int[][][] a = new int[2][3][5]; // 3ÁÙÀÖ°í 5Ä­ÀÖ´Â ¸éÀÌ 2Àå ÀÖ´Ù.
+		int[][][] a = new int[2][3][5]; // 3ì¤„ìˆê³  5ì¹¸ìˆëŠ” ë©´ì´ 2ì¥ ìˆë‹¤.
 
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[i].length; j++) {
@@ -14,7 +14,7 @@ public class ThreeDArrayTest {
 			}
 		}
 
-		// ¸ğµç ¹è¿­ÀÇ ¿ä¼Ò¸¦ Ãâ·Â
+		// ëª¨ë“  ë°°ì—´ì˜ ìš”ì†Œë¥¼ ì¶œë ¥
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[i].length; j++) {
 				for (int k = 0; k < a[i][j].length; k++) {
@@ -27,3 +27,4 @@ public class ThreeDArrayTest {
 	}
 
 }
+ 
