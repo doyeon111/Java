@@ -3,24 +3,24 @@ package day0401;
 public class MatrixTest01 {
 
 	public static void main(String[] args) {
-		int [][]a = new int[3][4]; //3Çà 4¿­ÀÇ 2Â÷¿ø ¹è¿­ ==> 12°³ÀÇ Á¤¼öÇü ¸Þ¸ð¸®°¡ ÀâÈù´Ù.
+		int [][]a = new int[3][4]; //3í–‰ 4ì—´ì˜ 2ì°¨ì› ë°°ì—´ ==> 12ê°œì˜ ì •ìˆ˜í˜• ë©”ëª¨ë¦¬ê°€ ìž¡ížŒë‹¤.
 		
-		//ÁßÃ¸¹Ýº¹¹®À» ÀÌ¿ëÇÏ¿© °¢ ¹è¿­¿¡ ¿ä¼Ò¿¡ 1ºÎÅÍ 1¾¿ Áõ°¡ÇÑ °ªÀ» ÀúÀåÇØº¸ÀÚ.
+		//ì¤‘ì²©ë°˜ë³µë¬¸ì„ ì´ìš©í•˜ì—¬ ê° ë°°ì—´ì— ìš”ì†Œì— 1ë¶€í„° 1ì”© ì¦ê°€í•œ ê°’ì„ ì €ìž¥í•´ë³´ìž.
 		int n = 1;
-		for(int i=0; i<3; i++) { //ÁÙ ¼ö(Çà ¼ö)
-			for(int j=0; j<4; j++) { //¿­ ¼ö
+		for(int i=0; i<3; i++) { //ì¤„ ìˆ˜(í–‰ ìˆ˜)
+			for(int j=0; j<4; j++) { //ì—´ ìˆ˜
 				a[i][j] = n++;
 			}
 		}
 		
 		
-		//¸ðµç ¹è¿­ÀÇ ¿ä¼Ò¸¦ Ãâ·ÂÇØº¸ÀÚ.
+		//ëª¨ë“  ë°°ì—´ì˜ ìš”ì†Œë¥¼ ì¶œë ¥í•´ë³´ìž.
 		
 		for(int i=0; i<3; i++) {
 			for(int j=0; j<4; j++) {
-				System.out.print(a[i][j] + " \t"); //\t ÅÇ¼³Á¤ÇÏ´Â ¸¸Å­ °ø¹éÀ» ¼³Á¤
+				System.out.print(a[i][j] + " \t"); //\t íƒ­ì„¤ì •í•˜ëŠ” ë§Œí¼ ê³µë°±ì„ ì„¤ì •
 			}
-			System.out.println(); //ÁÙÀÌ ³¡³¯ ¶§¸¶´Ù ÁÙ¹Ù²Þ
+			System.out.println(); //ì¤„ì´ ëë‚  ë•Œë§ˆë‹¤ ì¤„ë°”ê¿ˆ
 		}
 		
 		/*
@@ -33,8 +33,8 @@ public class MatrixTest01 {
 		  			a[0][3] = 5
 					a[2][1] = 7
 					
-					2Â÷¿ø ¹è¿­ÀÇ Á¢±ÙÇÒ ¶§´Â ¹è¿­ÀÌ¸§[ÇàÀÎµ¦½º][¿­ÀÎµ¦½º];
+					2ì°¨ì› ë°°ì—´ì˜ ì ‘ê·¼í•  ë•ŒëŠ” ë°°ì—´ì´ë¦„[í–‰ì¸ë±ìŠ¤][ì—´ì¸ë±ìŠ¤];
 		 */
 	}
 
-}
+} 
