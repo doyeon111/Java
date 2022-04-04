@@ -16,9 +16,9 @@ public class MethodPractice02 {
 		Scanner sc = new Scanner(System.in);
 		int n;
 
-		System.out.println("1ºÎÅÍ ¾îµğ±îÁö Ãâ·ÂÇÒ±î¿ä? ");
+		System.out.println("1ë¶€í„° ì–´ë””ê¹Œì§€ ì¶œë ¥í• ê¹Œìš”? ");
 		n = sc.nextInt();
-		System.out.println("1ºÎÅÍ " + n + "±îÁöÀÇ ÇÕÀº " + getSum(n));
+		System.out.println("1ë¶€í„° " + n + "ê¹Œì§€ì˜ í•©ì€ " + getSum(n));
 		
 		
 		
@@ -28,9 +28,10 @@ public class MethodPractice02 {
 		
 //		int r = getSum(10);
 //
-//		System.out.println("1ºÎÅÍ 10±îÁöÀÇ ÇÕÀº: " + r);
-//		System.out.println("1¿¡¼­ 100±îÁöÀÇ ÇÕÀº: " + getSum(100));
+//		System.out.println("1ë¶€í„° 10ê¹Œì§€ì˜ í•©ì€: " + r);
+//		System.out.println("1ì—ì„œ 100ê¹Œì§€ì˜ í•©ì€: " + getSum(100));
 
 	}
 
 }
+ 
