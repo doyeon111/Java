@@ -1,6 +1,6 @@
 package exam07;
-//pdf 02¹ø¹®Á¦
-//´Ù¾çÇÑ ÇüÅÂÀÇ »ı¼ºÀÚ¸¦ ¸¸µé¾îº¸ÀÚ.
+//pdf 02ë²ˆë¬¸ì œ
+//ë‹¤ì–‘í•œ í˜•íƒœì˜ ìƒì„±ìë¥¼ ë§Œë“¤ì–´ë³´ì.
 public class Book {
 	private String title;
 	private String author;
@@ -11,16 +11,16 @@ public class Book {
 	}
 	
 	public Book() {
-		title = "Á¦¸ñ¾øÀ½";
-		author = "ÀúÀÚ¾øÀ½";
+		title = "ì œëª©ì—†ìŒ";
+		author = "ì €ìì—†ìŒ";
 	}
 	
 	public Book(String type, String t, String a) {
 		if(type == "t") {
 			title = t;
-			author = "±èÀ¯½Å";
+			author = "ê¹€ìœ ì‹ ";
 		} else if (type == "a") {
-			title = "ÀÚ¹Ù";
+			title = "ìë°”";
 			author = a;
 		}
 	}
@@ -31,13 +31,13 @@ public class Book {
 	
 	public void setAuthor(String a) {
 		author = a;
-	}
+	} 
 	
-	public String getTitle() { //title ¹İÈ¯
+	public String getTitle() { //title ë°˜í™˜
 		return title;
 	}
 	
-	public String getAuthor() { //author ¹İÈ¯
+	public String getAuthor() { //author ë°˜í™˜
 		return author;
 	}
 }
