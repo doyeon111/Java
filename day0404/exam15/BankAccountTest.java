@@ -11,8 +11,8 @@ public class BankAccountTest {
 		a1.withdraw(60);
 		a2.withdraw(300);
 		
-		//System.out.println("a1ÀÇ ÀÜ°í: " + a1.getBalance());
-		//System.out.println("a2ÀÇ ÀÜ°í: " + a2.getBalance());
+		//System.out.println("a1Å”Ã‡ Å”ÃœÂ°Ã­: " + a1.getBalance());
+		//System.out.println("a2Å”Ã‡ Å”ÃœÂ°Ã­: " + a2.getBalance());
 		
 		a1.printBalance();
 		a2.printBalance();
@@ -25,3 +25,4 @@ public class BankAccountTest {
 	}
 
 }
+ 
