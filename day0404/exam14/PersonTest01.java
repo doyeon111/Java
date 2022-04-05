@@ -2,7 +2,7 @@ package exam14;
 
 class Person {
 	private String name;
-	int age; //ÀÚµ¿À¸·Î int´Â 0, string °ªÀº null·Î »ı¼ºµÈ´Ù.
+	int age; //ìë™ìœ¼ë¡œ intëŠ” 0, string ê°’ì€ nullë¡œ ìƒì„±ëœë‹¤.
 	
 	public String getName() {
 		return name;
@@ -26,10 +26,10 @@ public class PersonTest01 {
 
 	public static void main(String[] args) {
 		Person p = new Person();
-		System.out.println("±âº» »ı¼ºÀÚ·Î °´Ã¼¸¦ »ı¼ºÇÒ ¼ö ÀÖ´Ù.");
-		System.out.println("ÀÌ¸§: " + p.getName());
-		System.out.println("³ªÀÌ: " + p.getAge());
+		System.out.println("ê¸°ë³¸ ìƒì„±ìë¡œ ê°ì²´ë¥¼ ìƒì„±í•  ìˆ˜ ìˆë‹¤.");
+		System.out.println("ì´ë¦„: " + p.getName());
+		System.out.println("ë‚˜ì´: " + p.getAge());
 
-	}
+	} 
 
 }
