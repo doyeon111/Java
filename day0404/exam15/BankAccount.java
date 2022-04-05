@@ -1,25 +1,25 @@
 package exam15;
-//pdf LAB 3¹ø¹®Á¦
+//pdf LAB 3ë²ˆë¬¸ì œ
 public class BankAccount {
-	private int balance; //ÀÜ¾×À» Ç¥½ÃÇÏ´Â º¯¼ö
+	private int balance; //ì”ì•¡ì„ í‘œì‹œí•˜ëŠ” ë³€ìˆ˜
 	
-	public void deposit(int amount) { //Àú±İÀ» ÇÏ´Â ¸Ş¼Òµå
+	public void deposit(int amount) { //ì €ê¸ˆì„ í•˜ëŠ” ë©”ì†Œë“œ
 		balance += amount;
 	}
 
-	public void withdraw(int amount) { //ÀÎÃâÇÏ´Â ¸Ş¼Òµå
+	public void withdraw(int amount) { //ì¸ì¶œí•˜ëŠ” ë©”ì†Œë“œ
 		if(amount > balance) {
-			System.out.println("ÀÜ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
+			System.out.println("ì”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
 			return;
 		}
 		balance -= amount;
 	}
 	
-	public void printBalance() { //ÇöÀç ÀÜ¾×À» Ãâ·ÂÇÏ´Â ¸Ş¼Òµå
-		System.out.println("ÇöÀç ÀÜ¾×: " + getBalance());
+	public void printBalance() { //í˜„ì¬ ì”ì•¡ì„ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œ
+		System.out.println("í˜„ì¬ ì”ì•¡: " + getBalance());
 	}
 	
-	public void addInterest() { //ÇöÀç ÀÜ¾×¿¡ ´ëÇÏ¿© ¿¬ 7.5%ÀÌÀÚ¸¦ °è»êÇÏ¿© Ãß°¡ÇÏ´Â ¸Ş¼Òµå
+	public void addInterest() { //í˜„ì¬ ì”ì•¡ì— ëŒ€í•˜ì—¬ ì—° 7.5%ì´ìë¥¼ ê³„ì‚°í•˜ì—¬ ì¶”ê°€í•˜ëŠ” ë©”ì†Œë“œ
 		balance += (int)(balance*0.075);
 	}
 	
@@ -31,5 +31,6 @@ public class BankAccount {
 		return balance;
 	}
 	
-	//°¢°¢ÀÇ ¸Ş¼Òµå ¾È¿¡ ³»¿ëÀ» ±¸Ã¼È­ ÇØº¸±â.
+	//ê°ê°ì˜ ë©”ì†Œë“œ ì•ˆì— ë‚´ìš©ì„ êµ¬ì²´í™” í•´ë³´ê¸°.
 }
+ 
