@@ -1,15 +1,15 @@
 package exam13;
-//pdf 06¹ø¹®Á¦
+//pdf 06ë²ˆë¬¸ì œ
 public class CellPhone {
 	private String model, company, color;
 	private boolean power, camera;
 	
-	//Àü¿øÀ» ÄÑ´Â ¸Ş¼Òµå
+	//ì „ì›ì„ ì¼œëŠ” ë©”ì†Œë“œ
 	public void powerOn() {
 		power = true;
 	}
 	
-	//Àü¿øÀ» ²ô´Â ¸Ş¼Òµå
+	//ì „ì›ì„ ë„ëŠ” ë©”ì†Œë“œ
 	public void powerOff() {
 		power = false;
 	}
@@ -68,4 +68,4 @@ public class CellPhone {
 		
 	}
 	
-}
+} 
