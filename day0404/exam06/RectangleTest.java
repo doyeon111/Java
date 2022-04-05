@@ -9,11 +9,12 @@ public class RectangleTest {
 		Rectangle r3 = new Rectangle("w", 40);
 		Rectangle r4 = new Rectangle("l", 40);
 		
-		System.out.println("∞°∑Œ: " + r1.getWidth() + " ºº∑Œ: " + r1.getLength() + " ≥–¿Ã: " + r1.calcArea());
-		System.out.println("∞°∑Œ: " + r2.getWidth() + " ºº∑Œ: " + r2.getLength() + " ≥–¿Ã: " + r2.calcArea());
-		System.out.println("∞°∑Œ: " + r3.getWidth() + " ºº∑Œ: " + r3.getLength() + " ≥–¿Ã: " + r3.calcArea());
-		System.out.println("∞°∑Œ: " + r4.getWidth() + " ºº∑Œ: " + r4.getLength() + " ≥–¿Ã: " + r4.calcArea());
+		System.out.println("Í∞ÄÎ°ú: " + r1.getWidth() + " ÏÑ∏Î°ú: " + r1.getLength() + " ÎÑìÏù¥: " + r1.calcArea());
+		System.out.println("Í∞ÄÎ°ú: " + r2.getWidth() + " ÏÑ∏Î°ú: " + r2.getLength() + " ÎÑìÏù¥: " + r2.calcArea());
+		System.out.println("Í∞ÄÎ°ú: " + r3.getWidth() + " ÏÑ∏Î°ú: " + r3.getLength() + " ÎÑìÏù¥: " + r3.calcArea());
+		System.out.println("Í∞ÄÎ°ú: " + r4.getWidth() + " ÏÑ∏Î°ú: " + r4.getLength() + " ÎÑìÏù¥: " + r4.calcArea());
 
 	}
 
 }
+ 
