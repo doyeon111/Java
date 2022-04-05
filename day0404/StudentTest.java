@@ -2,7 +2,7 @@ package day0404;
 
 import java.util.Scanner;
 
-//5¸íÀÇ ÀÌ¸§, ±¹¾î, ¿µ¾î, ¼öÇĞÀ» ÀÔ·Â¹Ş¾Æ ÃÑÁ¡, Æò±ÕÀ» ±¸ÇÏ°í ¼ºÀû ¼øÀ¸·Î Á¤·ÄÇÏ¿© Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+//5ëª…ì˜ ì´ë¦„, êµ­ì–´, ì˜ì–´, ìˆ˜í•™ì„ ì…ë ¥ë°›ì•„ ì´ì , í‰ê· ì„ êµ¬í•˜ê³  ì„±ì  ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì—¬ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 
 public class StudentTest {
 
@@ -17,23 +17,23 @@ public class StudentTest {
 		double []avg = new double[5];
 		
 		for(int i=0; i<name.length; i++) {
-			System.out.print((i+1)+ "¹øÂ° ÇĞ»ıÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i+1)+ "ë²ˆì§¸ í•™ìƒì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 			name[i] = sc.next();
 			
-			System.out.print((i+1)+ "¹øÂ° ÇĞ»ıÀÇ ±¹¾îÁ¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i+1)+ "ë²ˆì§¸ í•™ìƒì˜ êµ­ì–´ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			kor[i] = sc.nextInt();
 			
-			System.out.print((i+1)+ "¹øÂ° ÇĞ»ıÀÇ ¿µ¾îÁ¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i+1)+ "ë²ˆì§¸ í•™ìƒì˜ ì˜ì–´ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			eng[i] = sc.nextInt();
 			
-			System.out.print((i+1)+ "¹øÂ° ÇĞ»ıÀÇ ¼öÇĞÁ¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i+1)+ "ë²ˆì§¸ í•™ìƒì˜ ìˆ˜í•™ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			math[i] = sc.nextInt();
 			
 			tot[i] = kor[i] + eng[i] + math[i];
 			avg[i] = tot[i] / 3.0;
 		}
 		
-		System.out.println("ÀÌ¸§\t±¹¾î\t¿µ¾î\t¼öÇĞ\tÃÑÁ¡\tÆò±Õ");
+		System.out.println("ì´ë¦„\têµ­ì–´\tì˜ì–´\tìˆ˜í•™\tì´ì \tí‰ê· ");
 		
 		for(int i =0; i<name.length; i++) {
 			System.out.println(name[i] + "\t"
@@ -45,12 +45,12 @@ public class StudentTest {
 		}
 		
 		System.out.println("--------------------------------------------------");
-		System.out.println("*** ¼ºÀû ¼øÀ¸·Î Á¤·Ä ***");
+		System.out.println("*** ì„±ì  ìˆœìœ¼ë¡œ ì •ë ¬ ***");
 		
-		//Á¤·Ä
+		//ì •ë ¬
 		for (int i=0; i<name.length; i++) {
 			for(int j=i+1; j<name.length; j++) {
-				if(tot[j] > tot[i]) { //ÀÌ¸§, ±¹¾î, ¿µ¾î, ¼öÇĞ, ÃÑÁ¡, Æò±Õµµ ´Ù ¹Ù²Ù¾î ÁÖ¾î¾ß ÇÔ.
+				if(tot[j] > tot[i]) { //ì´ë¦„, êµ­ì–´, ì˜ì–´, ìˆ˜í•™, ì´ì , í‰ê· ë„ ë‹¤ ë°”ê¾¸ì–´ ì£¼ì–´ì•¼ í•¨.
 					String name_temp = name[i];
 					name[i] = name[j];
 					name[j] = name_temp; 
@@ -65,7 +65,7 @@ public class StudentTest {
 					
 					int math_temp = math[i];
 					math[i] = math[j];
-					math[j] = math_temp; 
+		 			math[j] = math_temp; 
 					
 					int tot_temp = tot[i];
 					tot[i] = tot[j];
