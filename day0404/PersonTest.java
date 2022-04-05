@@ -3,28 +3,29 @@ package day0404;
 public class PersonTest {
 
 	public static void main(String[] args) {
-		int a; //aÀÇ µ¥ÀÌÅÍÅ¸ÀÔÀº int
+		int a; //aì˜ ë°ì´í„°íƒ€ì…ì€ int
 		a=5;
 		double b;
-		b=2.7; //±âº» ÀÚ·áÇüÀº ¹Ù·Î »ı¼ºÇÏ¿© »ç¿ëÇÒ ¼ö ÀÖÁö¸¸,
+		b=2.7; //ê¸°ë³¸ ìë£Œí˜•ì€ ë°”ë¡œ ìƒì„±í•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ìˆì§€ë§Œ,
 		
-		Person kim; //°´Ã¼ ÂüÁ¶ º¯¼ö
-		kim = new Person(); //Å¬·¡½º´Â ÀÌ·¸°Ô ¸¸µé¾îÁà¾ß »ç¿ëÇÒ ¼ö ÀÖ´Ù.
-		//Á¢±Ù ÇÒ ½Ã kim.name = "±è¹ÎÇõ"; .Àº Á¢±Ù¿¬»êÀÚ (¸â¹öÁ¢±Ù¿¬»êÀÚ) 
+		Person kim; //ê°ì²´ ì°¸ì¡° ë³€ìˆ˜
+		kim = new Person(); //í´ë˜ìŠ¤ëŠ” ì´ë ‡ê²Œ ë§Œë“¤ì–´ì¤˜ì•¼ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
+		//ì ‘ê·¼ í•  ì‹œ kim.name = "ê¹€ë¯¼í˜"; .ì€ ì ‘ê·¼ì—°ì‚°ì (ë©¤ë²„ì ‘ê·¼ì—°ì‚°ì) 
 		//kim.age = 28;
-		kim.name = "±è¹ÎÇõ";
+		kim.name = "ê¹€ë¯¼í˜";
 		kim.age = 28;
-		kim.wash("¼¤Çª");
-		kim.eat("¿ìÀ¯");
+		kim.wash("ìƒ´í‘¸");
+		kim.eat("ìš°ìœ ");
 		
 		
 		Person park;
 		park = new Person();
-		park.name = "¹ÚÁ¤¼ö";
+		park.name = "ë°•ì •ìˆ˜";
 		park.age = 30;
-		park.eat("ÃÊ¹ä");
-		park.wash("¹Ùµğ¿ö½Ã");
+		park.eat("ì´ˆë°¥");
+		park.wash("ë°”ë””ì›Œì‹œ");
 
 	}
 
 }
+ 
