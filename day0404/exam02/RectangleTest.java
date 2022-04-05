@@ -7,9 +7,9 @@ public class RectangleTest {
 		r.setWidth(20);
 		r.setLength(30);
 		
-		System.out.println("∞°∑Œ: " + r.getWidth()); 
-		System.out.println("ºº∑Œ: " + r.getLength());
-		System.out.println("≥–¿Ã: " + r.calcArea());
+		System.out.println("Í∞ÄÎ°ú: " + r.getWidth()); 
+		System.out.println("ÏÑ∏Î°ú: " + r.getLength());
+		System.out.println("ÎÑìÏù¥: " + r.calcArea());
 		
 		
 
