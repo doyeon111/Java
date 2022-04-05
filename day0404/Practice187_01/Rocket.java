@@ -31,7 +31,7 @@ public class Rocket {
 	}
 	
 	public String toString() {
-		return "x: " + x + "\t" + "y: " + y;
+		return "x: " + x + "\t" + "y: " + y; 
 		
 	}
 	public int moveUp() {
