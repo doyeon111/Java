@@ -4,15 +4,15 @@ public class Person {
 	private String name;
 	private int age;
 	
-	//»ı¼ºÀÚ°¡ ¸Å°³º¯¼ö¸¦ °¡Áú ¼öµµ ÀÖ´Ù.(¸Å°³º¯¼ö 2°³)
-	public Person(String n, int a) { //Å¬·¡½º ÀÌ¸§°ú µ¿ÀÏÇÏ°Ô
+	//ìƒì„±ìê°€ ë§¤ê°œë³€ìˆ˜ë¥¼ ê°€ì§ˆ ìˆ˜ë„ ìˆë‹¤.(ë§¤ê°œë³€ìˆ˜ 2ê°œ)
+	public Person(String n, int a) { //í´ë˜ìŠ¤ ì´ë¦„ê³¼ ë™ì¼í•˜ê²Œ
 		name = n;
 		age = a;
 	}
 	
-	//»ı¼ºÀÚ ÇÔ¼ö°¡ Áßº¹µÉ ¼ö ÀÖ´Ù.
+	//ìƒì„±ì í•¨ìˆ˜ê°€ ì¤‘ë³µë  ìˆ˜ ìˆë‹¤.
 	public Person() {
-		name = "È«±æµ¿";
+		name = "í™ê¸¸ë™";
 		age = 20;
 	}
 	
@@ -22,34 +22,35 @@ public class Person {
 	}
 	
 	public Person(int a) {
-		name = "È«±æµ¿";
+		name = "í™ê¸¸ë™";
 		age = a;
 	}
 	
-	//name¿¡ Á¢±ÙÇÏ¿© °ªÀ» ¼³Á¤ÇÏ´Â ¸Ş¼Òµå¸¦ ¸¸µç´Ù.
-	public void setName(String n) { //setName, setAge °°Àº ¸É¹ö¿¡ Á¢±ÙÇÏ¿© °ªÀ» º¯°æ½ÃÅ°´Â ¸Ş¼Òµåµé ==> setter(¼³Á¤ÀÚ)¶ó°í ÇÑ´Ù.
+	//nameì— ì ‘ê·¼í•˜ì—¬ ê°’ì„ ì„¤ì •í•˜ëŠ” ë©”ì†Œë“œë¥¼ ë§Œë“ ë‹¤.
+	public void setName(String n) { //setName, setAge ê°™ì€ ë§´ë²„ì— ì ‘ê·¼í•˜ì—¬ ê°’ì„ ë³€ê²½ì‹œí‚¤ëŠ” ë©”ì†Œë“œë“¤ ==> setter(ì„¤ì •ì)ë¼ê³  í•œë‹¤.
 		name = n;
 	}
-	//age¿¡ Á¢±ÙÇÏ¿© °ªÀ» ¼³Á¤ÇÏ´Â ¸Ş¼Òµå
+	//ageì— ì ‘ê·¼í•˜ì—¬ ê°’ì„ ì„¤ì •í•˜ëŠ” ë©”ì†Œë“œ
 	public void setAge(int a) {
 		age = a;
 	}
 	
-	//nameÀ» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå¸¦ ¸¸µç´Ù.
-	public String getName() { //getName, getAge¿Í °°Àº ¸É¹öº¯¼ö¿¡ Á¢±ÙÇÏ¿© °ªÀ» ÀĞ¾î¿À´Â ±â´Éµé ==> getter(Á¢±ÙÀÚ)¶ó°í ÇÑ´Ù.
+	//nameì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œë¥¼ ë§Œë“ ë‹¤.
+	public String getName() { //getName, getAgeì™€ ê°™ì€ ë§´ë²„ë³€ìˆ˜ì— ì ‘ê·¼í•˜ì—¬ ê°’ì„ ì½ì–´ì˜¤ëŠ” ê¸°ëŠ¥ë“¤ ==> getter(ì ‘ê·¼ì)ë¼ê³  í•œë‹¤.
 		return name;
 	}
 	
-	//age¸¦ ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+	//ageë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 	public int getAge() {
 		return age;
 	}
 	
 	public void eat(String food) {
-		System.out.println(age + "»ì " + name + "ÀÌ(°¡) " + food + "¸¦(À») ¸Ô¾î¿ä!");
+		System.out.println(age + "ì‚´ " + name + "ì´(ê°€) " + food + "ë¥¼(ì„) ë¨¹ì–´ìš”!");
 	}
 	
 	public void wash(String soap) {
-		System.out.println(age + "»ì " + name + "ÀÌ(°¡) " + soap + "À¸·Î ¾Ä¾î¿ä!");
+		System.out.println(age + "ì‚´ " + name + "ì´(ê°€) " + soap + "ìœ¼ë¡œ ì”»ì–´ìš”!");
 	}
 }
+ 
