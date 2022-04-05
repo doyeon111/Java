@@ -4,18 +4,18 @@ public class PersonTest {
 
 	public static void main(String[] args) {
 		Person kim;
-		kim = new Person(); //°´Ã¼ »ı¼º½Ã¿¡ ÀÌ¸§°ú ³ªÀÌ°¡ ÀÚµ¿À¸·Î »ı¼º
+		kim = new Person(); //ê°ì²´ ìƒì„±ì‹œì— ì´ë¦„ê³¼ ë‚˜ì´ê°€ ìë™ìœ¼ë¡œ ìƒì„±
 
 		System.out.println(kim.getName()); 
 		System.out.println(kim.getAge()); 
 
 		
-		kim.eat("¿ìÀ¯");
-		kim.wash("¼¤Çª");
+		kim.eat("ìš°ìœ ");
+		kim.wash("ìƒ´í‘¸");
 		
-		kim.setName("±èÀ¯½Å");
+		kim.setName("ê¹€ìœ ì‹ ");
 		kim.setAge(20);
-		kim.eat("Ã»±¹Àå");
+		kim.eat("ì²­êµ­ì¥");
 		
 		
 		
@@ -23,3 +23,4 @@ public class PersonTest {
 	}
 
 }
+ 
