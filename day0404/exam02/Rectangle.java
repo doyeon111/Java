@@ -1,5 +1,5 @@
 package exam02;
-//pdf 01¹ø¹®Á¦
+//pdf 01ë²ˆ ë¬¸ì œ
 public class Rectangle {
 	private double width;
 	private double length;
