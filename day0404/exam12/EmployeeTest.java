@@ -4,19 +4,20 @@ public class EmployeeTest {
 
 	public static void main(String[] args) {
 		Employee e1 = new Employee();
-		Employee e2 = new Employee("±è¹ÎÁö", "010-1111-2222", 3000);
+		Employee e2 = new Employee("ê¹€ë¯¼ì§€", "010-1111-2222", 3000);
 		
 		
-		System.out.println("ÀÌ¸§: " + e1.getName()+ "\t"
-		+ " ÀüÈ­¹øÈ£: " + e1.getPhone() + "\t"
-		+ " ¿¬ºÀ: " + e1.getAnnual() + "\t"
+		System.out.println("ì´ë¦„: " + e1.getName()+ "\t"
+		+ " ì „í™”ë²ˆí˜¸: " + e1.getPhone() + "\t"
+		+ " ì—°ë´‰: " + e1.getAnnual() + "\t"
 		);
 		
-		System.out.println("ÀÌ¸§: " + e2.getName()+ "\t"
-		+ " ÀüÈ­¹øÈ£: " + e2.getPhone() + "\t"
-		+ " ¿¬ºÀ: " + e2.getAnnual() + "\t"
+		System.out.println("ì´ë¦„: " + e2.getName()+ "\t"
+		+ " ì „í™”ë²ˆí˜¸: " + e2.getPhone() + "\t"
+		+ " ì—°ë´‰: " + e2.getAnnual() + "\t"
 		);
 
 	}
 
 }
+ 
