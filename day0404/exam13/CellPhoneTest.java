@@ -5,18 +5,19 @@ public class CellPhoneTest {
 	public static void main(String[] args) {
 
 		CellPhone p1 = new CellPhone();
-		CellPhone p2 = new CellPhone("°¶·°½ÃS10", "»ï¼º", "Èò»ö", false, true);
+		CellPhone p2 = new CellPhone("ê°¤ëŸ­ì‹œS10", "ì‚¼ì„±", "í°ìƒ‰", false, true);
 		p2.powerOn();
-		System.out.println("¸ğµ¨¸í:" + p1.getModel() + "\t" + "Á¦Á¶»ç:" + p1.getCompany() + "\t" + "»ö»ó:" + p1.getColor()
-				+ "\t " + "Àü¿ø»óÅÂ:" + p1.isPower() + "\t" + "Ä«¸Ş¶ó»óÅÂ:" + p1.isCamera());
+		System.out.println("ëª¨ë¸ëª…:" + p1.getModel() + "\t" + "ì œì¡°ì‚¬:" + p1.getCompany() + "\t" + "ìƒ‰ìƒ:" + p1.getColor()
+				+ "\t " + "ì „ì›ìƒíƒœ:" + p1.isPower() + "\t" + "ì¹´ë©”ë¼ìƒíƒœ:" + p1.isCamera());
 
-		System.out.println("¸ğµ¨¸í:" + p2.getModel() + "\t" + "Á¦Á¶»ç:" + p2.getCompany() + "\t" + "»ö»ó:" + p2.getColor()
-				+ "\t" + "Àü¿ø»óÅÂ:" + p2.isPower() + "\t" + "Ä«¸Ş¶ó»óÅÂ:" + p2.isCamera());
+		System.out.println("ëª¨ë¸ëª…:" + p2.getModel() + "\t" + "ì œì¡°ì‚¬:" + p2.getCompany() + "\t" + "ìƒ‰ìƒ:" + p2.getColor()
+				+ "\t" + "ì „ì›ìƒíƒœ:" + p2.isPower() + "\t" + "ì¹´ë©”ë¼ìƒíƒœ:" + p2.isCamera());
 
 		p2.powerOff();
-		System.out.println("¸ğµ¨¸í:" + p2.getModel() + "\t" + "Á¦Á¶»ç:" + p2.getCompany() + "\t" + "»ö»ó:" + p2.getColor()
-				+ "\t" + "Àü¿ø»óÅÂ:" + p2.isPower() + "\t" + "Ä«¸Ş¶ó»óÅÂ:" + p2.isCamera());
+		System.out.println("ëª¨ë¸ëª…:" + p2.getModel() + "\t" + "ì œì¡°ì‚¬:" + p2.getCompany() + "\t" + "ìƒ‰ìƒ:" + p2.getColor()
+				+ "\t" + "ì „ì›ìƒíƒœ:" + p2.isPower() + "\t" + "ì¹´ë©”ë¼ìƒíƒœ:" + p2.isCamera());
 
 	}
 
 }
+ 
