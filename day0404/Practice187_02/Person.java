@@ -37,14 +37,14 @@ public class Person {
 	}
 	
 	public String toString() {
-		return "ÀÌ¸§: " + name + "\t" +
-				"ÀüÈ­¹øÈ£: " + mobile + "\t" +
-				"Á÷Àå ÀüÈ­¹øÈ£: " + office + "\t" +
-				"ÀÌ¸ŞÀÏ: " + email;
+		return "ì´ë¦„: " + name + "\t" +
+				"ì „í™”ë²ˆí˜¸: " + mobile + "\t" +
+				"ì§ì¥ ì „í™”ë²ˆí˜¸: " + office + "\t" +
+				"ì´ë©”ì¼: " + email;
 
 		
 	}
 	
-
+ 
 	
 }
