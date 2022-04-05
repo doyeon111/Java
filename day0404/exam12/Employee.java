@@ -1,5 +1,5 @@
 package exam12;
-//pdf 05¹ø¹®Á¦
+//pdf 05ë²ˆë¬¸ì œ
 public class Employee {
 	private String name, phone;
 	private int annual;
@@ -10,7 +10,7 @@ public class Employee {
 		this.annual = annual;
 	}
 	public Employee() {
-		name = "È«±æµ¿";
+		name = "í™ê¸¸ë™";
 		phone = "010-1234-5678";
 		annual = 3200;
 	}
