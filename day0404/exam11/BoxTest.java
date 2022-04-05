@@ -9,15 +9,15 @@ public class BoxTest {
 		b1.CalcVolume();
 		b2.CalcVolume();
 		
-		System.out.println("°¡·Î: " + b1.getWidth() 
-							+ " ¼¼·Î: " + b1.getLength()
-							+ " ³ôÀÌ: " + b1.getHeight()
-							+ " ºÎÇÇ: " + b1.getCalVolume());
+		System.out.println("ê°€ë¡œ: " + b1.getWidth() 
+							+ " ì„¸ë¡œ: " + b1.getLength()
+							+ " ë†’ì´: " + b1.getHeight()
+							+ " ë¶€í”¼: " + b1.getCalVolume());
 		
-		System.out.println("°¡·Î: " + b2.getWidth() 
-		+ " ¼¼·Î: " + b2.getLength()
-		+ " ³ôÀÌ: " + b2.getHeight()
-		+ " ºÎÇÇ: " + b2.getCalVolume());
+		System.out.println("ê°€ë¡œ: " + b2.getWidth() 
+		+ " ì„¸ë¡œ: " + b2.getLength()
+		+ " ë†’ì´: " + b2.getHeight()
+		+ " ë¶€í”¼: " + b2.getCalVolume());
 
 	}
-}
+} 
