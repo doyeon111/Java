@@ -1,5 +1,5 @@
 package exam03;
-//pdf 02¹ø¹®Á¦
+//pdf 02ë²ˆë¬¸ì œÂ¦
 public class Book {
 	private String title;
 	private String author;
@@ -12,11 +12,11 @@ public class Book {
 		author = a;
 	}
 	
-	public String getTitle() { //title ¹İÈ¯
+	public String getTitle() { //title Â¹ÃÃˆÂ¯
 		return title;
 	}
 	
-	public String getAuthor() { //author ¹İÈ¯
+	public String getAuthor() { //author Â¹ÃÃˆÂ¯
 		return author;
 	}
 }
