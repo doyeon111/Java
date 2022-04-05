@@ -10,23 +10,23 @@ public class SongTest {
 		Song s4 = new Song();
 		
 		
-		System.out.println("³ë·¡ Á¦¸ñ: " +s1.getTitle() + "\t" +
-							"°¡¼ö: " +s1.getArtist() + "\t" +
-							"±æÀÌ: " +s1.getLength() + "\t");
+		System.out.println("ë…¸ë˜ ì œëª©: " +s1.getTitle() + "\t" +
+							"ê°€ìˆ˜: " +s1.getArtist() + "\t" +
+							"ê¸¸ì´: " +s1.getLength() + "\t");
 		
-		System.out.println("³ë·¡ Á¦¸ñ: " +s2.getTitle() + "\t" +
-				"°¡¼ö: " +s2.getArtist() + "\t" +
-				"±æÀÌ: " +s2.getLength() + "\t");
+		System.out.println("ë…¸ë˜ ì œëª©: " +s2.getTitle() + "\t" +
+				"ê°€ìˆ˜: " +s2.getArtist() + "\t" +
+				"ê¸¸ì´: " +s2.getLength() + "\t");
 		
-		System.out.println("³ë·¡ Á¦¸ñ: " +s3.getTitle() + "\t" +
-				"°¡¼ö: " +s3.getArtist() + "\t" +
-				"±æÀÌ: " +s3.getLength() + "\t");
+		System.out.println("ë…¸ë˜ ì œëª©: " +s3.getTitle() + "\t" +
+				"ê°€ìˆ˜: " +s3.getArtist() + "\t" +
+				"ê¸¸ì´: " +s3.getLength() + "\t");
 		
-		System.out.println("³ë·¡ Á¦¸ñ: " +s4.getTitle() + "\t" +
-				"°¡¼ö: " +s4.getArtist() + "\t" +
-				"±æÀÌ: " +s4.getLength() + "\t");
+		System.out.println("ë…¸ë˜ ì œëª©: " +s4.getTitle() + "\t" +
+				"ê°€ìˆ˜: " +s4.getArtist() + "\t" +
+				"ê¸¸ì´: " +s4.getLength() + "\t");
 		
 
-	}
+	} 
 
 }
