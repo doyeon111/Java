@@ -3,16 +3,17 @@ package exam07;
 public class BookTest {
 
 	public static void main(String[] args) {	
-		Book b1 = new Book("Àç¹ÌÀÖ´Â ÀÚ¹Ù", "±èµµ¿¬");
+		Book b1 = new Book("ì¬ë¯¸ìˆëŠ” ìë°”", "ê¹€ë„ì—°");
 		Book b2 = new Book();
-		Book b3 = new Book("t", "ÇŞ´Ô°ú ´Ş´Ô", "");
-		Book b4 = new Book("a","", "±è¹ÎÁö");
+		Book b3 = new Book("t", "í–‡ë‹˜ê³¼ ë‹¬ë‹˜", "");
+		Book b4 = new Book("a","", "ê¹€ë¯¼ì§€");
 		
-		System.out.println("Ã¥ Á¦¸ñ: " + b1.getTitle() + ", Ã¥ ÀúÀÚ: " + b1.getAuthor());
-		System.out.println("Ã¥ Á¦¸ñ: " + b2.getTitle() + ", Ã¥ ÀúÀÚ: " + b2.getAuthor());
-		System.out.println("Ã¥ Á¦¸ñ: " + b3.getTitle() + ", Ã¥ ÀúÀÚ: " + b3.getAuthor());
-		System.out.println("Ã¥ Á¦¸ñ: " + b4.getTitle() + ", Ã¥ ÀúÀÚ: " + b4.getAuthor());
+		System.out.println("ì±… ì œëª©: " + b1.getTitle() + ", ì±… ì €ì: " + b1.getAuthor());
+		System.out.println("ì±… ì œëª©: " + b2.getTitle() + ", ì±… ì €ì: " + b2.getAuthor());
+		System.out.println("ì±… ì œëª©: " + b3.getTitle() + ", ì±… ì €ì: " + b3.getAuthor());
+		System.out.println("ì±… ì œëª©: " + b4.getTitle() + ", ì±… ì €ì: " + b4.getAuthor());
 
 	}
 
 }
+ 
