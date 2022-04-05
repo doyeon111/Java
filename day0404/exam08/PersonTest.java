@@ -6,18 +6,19 @@ public class PersonTest {
 //		Person p1;
 //		p1 = new Person();
 		
-		Person p1 = new Person(); //¸Å°³º¯¼ö°¡ ÇÏ³ªµµ ¾øÀ¸¸é Person.java¿¡¼­ ¼³Á¤ÇØ³õÀº È«±æµ¿ÀÌ ³ª¿È.
-		Person p2 = new Person("ÀÌ¼ø½Å" , 30);
-		Person p3 = new Person("ÀÌ¼ø½Å");
+		Person p1 = new Person(); //ë§¤ê°œë³€ìˆ˜ê°€ í•˜ë‚˜ë„ ì—†ìœ¼ë©´ Person.javaì—ì„œ ì„¤ì •í•´ë†“ì€ í™ê¸¸ë™ì´ ë‚˜ì˜´.
+		Person p2 = new Person("ì´ìˆœì‹ " , 30);
+		Person p3 = new Person("ì´ìˆœì‹ ");
 		Person p4 = new Person(30);
 		
-		p1.eat("¶ó¸é");
-		p2.eat("¶ó¸é");
-		p3.eat("¶ó¸é");
-		p4.eat("¶ó¸é");
+		p1.eat("ë¼ë©´");
+		p2.eat("ë¼ë©´");
+		p3.eat("ë¼ë©´");
+		p4.eat("ë¼ë©´");
 		
 		
 
 	}
 
 }
+ 
