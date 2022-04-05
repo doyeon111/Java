@@ -1,25 +1,26 @@
 package day0404;
 /*
- * »ç¶÷ 		 Person(Å¬·¡½º)
-		¼Ó¼º
-			ÀÌ¸§		String name		"È«±æµ¿"
-			³ªÀÌ 		int age			20
+ * ì‚¬ëŒ 		 Person(í´ë˜ìŠ¤)
+		ì†ì„±
+			ì´ë¦„		String name		"í™ê¸¸ë™"
+			ë‚˜ì´ 		int age			20
 			
-		µ¿ÀÛ
-			¸Ô´Â´Ù	void eat(String food)
-			¾Ä´Â´Ù	void wash(String soap)*/
+		ë™ì‘
+			ë¨¹ëŠ”ë‹¤	void eat(String food)
+			ì”»ëŠ”ë‹¤	void wash(String soap)*/
 public class Person {
 	String name;
 	int age;
-	void eat(String food) { //¾î¶² À½½ÄÀ» ¸Ô´ÂÁö ¸Ş¼Òµå
-		System.out.println(age + "»ì " + name + "ÀÌ(°¡) " + food + "¸¦(À») ¸Ô¾î¿ä");
+	void eat(String food) { //ì–´ë–¤ ìŒì‹ì„ ë¨¹ëŠ”ì§€ ë©”ì†Œë“œ
+		System.out.println(age + "ì‚´ " + name + "ì´(ê°€) " + food + "ë¥¼(ì„) ë¨¹ì–´ìš”");
 		
 		
 	}
 	
-	void wash(String soap) { //¾î¶² À½½ÄÀ» ¸Ô´ÂÁö ¸Ş¼Òµå
-		System.out.println(age + "»ì " + name + "ÀÌ(°¡) " + soap + "À¸·Î ¾Ä¾î¿ä¤Ó");
+	void wash(String soap) { //ì–´ë–¤ ìŒì‹ì„ ë¨¹ëŠ”ì§€ ë©”ì†Œë“œ
+		System.out.println(age + "ì‚´ " + name + "ì´(ê°€) " + soap + "ìœ¼ë¡œ ì”»ì–´ìš”ã…£");
 		
 		
 	}
 }
+ 
