@@ -1,9 +1,9 @@
 package exam11;
-//pdf 04¹ø ¹®Á¦
-//¿ì¸®°¡ Å¬·¡½º¸¦ ¸¸µé ¶§¿¡ setter¿Í getter¸¦ ÀÏÀÏÀÌ ¸¸µé·Á´Ï ¹ø°Å·Ó´Ù.(»ı¼ºÀÚµµ ¸¶Âù°¡Áö)
-//ÀÌÅ¬¸³½º°¡ ÀÚµ¿À¸·Î »ı¼º (¸¶¿ì½º ¿À¸¥ÂÊ ´ÜÃß + source + Generate getters and setters)
-//»ı¼ºÀÚ (¸¶¿ì½º ¿À¸¥ÂÊ ´ÜÃß + source + Generate Constuctor using Fiels... ¸Å°³º¯¼ö °®´Â »ı¼ºÀÚ
-//							   + Generate Constuctor from Superclass ... ¸Å°³º¯¼ö ¾ø´Â »ı¼ºÀÚ
+//pdf 04ë²ˆ ë¬¸ì œ
+//ìš°ë¦¬ê°€ í´ë˜ìŠ¤ë¥¼ ë§Œë“¤ ë•Œì— setterì™€ getterë¥¼ ì¼ì¼ì´ ë§Œë“¤ë ¤ë‹ˆ ë²ˆê±°ë¡­ë‹¤.(ìƒì„±ìë„ ë§ˆì°¬ê°€ì§€)
+//ì´í´ë¦½ìŠ¤ê°€ ìë™ìœ¼ë¡œ ìƒì„± (ë§ˆìš°ìŠ¤ ì˜¤ë¥¸ìª½ ë‹¨ì¶” + source + Generate getters and setters)
+//ìƒì„±ì (ë§ˆìš°ìŠ¤ ì˜¤ë¥¸ìª½ ë‹¨ì¶” + source + Generate Constuctor using Fiels... ë§¤ê°œë³€ìˆ˜ ê°–ëŠ” ìƒì„±ì
+//							   + Generate Constuctor from Superclass ... ë§¤ê°œë³€ìˆ˜ ì—†ëŠ” ìƒì„±ì
 public class Box {
 
 	private double width, length, height, volume;
@@ -30,7 +30,7 @@ public class Box {
 
 	public double getHeight() {
 		return height;
-	}
+	} 
 
 	public void setHeight(double height) {
 		this.height = height;
