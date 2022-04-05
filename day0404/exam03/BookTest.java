@@ -7,8 +7,8 @@ public class BookTest {
 		b.setTitle("Great Java");
 		b.setAuthor("bob");
 		
-		System.out.println("Ã¥ Á¦¸ñ: " + b.getTitle());
-		System.out.println("Ã¥ ÀúÀÚ: " + b.getAuthor());
+		System.out.println("ì±… ì œëª©: " + b.getTitle());
+		System.out.println("ì±… ì €ì: " + b.getAuthor());
 
 	}
 
