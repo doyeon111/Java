@@ -1,7 +1,7 @@
 package exam09;
-//pdf 04¹ø ¹®Á¦
-//1) ´Ù¾çÇÑ »ı¼ºÀÚ¸¦ ¸¸µé¾î ½ÇÇè
-//2) »ı¼ºÀÚ³ª ¸Ş¼ÒµåÀÇ ¸Å°³º¯¼ö ÀÌ¸§À» ÀÇ¹ÌÀÖ´Â ÀÌ¸§À¸·Î Á¤ÇØÁØ´Ù.
+//pdf 04ë²ˆ ë¬¸ì œ
+//1) ë‹¤ì–‘í•œ ìƒì„±ìë¥¼ ë§Œë“¤ì–´ ì‹¤í—˜
+//2) ìƒì„±ìë‚˜ ë©”ì†Œë“œì˜ ë§¤ê°œë³€ìˆ˜ ì´ë¦„ì„ ì˜ë¯¸ìˆëŠ” ì´ë¦„ìœ¼ë¡œ ì •í•´ì¤€ë‹¤.
 public class Box {
 	private double width, length, height, volume;
 	
@@ -31,7 +31,7 @@ public class Box {
 	
 	public void CalcVolume() {
 		volume = width * length * height;
-	}
+	} 
 	
 	public double getCalVolume() {
 		return volume;
