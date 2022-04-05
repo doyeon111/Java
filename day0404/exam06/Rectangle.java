@@ -1,7 +1,7 @@
 package exam06;
-//pdf 01¹ø¹®Á¦
+//pdf 01ë²ˆë¬¸ì œ
 
-//Rectangle Å¬·¡½º¿¡ »ı¼ºÀÚ¸¦ ¸¸µé¾îº¸ÀÚ.
+//Rectangle í´ë˜ìŠ¤ì— ìƒì„±ìë¥¼ ë§Œë“¤ì–´ë³´ì.
 public class Rectangle {
 	private double width;
 	private double length;
@@ -16,23 +16,23 @@ public class Rectangle {
 		length = l;
 	}
 	
-	public Rectangle(String type, double v) { //¾Æ·¡ Ã³·³ °¡·Î, ¼¼·Î±æÀÌ¸¸ ÃÊ±âÈ­ ÇÏ°í ½ÍÀº µ¥ µû·Î ¸¸µé ¼ö ¾ø±â ¶§¹®¿¡ ÀÌ·¸°Ô type¿¡ µû¶ó °áÁ¤ÇÏ°Ô ÇØÁØ´Ù.
-		//type: w, l ÀÎÁö¿¡ µû¶ó °áÁ¤
-		if(type.equals("w")) { //w°¡ ¿À¸é °¡·Î±æÀÌ¸¸ ÃÊ±âÈ­
+	public Rectangle(String type, double v) { //ì•„ë˜ ì²˜ëŸ¼ ê°€ë¡œ, ì„¸ë¡œê¸¸ì´ë§Œ ì´ˆê¸°í™” í•˜ê³  ì‹¶ì€ ë° ë”°ë¡œ ë§Œë“¤ ìˆ˜ ì—†ê¸° ë•Œë¬¸ì— ì´ë ‡ê²Œ typeì— ë”°ë¼ ê²°ì •í•˜ê²Œ í•´ì¤€ë‹¤.
+		//type: w, l ì¸ì§€ì— ë”°ë¼ ê²°ì •
+		if(type.equals("w")) { //wê°€ ì˜¤ë©´ ê°€ë¡œê¸¸ì´ë§Œ ì´ˆê¸°í™”
 			width = v;
 			length = 10;
 			
-		} else if(type.equals("l")) { //lÀÌ ¿À¸é ¼¼·Î±æÀÌ¸¸ ÃÊ±âÈ­
+		} else if(type.equals("l")) { //lì´ ì˜¤ë©´ ì„¸ë¡œê¸¸ì´ë§Œ ì´ˆê¸°í™”
 			length = v;
 			width = 10;
-		}
+		} 
 	}
 	
 //	public Rectangle(double w) {
 //		width = w;
 //	}
 	
-//	public Rectangle(double l) { //À§ÀÇ double w ÇÑ °³ÀÇ ¸Å°³º¯¼ö°¡ ÀÖ±â ¶§¹®¿¡ ¿À·ù°¡ ³­´Ù. 
+//	public Rectangle(double l) { //ìœ„ì˜ double w í•œ ê°œì˜ ë§¤ê°œë³€ìˆ˜ê°€ ìˆê¸° ë•Œë¬¸ì— ì˜¤ë¥˜ê°€ ë‚œë‹¤. 
 //		
 //	}
 	
