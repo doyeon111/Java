@@ -5,21 +5,21 @@ import java.util.Scanner;
 public class StudentTest02 {
 
 	public static void main(String[] args) {
-		Student[] data = new Student[5]; // ¾Æ±î ¸¸µé¾î µĞ Student.java¿¡ ÀÖ´Â ¹è¿­À» °¡Á®¿È.
+		Student[] data = new Student[5]; // ì•„ê¹Œ ë§Œë“¤ì–´ ë‘” Student.javaì— ìˆëŠ” ë°°ì—´ì„ ê°€ì ¸ì˜´.
 		Scanner sc = new Scanner(System.in);
 
 		for (int i = 0; i < data.length; i++) {
-			data[i] = new Student(); // Å¬·¡½ºÀÇ ÀÚ·áÇüÀ» ¹Ù·Î »ç¿ëÇÒ ¼ö ¾ø±â ¶§¹®¿¡ data[0] = new Student(); ¶ó°í °´Ã¼¸¦ »ı¼ºÇØÁà¾ß »ç¿ëÇÒ ¼ö ÀÖ´Ù.
-			System.out.print((i + 1) + "¹øÂ° ÇĞ»ıÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+			data[i] = new Student(); // í´ë˜ìŠ¤ì˜ ìë£Œí˜•ì„ ë°”ë¡œ ì‚¬ìš©í•  ìˆ˜ ì—†ê¸° ë•Œë¬¸ì— data[0] = new Student(); ë¼ê³  ê°ì²´ë¥¼ ìƒì„±í•´ì¤˜ì•¼ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
+			System.out.print((i + 1) + "ë²ˆì§¸ í•™ìƒì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 			data[i].name = sc.next();
 
-			System.out.print((i + 1) + "¹øÂ° ÇĞ»ıÀÇ ±¹¾îÁ¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i + 1) + "ë²ˆì§¸ í•™ìƒì˜ êµ­ì–´ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			data[i].kor = sc.nextInt();
 
-			System.out.print((i + 1) + "¹øÂ° ÇĞ»ıÀÇ ¿µ¾îÁ¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i + 1) + "ë²ˆì§¸ í•™ìƒì˜ ì˜ì–´ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			data[i].eng = sc.nextInt();
 
-			System.out.print((i + 1) + "¹øÂ° ÇĞ»ıÀÇ ¼öÇĞÁ¡¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print((i + 1) + "ë²ˆì§¸ í•™ìƒì˜ ìˆ˜í•™ì ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			data[i].math = sc.nextInt();
 ;
 
@@ -27,7 +27,7 @@ public class StudentTest02 {
 			data[i].avg = data[i].tot / 3.0;
 		}
 		
-		System.out.println("ÀÌ¸§\t±¹¾î\t¿µ¾î\t¼öÇĞ\tÃÑÁ¡\tÆò±Õ");
+		System.out.println("ì´ë¦„\têµ­ì–´\tì˜ì–´\tìˆ˜í•™\tì´ì \tí‰ê· ");
 		for(int i=0; i<data.length; i++) {
 			System.out.println(data[i].name + "\t"
 								+ data[i].kor + "\t"
@@ -37,21 +37,21 @@ public class StudentTest02 {
 								+ data[i].avg + "\t");
 		}
 		
-		//Á¤·ÄÇÏ±â
+		//ì •ë ¬í•˜ê¸°
 		System.out.println("----------------------------------------------------------------");
-		System.out.println("*** ¼ºÀû¼øÀ¸·Î Á¤·ÄÇÏ±â ***");
+		System.out.println("*** ì„±ì ìˆœìœ¼ë¡œ ì •ë ¬í•˜ê¸° ***");
 
 		for(int i=0; i<data.length; i++) {
 			for(int j=i+1; j<data.length; j++) {
 				if(data[j].tot > data[i].tot) {
-					Student temp = data[i]; //±¹¾î,¼öÇĞ,¿µ¾î,ÃÑÁ¡,Æò±ÕÀÌ ´Ù µé¾î°¡ ÀÖ±â ¶§¹®¿¡ StudentÀÇ temp¸¦ ¸¸µé¾îÁÖ¸é µÊ.
+					Student temp = data[i]; //êµ­ì–´,ìˆ˜í•™,ì˜ì–´,ì´ì ,í‰ê· ì´ ë‹¤ ë“¤ì–´ê°€ ìˆê¸° ë•Œë¬¸ì— Studentì˜ tempë¥¼ ë§Œë“¤ì–´ì£¼ë©´ ë¨.
 					data[i] = data[j];
 					data[j] = temp;
 				}
 			}
 		}
 		
-		System.out.println("ÀÌ¸§\t±¹¾î\t¿µ¾î\t¼öÇĞ\tÃÑÁ¡\tÆò±Õ");
+		System.out.println("ì´ë¦„\têµ­ì–´\tì˜ì–´\tìˆ˜í•™\tì´ì \tí‰ê· ");
 		for(int i=0; i<data.length; i++) {
 			System.out.println(data[i].name + "\t"
 								+ data[i].kor + "\t"
@@ -63,3 +63,4 @@ public class StudentTest02 {
 	}
 
 }
+ 
