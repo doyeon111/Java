@@ -1,7 +1,8 @@
 package day0404;
 
-public class Student { //class·Î ¼¼Æ®¸¦ ¸¸µé¾ú´Ù.
+public class Student { //classë¡œ ì„¸íŠ¸ë¥¼ ë§Œë“¤ì—ˆë‹¤.
 	String name;
 	int kor, eng, math, tot;
 	double avg;
 }
+ 
