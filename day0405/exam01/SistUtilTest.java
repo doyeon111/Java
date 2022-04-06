@@ -6,13 +6,14 @@ public class SistUtilTest {
 		int a = 5;
 		int b = 7;
 		SistUtil util = new SistUtil();
-		System.out.println(util.getMax(a, b)); //ÀÚ·áÇüÀ» ÆÇ´ÜÇØ¼­ Ãâ·Â 
-		System.out.println(util.getMax(5, 6, 7)); //int 3°³¸¦ °®´Â °ÍÀÌ Ãâ·Â
+		System.out.println(util.getMax(a, b)); //ìë£Œí˜•ì„ íŒë‹¨í•´ì„œ ì¶œë ¥ 
+		System.out.println(util.getMax(5, 6, 7)); //int 3ê°œë¥¼ ê°–ëŠ” ê²ƒì´ ì¶œë ¥
 		System.out.println(util.getMax(2.7, 5.7));
 		
 		int []arr = {6, 2, 3, 9, 7};
-		System.out.println(util.getMax(arr)); //arr¹è¿­¿¡¼­ Å« ¼ö¸¦ Ã£°í½ÍÀ» ¶§.
+		System.out.println(util.getMax(arr)); //arrë°°ì—´ì—ì„œ í° ìˆ˜ë¥¼ ì°¾ê³ ì‹¶ì„ ë•Œ.
 
 	}
 
 }
+ 
