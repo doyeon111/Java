@@ -7,9 +7,10 @@ public class MelonTest {
 		System.out.println(f.getInfo());
 		
 		
-		Melon m = new Melon(25, 3000, 60, "½Ö¿ë³ó¿ø");
+		Melon m = new Melon(25, 3000, 60, "ìŒìš©ë†ì›");
 		System.out.println(m.getInfo());
 
 	}
 
 }
+ 
