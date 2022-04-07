@@ -38,9 +38,9 @@ public class RectangleTest {
 	public static void main(String[] args) {
 		ColorRectangle obj = new ColorRectangle(100, 100, "blue");
 		
-		System.out.println("°¡·Î: " + obj.width);
-		System.out.println("¼¼·Î: " + obj.height);
-		System.out.println("»ö»ó: " + obj.color);
+		System.out.println("ê°€ë¡œ: " + obj.width);
+		System.out.println("ì„¸ë¡œ: " + obj.height);
+		System.out.println("ìƒ‰ìƒ: " + obj.color);
 		
 	}
 
