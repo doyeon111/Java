@@ -3,15 +3,16 @@ package exam06;
 public class MagazineTest {
 
 	public static void main(String[] args) {
-		Book b = new Book("ÄáÁãÆÏÁã", 100, "È«±æµ¿");
-		Magazine m = new Magazine("¿ù°£ÀÚ¹Ù", 300, "½Ö¿ë±³À°¼¾ÅÍ", "2022-04-05");
+		Book b = new Book("ì½©ì¥íŒ¥ì¥", 100, "í™ê¸¸ë™");
+		Magazine m = new Magazine("ì›”ê°„ìë°”", 300, "ìŒìš©êµìœ¡ì„¼í„°", "2022-04-05");
 
 		System.out
-				.println("Á¦¸ñ: " + b.getTitle() + "\t" + "ÆäÀÌÁö ¼ö: " + b.getPage() + "\t" + "ÀúÀÚ: " + b.getAuthor() + "\t");
+				.println("ì œëª©: " + b.getTitle() + "\t" + "í˜ì´ì§€ ìˆ˜: " + b.getPage() + "\t" + "ì €ì: " + b.getAuthor() + "\t");
 
-		System.out.println("Á¦¸ñ: " + m.getTitle() + "\t" + "ÆäÀÌÁö ¼ö: " + m.getPage() + "\t" + "ÀúÀÚ: " + m.getAuthor() + "\t"
-				+ "¹ß¸ÅÀÏ: " + m.getDate());
+		System.out.println("ì œëª©: " + m.getTitle() + "\t" + "í˜ì´ì§€ ìˆ˜: " + m.getPage() + "\t" + "ì €ì: " + m.getAuthor() + "\t"
+				+ "ë°œë§¤ì¼: " + m.getDate());
 
 	}
 
 }
+ 
