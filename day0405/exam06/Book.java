@@ -1,5 +1,5 @@
 package exam06;
-//pdf 3¹ø¹®Á¦
+//pdf 3ë²ˆë¬¸ì œ
 public class Book {
 	protected String title, author;
 	protected int page;
