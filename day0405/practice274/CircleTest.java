@@ -24,7 +24,7 @@ class Pizza extends Circle {
 	}
 
 	public void print() {
-		System.out.println("ÇÇÀÚÀÇ Á¾·ù:" + name + ", ÇÇÀÚÀÇ Å©±â: " + radius); 
+		System.out.println("í”¼ìì˜ ì¢…ë¥˜:" + name + ", í”¼ìì˜ í¬ê¸°: " + radius); 
 	}
 
 }
