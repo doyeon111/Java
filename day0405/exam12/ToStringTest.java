@@ -11,8 +11,8 @@ class Person {
 		this.age = age;
 	}
 	
-	//¿À¸¥ÂÊ ¸¶¿ì½º·Î ÀÚµ¿»ý¼º
-	@Override //¿À¹ö¶óÀÌµù µÆ´Ù´Â Ç¥½Ã
+	//ì˜¤ë¥¸ìª½ ë§ˆìš°ìŠ¤ë¡œ ìžë™ìƒì„±
+	@Override //ì˜¤ë²„ë¼ì´ë”© ëë‹¤ëŠ” í‘œì‹œ
 	public String toString() {
 		return "Person [name=" + name + ", age=" + age + "]";
 	}
@@ -40,17 +40,17 @@ class Person {
 public class ToStringTest {
 
 	public static void main(String[] args) {
-		Person kim = new Person("±è¹ÎÇõ", 28);
-		Person kim2 = new Person("±è¹ÎÇõ", 28);
-		System.out.println(kim); //exam12.Person@1c4af82c°¡ Ãâ·ÂµÊ.(ÁÖ¼Ò°ª) ==> ¿À¹ö¶óÀÌµù ÈÄ¿¡´Â Á¤»óÀûÀ¸·Î Ãâ·ÂµÊ.
-		//ÁÖ¼Ò¸»°í ±× °´Ã¼°¡ °®°íÀÖ´Â ¼Ó¼ºµéÀ» Ãâ·ÂÇÏ°í ½Í´Ù.
-		// ±×·¸°Ô ÇÏ·Á¸é ÀÚ¹Ù Á¶»óÀÇ Á¦ÀÏ Á¶»óÅ¬·¹½ºÀÎ ObjectÀÇ toStringÀ» ³ªÇÑÅ× ¸Â°Ô ÀçÁ¤ÀÇÇÑ´Ù.
-		//Ãâ·Â¹®¿¡ °´Ã¼¸¦ Ç¥ÇöÇÏ¸é toStringÀÌ ÀÚµ¿À¸·Î Ãâ·ÂµÈ´Ù.
+		Person kim = new Person("ê¹€ë¯¼í˜", 28);
+		Person kim2 = new Person("ê¹€ë¯¼í˜", 28);
+		System.out.println(kim); //exam12.Person@1c4af82cê°€ ì¶œë ¥ë¨.(ì£¼ì†Œê°’) ==> ì˜¤ë²„ë¼ì´ë”© í›„ì—ëŠ” ì •ìƒì ìœ¼ë¡œ ì¶œë ¥ë¨.
+		//ì£¼ì†Œë§ê³  ê·¸ ê°ì²´ê°€ ê°–ê³ ìžˆëŠ” ì†ì„±ë“¤ì„ ì¶œë ¥í•˜ê³  ì‹¶ë‹¤.
+		// ê·¸ë ‡ê²Œ í•˜ë ¤ë©´ ìžë°” ì¡°ìƒì˜ ì œì¼ ì¡°ìƒí´ë ˆìŠ¤ì¸ Objectì˜ toStringì„ ë‚˜í•œí…Œ ë§žê²Œ ìž¬ì •ì˜í•œë‹¤.
+		//ì¶œë ¥ë¬¸ì— ê°ì²´ë¥¼ í‘œí˜„í•˜ë©´ toStringì´ ìžë™ìœ¼ë¡œ ì¶œë ¥ëœë‹¤.
 		if(kim.equals(kim2)) {
-			System.out.println("°°¾Æ¿ä");
+			System.out.println("ê°™ì•„ìš”");
 		} else {
-			System.out.println("´Þ¶ó¿ä");
+			System.out.println("ë‹¬ë¼ìš”");
 		}
 	}
 
-}
+} 
