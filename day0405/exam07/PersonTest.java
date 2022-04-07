@@ -1,23 +1,24 @@
 package exam07;
 
-class Person { //ºÎ¸ğÀÇ »ı¼ºÀÚ°¡ ¸ÕÀú µ¿ÀÛÇÑ´Ù.
+class Person { //ë¶€ëª¨ì˜ ìƒì„±ìê°€ ë¨¼ì € ë™ì‘í•œë‹¤.
 	public Person() {
-		System.out.println("PersonÀÇ »ı¼ºÀÚ µ¿ÀÛÇÔ!");
+		System.out.println("Personì˜ ìƒì„±ì ë™ì‘í•¨!");
 	}
 }
 
-class Customer extends Person { // ºÎ¸ğÀÇ »ı¼ºÀÚ°¡ µ¿ÀÛÇÑ ÈÄ¿¡ ÀÚ½ÄÀÇ »ı¼ºÀÚ°¡ µ¿ÀÛÇÑ´Ù.
+class Customer extends Person { // ë¶€ëª¨ì˜ ìƒì„±ìê°€ ë™ì‘í•œ í›„ì— ìì‹ì˜ ìƒì„±ìê°€ ë™ì‘í•œë‹¤.
 	public Customer() {
-		//super(); //ºÎ¸ğÀÇ ¸Å°³º¯¼ö¸¦ °®Áö ¾Ê´Â »ı¼ºÀÚ ==> ±âº»»ı¼ºÀÚ¸¦ ¿ä±¸ÇÏ´Â ¸í·ÉÀÌ »ı·«µÇ¾îÀÖ´Ù.
-		System.out.println("CustomerÀÇ »ı¼ºÀÚ µ¿ÀÛÇÔ.");
+		//super(); //ë¶€ëª¨ì˜ ë§¤ê°œë³€ìˆ˜ë¥¼ ê°–ì§€ ì•ŠëŠ” ìƒì„±ì ==> ê¸°ë³¸ìƒì„±ìë¥¼ ìš”êµ¬í•˜ëŠ” ëª…ë ¹ì´ ìƒëµë˜ì–´ìˆë‹¤.
+		System.out.println("Customerì˜ ìƒì„±ì ë™ì‘í•¨.");
 	}
 }
  
 public class PersonTest {
 
 	public static void main(String[] args) {
-		Customer c = new Customer(); //±âº»»ı¼ºÀÚ°¡ Á¦°øµÈ´Ù´Â °Í
+		Customer c = new Customer(); //ê¸°ë³¸ìƒì„±ìê°€ ì œê³µëœë‹¤ëŠ” ê²ƒ
 
 	}
 
 }
+ 
