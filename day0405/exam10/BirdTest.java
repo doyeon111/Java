@@ -1,9 +1,9 @@
 package exam10;
 
-//ÇÏ´ÃÀ» ³¯À¸´Â »õ
+//í•˜ëŠ˜ì„ ë‚ ìœ¼ëŠ” ìƒˆ
 class Bird {
 	protected String name, color;
-	protected boolean wing; //³¯°³ÀÇ ¿©ºÎ
+	protected boolean wing; //ë‚ ê°œì˜ ì—¬ë¶€
 	
 	
 	public Bird(String name, String color, boolean wing) {
@@ -22,15 +22,15 @@ class Bird {
 
 	public void fly() {
 		if(wing == true) {
-			System.out.println(color + "»ö " + name + "ÀÌ(°¡) ÆŞ·°~ÆŞ·°~");
+			System.out.println(color + "ìƒ‰ " + name + "ì´(ê°€) í„ëŸ­~í„ëŸ­~");
 		} else {
-			System.out.println(color + "»ö " + name + "ÀÌ(°¡) ³¯ ¼ö ¾ø¾î¿ä.");
+			System.out.println(color + "ìƒ‰ " + name + "ì´(ê°€) ë‚  ìˆ˜ ì—†ì–´ìš”.");
 		}
 	}
 }
 
-//ºñÇà±â
-//fly ¸Ş¼Òµå¸¦ ¿À¹ö¶óÀÌµù
+//ë¹„í–‰ê¸°
+//fly ë©”ì†Œë“œë¥¼ ì˜¤ë²„ë¼ì´ë”©
 class Plane extends Bird {
 	private boolean engine;
 
@@ -46,9 +46,9 @@ class Plane extends Bird {
 	
 	public void fly() {
 		if(wing == true && engine == true) {
-			System.out.println(color + "»ö " + name + "ÀÌ(°¡) ¾±~¾±~, " + "¿£ÁøÀÌ ÀÖ¾î¿ä !");
+			System.out.println(color + "ìƒ‰ " + name + "ì´(ê°€) ì“©~ì“©~, " + "ì—”ì§„ì´ ìˆì–´ìš” !");
 		} else {
-			System.out.println(color + "»ö " + name + "ÀÌ(°¡) ³¯ ¼ö ¾ø°í, " + "¿£ÁøÀÌ(°¡) ¾ø¾î¿ä! !");
+			System.out.println(color + "ìƒ‰ " + name + "ì´(ê°€) ë‚  ìˆ˜ ì—†ê³ , " + "ì—”ì§„ì´(ê°€) ì—†ì–´ìš”! !");
 		}
 	}
 	
@@ -59,14 +59,15 @@ class Plane extends Bird {
 public class BirdTest {
 
 	public static void main(String[] args) {
-		Bird b1 = new Bird("Âü»õ", "³ë¶û", true);
-		Bird b2 = new Bird("±îÄ¡", "°ËÀº", false);
+		Bird b1 = new Bird("ì°¸ìƒˆ", "ë…¸ë‘", true);
+		Bird b2 = new Bird("ê¹Œì¹˜", "ê²€ì€", false);
 		b1.fly();
 		b2.fly();
 
-		Plane p = new Plane("º¸À×747", "ÇÏ´Ã", true, true);
+		Plane p = new Plane("ë³´ì‰747", "í•˜ëŠ˜", true, true);
 		p.fly();
 		
 	}
 
 }
+ 
