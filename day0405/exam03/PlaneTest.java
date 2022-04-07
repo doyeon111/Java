@@ -4,7 +4,7 @@ class Plane {
 	private String company, model;
 	private int max;
 	
-	//Å¬·¡½º º¯¼ö´Â °´Ã¼¿Í ¹«°üÇÏ°Ô Å¬·¡½º ÀÌ¸§À¸·Î Á¢±ÙÇØ¾ß ÇÏ±â ¶§¹®¿¡ publicÀ¸·Î ¸¸µç´Ù.
+	//í´ë˜ìŠ¤ ë³€ìˆ˜ëŠ” ê°ì²´ì™€ ë¬´ê´€í•˜ê²Œ í´ë˜ìŠ¤ ì´ë¦„ìœ¼ë¡œ ì ‘ê·¼í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— publicìœ¼ë¡œ ë§Œë“ ë‹¤.
 	public static int planes;
 
 	public String getCompany() {
@@ -36,7 +36,7 @@ class Plane {
 		this.company = company;
 		this.model = model;
 		this.max = max;
-		planes++; //»ı¼ºµÇ´Â °÷ÀÌ±â ‹š¹®¿¡ »ı¼ºµÉ ¶§ °³¼ö¸¦ ÇÏ³ª¾¿ Áõ°¡½ÃÅ²´Ù.
+		planes++; //ìƒì„±ë˜ëŠ” ê³³ì´ê¸° ë•Œë¬¸ì— ìƒì„±ë  ë•Œ ê°œìˆ˜ë¥¼ í•˜ë‚˜ì”© ì¦ê°€ì‹œí‚¨ë‹¤.
 	}
 
 	public Plane() {
@@ -45,7 +45,7 @@ class Plane {
 	}
 	
 	public static int getPlanes() {
-		return planes; // static¿¡¼­¸¸ Á¢±ÙÀÌ °¡´ÉÇÏ´Ù.
+		return planes; // staticì—ì„œë§Œ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ë‹¤.
 	}
 
 }
@@ -53,29 +53,29 @@ class Plane {
 public class PlaneTest {
 
 	public static void main(String[] args) {
-		System.out.println("¸¸µé¾îÁø ºñÇà±âÀÇ ¼ö: " + Plane.getPlanes());
+		System.out.println("ë§Œë“¤ì–´ì§„ ë¹„í–‰ê¸°ì˜ ìˆ˜: " + Plane.getPlanes());
 		Plane p1 = new Plane();
-		Plane p2 = new Plane("¿¡¾î¹ö½º", "A380", 500);
+		Plane p2 = new Plane("ì—ì–´ë²„ìŠ¤", "A380", 500);
 
 		
 		System.out.println(
-				"Á¦ÀÛ»ç: " + p1.getCompany() + "\t" + "¸ğµ¨: " + p1.getModel() + "\t" + "½Â°´ ¼ö: " + p1.getMax() + "\t");
+				"ì œì‘ì‚¬: " + p1.getCompany() + "\t" + "ëª¨ë¸: " + p1.getModel() + "\t" + "ìŠ¹ê° ìˆ˜: " + p1.getMax() + "\t");
 
-		System.out.println("Á¦ÀÛ»ç: " + p2.getCompany() + "\t" + "¸ğµ¨: " + p2.getModel() + "\t" + "½Â°´ ¼ö: " + p2.getMax()
+		System.out.println("ì œì‘ì‚¬: " + p2.getCompany() + "\t" + "ëª¨ë¸: " + p2.getModel() + "\t" + "ìŠ¹ê° ìˆ˜: " + p2.getMax()
 				+ "\t");
 		
-		p1.setCompany("º¸À×");
-		p1.setModel("º¸À×747");
+		p1.setCompany("ë³´ì‰");
+		p1.setModel("ë³´ì‰747");
 		p1.setMax(300);
 		
 		System.out.println("-------------------------------------------------------------");
 		
 		System.out.println(
-				"Á¦ÀÛ»ç: " + p1.getCompany() + "\t" + "¸ğµ¨: " + p1.getModel() + "\t" + "½Â°´ ¼ö: " + p1.getMax() + "\t");
-		System.out.println("Á¦ÀÛ»ç: " + p2.getCompany() + "\t" + "¸ğµ¨: " + p2.getModel() + "\t" + "½Â°´ ¼ö: " + p2.getMax()
+				"ì œì‘ì‚¬: " + p1.getCompany() + "\t" + "ëª¨ë¸: " + p1.getModel() + "\t" + "ìŠ¹ê° ìˆ˜: " + p1.getMax() + "\t");
+		System.out.println("ì œì‘ì‚¬: " + p2.getCompany() + "\t" + "ëª¨ë¸: " + p2.getModel() + "\t" + "ìŠ¹ê° ìˆ˜: " + p2.getMax()
 		+ "\t");
 		
-		System.out.println("¸¸µé¾îÁø ºñÇà±âÀÇ ¼ö: " + Plane.getPlanes());
+		System.out.println("ë§Œë“¤ì–´ì§„ ë¹„í–‰ê¸°ì˜ ìˆ˜: " + Plane.getPlanes());
 	}
 
 }
