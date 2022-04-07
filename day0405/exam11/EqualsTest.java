@@ -11,11 +11,11 @@ class Person {
 	
 	public boolean equals(Object p) {
 		boolean f = false;
-		Person p2 = (Person)p; //ÀÌ°ÍÀ» ¼±¾ğÇØÁà¾ß name°ú age¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+		Person p2 = (Person)p; //ì´ê²ƒì„ ì„ ì–¸í•´ì¤˜ì•¼ nameê³¼ ageë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
 		
-		//³ªÀÇ ÀÌ¸§°ú ¸Å°³º¯¼ö·Î Àü´Ş¹ŞÀº »ç¶÷ÀÇ ÀÌ¸§ÀÌ °°°í, ³ªÀÇ ³ªÀÌ¿Í ¸Å°³º¯¼ö·Î Àü´Ş¹ŞÀº »ç¶÷ÀÇ ³ªÀÌ°¡ °°ÀºÁö ÆÇº°
-		//StringÀÌ °°Àº °ªÀÎÁö È®ÀÎÇÏ·Á¸é equals¸¦ ÀÌ¿ë
-		if(name.equals(p2.name) && age == p2.age) { //³ªÀÇ ÀÌ¸§°ú Àü´Ş¹ŞÀº name°ú °°Àº°¡¿ä? ¶Ç, ³ªÀÇ ³ªÀÌ¿Í Àü´Ş¹ŞÀº ³ªÀÌ°¡ °°Àº°¡¿ä?
+		//ë‚˜ì˜ ì´ë¦„ê³¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì€ ì‚¬ëŒì˜ ì´ë¦„ì´ ê°™ê³ , ë‚˜ì˜ ë‚˜ì´ì™€ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì€ ì‚¬ëŒì˜ ë‚˜ì´ê°€ ê°™ì€ì§€ íŒë³„
+		//Stringì´ ê°™ì€ ê°’ì¸ì§€ í™•ì¸í•˜ë ¤ë©´ equalsë¥¼ ì´ìš©
+		if(name.equals(p2.name) && age == p2.age) { //ë‚˜ì˜ ì´ë¦„ê³¼ ì „ë‹¬ë°›ì€ nameê³¼ ê°™ì€ê°€ìš”? ë˜, ë‚˜ì˜ ë‚˜ì´ì™€ ì „ë‹¬ë°›ì€ ë‚˜ì´ê°€ ê°™ì€ê°€ìš”?
 			f = true;
 		}
 		return f;
@@ -25,20 +25,20 @@ class Person {
 public class EqualsTest {
 
 	public static void main(String[] args) {
-		Person p1 = new Person("±è¹ÎÇõ", 28);
-		Person p2 = new Person("±è¹ÎÇõ", 28);
-		if(p1 == p2) { //°ªÀº ´Ù¸£´Ù°í ³ª¿Â´Ù. ´Ù¸¥ ¸Ş¸ğ¸®¸¦ ¹Ù¶óº¸°í ÀÖ±â ¶§¹®¿¡ °ªÀÌ ´Ù¸£´Ù.
-			System.out.println("°°¾Æ¿ä");
+		Person p1 = new Person("ê¹€ë¯¼í˜", 28);
+		Person p2 = new Person("ê¹€ë¯¼í˜", 28);
+		if(p1 == p2) { //ê°’ì€ ë‹¤ë¥´ë‹¤ê³  ë‚˜ì˜¨ë‹¤. ë‹¤ë¥¸ ë©”ëª¨ë¦¬ë¥¼ ë°”ë¼ë³´ê³  ìˆê¸° ë•Œë¬¸ì— ê°’ì´ ë‹¤ë¥´ë‹¤.
+			System.out.println("ê°™ì•„ìš”");
 		} else {
-			System.out.println("´Ş¶ó¿ä");
+			System.out.println("ë‹¬ë¼ìš”");
 		}
 		System.out.println("-------------------------------------");
-		System.out.println("equals ¸Ş¼Òµå¸¦ ÀÌ¿ëÇÑ ºñ±³");
+		System.out.println("equals ë©”ì†Œë“œë¥¼ ì´ìš©í•œ ë¹„êµ");
 		if(p1.equals(p2)) {
-			System.out.println("°°¾Æ¿ä");
+			System.out.println("ê°™ì•„ìš”");
 		} else {
-			System.out.println("´Ş¶ó¿ä");
+			System.out.println("ë‹¬ë¼ìš”");
 		}
 	}
-
+ 
 }
