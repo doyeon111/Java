@@ -41,10 +41,10 @@ public class Food {
 	}
 	
 	
-	public String getInfo() { //¹®ÀÚ¿­·Î ¹İÈ¯
-		return "Ä®·Î¸®: " + kcal + ", °¡°İ: " + price + ", Áß·®: " + weight;
+	public String getInfo() { //ë¬¸ìì—´ë¡œ ë°˜í™˜
+		return "ì¹¼ë¡œë¦¬: " + kcal + ", ê°€ê²©: " + price + ", ì¤‘ëŸ‰: " + weight;
 	}
 	
 }
 
-
+ 
