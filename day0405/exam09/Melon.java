@@ -26,9 +26,9 @@ public class Melon extends Food {
 		this.grand = grand;
 	}
 	
-	public String getInfo() {//ºÎ¸ğÅ¬·¡½º¿Í ´Ù¸£±â ¶§¹®¿¡ ÀçÁ¤ÀÇ ÇØÁØ´Ù.
-		return "Ä®·Î¸®: " + kcal + ", °¡°İ: " + price + ", Áß·®: " + weight + ", °æÀÛ³ó¿ø: " + grand;
+	public String getInfo() {//ë¶€ëª¨í´ë˜ìŠ¤ì™€ ë‹¤ë¥´ê¸° ë•Œë¬¸ì— ì¬ì •ì˜ í•´ì¤€ë‹¤.
+		return "ì¹¼ë¡œë¦¬: " + kcal + ", ê°€ê²©: " + price + ", ì¤‘ëŸ‰: " + weight + ", ê²½ì‘ë†ì›: " + grand;
 	}
 	
 	
-}
+} 
