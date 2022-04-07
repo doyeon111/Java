@@ -3,8 +3,8 @@ package exam05;
 public class CustomerTest {
 
 	public static void main(String[] args) {
-		Person p = new Person("ÀÌ¼ø½Å", "¼­¿ï", "010-1234-5678");
-		Customer c = new Customer("ÀÌ¼ø½Å", "¼­¿ï", "010-1234-5678", 1001, 10000);
+		Person p = new Person("ì´ìˆœì‹ ", "ì„œìš¸", "010-1234-5678");
+		Customer c = new Customer("ì´ìˆœì‹ ", "ì„œìš¸", "010-1234-5678", 1001, 10000);
 
 		System.out.println(p.getName() + ", " + p.getAddr() + ", " + p.getPhone());
 		System.out.println(
