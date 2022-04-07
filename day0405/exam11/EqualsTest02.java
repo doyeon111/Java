@@ -11,7 +11,7 @@ class Box {
 
 	public boolean equals(Object b) {
 		boolean f = false;
-		Box b2 = (Box)b; // ÀÌ°ÍÀ» ¼±¾ğÇØÁà¾ß name°ú age¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+		Box b2 = (Box)b; // ì´ê²ƒì„ ì„ ì–¸í•´ì¤˜ì•¼ nameê³¼ ageë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
 
 		if (width == b2.width && length == b2.length && height == b2.height) {
 			f = true;
@@ -28,11 +28,11 @@ public class EqualsTest02 {
 		Box b1 = new Box(10, 20, 30);
 		Box b2 = new Box(10, 20, 30);
 
-		// Box Å¬·¡½º¿¡ equal ¸Ş¼Òµå¸¦ ÀçÁ¤ÀÇ ÇØº¸±â.
-		if (b1.equals(b2)) { // ==°ú °°À½
-			System.out.println("°°¾Æ¿ä");
+		// Box í´ë˜ìŠ¤ì— equal ë©”ì†Œë“œë¥¼ ì¬ì •ì˜ í•´ë³´ê¸°.
+		if (b1.equals(b2)) { // ==ê³¼ ê°™ìŒ
+			System.out.println("ê°™ì•„ìš”"); 
 		} else {
-			System.out.println("´Ş¶ó¿ä"); // ¿À¹ö¶óÀÌµùÀ» ÇÏÁö ¾Ê¾Ò±â ¶§¹®¿¡ ´Ş¶ó¿ä°¡ Ãâ·ÂµÈ´Ù.
+			System.out.println("ë‹¬ë¼ìš”"); // ì˜¤ë²„ë¼ì´ë”©ì„ í•˜ì§€ ì•Šì•˜ê¸° ë•Œë¬¸ì— ë‹¬ë¼ìš”ê°€ ì¶œë ¥ëœë‹¤.
 		}
 
 	}
