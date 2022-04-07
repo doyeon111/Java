@@ -3,7 +3,7 @@ package practice274;
 class Sports {
 
 	String getName() {
-		return "¾ÆÁ÷ °áÁ¤µÇÁö ¾ÊÀ½";
+		return "ì•„ì§ ê²°ì •ë˜ì§€ ì•ŠìŒ";
 	}
 	int getPlayers() {
 		return 0;
@@ -16,7 +16,7 @@ class Sports {
 class Soccer extends Sports {
 
 	String getName() {
-		return "Ãà±¸";
+		return "ì¶•êµ¬";
 	}
 	int getPlayers() {
 		return 11;
@@ -30,9 +30,9 @@ public class SportTest {
 	public static void main(String[] args) {
 		Soccer s = new Soccer();
 		
-		System.out.println("°æ±âÀÌ¸§: " + s.getName());
-		System.out.println("°æ±âÀÚ¼ö: " + s.getPlayers());
+		System.out.println("ê²½ê¸°ì´ë¦„: " + s.getName());
+		System.out.println("ê²½ê¸°ììˆ˜: " + s.getPlayers());
 
 	}
 
-}
+} 
