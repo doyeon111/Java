@@ -1,12 +1,12 @@
 package exam05;
 
-public class Customer extends Person { // ÀÌ¸§, ÁÖ¼Ò, ÀüÈ­¹øÈ£´Â ºÎ¸ğ PersonÀÇ »ı¼ºÀÚ°¡ ÃÊ±âÈ­ ÇØ¾ßÇÔ.
+public class Customer extends Person { // ì´ë¦„, ì£¼ì†Œ, ì „í™”ë²ˆí˜¸ëŠ” ë¶€ëª¨ Personì˜ ìƒì„±ìê°€ ì´ˆê¸°í™” í•´ì•¼í•¨.
 	private int no, mileage;
 	
-	public Customer(String name, String addr, String phone, int no, int mileage) { //°ªÀ» ÃÊ±âÈ­
-		super(name, addr, phone); //ºÎ¸ğÀÇ »ı¼ºÀÚ¸¦ ¿ä±¸ÇÏ´Â °Í super, ¹İµå½Ã Ã¹ ¹øÂ° ÁÙ¿¡ ¿Í¾ßÇÑ´Ù.
-		//this.name = name; //¾Æ¹«¸® ÀÚ½ÄÅ¬·¡½º¶ó ÇÒÁö¶óµµ ºÎ¸ğÀÇ private ¿µ¿ª¿¡´Â Á¢±ÙÇÒ ¼ö ¾ø´Ù.
-		this.addr = addr; //¿ÜºÎÀÇ ´Ù¸¥Å¬·¡½º·Î ºÎÅÍ´Â º¸È£ÇÏµÇ ÀÚ½ÄÅ¬·¡½ºµé¿¡°Ô´Â Á¢±ÙÀ» Çã¿ëÇÏ±â À§ÇØ¼­ protected¸¦ ÀÌ¿ëÇÑ´Ù.
+	public Customer(String name, String addr, String phone, int no, int mileage) { //ê°’ì„ ì´ˆê¸°í™”
+		super(name, addr, phone); //ë¶€ëª¨ì˜ ìƒì„±ìë¥¼ ìš”êµ¬í•˜ëŠ” ê²ƒ super, ë°˜ë“œì‹œ ì²« ë²ˆì§¸ ì¤„ì— ì™€ì•¼í•œë‹¤.
+		//this.name = name; //ì•„ë¬´ë¦¬ ìì‹í´ë˜ìŠ¤ë¼ í• ì§€ë¼ë„ ë¶€ëª¨ì˜ private ì˜ì—­ì—ëŠ” ì ‘ê·¼í•  ìˆ˜ ì—†ë‹¤.
+		this.addr = addr; //ì™¸ë¶€ì˜ ë‹¤ë¥¸í´ë˜ìŠ¤ë¡œ ë¶€í„°ëŠ” ë³´í˜¸í•˜ë˜ ìì‹í´ë˜ìŠ¤ë“¤ì—ê²ŒëŠ” ì ‘ê·¼ì„ í—ˆìš©í•˜ê¸° ìœ„í•´ì„œ protectedë¥¼ ì´ìš©í•œë‹¤.
 		this.no = no;
 		this.mileage = mileage;
 	}
@@ -30,5 +30,5 @@ public class Customer extends Person { // ÀÌ¸§, ÁÖ¼Ò, ÀüÈ­¹øÈ£´Â ºÎ¸ğ PersonÀÇ »
 	public void setMileage(int mileage) {
 		this.mileage = mileage;
 	}
-	
+	 
 }
