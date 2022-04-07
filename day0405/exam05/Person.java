@@ -31,7 +31,7 @@ public class Person {
 	public Person(String name, String addr, String phone) {
 		super();
 		this.name = name;
-		this.addr = addr;
+		this.addr = addr; 
 		this.phone = phone;
 	}
 
