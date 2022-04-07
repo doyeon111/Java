@@ -24,4 +24,4 @@ public class Magazine extends Book {
 	
 }
 
-
+ 
