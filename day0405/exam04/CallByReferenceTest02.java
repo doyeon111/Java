@@ -4,17 +4,17 @@ class Person {
 	String name;
 	int age;
 
-	public Person(String name, int age) { // »ı¼ºÀÚ ¸¸µé±â
+	public Person(String name, int age) { // ìƒì„±ì ë§Œë“¤ê¸°
 		this.name = name;
 		this.age = age;
 	}
 }
 
 class Exam03 {
-	// Person °´Ã¼¸¦ ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ³ªÀÌ¸¦ 1 Áõ°¡ÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
-	public static void plusOne(Person p) { // ¸Å°³º¯¼ö¸¦ Person ÀÚ·áÇüÀ¸·Î ¹Ş°Ú´Ù.
+	// Person ê°ì²´ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ë‚˜ì´ë¥¼ 1 ì¦ê°€í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
+	public static void plusOne(Person p) { // ë§¤ê°œë³€ìˆ˜ë¥¼ Person ìë£Œí˜•ìœ¼ë¡œ ë°›ê² ë‹¤.
 		p.age++;
-		System.out.println("¸Ş¼Òµå ¾È¿¡¼­ Ãâ·Â");
+		System.out.println("ë©”ì†Œë“œ ì•ˆì—ì„œ ì¶œë ¥");
 		System.out.println(p.name + ", " + p.age);
 		System.out.println();
 	}
@@ -23,17 +23,17 @@ class Exam03 {
 public class CallByReferenceTest02 {
 
 	public static void main(String[] args) {
-		Person kim = new Person("±è¹ÎÇõ", 28); //°¡Àå ¸ÕÀú main¿¡ ÀÖ´Â °ÍÀ» ½ÇÇàÇÏ°Ô µÈ´Ù.
-		System.out.println("¸Ş¼Òµå È£Ãâ ÇÏ±â Àü"); //±×³É ¿ø·¡ÀÇ 28ÀÌ¶ó´Â ³ªÀÌ°¡ ³ª¿À°Ô µÈ´Ù. (º¹»çÇØÁØ°Í°ú ´Ù¸§ÀÌ ¾ø´Ù.)
+		Person kim = new Person("ê¹€ë¯¼í˜", 28); //ê°€ì¥ ë¨¼ì € mainì— ìˆëŠ” ê²ƒì„ ì‹¤í–‰í•˜ê²Œ ëœë‹¤.
+		System.out.println("ë©”ì†Œë“œ í˜¸ì¶œ í•˜ê¸° ì „"); //ê·¸ëƒ¥ ì›ë˜ì˜ 28ì´ë¼ëŠ” ë‚˜ì´ê°€ ë‚˜ì˜¤ê²Œ ëœë‹¤. (ë³µì‚¬í•´ì¤€ê²ƒê³¼ ë‹¤ë¦„ì´ ì—†ë‹¤.)
 		System.out.println(kim.name + ", " + kim.age);
 		System.out.println();
 
 		Exam03.plusOne(kim);
 
-		System.out.println("¸Ş¼Òµå È£Ãâ ÇÑ ÈÄ");
+		System.out.println("ë©”ì†Œë“œ í˜¸ì¶œ í•œ í›„");
 		System.out.println(kim.name + ", " + kim.age);
 		System.out.println();
 
-	}
+	} 
 
 }
