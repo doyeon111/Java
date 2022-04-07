@@ -3,7 +3,7 @@ package practice274;
 
 class Animal {
 	void walk() {
-		System.out.println("°ÈÀ» ¼ö ÀÖÀ½");
+		System.out.println("ê±·ì„ ìˆ˜ ìˆìŒ");
 	}
 }
 
@@ -15,11 +15,11 @@ class Bird extends Animal {
 	}
 	
 	void fly() {
-		System.out.println("³¯À» ¼ö ÀÖÀ½");
+		System.out.println("ë‚ ì„ ìˆ˜ ìˆìŒ");
 	}
 	
 	void sing() {
-		System.out.println("³ë·¡ ºÎ¸¦ ¼ö ÀÖÀ½");
+		System.out.println("ë…¸ë˜ ë¶€ë¥¼ ìˆ˜ ìˆìŒ");
 	}
 }
 
@@ -34,3 +34,4 @@ public class AnimalTest {
 	}
 
 }
+ 
