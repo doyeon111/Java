@@ -1,17 +1,17 @@
 package exam01;
 
-//final Å¬·¡½ºÀÇ Å¬·¡½º ÀÌ¸§ ¾Õ¿¡ ¿Ã °æ¿ì
+//final í´ë˜ìŠ¤ì˜ í´ë˜ìŠ¤ ì´ë¦„ ì•ì— ì˜¬ ê²½ìš°
 final class Bird {
 	String name;
 	String color;
 	boolean wing;
 	
 	public void fly() {
-		System.out.println("ÈÎ~ÈÎ~");
+		System.out.println("í›¨~í›¨~");
 	}
 }
 
-//final Å¬·¡½º´Â »ó¼Ó¹ŞÀ» ¼ö ¾ø´Ù.
+//final í´ë˜ìŠ¤ëŠ” ìƒì†ë°›ì„ ìˆ˜ ì—†ë‹¤.
 //class Plane extends Bird { 
 //	
 //}
@@ -25,3 +25,4 @@ public class FinalTest03 {
 	}
 
 }
+ 
