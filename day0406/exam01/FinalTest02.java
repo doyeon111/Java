@@ -1,22 +1,22 @@
 package exam01;
 
 
-//final Å¬·¡½ºÀÇ ¸Ş¼Òµå ¾Õ¿¡ ¿Ã °æ¿ì
+//final í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œ ì•ì— ì˜¬ ê²½ìš°
 class A {
 	public void pro() {
-		System.out.println("AÀÇ pro ÀÔ´Ï´Ù.");
+		System.out.println("Aì˜ pro ì…ë‹ˆë‹¤.");
 	}
-	public final void hello() { //ÀÚ½ÄÀÌ ¿À¹ö¶óÀÌµù ÇÏÁö ¸øÇÏ°Ô final »ç¿ë
-		System.out.println("hello ÀÔ´Ï´Ù.");
+	public final void hello() { //ìì‹ì´ ì˜¤ë²„ë¼ì´ë”© í•˜ì§€ ëª»í•˜ê²Œ final ì‚¬ìš©
+		System.out.println("hello ì…ë‹ˆë‹¤.");
 	}
 }
 
 
 class B extends A {
 	public void pro() {
-		System.out.println("BÀÇ proÀÔ´Ï´Ù.");//¿À¹ö¶óÀÌµùÇÔ.(ÀÚ½Å¿¡°Ô ¸Â°Ô²û)
+		System.out.println("Bì˜ proì…ë‹ˆë‹¤.");//ì˜¤ë²„ë¼ì´ë”©í•¨.(ìì‹ ì—ê²Œ ë§ê²Œë”)
 	}
-//	public void hello() { //ºÎ¸ğ·ÎºÎÅÍ ¹°·Á¹ŞÀº final¸Ş¼Òµå´Â ¿À¹ö¶óÀÌµù ÇÒ ¼ö ¾ø´Ù.
+//	public void hello() { //ë¶€ëª¨ë¡œë¶€í„° ë¬¼ë ¤ë°›ì€ finalë©”ì†Œë“œëŠ” ì˜¤ë²„ë¼ì´ë”© í•  ìˆ˜ ì—†ë‹¤.
 //		
 //	}
 }
@@ -26,6 +26,6 @@ public class FinalTest02 {
 	public static void main(String[] args) {
 		
 
-	}
+	} 
 
 }
