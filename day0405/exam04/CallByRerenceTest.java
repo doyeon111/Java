@@ -2,7 +2,7 @@ package exam04;
 
 class Exam02 {
 	
-	//Á¤¼öÇü ¹è¿­À» ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ¸ğµç ¿ä¼Ò¸¦ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
+	//ì •ìˆ˜í˜• ë°°ì—´ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ëª¨ë“  ìš”ì†Œë¥¼ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
 	public static void printArray(int []data) {
 		for(int i=0; i<data.length; i++) {
 			System.out.print(data[i] + "\t");
@@ -10,14 +10,14 @@ class Exam02 {
 		System.out.println();
 	}
 	
-	// Á¤¼öÇü ¹è¿­À» ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ¸ğµç ¿ä¼Ò¸¦ 1¾¿ Áõ°¡½ÃÅ°´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
+	// ì •ìˆ˜í˜• ë°°ì—´ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ëª¨ë“  ìš”ì†Œë¥¼ 1ì”© ì¦ê°€ì‹œí‚¤ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
 	public static void plusOne(int[] data) {
 		for (int i = 0; i < data.length; i++) {
 			data[i]++;
 		}
 		
-		System.out.println("¸Ş¼Òµå ¾È¿¡¼­ ¹è¿­ÀÇ ¿ä¼Ò Ãâ·Â");
-		printArray(data); //À§¿¡¼­ ¸¸µé¾îÁØ ¸Ş¼Òµå¸¦ Ãâ·Â
+		System.out.println("ë©”ì†Œë“œ ì•ˆì—ì„œ ë°°ì—´ì˜ ìš”ì†Œ ì¶œë ¥");
+		printArray(data); //ìœ„ì—ì„œ ë§Œë“¤ì–´ì¤€ ë©”ì†Œë“œë¥¼ ì¶œë ¥
 	}
 }
 
@@ -25,15 +25,15 @@ public class CallByRerenceTest {
 
 	public static void main(String[] args) {
 		int []arr = {10,20,30,40,50};
-		System.out.println("¸Ş¼Òµå È£ÃâÇÏ±â ÀüÀÇ ¹è¿­");
+		System.out.println("ë©”ì†Œë“œ í˜¸ì¶œí•˜ê¸° ì „ì˜ ë°°ì—´");
 		Exam02.printArray(arr);
 		
-		Exam02.plusOne(arr); //¸Ş¼Òµå È£Ãâ¹®
+		Exam02.plusOne(arr); //ë©”ì†Œë“œ í˜¸ì¶œë¬¸
 		
-		System.out.println("¸Ş¼Òµå È£ÃâÇÑ ÈÄ ¹è¿­");
+		System.out.println("ë©”ì†Œë“œ í˜¸ì¶œí•œ í›„ ë°°ì—´");
 		Exam02.printArray(arr);
 		
 
 	}
-
+ 
 }
