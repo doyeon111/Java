@@ -1,14 +1,14 @@
 package exam04;
 
-//¸ğµç Á÷¿øµéÀÌ °¡Á®¾ßÇÒ °øÅëÀûÀÎ ¼Ó¼ºµé°ú ±â´ÉµéÀ» »Ì¾Æ ºÎ¸ğÅ¬·¡½º¸¦ ¸¸µç´Ù. ==> ÀÏ¹İÈ­
+//ëª¨ë“  ì§ì›ë“¤ì´ ê°€ì ¸ì•¼í•  ê³µí†µì ì¸ ì†ì„±ë“¤ê³¼ ê¸°ëŠ¥ë“¤ì„ ë½‘ì•„ ë¶€ëª¨í´ë˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤. ==> ì¼ë°˜í™”
 abstract class Employee {
 	protected String name;
 	protected int no;
-	protected int salary; // ±Ş¿©
+	protected int salary; // ê¸‰ì—¬
 
 	public abstract void computeSalary();
-	// °íÁ¤±Ş¿©, ½Ã°£Á¦±Ş¿© ÀÌ ¸Ş¼Òµå¸¦ ±¸Ã¼È­ÇÒ ¼ö ¾ø´Ù.
-	// ±×·¯³ª ÀÚ½ÄÅ¬·¡½ºµéÀº ¹İµå½Ã ÀÌ ¸Ş¼Òµå¸¦ ÀçÁ¤ÀÇ ÇÏµµ·Ï °­Á¦
+	// ê³ ì •ê¸‰ì—¬, ì‹œê°„ì œê¸‰ì—¬ ì´ ë©”ì†Œë“œë¥¼ êµ¬ì²´í™”í•  ìˆ˜ ì—†ë‹¤.
+	// ê·¸ëŸ¬ë‚˜ ìì‹í´ë˜ìŠ¤ë“¤ì€ ë°˜ë“œì‹œ ì´ ë©”ì†Œë“œë¥¼ ì¬ì •ì˜ í•˜ë„ë¡ ê°•ì œ
 
 	public String getName() {
 		return name;
@@ -41,11 +41,11 @@ abstract class Employee {
 
 }
 
-//¸Å¿ù Á¤ÇØÁø ±Ş¿©¸¦ ¹Ş´Â Á÷¿ø
-class SalariedEmployee extends Employee { // ¿ù±ŞÁ¦ Á÷¿ø
-	private int hobong; // È£ºÀ
-	private int base; // ±âº»±Ş
-	private int extra_pay; // ¼ö´ç
+//ë§¤ì›” ì •í•´ì§„ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì§ì›
+class SalariedEmployee extends Employee { // ì›”ê¸‰ì œ ì§ì›
+	private int hobong; // í˜¸ë´‰
+	private int base; // ê¸°ë³¸ê¸‰
+	private int extra_pay; // ìˆ˜ë‹¹
 
 	public SalariedEmployee(String name, int no, int hobong) {
 		super(name, no);
@@ -86,10 +86,10 @@ class SalariedEmployee extends Employee { // ¿ù±ŞÁ¦ Á÷¿ø
 
 }
 
-//ÀÏÇÑ ½Ã°£¸¸Å­ ±Ş¿©¸¦ ¹Ş´Â Á÷¿ø
-class HourlyEmployee extends Employee { // ½Ã°£Á¦ Á÷¿ø
-	private int hours; //ÀÏÇÑ ½Ã°£
-	private int base; //½Ã±Ş
+//ì¼í•œ ì‹œê°„ë§Œí¼ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì§ì›
+class HourlyEmployee extends Employee { // ì‹œê°„ì œ ì§ì›
+	private int hours; //ì¼í•œ ì‹œê°„
+	private int base; //ì‹œê¸‰
 
 	public HourlyEmployee(String name, int no, int base, int hours) {
 		super(name, no);
@@ -117,17 +117,17 @@ class HourlyEmployee extends Employee { // ½Ã°£Á¦ Á÷¿ø
 public class EmployeeTest {
 
 	public static void main(String[] args) {
-		//¿ù±ŞÁ¦ »ç¿øµµ ´ãÀ» ¼ö ÀÖ°í, ½Ã°£Á¦ »ç¿øµµ ´ãÀ» ¼ö ÀÖ´Â Employee ¹è¿­À» ¸¸µéÀÚ.
+		//ì›”ê¸‰ì œ ì‚¬ì›ë„ ë‹´ì„ ìˆ˜ ìˆê³ , ì‹œê°„ì œ ì‚¬ì›ë„ ë‹´ì„ ìˆ˜ ìˆëŠ” Employee ë°°ì—´ì„ ë§Œë“¤ì.
 		Employee []arr = new Employee[3];
 		
-		arr[0] = new SalariedEmployee("È«±æµ¿", 1001, 3);
-		arr[1] = new HourlyEmployee("ÀÌ¼ø½Å", 1002, 300000, 10);
-		arr[2] = new SalariedEmployee("À¯°ü¼ø", 1003, 2);
+		arr[0] = new SalariedEmployee("í™ê¸¸ë™", 1001, 3);
+		arr[1] = new HourlyEmployee("ì´ìˆœì‹ ", 1002, 300000, 10);
+		arr[2] = new SalariedEmployee("ìœ ê´€ìˆœ", 1003, 2);
 		
 		for(int i=0; i<arr.length; i++) {
-			arr[i].computeSalary(); //´ÙÇü¼º
+			arr[i].computeSalary(); //ë‹¤í˜•ì„±
 			System.out.println(arr[i]);
 		}
 	}
 
-}
+} 
