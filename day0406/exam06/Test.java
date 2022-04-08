@@ -10,12 +10,12 @@ class B extends A {
 
 	@Override
 	public void pro() {
-		System.out.println("BÀÇ proÀÔ´Ï´Ù.");
+		System.out.println("Bì˜ proì…ë‹ˆë‹¤.");
 
 	}
 	
 	public void testB() {
-		System.out.println("testBÀÔ´Ï´Ù.");
+		System.out.println("testBì…ë‹ˆë‹¤.");
 	}
 
 }
@@ -24,12 +24,12 @@ class C extends A {
 
 	@Override
 	public void pro() {
-		System.out.println("cÀÇ proÀÔ´Ï´Ù.");
+		System.out.println("cì˜ proì…ë‹ˆë‹¤.");
 
 	}
 
 	public void testC() {
-		System.out.println("testCÀÔ´Ï´Ù.");
+		System.out.println("testCì…ë‹ˆë‹¤.");
 	}
 }
 
@@ -40,11 +40,11 @@ public class Test {
 //		A ob;
 //		ob = new B();
 //		ob.pro();
-//		((B)ob).testB(); //ob¸¦ testB·Î Çüº¯È¯ÇØ¶ó.
+//		((B)ob).testB(); //obë¥¼ testBë¡œ í˜•ë³€í™˜í•´ë¼.
 //		
 //		ob = new C();
 //		ob.pro();
-//		((C)ob).testC(); //ob¸¦ C·Î Ä³½ºÆÃ 
+//		((C)ob).testC(); //obë¥¼ Cë¡œ ìºìŠ¤íŒ… 
 //		
 		
 		
@@ -57,16 +57,16 @@ public class Test {
 		
 		for(int i=0; i<list.size(); i++) {
 			A ob = list.get(i);
-			ob.pro(); //¿À¹ö¶óÀÌµùÇÑ ÀÚ½ÅÀÇ ¸Ş¼Òµå°¡ µ¿ÀÛÇÑ´Ù.
-			//¸¸¾à ²ôÁı¾î ³»¾î¿Â °´Ã¼°¡ BÀÇ ÀÚ·áÇüÀÌ¸é B·Î Çüº¯È¯ÇÑ´Ù.
+			ob.pro(); //ì˜¤ë²„ë¼ì´ë”©í•œ ìì‹ ì˜ ë©”ì†Œë“œê°€ ë™ì‘í•œë‹¤.
+			//ë§Œì•½ ë„ì§‘ì–´ ë‚´ì–´ì˜¨ ê°ì²´ê°€ Bì˜ ìë£Œí˜•ì´ë©´ Bë¡œ í˜•ë³€í™˜í•œë‹¤.
 			
-			if(ob instanceof B) { //ob°¡ BÀÇ ÀÚ·áÇüÀÌ³Ä?
+			if(ob instanceof B) { //obê°€ Bì˜ ìë£Œí˜•ì´ëƒ?
 				((B)ob).testB();
-			} else if (ob instanceof C) { //±×·¸Áö ¾Ê°í CÀÇ ÀÚ·áÇüÀÌ¸é C·Î Çüº¯È¯ÇÑ´Ù.
+			} else if (ob instanceof C) { //ê·¸ë ‡ì§€ ì•Šê³  Cì˜ ìë£Œí˜•ì´ë©´ Cë¡œ í˜•ë³€í™˜í•œë‹¤.
 				((C)ob).testC();
 			}
 			System.out.println("----------------------------------------------");
 		}
 	}
 
-}
+} 
