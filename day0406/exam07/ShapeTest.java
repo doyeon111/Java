@@ -43,7 +43,7 @@ abstract class TwoDimShape extends Shape {
 
 	protected double area;
 
-	public abstract double getArea(); // ³ĞÀÌ
+	public abstract double getArea(); // ë„“ì´
 }
 
 abstract class ThreeDimShape extends Shape {
@@ -54,10 +54,10 @@ abstract class ThreeDimShape extends Shape {
 
 	protected double volume;
 
-	public abstract double getVolume(); // ºÎÇÇ
+	public abstract double getVolume(); // ë¶€í”¼
 }
 
-class Ellipse extends TwoDimShape { // Å¸¿ø
+class Ellipse extends TwoDimShape { // íƒ€ì›
 	private double l_r, s_r;
 
 	public Ellipse(int x, int y, double l_r, double s_r) {
@@ -67,7 +67,7 @@ class Ellipse extends TwoDimShape { // Å¸¿ø
 	}
 
 	@Override
-	public double getArea() { // Å¸¿øÀÇ ³ĞÀÌ
+	public double getArea() { // íƒ€ì›ì˜ ë„“ì´
 		area = Math.PI * l_r + s_r;
 		return area;
 	}
@@ -79,7 +79,7 @@ class Ellipse extends TwoDimShape { // Å¸¿ø
 
 }
 
-class Rectangle extends TwoDimShape { // »ç°¢Çü
+class Rectangle extends TwoDimShape { // ì‚¬ê°í˜•
 	private double width, height;
 
 	public Rectangle(int x, int y, double width, double height) {
@@ -89,7 +89,7 @@ class Rectangle extends TwoDimShape { // »ç°¢Çü
 	}
 
 	@Override
-	public double getArea() { // »ç°¢ÇüÀÇ ³ĞÀÌ
+	public double getArea() { // ì‚¬ê°í˜•ì˜ ë„“ì´
 		area = width * height;
 		return area;
 	}
@@ -101,7 +101,7 @@ class Rectangle extends TwoDimShape { // »ç°¢Çü
 
 }
 
-class Triangle extends TwoDimShape { // »ï°¢Çü
+class Triangle extends TwoDimShape { // ì‚¼ê°í˜•
 	private int width, height;
 
 	public Triangle(int x, int y, int width, int height) {
@@ -111,7 +111,7 @@ class Triangle extends TwoDimShape { // »ï°¢Çü
 	}
 
 	@Override
-	public double getArea() { // »ï°¢ÇüÀÇ ³ĞÀÌ
+	public double getArea() { // ì‚¼ê°í˜•ì˜ ë„“ì´
 		area = width * height / 2;
 		return area;
 	}
@@ -123,7 +123,7 @@ class Triangle extends TwoDimShape { // »ï°¢Çü
 
 }
 
-class Shpere extends ThreeDimShape { // ±¸
+class Shpere extends ThreeDimShape { // êµ¬
 	private double r;
 
 	public Shpere(int x, int y, double r) {
@@ -132,7 +132,7 @@ class Shpere extends ThreeDimShape { // ±¸
 	}
 
 	@Override
-	public double getVolume() { // ±¸ÀÇ ºÎÇÇ
+	public double getVolume() { // êµ¬ì˜ ë¶€í”¼
 		volume = 4.0 / 3 * Math.PI * Math.pow(r, 3);
 		return volume;
 	}
@@ -144,18 +144,18 @@ class Shpere extends ThreeDimShape { // ±¸
 
 }
 
-class Cube extends ThreeDimShape { // Á÷À°¸éÃ¼
+class Cube extends ThreeDimShape { // ì§ìœ¡ë©´ì²´
 	private double width, length, height;
 
 	public Cube(int x, int y, double width, double length, double height) {
 		super(x, y);
 		this.width = width;
 		this.length = length;
-		this.height = height;
+		this.height = height; 
 	}
 
 	@Override
-	public double getVolume() { // Á÷À°¸éÃ¼ ºÎÇÇ
+	public double getVolume() { // ì§ìœ¡ë©´ì²´ ë¶€í”¼
 		volume = width * length * height;
 		return volume;
 	}
@@ -168,7 +168,7 @@ class Cube extends ThreeDimShape { // Á÷À°¸éÃ¼
 
 }
 
-class Cylinder extends ThreeDimShape { // ¿ø±âµÕ
+class Cylinder extends ThreeDimShape { // ì›ê¸°ë‘¥
 	private double r, height;
 
 	public Cylinder(int x, int y, double r, double height) {
@@ -178,7 +178,7 @@ class Cylinder extends ThreeDimShape { // ¿ø±âµÕ
 	}
 
 	@Override
-	public double getVolume() { // ¿ø±âµÕ ºÎÇÇ
+	public double getVolume() { // ì›ê¸°ë‘¥ ë¶€í”¼
 		volume = Math.PI * Math.pow(r, 2) * height;
 		return volume;
 	}
@@ -193,11 +193,11 @@ class Cylinder extends ThreeDimShape { // ¿ø±âµÕ
 public class ShapeTest {
 
 	public static void main(String[] args) {
-		//¸ğµç Á¾·ùÀÇ µµÇüÀ» ´ãÀ» ¼ö ÀÖ´Â ¹è¿­À» ¸¸µç´Ù.
-		//¹è¿­ÀÇ Å©±â´Â 3À¸·Î ÇÑ´Ù.
-		//3°¡ÁöÀÇ µµÇüÀ» ¹è¿­¿¡ »ı¼ºÇÏ¿© ´ã´Â´Ù.
-		//¹İº¹¹®À» ÀÌ¿ëÇÏ¿© ¹è¿­ÀÇ ¿ä¼Ò¸¦ ÇÏ³ª¾¿ ²ôÁı¾î ³»¾î¿Í ±× ¿ä¼Ò°¡ 2Â÷¿ø µµÇüÀÌ¸é ¸éÀû, 3Â÷¿ø µµÇüÀÌ¸é ºÎÇÇ¸¦ °è»ê
-		//±×¸®°í ±× µµÇüÀÇ Á¤º¸¸¦ Ãâ·ÂÇÑ´Ù.
+		//ëª¨ë“  ì¢…ë¥˜ì˜ ë„í˜•ì„ ë‹´ì„ ìˆ˜ ìˆëŠ” ë°°ì—´ì„ ë§Œë“ ë‹¤.
+		//ë°°ì—´ì˜ í¬ê¸°ëŠ” 3ìœ¼ë¡œ í•œë‹¤.
+		//3ê°€ì§€ì˜ ë„í˜•ì„ ë°°ì—´ì— ìƒì„±í•˜ì—¬ ë‹´ëŠ”ë‹¤.
+		//ë°˜ë³µë¬¸ì„ ì´ìš©í•˜ì—¬ ë°°ì—´ì˜ ìš”ì†Œë¥¼ í•˜ë‚˜ì”© ë„ì§‘ì–´ ë‚´ì–´ì™€ ê·¸ ìš”ì†Œê°€ 2ì°¨ì› ë„í˜•ì´ë©´ ë©´ì , 3ì°¨ì› ë„í˜•ì´ë©´ ë¶€í”¼ë¥¼ ê³„ì‚°
+		//ê·¸ë¦¬ê³  ê·¸ ë„í˜•ì˜ ì •ë³´ë¥¼ ì¶œë ¥í•œë‹¤.
 		
 		
 //		ArrayList<Shape> list = new ArrayList<Shape>();
@@ -209,7 +209,7 @@ public class ShapeTest {
 		arr[2] = new Cube(40, 30, 50, 70, 80);
 		
 		for(int i=0; i<arr.length; i++) {
-			if(arr[i] instanceof TwoDimShape) { //2Â÷¿ø µµÇüÀÌ¶ó¸é
+			if(arr[i] instanceof TwoDimShape) { //2ì°¨ì› ë„í˜•ì´ë¼ë©´
 				((TwoDimShape)arr[i]).getArea();
 			} else if(arr[i] instanceof ThreeDimShape) {
 				((ThreeDimShape)arr[i]).getVolume();
