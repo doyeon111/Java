@@ -4,7 +4,7 @@ abstract class Shapes {
 	protected int x, y;
 	protected double area;
 	
-	public abstract void calArea(); //ÀÚ½Ä Å¬·¡½º°¡ °¢°¢ ÀçÁ¤ÀÇ ÇÏµµ·Ï ¼³Á¤
+	public abstract void calArea(); //ìì‹ í´ë˜ìŠ¤ê°€ ê°ê° ì¬ì •ì˜ í•˜ë„ë¡ ì„¤ì •
 
 	public Shapes(int x, int y) {
 		super();
@@ -59,7 +59,7 @@ class Circle extends Shapes {
 	@Override
 	public void calArea() {
 		//area = r * r * 3.141592;
-		area = Math.PI * Math.pow(r, 2); //ÆÄÀÌ¿Í Á¦°öÀ» ¸Ş¼Òµå·Î »ç¿ëÇÒ ¼ö ÀÖÀ½.(°´Ã¼ »ç¿ëÇÏÁö ¾Ê°íµµ ¾µ ¼ö ÀÖÀ½.)
+		area = Math.PI * Math.pow(r, 2); //íŒŒì´ì™€ ì œê³±ì„ ë©”ì†Œë“œë¡œ ì‚¬ìš©í•  ìˆ˜ ìˆìŒ.(ê°ì²´ ì‚¬ìš©í•˜ì§€ ì•Šê³ ë„ ì“¸ ìˆ˜ ìˆìŒ.)
 		
 	}
 
@@ -89,7 +89,7 @@ class Triangle extends Shapes {
 
 	@Override
 	public String toString() {
-		return "Triangle [width=" + width + ", height=" + height + ", " + super.toString() + "]"; //ºÎ¸ğ°¡ ¸¸µç toStringÀ» °¡Á®¿È.
+		return "Triangle [width=" + width + ", height=" + height + ", " + super.toString() + "]"; //ë¶€ëª¨ê°€ ë§Œë“  toStringì„ ê°€ì ¸ì˜´.
 	}
 	
 	
@@ -113,4 +113,4 @@ public class ShapesTest {
 		
 	}
 
-}
+} 
