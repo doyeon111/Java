@@ -3,15 +3,15 @@ package exam06;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//¸ğµç Á÷¿øµéÀÌ °¡Á®¾ßÇÒ °øÅëÀûÀÎ ¼Ó¼ºµé°ú ±â´ÉµéÀ» »Ì¾Æ ºÎ¸ğÅ¬·¡½º¸¦ ¸¸µç´Ù. ==> ÀÏ¹İÈ­
+//ëª¨ë“  ì§ì›ë“¤ì´ ê°€ì ¸ì•¼í•  ê³µí†µì ì¸ ì†ì„±ë“¤ê³¼ ê¸°ëŠ¥ë“¤ì„ ë½‘ì•„ ë¶€ëª¨í´ë˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤. ==> ì¼ë°˜í™”
 abstract class Employee {
 	protected String name;
 	protected int no;
-	protected int salary; // ±Ş¿©
+	protected int salary; // ê¸‰ì—¬
 
 	public abstract void computeSalary();
-	// °íÁ¤±Ş¿©, ½Ã°£Á¦±Ş¿© ÀÌ ¸Ş¼Òµå¸¦ ±¸Ã¼È­ÇÒ ¼ö ¾ø´Ù.
-	// ±×·¯³ª ÀÚ½ÄÅ¬·¡½ºµéÀº ¹İµå½Ã ÀÌ ¸Ş¼Òµå¸¦ ÀçÁ¤ÀÇ ÇÏµµ·Ï °­Á¦
+	// ê³ ì •ê¸‰ì—¬, ì‹œê°„ì œê¸‰ì—¬ ì´ ë©”ì†Œë“œë¥¼ êµ¬ì²´í™”í•  ìˆ˜ ì—†ë‹¤.
+	// ê·¸ëŸ¬ë‚˜ ìì‹í´ë˜ìŠ¤ë“¤ì€ ë°˜ë“œì‹œ ì´ ë©”ì†Œë“œë¥¼ ì¬ì •ì˜ í•˜ë„ë¡ ê°•ì œ
 
 	public String getName() {
 		return name;
@@ -42,11 +42,11 @@ abstract class Employee {
 
 }
 
-//¸Å¿ù Á¤ÇØÁø ±Ş¿©¸¦ ¹Ş´Â Á÷¿ø
-class SalariedEmployee extends Employee { // ¿ù±ŞÁ¦ Á÷¿ø
-	private int hobong; // È£ºÀ
-	private int base; // ±âº»±Ş
-	private int extra_pay; // ¼ö´ç
+//ë§¤ì›” ì •í•´ì§„ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì§ì›
+class SalariedEmployee extends Employee { // ì›”ê¸‰ì œ ì§ì›
+	private int hobong; // í˜¸ë´‰
+	private int base; // ê¸°ë³¸ê¸‰
+	private int extra_pay; // ìˆ˜ë‹¹
 
 	public SalariedEmployee(String name, int no, int hobong) {
 		super(name, no);
@@ -83,10 +83,10 @@ class SalariedEmployee extends Employee { // ¿ù±ŞÁ¦ Á÷¿ø
 
 }
 
-//ÀÏÇÑ ½Ã°£¸¸Å­ ±Ş¿©¸¦ ¹Ş´Â Á÷¿ø
-class HourlyEmployee extends Employee { // ½Ã°£Á¦ Á÷¿ø
-	private int hours; // ÀÏÇÑ ½Ã°£
-	private int base; // ½Ã±Ş
+//ì¼í•œ ì‹œê°„ë§Œí¼ ê¸‰ì—¬ë¥¼ ë°›ëŠ” ì§ì›
+class HourlyEmployee extends Employee { // ì‹œê°„ì œ ì§ì›
+	private int hours; // ì¼í•œ ì‹œê°„
+	private int base; // ì‹œê¸‰
 
 	public HourlyEmployee(String name, int no, int base, int hours) {
 		super(name, no);
@@ -115,76 +115,76 @@ public class EmployeeTest {
 		ArrayList<Employee> list = new ArrayList<Employee>();
 
 		
-		// »ç¿øÀÇ Á¤º¸ ÀÔ·Â¹Ş±â.
-		int type; //¿ù±ŞÁ¦ »ç¿øÀÎÁö, ½Ã°£Á¦ »ç¿øÀÎÁö ÀÔ·ÂÇÒ º¯¼ö 1. ¿ù±ŞÁ¦, 2. ½Ã°£Á¦ 
-		int n = 0; // ¹è¿­ÀÇ ÀÎµ¦½º¸¦ À§ÇÑ º¯¼ö
+		// ì‚¬ì›ì˜ ì •ë³´ ì…ë ¥ë°›ê¸°.
+		int type; //ì›”ê¸‰ì œ ì‚¬ì›ì¸ì§€, ì‹œê°„ì œ ì‚¬ì›ì¸ì§€ ì…ë ¥í•  ë³€ìˆ˜ 1. ì›”ê¸‰ì œ, 2. ì‹œê°„ì œ 
+		int n = 0; // ë°°ì—´ì˜ ì¸ë±ìŠ¤ë¥¼ ìœ„í•œ ë³€ìˆ˜
 		Scanner sc = new Scanner(System.in);
 		
-		while (true) { //°è¼Ó µ¿ÀÛ, Á¾·á¸¦ À§ÇÑ 0À» ÀÔ·ÂÇÏ±âÀü±îÁö
-			System.out.println("1. ¿ù±ŞÁ¦»ç¿ø 2. ½Ã°£Á¦»ç¿ø 0. Á¾·á");
-			type = sc.nextInt(); //¿ù±ŞÁ¦ »ç¿øÀÎÁö, ½Ã°£Á¦ »ç¿øÀÎÁö ÀÔ·Â¹ŞÀ½
+		while (true) { //ê³„ì† ë™ì‘, ì¢…ë£Œë¥¼ ìœ„í•œ 0ì„ ì…ë ¥í•˜ê¸°ì „ê¹Œì§€
+			System.out.println("1. ì›”ê¸‰ì œì‚¬ì› 2. ì‹œê°„ì œì‚¬ì› 0. ì¢…ë£Œ");
+			type = sc.nextInt(); //ì›”ê¸‰ì œ ì‚¬ì›ì¸ì§€, ì‹œê°„ì œ ì‚¬ì›ì¸ì§€ ì…ë ¥ë°›ìŒ
 
-			if (type == 0) { //typeÀÌ 0ÀÌ¸é Á¾·á
-				System.out.println("Á¾·áµÇ¾ú½À´Ï´Ù.");
+			if (type == 0) { //typeì´ 0ì´ë©´ ì¢…ë£Œ
+				System.out.println("ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				break;
 
 			}
 
-			String name; //ÀÌ¸§À» ÀúÀåÇÒ º¯¼ö
-			int no; //»ç¿ø¹øÈ£¸¦ ÀúÀåÇÒ º¯¼ö
+			String name; //ì´ë¦„ì„ ì €ì¥í•  ë³€ìˆ˜
+			int no; //ì‚¬ì›ë²ˆí˜¸ë¥¼ ì €ì¥í•  ë³€ìˆ˜
 
-			System.out.print("»ç¿øÀÇ ÀÌ¸§: ");
+			System.out.print("ì‚¬ì›ì˜ ì´ë¦„: ");
 			name = sc.next();
 
-			System.out.print("»ç¿ø ¹øÈ£: ");
+			System.out.print("ì‚¬ì› ë²ˆí˜¸: ");
 			no = sc.nextInt();
 
-			if (type == 1) { //¿ù±ŞÁ¦ »ç¿øÀÌ¶ó¸é 
+			if (type == 1) { //ì›”ê¸‰ì œ ì‚¬ì›ì´ë¼ë©´ 
 				int hobong;
-				System.out.print("È£ºÀÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
-				hobong = sc.nextInt(); //È£ºÀÀ» ÀÔ·Â¹Ş´Â´Ù.
+				System.out.print("í˜¸ë´‰ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+				hobong = sc.nextInt(); //í˜¸ë´‰ì„ ì…ë ¥ë°›ëŠ”ë‹¤.
 				
-				//arr[n++] = new SalariedEmployee(name, no, hobong); //ÀÔ·Â¹ŞÀº ÀÌ¸§, »ç¿ø¹øÈ£, È£ºÀÀ» °®°í ¿ù±ŞÁ¦ »ç¿ø °´Ã¼¸¦ À§ÇÑ SalariedEmployee¸¦ »ı¼º
-				list.add(new SalariedEmployee(name, no, hobong)); //¿ù±ŞÁ¦ °´Ã¼¸¦ »ı¼ºÇØ¼­ ¸®½ºÆ®¿¡ ´ã´Â´Ù.
+				//arr[n++] = new SalariedEmployee(name, no, hobong); //ì…ë ¥ë°›ì€ ì´ë¦„, ì‚¬ì›ë²ˆí˜¸, í˜¸ë´‰ì„ ê°–ê³  ì›”ê¸‰ì œ ì‚¬ì› ê°ì²´ë¥¼ ìœ„í•œ SalariedEmployeeë¥¼ ìƒì„±
+				list.add(new SalariedEmployee(name, no, hobong)); //ì›”ê¸‰ì œ ê°ì²´ë¥¼ ìƒì„±í•´ì„œ ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 
-			} else if (type == 2) { //½Ã°£Á¦ »ç¿øÀÌ¶ó¸é
+			} else if (type == 2) { //ì‹œê°„ì œ ì‚¬ì›ì´ë¼ë©´
 				int base, hours;
 
-				System.out.print("½Ã°£´ç ±Ş¿©¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
-				base = sc.nextInt(); //½Ã°£´ç ±Ş¿©¸¦ ÀÔ·Â¹Ş´Â´Ù. 
+				System.out.print("ì‹œê°„ë‹¹ ê¸‰ì—¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
+				base = sc.nextInt(); //ì‹œê°„ë‹¹ ê¸‰ì—¬ë¥¼ ì…ë ¥ë°›ëŠ”ë‹¤. 
 
-				System.err.print("ÀÏÇÑ ½Ã°£À» ÀÔ·ÂÇÏ¼¼¿ä: "); 
-				hours = sc.nextInt(); //ÀÏÇÑ ½Ã°£À» ÀÔ·Â¹Ş´Â´Ù
+				System.err.print("ì¼í•œ ì‹œê°„ì„ ì…ë ¥í•˜ì„¸ìš”: "); 
+				hours = sc.nextInt(); //ì¼í•œ ì‹œê°„ì„ ì…ë ¥ë°›ëŠ”ë‹¤
 
 				//arr[n++] = new HourlyEmployee(name, no, base, hours); 
-				//ÀÔ·Â¹ŞÀº ÀÌ¸§, »ç¿ø¹øÈ£, ½Ã°£´ç ±Ş¿©, ÀÏÇÑ ½Ã°£À» °®°í ½Ã°£Á¦ »ç¿øÀ» À§ÇÑ HourlyEmployee¸¦ »ı¼º
+				//ì…ë ¥ë°›ì€ ì´ë¦„, ì‚¬ì›ë²ˆí˜¸, ì‹œê°„ë‹¹ ê¸‰ì—¬, ì¼í•œ ì‹œê°„ì„ ê°–ê³  ì‹œê°„ì œ ì‚¬ì›ì„ ìœ„í•œ HourlyEmployeeë¥¼ ìƒì„±
 				
 				list.add(new HourlyEmployee(name, no, base, hours));
 				
 				
 				
 
-			} else { //¿ù±ŞÁ¦ »ç¿øµµ ¾Æ´Ï°í ½Ã°£Á¦»ç¿øµµ ¾Æ´Ï¸é Àß¸øÀÔ·ÂµÇ¾ú´Ù°í ¸Ş¼¼Áö Ãâ·Â
-				System.out.println("Àß¸ø ÀÔ·ÂÇÏ¿´½À´Ï´Ù.");
+			} else { //ì›”ê¸‰ì œ ì‚¬ì›ë„ ì•„ë‹ˆê³  ì‹œê°„ì œì‚¬ì›ë„ ì•„ë‹ˆë©´ ì˜ëª»ì…ë ¥ë˜ì—ˆë‹¤ê³  ë©”ì„¸ì§€ ì¶œë ¥
+				System.out.println("ì˜ëª» ì…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 
-		} // ÀÔ·ÂÀÇ ³¡
+		} // ì…ë ¥ì˜ ë
 
-		//¹è¿­ÀÇ ±æÀÌ: length
-		//¸®½ºÆ®ÀÇ ±æÀÌ: size()
-		//¹®ÀÚ¿­ÀÇ ±æÀÌ: length()
+		//ë°°ì—´ì˜ ê¸¸ì´: length
+		//ë¦¬ìŠ¤íŠ¸ì˜ ê¸¸ì´: size()
+		//ë¬¸ìì—´ì˜ ê¸¸ì´: length()
 		
-		// ±Ş¿©¸¦ °è»êÇÏ°í Ãâ·ÂÇÏ±â
-		for (int i = 0; i < list.size(); i++) { //ÀÔ·ÂÇÑ ¼ö ¸¸Å­ ¹İº¹½ÇÇàÇÏ¿© 
-		 	 Employee e = list.get(i); //¸®½ºÆ®ÀÇ ¿ä¼Ò¸¦ ÇÏ³ª¾¿ ²ôÁı¾î ³»¾î¿Í Employee º¯¼ö¿¡ ´ã´Â´Ù.
-		 	 //¸®½ºÆ®¿¡´Â ¿ù±ŞÁ¦ »ç¿øÀÏ ¼öµµ ÀÖ°í ½Ã°£Á¦ »ç¿øÀÏ ¼öµµ ÀÖ´Ù. ¾î¶²°Å¶óµµ ´ã±â À§ÇÏ¿© Employee º¯¼ö·Î ´ã¾Æ¿Â´Ù.
+		// ê¸‰ì—¬ë¥¼ ê³„ì‚°í•˜ê³  ì¶œë ¥í•˜ê¸°
+		for (int i = 0; i < list.size(); i++) { //ì…ë ¥í•œ ìˆ˜ ë§Œí¼ ë°˜ë³µì‹¤í–‰í•˜ì—¬ 
+		 	 Employee e = list.get(i); //ë¦¬ìŠ¤íŠ¸ì˜ ìš”ì†Œë¥¼ í•˜ë‚˜ì”© ë„ì§‘ì–´ ë‚´ì–´ì™€ Employee ë³€ìˆ˜ì— ë‹´ëŠ”ë‹¤.
+		 	 //ë¦¬ìŠ¤íŠ¸ì—ëŠ” ì›”ê¸‰ì œ ì‚¬ì›ì¼ ìˆ˜ë„ ìˆê³  ì‹œê°„ì œ ì‚¬ì›ì¼ ìˆ˜ë„ ìˆë‹¤. ì–´ë–¤ê±°ë¼ë„ ë‹´ê¸° ìœ„í•˜ì—¬ Employee ë³€ìˆ˜ë¡œ ë‹´ì•„ì˜¨ë‹¤.
 		 	 
 		 	 
-			//arr[i].computeSalary(); // °¢ ¹è¿­ÀÇ ¿ä¼Ò¿¡ ±Ş¿©¸¦ °è»êÇÑ´Ù.
-			e.computeSalary(); //²ôÁı¾î ³»¾î¿Â ¸®½ºÆ®ÀÇ ¿ä¼Ò¸¦ °®°í ±Ş¿©¸¦ °è»êÇÑ´Ù.
+			//arr[i].computeSalary(); // ê° ë°°ì—´ì˜ ìš”ì†Œì— ê¸‰ì—¬ë¥¼ ê³„ì‚°í•œë‹¤.
+			e.computeSalary(); //ë„ì§‘ì–´ ë‚´ì–´ì˜¨ ë¦¬ìŠ¤íŠ¸ì˜ ìš”ì†Œë¥¼ ê°–ê³  ê¸‰ì—¬ë¥¼ ê³„ì‚°í•œë‹¤.
 			
-			System.out.println(e); //²ôÁı¾î ³»¾î¿Â ¸®½ºÆ®ÀÇ ¿ä¼Ò¸¦ Ãâ·ÂÇÑ´Ù.
+			System.out.println(e); //ë„ì§‘ì–´ ë‚´ì–´ì˜¨ ë¦¬ìŠ¤íŠ¸ì˜ ìš”ì†Œë¥¼ ì¶œë ¥í•œë‹¤.
 		}
 	}
 
-}
+} 
