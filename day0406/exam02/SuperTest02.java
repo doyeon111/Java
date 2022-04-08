@@ -16,7 +16,7 @@ class Student extends Person {
 	String major;
 	
 	public Student(String name, int age, String major) {
-		super(name, age); //ºÎ¸ğÀÇ ¸Å°³º¯¼ö¸¦ °®´Â »ı¼ºÀÚ¸¦ µ¿ÀÛ½ÃÅ´.
+		super(name, age); //ë¶€ëª¨ì˜ ë§¤ê°œë³€ìˆ˜ë¥¼ ê°–ëŠ” ìƒì„±ìë¥¼ ë™ì‘ì‹œí‚´.
 		this.major = major;
 	}
 }
@@ -29,3 +29,4 @@ public class SuperTest02 {
 	}
 
 }
+ 
