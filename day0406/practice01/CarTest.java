@@ -12,7 +12,7 @@ abstract class Vehicle {
 	public abstract double getKilosPerLiter();
 
 	public String printSpeed() {
-		return "ÇöÀç ¼Óµµ: " + speed;
+		return "í˜„ì¬ ì†ë„:  " + speed;
 	}
 
 }
@@ -32,7 +32,7 @@ class Car extends Vehicle {
 
 	@Override
 	public String printSpeed() {
-		return "ÇöÀç ¼Óµµ: " + speed;
+		return "í˜„ì¬ ì†ë„: " + speed;
 	}
 	
 	
