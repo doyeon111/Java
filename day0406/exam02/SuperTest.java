@@ -7,13 +7,13 @@ class A {
 
 class B extends A {
 	String title = "java";
-	String addr = "¼­¿ï";
+	String addr = "ì„œìš¸";
 
 	public void info() {
 		System.out.println("year: " + year);
 		System.out.println("addr: " + addr);
 		System.out.println("title: " + title);
-		System.out.println("ºÎ¸ğÀÇ title: " + super.title); //ºÎ¸ğÀÇ titleÀ» Ãâ·ÂÇÏ°í ½ÍÀ» ¶§ super.title 
+		System.out.println("ë¶€ëª¨ì˜ title: " + super.title); //ë¶€ëª¨ì˜ titleì„ ì¶œë ¥í•˜ê³  ì‹¶ì„ ë•Œ super.title 
 	}
 }
 
@@ -26,3 +26,4 @@ public class SuperTest {
 	}
 
 }
+ 
