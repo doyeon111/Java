@@ -1,11 +1,12 @@
 package practicelab01;
-//pdf lab 01¹ø¹®Á¦ ¾È¿¡ 5¹ø
+//pdf lab 01ë²ˆë¬¸ì œ ì•ˆì— 5ë²ˆ
 public class Car extends Vehicle {
 
 	@Override
-	public double getKilosPerLiter() { //1¸®ÅÍ¸¦ ³ÖÀ¸¸é 13Å°·Î °£´Ù.
+	public double getKilosPerLiter() { //1ë¦¬í„°ë¥¼ ë„£ìœ¼ë©´ 13í‚¤ë¡œ ê°„ë‹¤.
 		
 		return 13;
 	}
 
 }
+ 
