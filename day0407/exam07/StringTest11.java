@@ -5,30 +5,30 @@ import java.util.Scanner;
 public class StringTest11 {
 
 	public static void main(String[] args) {
-//		String data = "hello java hello oracle"; //¹®ÀÚ¿­ÀÇ ÀÏºÎºĞ¸¸ Àß¶ó¿À°í ½ÍÀ» ¶§ ex) hello¸¸
+//		String data = "hello java hello oracle"; //ë¬¸ìì—´ì˜ ì¼ë¶€ë¶„ë§Œ ì˜ë¼ì˜¤ê³  ì‹¶ì„ ë•Œ ex) helloë§Œ
 //		
-//		//data·Î ºÎÅÍ java¸¸ Àß¶ó¿Í¼­ Ãâ·ÂÇÏ±â.
+//		//dataë¡œ ë¶€í„° javaë§Œ ì˜ë¼ì™€ì„œ ì¶œë ¥í•˜ê¸°.
 //		String r = data.substring(6, 10);
 //		//System.out.println(data.substring(6, 10));
 //		System.out.println(r);
 //		
-//		String r2 = data.substring(6); //6¹øÂ°ºÎÅÍ ³¡±îÁö Ãâ·Â
+//		String r2 = data.substring(6); //6ë²ˆì§¸ë¶€í„° ëê¹Œì§€ ì¶œë ¥
 //		System.out.println(r2);
 		
 		
 		
 		
 		
-		//»ç¿ëÀÚÇÑÅ× ÀÌ¸ŞÀÏÀ» ÀÔ·Â¹Ş¾Æ ¾ÆÀÌµğ¸¸ ÃßÃâÇÏ¿© Ãâ·ÂÇØº¸±â.
+		//ì‚¬ìš©ìí•œí…Œ ì´ë©”ì¼ì„ ì…ë ¥ë°›ì•„ ì•„ì´ë””ë§Œ ì¶”ì¶œí•˜ì—¬ ì¶œë ¥í•´ë³´ê¸°.
 
 //		Scanner sc = new Scanner(System.in);
 		
 //		String email;
 //		
-//		System.out.print("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+//		System.out.print("ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 //		email = sc.next();
 //		
-//		String id = email.substring(0, email.indexOf("@")); //¾ÆÀÌµğ¸¸ ÃßÃâÇÏ¿© @ ¾Õ¿¡¿À´Â ¹®ÀÚ¿­±îÁö¸¸ Ãâ·Â
+//		String id = email.substring(0, email.indexOf("@")); //ì•„ì´ë””ë§Œ ì¶”ì¶œí•˜ì—¬ @ ì•ì—ì˜¤ëŠ” ë¬¸ìì—´ê¹Œì§€ë§Œ ì¶œë ¥
 //		
 //		System.out.println(id);
 		
@@ -37,32 +37,32 @@ public class StringTest11 {
 
 		
 		
-		//»ç¿ëÀÚÇÑÅ× urlÀ» ÀÔ·Â¹Ş¾Æ ¼­ºñ½º¸íÀ» ÆÄ¾ÇÇÏ¿© Ãâ·ÂÇØº¸ÀÚ.
+		//ì‚¬ìš©ìí•œí…Œ urlì„ ì…ë ¥ë°›ì•„ ì„œë¹„ìŠ¤ëª…ì„ íŒŒì•…í•˜ì—¬ ì¶œë ¥í•´ë³´ì.
 		//String url = "http://www.sist.co.kr/write";
 		
 //		String url;
 //		
-//		System.out.print("urlÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+//		System.out.print("urlì„ ì…ë ¥í•˜ì„¸ìš”: ");
 //		url = sc.next();
 //		
-//		String service = url.substring(url.lastIndexOf("/") + 1); //½½·¯½Ã°¡ ³ª¿À´Â ´ÙÀ½ºÎÅÍ ³¡±îÁö(lastIndexOf)
+//		String service = url.substring(url.lastIndexOf("/") + 1); //ìŠ¬ëŸ¬ì‹œê°€ ë‚˜ì˜¤ëŠ” ë‹¤ìŒë¶€í„° ëê¹Œì§€(lastIndexOf)
 //		
-//		System.out.println("¼­ºñ½º: " + service);
+//		System.out.println("ì„œë¹„ìŠ¤: " + service);
 		
 		
 		
 		
 		
 		
-		//»ç¿ëÀÚÇÑÅ× ¹®ÀÚ¿­À» ÀÔ·Â¹Ş¾Æ ¸ğµÎ ´ë¹®ÀÚ·Î º¯È¯ÇÏ¿© Ãâ·ÂÇØº¸ÀÚ.
+		//ì‚¬ìš©ìí•œí…Œ ë¬¸ìì—´ì„ ì…ë ¥ë°›ì•„ ëª¨ë‘ ëŒ€ë¬¸ìë¡œ ë³€í™˜í•˜ì—¬ ì¶œë ¥í•´ë³´ì.
 		
 //		String w;
 //		
-//		System.out.println("¹®ÀÚ¿­À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+//		System.out.println("ë¬¸ìì—´ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 //		w = sc.next();
 //		
-//		String w2 = w.toLowerCase(); //ÀÔ·Â¹ŞÀº ¹®ÀÚ¸¦ ¸ğµÎ ¼Ò¹®ÀÚ·Î ¹Ù²Ş toLowerCase
-//		String w3 = w.toUpperCase(); //ÀÔ·Â¹ŞÀº ¹®ÀÚ¸¦ ¸ğµÎ ´ë¹®ÀÚ·Î ¹Ù²Ş toUpperCase
+//		String w2 = w.toLowerCase(); //ì…ë ¥ë°›ì€ ë¬¸ìë¥¼ ëª¨ë‘ ì†Œë¬¸ìë¡œ ë°”ê¿ˆ toLowerCase
+//		String w3 = w.toUpperCase(); //ì…ë ¥ë°›ì€ ë¬¸ìë¥¼ ëª¨ë‘ ëŒ€ë¬¸ìë¡œ ë°”ê¿ˆ toUpperCase
 //		
 //		System.out.println(w3);
 		
@@ -72,15 +72,15 @@ public class StringTest11 {
 		
 		
 		
-//		//»ç¿ëÀÚÇÑÅ× ¹®ÀåÀ» ÀÔ·Â¹Ş¾Æ ¸ğµÎ ´ë¹®ÀÚ·Î º¯È¯ÇÏ¿© Ãâ·ÂÇØº¸ÀÚ.
+//		//ì‚¬ìš©ìí•œí…Œ ë¬¸ì¥ì„ ì…ë ¥ë°›ì•„ ëª¨ë‘ ëŒ€ë¬¸ìë¡œ ë³€í™˜í•˜ì—¬ ì¶œë ¥í•´ë³´ì.
 //		
 //		String w;
 //		
-//		System.out.print("¹®ÀåÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
-//		w = sc.nextLine(); //°ø¹éµµ Æ÷ÇÔÇÏ¿© ¹®ÀåÀ» ÀÔ·Â
+//		System.out.print("ë¬¸ì¥ì„ ì…ë ¥í•˜ì„¸ìš”: ");
+//		w = sc.nextLine(); //ê³µë°±ë„ í¬í•¨í•˜ì—¬ ë¬¸ì¥ì„ ì…ë ¥
 //		
-//		String w2 = w.toLowerCase(); //ÀÔ·Â¹ŞÀº ¹®ÀÚ¸¦ ¸ğµÎ ¼Ò¹®ÀÚ·Î ¹Ù²Ş toLowerCase
-//		String w3 = w.toUpperCase(); //ÀÔ·Â¹ŞÀº ¹®ÀÚ¸¦ ¸ğµÎ ´ë¹®ÀÚ·Î ¹Ù²Ş toUpperCase
+//		String w2 = w.toLowerCase(); //ì…ë ¥ë°›ì€ ë¬¸ìë¥¼ ëª¨ë‘ ì†Œë¬¸ìë¡œ ë°”ê¿ˆ toLowerCase
+//		String w3 = w.toUpperCase(); //ì…ë ¥ë°›ì€ ë¬¸ìë¥¼ ëª¨ë‘ ëŒ€ë¬¸ìë¡œ ë°”ê¿ˆ toUpperCase
 //		
 //		System.out.println(w3);
 		
@@ -88,10 +88,10 @@ public class StringTest11 {
 		
 		
 		
-//		//ºóÄ­À» Áö¿ì°í ±ÛÀÚÀÇ ±æÀÌ È®ÀÎ
+//		//ë¹ˆì¹¸ì„ ì§€ìš°ê³  ê¸€ìì˜ ê¸¸ì´ í™•ì¸
 //		String data = "   hello  ";
 //		System.out.println(data.length());
-//		System.out.println(data.trim().length()); //±ÛÀÚÀÇ ºóÄ­À» Áö¿ì°í ±ÛÀÚÀÇ ±æÀÌ¸¦ È®ÀÎÇÏ±â
+//		System.out.println(data.trim().length()); //ê¸€ìì˜ ë¹ˆì¹¸ì„ ì§€ìš°ê³  ê¸€ìì˜ ê¸¸ì´ë¥¼ í™•ì¸í•˜ê¸°
 		
 		
 		
@@ -99,21 +99,21 @@ public class StringTest11 {
 		
 		
 		
-//		//member ¹è¿­Áß¿¡ ÀÌ¸§ÀÌ °ø¹éÀ» Á¦°ÅÇÏ°í ´ë¼Ò¹®ÀÚ »ó°ü¾øÀÌ tigerÀÎ »ç¶÷ÀÌ ¸ğµÎ ¸î ¸íÀÎÁö ¾Ë·ÁÁÖ¼¼¿ä.	
-//		String []member = {"tiger", "kim", "tiger", "hong",  "   tiger  ", "lee", "  TIGER"}; //tiger´Â ¸ğµÎ 4¸í
+//		//member ë°°ì—´ì¤‘ì— ì´ë¦„ì´ ê³µë°±ì„ ì œê±°í•˜ê³  ëŒ€ì†Œë¬¸ì ìƒê´€ì—†ì´ tigerì¸ ì‚¬ëŒì´ ëª¨ë‘ ëª‡ ëª…ì¸ì§€ ì•Œë ¤ì£¼ì„¸ìš”.	
+//		String []member = {"tiger", "kim", "tiger", "hong",  "   tiger  ", "lee", "  TIGER"}; //tigerëŠ” ëª¨ë‘ 4ëª…
 //	
 //		
 //		int cnt = 0;
 //		
 //		
 //		for(String name:member) {
-//			name = name.toLowerCase().trim();//nameÀ» ¸ğµÎ ¼Ò¹®ÀÚ·Î ¹Ù²Ù°í, °ø¹éÀ» Á¦°ÅÇÑ °ª
+//			name = name.toLowerCase().trim();//nameì„ ëª¨ë‘ ì†Œë¬¸ìë¡œ ë°”ê¾¸ê³ , ê³µë°±ì„ ì œê±°í•œ ê°’
 //			if(name.equals("tiger")) { 
 //				cnt++;
 //			}
 //		}
 //		
-//		System.out.println("ÀÌ¸§ÀÌ tigerÀÎ »ç¶÷Àº ¸ğµÎ " + cnt + "¸í ÀÔ´Ï´Ù.");
+//		System.out.println("ì´ë¦„ì´ tigerì¸ ì‚¬ëŒì€ ëª¨ë‘ " + cnt + "ëª… ì…ë‹ˆë‹¤.");
 //		
 		
 		
@@ -121,8 +121,8 @@ public class StringTest11 {
 		
 		
 		
-//		int data = 65;//´ë¹®ÀÚ AÀÇ Á¤¼ö°ª
-//		int data2 = 97; // ¼Ò¹®ÀÚ aÀÇ Á¤¼ö°ª
+//		int data = 65;//ëŒ€ë¬¸ì Aì˜ ì •ìˆ˜ê°’
+//		int data2 = 97; // ì†Œë¬¸ì aì˜ ì •ìˆ˜ê°’
 //		
 //		System.out.println((char)data);
 //		System.out.println((char)data2);
@@ -132,7 +132,7 @@ public class StringTest11 {
 		
 		
 		
-//		System.out.println('A'-65); //´Ù¸¥ ÀÚ·áÇü³¢¸® ¿¬»êÀ» ÇÒ °æ¿ì Å« ÀÚ·áÇüÀ¸·Î °è»ê
+//		System.out.println('A'-65); //ë‹¤ë¥¸ ìë£Œí˜•ë¼ë¦¬ ì—°ì‚°ì„ í•  ê²½ìš° í° ìë£Œí˜•ìœ¼ë¡œ ê³„ì‚°
 //		System.out.println('a'-97);
 //		System.out.println("--------------------------------");
 //		System.out.println('B'-65);
@@ -142,9 +142,9 @@ public class StringTest11 {
 		
 		
 		
-//		//±âº»ÀÚ·áÇüÀ» StringÀ¸·Î ¸¸µé±â
+//		//ê¸°ë³¸ìë£Œí˜•ì„ Stringìœ¼ë¡œ ë§Œë“¤ê¸°
 //		boolean a = true;
-//		String data = String.valueOf(a); //¾î¶² ±âº»ÀÚ·áÇüÀ» stringÀ¸·Î ¸¸µé¾îÁà¾ßÇÒ¶§ valueOf»ç¿ë
+//		String data = String.valueOf(a); //ì–´ë–¤ ê¸°ë³¸ìë£Œí˜•ì„ stringìœ¼ë¡œ ë§Œë“¤ì–´ì¤˜ì•¼í• ë•Œ valueOfì‚¬ìš©
 //	
 //		int b = 1004;
 //		String data2 = String.valueOf(b);
@@ -163,9 +163,9 @@ public class StringTest11 {
 //		String data = a + "";
 //		
 //		int b = 123;
-//		String data2 = b +""; //String ºü¸£°Ô ¸¸µå´Â ¹æ¹ı
+//		String data2 = b +""; //String ë¹ ë¥´ê²Œ ë§Œë“œëŠ” ë°©ë²•
 		
 		
-	}
+	} 
 
 }
