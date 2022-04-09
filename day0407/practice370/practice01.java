@@ -10,18 +10,19 @@ public class practice01 {
 		String str;
 		int cnt = 0;
 
-		System.out.print("¹®ÀÚ¿­À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë¬¸ìì—´ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		str = sc.nextLine();
 
-		String[] arr = str.split(" "); // ¹®ÀÚ¿­ ºĞ¸®
+		String[] arr = str.split(" "); // ë¬¸ìì—´ ë¶„ë¦¬
 
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + ", ");
 			cnt++;
 		}
 		System.out.println();
-		System.out.println("¸ğµÎ " + cnt + "°³ÀÇ ´Ü¾î°¡ ÀÖ½À´Ï´Ù.");
+		System.out.println("ëª¨ë‘ " + cnt + "ê°œì˜ ë‹¨ì–´ê°€ ìˆìŠµë‹ˆë‹¤.");
 
 	}
 
 }
+ 
