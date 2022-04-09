@@ -3,14 +3,15 @@ package exam07;
 public class StringTest08 {
 
 	public static void main(String[] args) {
-		int data = 65; //65´Â ´ë¹®ÀÚ A¿¡ ´ëÇÑ Á¤¼ö°ª
+		int data = 65; //65ëŠ” ëŒ€ë¬¸ì Aì— ëŒ€í•œ ì •ìˆ˜ê°’
 		System.out.println(data);
-		System.out.println((char)data); //A°¡ ³ª¿È
+		System.out.println((char)data); //Aê°€ ë‚˜ì˜´
 		
 		char data2 = 'A';
 		System.out.println(data2);
-		System.out.println((int)data2); //AÀÇ Á¤¼ö°ª 65°¡ Ãâ·Â
+		System.out.println((int)data2); //Aì˜ ì •ìˆ˜ê°’ 65ê°€ ì¶œë ¥
 
 	}
 
 }
+ 
