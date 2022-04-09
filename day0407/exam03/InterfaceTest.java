@@ -1,9 +1,9 @@
 package exam03;
 
-interface A { // A¶ó´Â ÀÚ·áÇüÀ» ¸¸µç´Ù. (ÀÎÅÍÆäÀÌ½º ¾È¿¡´Â »ó¼ö, Ãß»ó¸Ş¼Òµå¸¸) === ¿ÏÀüÃß»ó
-	public int a = 10; // finalÀ» ºÙÀÌÁö ¾Ê¾Æµµ ÀÚµ¿ final
+interface A { // Aë¼ëŠ” ìë£Œí˜•ì„ ë§Œë“ ë‹¤. (ì¸í„°í˜ì´ìŠ¤ ì•ˆì—ëŠ” ìƒìˆ˜, ì¶”ìƒë©”ì†Œë“œë§Œ) === ì™„ì „ì¶”ìƒ
+	public int a = 10; // finalì„ ë¶™ì´ì§€ ì•Šì•„ë„ ìë™ final
 
-	public void pro(); // abstractÀ» ºÙÀÌÁö ¾Ê¾Æµµ ÀÚµ¿ abstract
+	public void pro(); // abstractì„ ë¶™ì´ì§€ ì•Šì•„ë„ ìë™ abstract
 }
 
 interface B {
@@ -12,7 +12,7 @@ interface B {
 	public void test();
 }
 
-class C implements A, B { // interface¸¦ A, B µÑ´Ù »ó¼Ó¹Ş´Â´Ù. ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹ŞÀ» ‹š¿¡´Â implements¸¦ »ç¿ëÇÑ´Ù.
+class C implements A, B { // interfaceë¥¼ A, B ë‘˜ë‹¤ ìƒì†ë°›ëŠ”ë‹¤. ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì„ Â‹Âšì—ëŠ” implementsë¥¼ ì‚¬ìš©í•œë‹¤.
 
 	@Override
 	public void test() {
@@ -37,3 +37,4 @@ public class InterfaceTest {
 	}
 
 }
+ 
