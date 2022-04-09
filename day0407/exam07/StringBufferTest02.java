@@ -5,7 +5,7 @@ public class StringBufferTest02 {
 	public static void execute(String sql) {
 		
 		System.out.println("-----------------------------------------");
-		System.out.println(sql + "À» µ¿ÀÛÇÏ¿´½À´Ï´Ù.");
+		System.out.println(sql + "ì„ ë™ì‘í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		System.out.println("-----------------------------------------");
 	}
 	
@@ -13,15 +13,16 @@ public class StringBufferTest02 {
 		StringBuffer sql = new StringBuffer();
 		
 		sql.append("member");
-		sql.append(" values(?,?,?,?,?)"); //°è¼ÓÇØ¼­ ¹®ÀÚ¿­À» Ãß°¡
+		sql.append(" values(?,?,?,?,?)"); //ê³„ì†í•´ì„œ ë¬¸ìì—´ì„ ì¶”ê°€
 		
 		System.out.println(sql);
 		
-		sql.insert(0, "insert into "); //Æ¯Á¤À§Ä¡¿¡ ¹®ÀÚ¿­ Ãß°¡(insert), 0¹øÂ° ÀÎµ¦½º¿¡ insert into Ãß°¡
+		sql.insert(0, "insert into "); //íŠ¹ì •ìœ„ì¹˜ì— ë¬¸ìì—´ ì¶”ê°€(insert), 0ë²ˆì§¸ ì¸ë±ìŠ¤ì— insert into ì¶”ê°€
 		System.out.println(sql);
 		
-//		execute(sql); //stringÀ¸·Î º¯È¯ÇØ¾ßÇÔ
+//		execute(sql); //stringìœ¼ë¡œ ë³€í™˜í•´ì•¼í•¨
 		execute(sql.toString());
 	}
 
 }
+ 
