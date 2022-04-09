@@ -2,25 +2,25 @@ package exam07;
 
 import java.util.Scanner;
 
-//»ç¿ëÀÚ¿¡°Ô ¹®ÀÚ¿­À» ÀÔ·Â¹ŞÀº ÀÔ·Â¹ŞÀº ¹®ÀÚ¿­¿¡´Â ¼Ò¹®ÀÚ a°¡ ¸ğµÎ ¸î °³ ÀÖ´ÂÁö ÆÇº°ÇÏ¿© Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+//ì‚¬ìš©ìì—ê²Œ ë¬¸ìì—´ì„ ì…ë ¥ë°›ì€ ì…ë ¥ë°›ì€ ë¬¸ìì—´ì—ëŠ” ì†Œë¬¸ì aê°€ ëª¨ë‘ ëª‡ ê°œ ìˆëŠ”ì§€ íŒë³„í•˜ì—¬ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 
 public class StringTest04 {
 
 	public static void main(String[] args) {
 //		String data = new String("hello java");
 
-//		char ch = data.charAt(4); //4¹øÂ° ÀÖ´Â ±ÛÀÚ¸¦ Ãâ·Â
+//		char ch = data.charAt(4); //4ë²ˆì§¸ ìˆëŠ” ê¸€ìë¥¼ ì¶œë ¥
 //		System.out.println(ch);
 
 		String data;
 		int cnt = 0;
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("¹®ÀÚ¿­À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë¬¸ìì—´ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		data = sc.next();
 
 		int n = data.length();
-		System.out.println("ÀÔ·ÂÇÑ ¹®ÀÚ¿­ÀÇ ±æÀÌ: " + n);
+		System.out.println("ì…ë ¥í•œ ë¬¸ìì—´ì˜ ê¸¸ì´: " + n);
 
 		for (int i = 0; i < data.length(); i++) {
 			char ch = data.charAt(i);
@@ -29,6 +29,7 @@ public class StringTest04 {
 			}
 		}
 		
-		System.out.println("ÀÔ·ÂÇÑ ¹®ÀÚ¿­ÀÇ ¼Ò¹®ÀÚ aÀÇ ¼ö: " + cnt);
+		System.out.println("ì…ë ¥í•œ ë¬¸ìì—´ì˜ ì†Œë¬¸ì aì˜ ìˆ˜: " + cnt);
 	}
 }
+ 
