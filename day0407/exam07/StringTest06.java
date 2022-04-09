@@ -2,7 +2,7 @@ package exam07;
 
 import java.util.Scanner;
 
-//»ç¿ëÀÚÇÑÅ× ÀÌ¸§À» ÀÔ·Â¹Ş¾Æ ±è¾¾ÀÎÁö ¾Æ´ÑÁö ÆÇº°ÇÏ¿© ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼º
+//ì‚¬ìš©ìí•œí…Œ ì´ë¦„ì„ ì…ë ¥ë°›ì•„ ê¹€ì”¨ì¸ì§€ ì•„ë‹Œì§€ íŒë³„í•˜ì—¬ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±
 public class StringTest06 {
 
 	public static void main(String[] args) {
@@ -10,17 +10,18 @@ public class StringTest06 {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: "); 
+		System.out.print("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: "); 
 		name = sc.next();
 		
 		
 		
-		if(name.startsWith("±è")) { //±è¾¾·Î ½ÃÀÛÇÏ´Â ´Ü¾î
-			System.out.println("±è¾¾ÀÔ´Ï´Ù.");
+		if(name.startsWith("ê¹€")) { //ê¹€ì”¨ë¡œ ì‹œì‘í•˜ëŠ” ë‹¨ì–´
+			System.out.println("ê¹€ì”¨ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("±è¾¾°¡ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("ê¹€ì”¨ê°€ ì•„ë‹™ë‹ˆë‹¤.");
 		}
 
 	}
 
 }
+ 
