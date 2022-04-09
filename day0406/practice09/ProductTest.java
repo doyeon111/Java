@@ -1,8 +1,8 @@
 package practice09;
 
-class Product { // ÆÇ¸ÅµÇ´Â ¹°°Ç
+class Product { // íŒë§¤ë˜ëŠ” ë¬¼ê±´
 	protected String name;
-	protected int price; //¹°°ÇÀÇ °¡°İ
+	protected int price; //ë¬¼ê±´ì˜ ê°€ê²©
 
 	public double getPrice() {
 		return price;
@@ -69,4 +69,4 @@ public class ProductTest {
 		System.out.println(p2);
 	}
 
-}
+} 
