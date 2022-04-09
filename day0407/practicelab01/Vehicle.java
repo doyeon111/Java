@@ -1,13 +1,14 @@
 package practicelab01;
 
-//pdf Lab 01¹ø
+//pdf Lab 01ë²ˆ
 public abstract class Vehicle {
-	int speed; //Ãß»óÅ¬·¡½º¿¡ º¯¼ö¸¦ Ãß°¡ÇÒ ¼ö ÀÖ´Ù.
+	int speed; //ì¶”ìƒí´ë˜ìŠ¤ì— ë³€ìˆ˜ë¥¼ ì¶”ê°€í•  ìˆ˜ ìˆë‹¤.
 	public abstract double getKilosPerLiter();
 	
-	//Ãß»ó Å¬·¡½º¿¡ body°¡ ±¸Ã¼È­µÈ ¸Ş¼Òµå¸¦ Ãß°¡ÇÒ ¼ö ÀÖ´Ù.
+	//ì¶”ìƒ í´ë˜ìŠ¤ì— bodyê°€ êµ¬ì²´í™”ëœ ë©”ì†Œë“œë¥¼ ì¶”ê°€í•  ìˆ˜ ìˆë‹¤.
 	public void printSpeed() {
-		System.out.println("ÇöÀç¼Óµµ: " + speed);
+		System.out.println("í˜„ì¬ì†ë„: " + speed);
 	}
 	
 }
+ 
