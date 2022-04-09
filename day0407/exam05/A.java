@@ -1,6 +1,6 @@
 package exam05;
 
-//exam04¿¡ ÀÖ´Â °ÍÀ» °¢°¢ÀÇ Å¬·¡½º¿Í ÀÎÅÍÆäÀÌ½º·Î ³ª´®.
+//exam04ì— ìˆëŠ” ê²ƒì„ ê°ê°ì˜ í´ë˜ìŠ¤ì™€ ì¸í„°í˜ì´ìŠ¤ë¡œ ë‚˜ëˆ”.
 
 public class A {
 
@@ -8,9 +8,10 @@ public class A {
 	int year;
 
 	public void pro() {
-		System.out.println("pro ÀÔ´Ï´Ù.");
+		System.out.println("pro ì…ë‹ˆë‹¤.");
 	}
 }
 
 
 
+ 
