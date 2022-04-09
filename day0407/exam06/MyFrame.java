@@ -3,47 +3,48 @@ package exam06;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-//Ã¢¸¸µé±â
+//ì°½ë§Œë“¤ê¸°
 import javax.swing.JFrame;
 
-public class MyFrame extends JFrame implements MouseListener { // ¸¶¿ì½º ÀÌº¥Æ®¸¦ À§ÇØ MouseListener ÀÎÅÍÆäÀÌ½º¸¦ »ç¿ë
-	public MyFrame(String title) { // »ı¼ºÀÚ(Å¬·¡½ºÀÌ¸§°ú µ¿ÀÏ)
+public class MyFrame extends JFrame implements MouseListener { // ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ë¥¼ ìœ„í•´ MouseListener ì¸í„°í˜ì´ìŠ¤ë¥¼ ì‚¬ìš©
+	public MyFrame(String title) { // ìƒì„±ì(í´ë˜ìŠ¤ì´ë¦„ê³¼ ë™ì¼)
 		super(title);
-		setSize(400, 300); // setSize¸¦ ¿©±â¼­ »ı¼ºÇØÁàµµ ÁÁ´Ù. (Ã¢ÀÇ Å©±â¸¦ ¼³Á¤)
-		setVisible(true); // Ã¢À» º¸¿©ÁÖ¼¼¿ä.(setVisible)
+		setSize(400, 300); // setSizeë¥¼ ì—¬ê¸°ì„œ ìƒì„±í•´ì¤˜ë„ ì¢‹ë‹¤. (ì°½ì˜ í¬ê¸°ë¥¼ ì„¤ì •)
+		setVisible(true); // ì°½ì„ ë³´ì—¬ì£¼ì„¸ìš”.(setVisible)
 		
-		addMouseListener(this); //¸¶¿ì½º ÀÌº¥Æ® Ã³¸® ´ã´çÀÚ = this
+		addMouseListener(this); //ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ ì²˜ë¦¬ ë‹´ë‹¹ì = this
 
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("¸¶¿ì½º°¡ Å¬¸¯ÇÏ¿´½À´Ï´Ù.");
+		System.out.println("ë§ˆìš°ìŠ¤ê°€ í´ë¦­í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("¸¶¿ì½º°¡ ´­·¯Á³½À´Ï´Ù.");
+		System.out.println("ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì¡ŒìŠµë‹ˆë‹¤.");
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("¸¶¿ì½º°¡ ¶¼¾îÁ³½À´Ï´Ù.");
+		System.out.println("ë§ˆìš°ìŠ¤ê°€ ë–¼ì–´ì¡ŒìŠµë‹ˆë‹¤.");
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("¸¶¿ì½º°¡ µé¾î¿Ô½À´Ï´Ù.");
+		System.out.println("ë§ˆìš°ìŠ¤ê°€ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.");
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("¸¶¿ì½º°¡ ³ª°¬½À´Ï´Ù.");
+		System.out.println("ë§ˆìš°ìŠ¤ê°€ ë‚˜ê°”ìŠµë‹ˆë‹¤.");
 	}
 }
+ 
