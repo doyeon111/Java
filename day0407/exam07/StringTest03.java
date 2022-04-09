@@ -6,10 +6,11 @@ public class StringTest03 {
 		char[] data = { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
 
 		String data1 = new String(data);
-		String data2 = new String(data, 1, 3); // ÀÎµ¦½º 1¹øÂ°ºÎÅÍ 3¹øÂ° ±îÁö Ãâ·Â
+		String data2 = new String(data, 1, 3); // ì¸ë±ìŠ¤ 1ë²ˆì§¸ë¶€í„° 3ë²ˆì§¸ ê¹Œì§€ ì¶œë ¥
 
 		System.out.println(data1);
 		System.out.println(data2);
 	}
 
 }
+ 
