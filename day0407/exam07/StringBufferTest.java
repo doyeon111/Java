@@ -4,16 +4,17 @@ public class StringBufferTest {
 
 	public static void main(String[] args) {
 		StringBuffer sb = new StringBuffer("hello");
-//		sb = sb + " Java"; ¿À·ù
-		sb.append(" java"); // ¿ø·¡ÀÖ´ø °´Ã¼¿¡ java¸¦ Ãß°¡(append)
+//		sb = sb + " Java"; ì˜¤ë¥˜
+		sb.append(" java"); // ì›ë˜ìˆë˜ ê°ì²´ì— javaë¥¼ ì¶”ê°€(append)
 		System.out.println(sb);
 
 		String str = "hello";
 		str = str + " java";
-		// StringÀº ±âº»ÀÚ·áÇüÃ³·³ »ç¿ë°¡´ÉÇÏ´Ù.
+		// Stringì€ ê¸°ë³¸ìë£Œí˜•ì²˜ëŸ¼ ì‚¬ìš©ê°€ëŠ¥í•˜ë‹¤.
 
 	}
 
-	// StringBuffer ¿¡ append¸¦ ÅëÇÏ¿© ¹®ÀÚ¿­À» Ãß°¡ÇÏ¸é »õ·Î¿î °´Ã¼°¡ ¸¸µé¾îÁö´Â °ÍÀÌ ¾Æ´Ï¶ó, ¿ø·¡ °´Ã¼¿¡ ¹®ÀÚ¿­ÀÌ Ãß°¡µÈ´Ù.
+	// StringBuffer ì— appendë¥¼ í†µí•˜ì—¬ ë¬¸ìì—´ì„ ì¶”ê°€í•˜ë©´ ìƒˆë¡œìš´ ê°ì²´ê°€ ë§Œë“¤ì–´ì§€ëŠ” ê²ƒì´ ì•„ë‹ˆë¼, ì›ë˜ ê°ì²´ì— ë¬¸ìì—´ì´ ì¶”ê°€ëœë‹¤.
 
 }
+ 
