@@ -1,18 +1,19 @@
 package practicelab01;
 
-//pdf ÆÄÀÏ lab 1¹ø ¹®Á¦ ¾È¿¡ 3¹ø, 6¹ø
+//pdf íŒŒì¼ lab 1ë²ˆ ë¬¸ì œ ì•ˆì— 3ë²ˆ, 6ë²ˆ
 public class CarTest {
 
 	public static void main(String[] args) {
 		//Vehicle v = new Vehicle();
-		//Ãß»óÅ¬·¡½ºÀÇ °´Ã¼´Â »ı¼ºÇÒ ¼ö ¾ø´Ù. (3¹ø)
+		//ì¶”ìƒí´ë˜ìŠ¤ì˜ ê°ì²´ëŠ” ìƒì„±í•  ìˆ˜ ì—†ë‹¤. (3ë²ˆ)
 		
 		Car c = new Car();
 		System.out.println(c.getKilosPerLiter());
-		c.printSpeed(); //¸Ş¼Òµå¸¦ È£ÃâÇÒ ½Ã¿¡´Â ÀÌ·¸°Ô ½áÁØ´Ù.
+		c.printSpeed(); //ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•  ì‹œì—ëŠ” ì´ë ‡ê²Œ ì¨ì¤€ë‹¤.
 		
 		
 
 	}
 
 }
+ 
