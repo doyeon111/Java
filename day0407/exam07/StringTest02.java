@@ -2,7 +2,7 @@ package exam07;
 
 public class StringTest02 {
 
-	//¹®ÀÚ¿­À» ¸Å°³º¯¼ö·Î °®´Â ¸Þ¼Òµå´Â ´ëÃ¼·Î StringÀ¸·Î µÇ¾îÀÖ´Ù. 
+	//ë¬¸ìžì—´ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ê°–ëŠ” ë©”ì†Œë“œëŠ” ëŒ€ì²´ë¡œ Stringìœ¼ë¡œ ë˜ì–´ìžˆë‹¤. 
 	public static void pro(String data) {
 		System.out.println(data);
 	}
@@ -11,13 +11,14 @@ public class StringTest02 {
 		StringBuffer sb = new StringBuffer("hello");
 		sb.append(" java");
 		
-		//pro(sb); //Ã³¸®ÇÒ ¼ö ¾ø´Ù. ¿À·ù³²
-		//pro(new String(sb)); //½ºÆ®¸µ ¹öÆÛ¸¦ °¡Áö°í ½ºÆ®¸µÀ» ¸¸µé ¼ö ÀÖ´Ù.
+		//pro(sb); //ì²˜ë¦¬í•  ìˆ˜ ì—†ë‹¤. ì˜¤ë¥˜ë‚¨
+		//pro(new String(sb)); //ìŠ¤íŠ¸ë§ ë²„í¼ë¥¼ ê°€ì§€ê³  ìŠ¤íŠ¸ë§ì„ ë§Œë“¤ ìˆ˜ ìžˆë‹¤.
 		pro(sb.toString());
 		
 		
-		//º¯ÇÏ´Â ¹®ÀÚ¿­ Ã³¸®¸¦ À§ÇÏ¿© StringBuffer·Î Ã³¸®µÈ °´Ã¼¸¦ ¹Ù·Î StringÀ» ¸Å°³º¯¼ö·Î °®´Â ¸Þ¼Òµå¸¦ È£ÃâÇÒ ¼ö ¾ø´Ù.
-		//È£ÃâÇÏ·Á¸é String»ý¼ºÀÚ·Î String °´Ã¼¸¦ »ý¼ºÇÑ ÈÄ È£ÃâÇÏ°Å³ª toString ¸Þ¼Òµå¸¦ ÅëÇÏ¿© StringÀ¸·Î º¯È¯ ÈÄ È£ÃâÇØ¾ßÇÑ´Ù.
+		//ë³€í•˜ëŠ” ë¬¸ìžì—´ ì²˜ë¦¬ë¥¼ ìœ„í•˜ì—¬ StringBufferë¡œ ì²˜ë¦¬ëœ ê°ì²´ë¥¼ ë°”ë¡œ Stringì„ ë§¤ê°œë³€ìˆ˜ë¡œ ê°–ëŠ” ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•  ìˆ˜ ì—†ë‹¤.
+		//í˜¸ì¶œí•˜ë ¤ë©´ Stringìƒì„±ìžë¡œ String ê°ì²´ë¥¼ ìƒì„±í•œ í›„ í˜¸ì¶œí•˜ê±°ë‚˜ toString ë©”ì†Œë“œë¥¼ í†µí•˜ì—¬ Stringìœ¼ë¡œ ë³€í™˜ í›„ í˜¸ì¶œí•´ì•¼í•œë‹¤.
 	}
 
 }
+ 
