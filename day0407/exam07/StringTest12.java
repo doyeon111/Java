@@ -1,11 +1,11 @@
 package exam07;
 
 
-//±âº»ÀÚ·áÇü ==> String 
+//ê¸°ë³¸ìë£Œí˜• ==> String 
 public class StringTest12 {
 	
-	public static void setText(String str) { //StringÀ» »ó´ë
-		System.out.println(str + "À» ¼³Á¤ÇÏ¿´½À´Ï´Ù.");
+	public static void setText(String str) { //Stringì„ ìƒëŒ€
+		System.out.println(str + "ì„ ì„¤ì •í•˜ì˜€ìŠµë‹ˆë‹¤.");
 	}
 
 	
@@ -15,21 +15,22 @@ public class StringTest12 {
 	
 	public static void main(String[] args) {
 		int data = 1024;
-//		setText(data); //µ¥ÀÌÅÍ Å¸ÀÔÀÌ ´Ù¸£±â¶§¹®¿¡ ¿À·ù°¡ ³­´Ù.
-//		setText(String.valueOf(data)); //Ã³¸®µÈ µ¥ÀÌÅÍ´Â  intÀÌ±â ¶§¹®¿¡ StringÀ¸·Î º¯È¯ÇÏ¿© ¸¸µé¾îÁØ´Ù.
-		setText(data+""); //°£ÆíÇÏ°Ô º¯È¯ÇÒ ¼ö ÀÖ´Ù.
+//		setText(data); //ë°ì´í„° íƒ€ì…ì´ ë‹¤ë¥´ê¸°ë•Œë¬¸ì— ì˜¤ë¥˜ê°€ ë‚œë‹¤.
+//		setText(String.valueOf(data)); //ì²˜ë¦¬ëœ ë°ì´í„°ëŠ”  intì´ê¸° ë•Œë¬¸ì— Stringìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ë§Œë“¤ì–´ì¤€ë‹¤.
+		setText(data+""); //ê°„í¸í•˜ê²Œ ë³€í™˜í•  ìˆ˜ ìˆë‹¤.
 
 		
 		System.out.println("------------------------------------------------");
 		
-		//String ==> ±âº»ÀÚ·áÇü
+		//String ==> ê¸°ë³¸ìë£Œí˜•
 		
 		String a = "1000";
-		String b = "2000"; //µÎ°³ÀÇ ¹®ÀÚ¿­À» ´õÇÏ±â ÇÏ°í½Í´Ù.
-		System.out.println(a+b); //ÀÌ»óÅÂ¿¡¼­ ½ÇÇàÀ» ÇÏ¸é 10002000À¸·Î ¹®ÀÚ¿­ÀÌ ¿¬°áµÈ´Ù.
-		System.out.println(Integer.parseInt(a) + Integer.parseInt(b));// Integer.parseInt¸¦ »ç¿ëÇÏ¿© Á¤¼ö·Î º¯È¯ÇÏ¿© ´õÇØÁØ´Ù.
+		String b = "2000"; //ë‘ê°œì˜ ë¬¸ìì—´ì„ ë”í•˜ê¸° í•˜ê³ ì‹¶ë‹¤.
+		System.out.println(a+b); //ì´ìƒíƒœì—ì„œ ì‹¤í–‰ì„ í•˜ë©´ 10002000ìœ¼ë¡œ ë¬¸ìì—´ì´ ì—°ê²°ëœë‹¤.
+		System.out.println(Integer.parseInt(a) + Integer.parseInt(b));// Integer.parseIntë¥¼ ì‚¬ìš©í•˜ì—¬ ì •ìˆ˜ë¡œ ë³€í™˜í•˜ì—¬ ë”í•´ì¤€ë‹¤.
 		
-		plusOne(Double.parseDouble(a)); //plusOne ¸Ş¼Òµå¿¡ ÀÖ´Â °ÍÀ» ´õºí·Î ¹Ù²Ù¾î ½ÇÇà
+		plusOne(Double.parseDouble(a)); //plusOne ë©”ì†Œë“œì— ìˆëŠ” ê²ƒì„ ë”ë¸”ë¡œ ë°”ê¾¸ì–´ ì‹¤í–‰
 	}
 
 }
+ 
