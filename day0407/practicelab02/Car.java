@@ -1,7 +1,7 @@
 package practicelab02;
 
-//pdf lab 02¹ø¹®Á¦ ¾È¿¡ 5¹ø
-public class Car implements Movable { //µÑÀÇ »çÀÌ´Â is a °ü°è
+//pdf lab 02ë²ˆë¬¸ì œ ì•ˆì— 5ë²ˆ
+public class Car implements Movable { //ë‘˜ì˜ ì‚¬ì´ëŠ” is a ê´€ê³„
 	private String model, color;
 
 	public Car(String model, String color) {
@@ -11,23 +11,23 @@ public class Car implements Movable { //µÑÀÇ »çÀÌ´Â is a °ü°è
 	}
 
 	public void turnLeft() {
-		System.out.println("ÁÂÈ¸Àü ÇÕ´Ï´Ù.");
+		System.out.println("ì¢ŒíšŒì „ í•©ë‹ˆë‹¤.");
 	}	
 	
 	public void turnRight() {
-		System.out.println("¿ìÈ¸Àü ÇÕ´Ï´Ù.");
+		System.out.println("ìš°íšŒì „ í•©ë‹ˆë‹¤.");
 	}
 	
 	@Override
 	public void speedUp(int amount) {
-		System.out.println(amount + "¸¸Å­ ¼Óµµ¸¦ Áõ°¡ÇÕ´Ï´Ù.");
+		System.out.println(amount + "ë§Œí¼ ì†ë„ë¥¼ ì¦ê°€í•©ë‹ˆë‹¤.");
 
 	}
 
 	@Override
 	public void speedDown(int amount) {
-		System.out.println(amount + "¸¸Å­ ¼Óµµ¸¦ °¨¼ÒÇÕ´Ï´Ù.");
+		System.out.println(amount + "ë§Œí¼ ì†ë„ë¥¼ ê°ì†Œí•©ë‹ˆë‹¤.");
 
-	}
+	} 
 
 }
