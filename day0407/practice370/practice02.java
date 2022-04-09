@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class practice02 {
 	
 	
-	public static void setText(String n) { //StringÀ» »ó´ë
+	public static void setText(String n) { //Stringì„ ìƒëŒ€
 		System.out.println(n);
 	}
 
@@ -17,7 +17,7 @@ public class practice02 {
 		
 		String n;
 		int sum2 = 0;
-		System.out.println("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.println("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		n = sc.nextLine();
 		String []sum = n.split(" ");
 
@@ -28,7 +28,8 @@ public class practice02 {
 			sum2 += Integer.parseInt(sum[i]);
 		}
 		
-		System.out.println("Á¤¼öµéÀÇ ÇÕÀº " + sum2);
+		System.out.println("ì •ìˆ˜ë“¤ì˜ í•©ì€ " + sum2);
 	}
 
 }
+ 
