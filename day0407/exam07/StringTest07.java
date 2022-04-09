@@ -7,19 +7,20 @@ public class StringTest07 {
 		String data1 = "hello";
 		String data2 = "Hello";
 
-		if (data1.equals(data2)) { //equals == ´ë¼Ò¹®ÀÚ ±¸º°ÇÑ´Ù.
-			System.out.println("´ë¼Ò¹®ÀÚ ±¸º°ÇÏ¿© °°¾Æ¿ä.");
+		if (data1.equals(data2)) { //equals == ëŒ€ì†Œë¬¸ì êµ¬ë³„í•œë‹¤.
+			System.out.println("ëŒ€ì†Œë¬¸ì êµ¬ë³„í•˜ì—¬ ê°™ì•„ìš”.");
 		} else {
-			System.out.println("´ë¼Ò¹®ÀÚ ±¸º°ÇÏ¿© ´Ş¶ó¿ä.");
+			System.out.println("ëŒ€ì†Œë¬¸ì êµ¬ë³„í•˜ì—¬ ë‹¬ë¼ìš”.");
 		}
 
 		System.out.println("--------------------------------");
 
-		if (data1.equalsIgnoreCase(data2)) { //equalsIgnoreCase  == ´ë¼Ò¹®ÀÚ ±¸º°ÀÌ ¾ø´Ù.
-			System.out.println("´ë¼Ò¹®ÀÚ ±¸º°¾øÀÌ °°¾Æ¿ä.");
+		if (data1.equalsIgnoreCase(data2)) { //equalsIgnoreCase  == ëŒ€ì†Œë¬¸ì êµ¬ë³„ì´ ì—†ë‹¤.
+			System.out.println("ëŒ€ì†Œë¬¸ì êµ¬ë³„ì—†ì´ ê°™ì•„ìš”.");
 		} else {
-			System.out.println("´ë¼Ò¹®ÀÚ ±¸º°¾øÀÌ ´Ş¶ó¿ä.");
+			System.out.println("ëŒ€ì†Œë¬¸ì êµ¬ë³„ì—†ì´ ë‹¬ë¼ìš”.");
 		}
 	}
 
 }
+ 
