@@ -3,12 +3,12 @@ package exam07;
 public class StringTest10 {
 
 	public static void main(String[] args) {
-		String data = "±èµµ¿¬, ±è¼ÒÀ±, ±èÇı¸², ¹éÁö¿¬, ÀÌÃ¢Èñ"; //5¸íÀÇ ÀÌ¸§ÀÌ ,·Î ±¸ºĞµÇ°í ÀÖ´Ù.
+		String data = "ê¹€ë„ì—°, ê¹€ì†Œìœ¤, ê¹€í˜œë¦¼, ë°±ì§€ì—°, ì´ì°½í¬"; //5ëª…ì˜ ì´ë¦„ì´ ,ë¡œ êµ¬ë¶„ë˜ê³  ìˆë‹¤.
 //		String[] split(String regex);
 		
-		//split ¸Ş¼Òµå¸¦ ÀÌ¿ëÇÏ¿© ¸ğµç »ç¶÷ÀÇ ÀÌ¸§À» Ãâ·ÂÇØº¸ÀÚ.
+		//split ë©”ì†Œë“œë¥¼ ì´ìš©í•˜ì—¬ ëª¨ë“  ì‚¬ëŒì˜ ì´ë¦„ì„ ì¶œë ¥í•´ë³´ì.
 		
-		String []arr = data.split(", "); //splitÀ» ÅëÇØ ,·Î ÀÌ¿ëÇÏ¿© Ãâ·Â
+		String []arr = data.split(", "); //splitì„ í†µí•´ ,ë¡œ ì´ìš©í•˜ì—¬ ì¶œë ¥
 		
 		for(String name: arr) {
 			System.out.println(name);
@@ -19,7 +19,8 @@ public class StringTest10 {
 		
 
 	}
-	//¹è¿­ÀÇ ±æÀÌ: length
-	//¹®ÀÚ¿­ÀÇ ±æÀÌ: length()
+	//ë°°ì—´ì˜ ê¸¸ì´: length
+	//ë¬¸ìì—´ì˜ ê¸¸ì´: length()
 
 }
+ 
