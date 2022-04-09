@@ -4,20 +4,21 @@ public class StringTest09 {
 
 	public static void main(String[] args) {
 		String data = "hello java";
-		int n = data.indexOf('e'); //j°¡ ¸î¹øÂ°¿¡ ³ª¿À´ÂÁö (±ÛÀÚ°¡ Áßº¹ÀÌ µÉ °æ¿ì °¡Àå ¾Õ¿¡ ÀÖ´Â ¹øÂ°·Î Ãâ·Â , a´Â 7¹øÂ°)
-		int n2 = data.indexOf("java"); //java¶ó´Â ±ÛÀÚ°¡ ¸î¹øÂ°¿¡ ³ª¿À´ÂÁö (indexOf)
+		int n = data.indexOf('e'); //jê°€ ëª‡ë²ˆì§¸ì— ë‚˜ì˜¤ëŠ”ì§€ (ê¸€ìê°€ ì¤‘ë³µì´ ë  ê²½ìš° ê°€ì¥ ì•ì— ìˆëŠ” ë²ˆì§¸ë¡œ ì¶œë ¥ , aëŠ” 7ë²ˆì§¸)
+		int n2 = data.indexOf("java"); //javaë¼ëŠ” ê¸€ìê°€ ëª‡ë²ˆì§¸ì— ë‚˜ì˜¤ëŠ”ì§€ (indexOf)
 		
 		System.out.println(n);
 		System.out.println(n2);
 		
 		System.out.println("--------------------------------");
 		
-		int n3 = data.lastIndexOf("a"); //a¶ó´Â ±ÛÀÚ¸¦ ³¡¿¡¼­ºÎÅÍ Ã£´Â´Ù. ÇÏÁö¸¸, ÀÎµ¦½º¸¦ µûÁú ¶§´Â ¿ŞÂÊºÎÅÍ(lastIndexOf)
+		int n3 = data.lastIndexOf("a"); //aë¼ëŠ” ê¸€ìë¥¼ ëì—ì„œë¶€í„° ì°¾ëŠ”ë‹¤. í•˜ì§€ë§Œ, ì¸ë±ìŠ¤ë¥¼ ë”°ì§ˆ ë•ŒëŠ” ì™¼ìª½ë¶€í„°(lastIndexOf)
 		System.out.println(n3);
 		
-		String data2 = data.replace("java", "oracle"); //data2´Â java¿¡¼­ oracle·Î ±ÛÀÚ°¡ ¹Ù²î°Ô µÊ.
+		String data2 = data.replace("java", "oracle"); //data2ëŠ” javaì—ì„œ oracleë¡œ ê¸€ìê°€ ë°”ë€Œê²Œ ë¨.
 		System.out.println(data2);
-		System.out.println(data);// ÇÏÁö¸¸ dataÀÇ °ªÀº º¯ÇÏÁö ¾Ê´Â´Ù.
+		System.out.println(data);// í•˜ì§€ë§Œ dataì˜ ê°’ì€ ë³€í•˜ì§€ ì•ŠëŠ”ë‹¤.
 	}
 
 }
+ 
