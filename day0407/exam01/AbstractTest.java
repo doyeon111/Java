@@ -1,19 +1,19 @@
 package exam01;
 
-abstract class A { // AÅ¬·¡½º´Â Ãß»óÅ¬·¡½ºÀÌ°í, Ãß»ó¸Ş¼Òµå¸¦ °¡Áö°íÀÖ´Ù.
+abstract class A { // Aí´ë˜ìŠ¤ëŠ” ì¶”ìƒí´ë˜ìŠ¤ì´ê³ , ì¶”ìƒë©”ì†Œë“œë¥¼ ê°€ì§€ê³ ìˆë‹¤.
 
-	public void test() {// Ãß»óÅ¬·¡½º´Â Ãß»ó¸Ş¼Òµå »Ó ¾Æ´Ï¶ó body°¡ ±¸Ã¼È­µÈ ¸Ş¼Òµå¸¦ Æ÷ÇÔÇÒ ¼ö ÀÖ´Ù.
-		System.out.println("testÀÔ´Ï´Ù.");
+	public void test() {// ì¶”ìƒí´ë˜ìŠ¤ëŠ” ì¶”ìƒë©”ì†Œë“œ ë¿ ì•„ë‹ˆë¼ bodyê°€ êµ¬ì²´í™”ëœ ë©”ì†Œë“œë¥¼ í¬í•¨í•  ìˆ˜ ìˆë‹¤.
+		System.out.println("testì…ë‹ˆë‹¤.");
 	}
 
-	public abstract void pro(); // Ãß»ó¸Ş¼Òµå
+	public abstract void pro(); // ì¶”ìƒë©”ì†Œë“œ
 }
 
 class B extends A {
 
 	@Override
 	public void pro() {
-		System.out.println("BÀÇ proÀÔ´Ï´Ù.");
+		System.out.println("Bì˜ proì…ë‹ˆë‹¤.");
 	}
 
 }
@@ -21,12 +21,13 @@ class B extends A {
 public class AbstractTest {
 
 	public static void main(String[] args) {
-		// A ob = new A(); //°´Ã¼È­ µÉ ¼ö ¾ø´Ù. Ãß»óÅ¬·¡½ºÀÇ °´Ã¼´Â »ı¼ºÇÒ ¼ö ¾ø´Ù.
+		// A ob = new A(); //ê°ì²´í™” ë  ìˆ˜ ì—†ë‹¤. ì¶”ìƒí´ë˜ìŠ¤ì˜ ê°ì²´ëŠ” ìƒì„±í•  ìˆ˜ ì—†ë‹¤.
 //		B ob = new B();
 //		ob.pro();
 		
 		A ob = new B();
-		ob.pro(); //bÀÇ ±¸Ã¼È­µÈ pro°¡ µ¿ÀÛÀÌ µÈ´Ù.
+		ob.pro(); //bì˜ êµ¬ì²´í™”ëœ proê°€ ë™ì‘ì´ ëœë‹¤.
 	}
 
 }
+ 
