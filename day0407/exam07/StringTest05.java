@@ -2,23 +2,24 @@ package exam07;
 
 import java.util.Scanner;
 
-//»ç¿ëÀÚÇÑÅ× ¾ÏÈ£¿Í ¾ÏÈ£È®ÀÎÀ» ÀÔ·Â¹Ş¾Æ ¼­·Î ÀÏÄ¡ÇÑÁö È®ÀÎÇÏ¿© ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥
+//ì‚¬ìš©ìí•œí…Œ ì•”í˜¸ì™€ ì•”í˜¸í™•ì¸ì„ ì…ë ¥ë°›ì•„ ì„œë¡œ ì¼ì¹˜í•œì§€ í™•ì¸í•˜ì—¬ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨
 public class StringTest05 {
 	public static void main(String[] args) {
 		String pwd, checkpwd;
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("¾ÏÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì•”í˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		pwd = sc.next();
 
-		System.out.print("¾ÏÈ£¸¦ ´Ù½ÃÇÑ¹ø ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì•”í˜¸ë¥¼ ë‹¤ì‹œí•œë²ˆ ì…ë ¥í•˜ì„¸ìš”: ");
 		checkpwd = sc.next();
 
-		if(pwd.equals(checkpwd)) { //equals´Â ´ë¼Ò¹®ÀÚ ±¸º°
-			System.out.println("È®ÀÎµÇ¾ú½À´Ï´Ù.");
+		if(pwd.equals(checkpwd)) { //equalsëŠ” ëŒ€ì†Œë¬¸ì êµ¬ë³„
+			System.out.println("í™•ì¸ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		} else {
-			System.out.println("¾ÏÈ£È®ÀÎÀÌ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+			System.out.println("ì•”í˜¸í™•ì¸ì´ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		}
 		
 	}
 }
+ 
