@@ -1,13 +1,13 @@
 package exam04;
 
-//ÇÏ³ªÀÇ Å¬·¡½º¸¦ »ó¼Ó¹Ş°í µÎ °³ÀÇ ÀÎÅÍÆäÀÌ½º¸¦ ±¸ÇöÇÏ´Â Å¬·¡½º¸¦ ¸¸µé¾îº¸ÀÚ.
+//í•˜ë‚˜ì˜ í´ë˜ìŠ¤ë¥¼ ìƒì†ë°›ê³  ë‘ ê°œì˜ ì¸í„°í˜ì´ìŠ¤ë¥¼ êµ¬í˜„í•˜ëŠ” í´ë˜ìŠ¤ë¥¼ ë§Œë“¤ì–´ë³´ì.
 
 class A {
 	String title;
 	int year;
 
 	public void pro() {
-		System.out.println("pro ÀÔ´Ï´Ù.");
+		System.out.println("pro ì…ë‹ˆë‹¤.");
 	}
 }
 
@@ -19,17 +19,17 @@ interface C {
 	public void testC();
 }
 
-class D extends A implements B, C { // D´Â AÅ¬·¡½º¸¦ »ó¼Ó(È®ÀåÇÏ°í) ¹Ş°í, B,CÀÇ ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹Ş´Â´Ù.
+class D extends A implements B, C { // DëŠ” Aí´ë˜ìŠ¤ë¥¼ ìƒì†(í™•ì¥í•˜ê³ ) ë°›ê³ , B,Cì˜ ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ëŠ”ë‹¤.
 
 	@Override
 	public void testC() {
-		System.out.println("testC ÀÔ´Ï´Ù.");
+		System.out.println("testC ì…ë‹ˆë‹¤.");
 
 	}
 
 	@Override
 	public void testB() {
-		System.out.println("testB ÀÔ´Ï´Ù.");
+		System.out.println("testB ì…ë‹ˆë‹¤.");
 
 	}
 
@@ -46,4 +46,4 @@ public class InterfaceTest {
 		ob.testC();
 	}
 
-}
+} 
