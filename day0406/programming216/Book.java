@@ -1,12 +1,12 @@
 package programming216;
 
-public class Book { //»ı¼ºÀÚ
-	String title; //µµ¼­¸íÀ» À§ÇÑ ¸â¹öº¯¼ö
-	int score; //ÆòÁ¡À» À§ÇÑ ¸â¹öº¯¼ö
-	static int count; //¸ğµç µµ¼­ÀÇ ¼ö¸¦ ÀúÀåÇÏ±â À§ÇÑ Å¬·¡½º º¯¼ö
+public class Book { //ìƒì„±ì
+	String title; //ë„ì„œëª…ì„ ìœ„í•œ ë©¤ë²„ë³€ìˆ˜
+	int score; //í‰ì ì„ ìœ„í•œ ë©¤ë²„ë³€ìˆ˜
+	static int count; //ëª¨ë“  ë„ì„œì˜ ìˆ˜ë¥¼ ì €ì¥í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ ë³€ìˆ˜
 	
 	
-	public Book(String title, int score) { //»ı¼ºÀÚ
+	public Book(String title, int score) { //ìƒì„±ì
 		super();
 		this.title = title;
 		this.score = score;
@@ -22,9 +22,10 @@ public class Book { //»ı¼ºÀÚ
 
 
 	@Override
-	public String toString() { //µµ¼­ÀÇ Á¤º¸¸¦ ¹®ÀÚ¿­·Î ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå
+	public String toString() { //ë„ì„œì˜ ì •ë³´ë¥¼ ë¬¸ìì—´ë¡œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œ
 		return "[title=" + title + ", score=" + score + "]";
 	}
 	
 	
 }
+ 
