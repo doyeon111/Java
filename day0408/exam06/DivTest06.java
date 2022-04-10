@@ -2,14 +2,14 @@ package exam06;
 
 public class DivTest06 {
 	
-	//µÎ °³ÀÇ Á¤¼ö¸¦ ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ³ª´©±â ÇÑ °á°ú¸¦ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå
+	//ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ë‚˜ëˆ„ê¸° í•œ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œ
 	public static void calcDiv(int a, int b) {
 		
 		try {
 		int div = a/b;
-		System.out.println("³ª´©±â °á°ú: " + div);
+		System.out.println("ë‚˜ëˆ„ê¸° ê²°ê³¼: " + div);
 		}catch(ArithmeticException e) {
-			System.out.println("0À¸·Î ³ª´­ ¼ö´Â ¾ø¾î¿ä!");
+			System.out.println("0ìœ¼ë¡œ ë‚˜ëˆŒ ìˆ˜ëŠ” ì—†ì–´ìš”!");
 		}
 	}
 
@@ -19,3 +19,4 @@ public class DivTest06 {
 	}
 
 }
+ 
