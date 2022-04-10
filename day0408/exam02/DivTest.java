@@ -3,7 +3,7 @@ package exam02;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//»ç¿ëÀÚÇÑÅ× µÎ °³ÀÇ Á¤¼ö¸¦ ÀÔ·Â¹Ş¾Æ ³ª´©±â ÇÑ °á°ú¸¦ Ãâ·Â
+//ì‚¬ìš©ìí•œí…Œ ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë‚˜ëˆ„ê¸° í•œ ê²°ê³¼ë¥¼ ì¶œë ¥
 public class DivTest {
 
 	public static void main(String[] args) {
@@ -11,19 +11,20 @@ public class DivTest {
 		Scanner sc = new Scanner(System.in);
 
 		try {
-			System.out.print("Ã¹ ¹øÂ° ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print("ì²« ë²ˆì§¸ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			a = sc.nextInt();
 
-			System.out.print("µÎ ¹øÂ° ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print("ë‘ ë²ˆì§¸ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			b = sc.nextInt();
 
 			div = a / b;
-			System.out.println("³ª´©±â °á°ú: " + div);
+			System.out.println("ë‚˜ëˆ„ê¸° ê²°ê³¼: " + div);
 		} catch (ArithmeticException e) {
-			System.out.println("0À¸·Î´Â ³ª´­ ¼ö ¾ø¾î¿ä.");
-		} catch (InputMismatchException e) { //catch¹®Àº ¿©·¯ °³ ¿Ã ¼ö ÀÖ´Ù.
-			System.out.println("¼ıÀÚ Çü½Ä¿¡ ¸ÂÁö ¾Ê½À´Ï´Ù.");
+			System.out.println("0ìœ¼ë¡œëŠ” ë‚˜ëˆŒ ìˆ˜ ì—†ì–´ìš”.");
+		} catch (InputMismatchException e) { //catchë¬¸ì€ ì—¬ëŸ¬ ê°œ ì˜¬ ìˆ˜ ìˆë‹¤.
+			System.out.println("ìˆ«ì í˜•ì‹ì— ë§ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		}
 	}
 
 }
+ 
