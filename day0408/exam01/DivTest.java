@@ -2,7 +2,7 @@ package exam01;
 
 import java.util.Scanner;
 
-//»ç¿ëÀÚÇÑÅ× µÎ °³ÀÇ Á¤¼ö¸¦ ÀÔ·Â¹Ş¾Æ ³ª´©±â ÇÑ °á°ú¸¦ Ãâ·Â
+//ì‚¬ìš©ìí•œí…Œ ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë‚˜ëˆ„ê¸° í•œ ê²°ê³¼ë¥¼ ì¶œë ¥
 public class DivTest {
 
 	public static void main(String[] args) {
@@ -10,17 +10,18 @@ public class DivTest {
 		Scanner sc = new Scanner(System.in);
 
 		try {
-			System.out.print("Ã¹ ¹øÂ° ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print("ì²« ë²ˆì§¸ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			a = sc.nextInt();
 
-			System.out.print("µÎ ¹øÂ° ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+			System.out.print("ë‘ ë²ˆì§¸ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 			b = sc.nextInt();
 
 			div = a / b;
-			System.out.println("³ª´©±â °á°ú: " + div);
-		} catch (ArithmeticException e) { //0À¸·Î ³ª´©¾úÀ» ¶§ ¿¹¿Ü
-			System.out.println("0À¸·Î´Â ³ª´­ ¼ö ¾ø¾î¿ä.");
+			System.out.println("ë‚˜ëˆ„ê¸° ê²°ê³¼: " + div);
+		} catch (ArithmeticException e) { //0ìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ ì˜ˆì™¸
+			System.out.println("0ìœ¼ë¡œëŠ” ë‚˜ëˆŒ ìˆ˜ ì—†ì–´ìš”.");
 		}
 	}
 
 }
+ 
