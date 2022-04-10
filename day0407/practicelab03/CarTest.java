@@ -3,7 +3,7 @@ package practicelab03;
 public class CarTest {
 
 	public static void main(String[] args) {
-		Car c1 = new Car("K5", "°ËÁ¤");
+		Car c1 = new Car("K5", "ê²€ì •");
 		System.out.println(c1.getKilosPerLiter());
 		c1.speedUp(150);
 		c1.printSpeed();
@@ -14,7 +14,7 @@ public class CarTest {
 		c1.turnRight();
 		System.out.println("-----------------------------------------------------");
 		
-		Car c2 = new Car("¶÷º¸¸£±â´Ï", "Èò»ö");
+		Car c2 = new Car("ëŒë³´ë¥´ê¸°ë‹ˆ", "í°ìƒ‰");
 		System.out.println(c2.getKilosPerLiter());
 		c2.speedUp(100);
 		c2.printSpeed();
