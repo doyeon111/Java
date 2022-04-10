@@ -1,6 +1,6 @@
 package practicelab03;
 
-//pdf lab03¹ø
+//pdf lab03ë²ˆ
 public interface Movable {
 	
 	public void speedUp(int amount);
