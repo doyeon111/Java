@@ -2,9 +2,9 @@ package exam03;
 
 import java.util.Scanner;
 
-//ÇÁ·Î±×·¥ ½ÇÇà ½Ã µÎ °³ÀÇ Á¤¼ö¸¦ Àü´Ş¹Ş¾Æ ³ª´©±â ÇÑ °á°ú¸¦ Ãâ·Â
+//í”„ë¡œê·¸ë¨ ì‹¤í–‰ ì‹œ ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ì „ë‹¬ë°›ì•„ ë‚˜ëˆ„ê¸° í•œ ê²°ê³¼ë¥¼ ì¶œë ¥
 //java DivTest 4 2 
-//¹ß»ıÇÒ ¼ö ÀÖ´Â ´Ù¾çÇÑ ¿¹¿Ü¿¡ ´ëÇÑ Ã³¸®¸¦ ±¸Çö
+//ë°œìƒí•  ìˆ˜ ìˆëŠ” ë‹¤ì–‘í•œ ì˜ˆì™¸ì— ëŒ€í•œ ì²˜ë¦¬ë¥¼ êµ¬í˜„
 public class DivTest03 {
 
 	public static void main(String[] args) {
@@ -14,14 +14,15 @@ public class DivTest03 {
 			a = Integer.parseInt(args[0]);
 			b = Integer.parseInt(args[1]);
 			div = a / b;
-			System.out.println("³ª´©±â °á°ú: " + div);
-		} catch (ArithmeticException e) { // 0À¸·Î ³ª´©¾úÀ» ¶§ ¿¹¿Ü
-			System.out.println("0À¸·Î´Â ³ª´­ ¼ö ¾ø¾î¿ä!");
+			System.out.println("ë‚˜ëˆ„ê¸° ê²°ê³¼: " + div);
+		} catch (ArithmeticException e) { // 0ìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ ì˜ˆì™¸
+			System.out.println("0ìœ¼ë¡œëŠ” ë‚˜ëˆŒ ìˆ˜ ì—†ì–´ìš”!");
 		} catch (NumberFormatException e) {
-			System.out.println("¼ıÀÚ Çü½Ä¿¡ ¸ÂÁö ¾Ê½À´Ï´Ù!");
+			System.out.println("ìˆ«ì í˜•ì‹ì— ë§ì§€ ì•ŠìŠµë‹ˆë‹¤!");
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("³ª´©±â ÇÒ µÎ ¼ö¸¦ Àü´ŞÇØÁÖ¼¼¿ä!");
+			System.out.println("ë‚˜ëˆ„ê¸° í•  ë‘ ìˆ˜ë¥¼ ì „ë‹¬í•´ì£¼ì„¸ìš”!");
 		}
 	}
 
 }
+ 
