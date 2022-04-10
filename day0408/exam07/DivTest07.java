@@ -2,21 +2,22 @@ package exam07;
 
 public class DivTest07 {
 
-	// µÎ °³ÀÇ Á¤¼ö¸¦ ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ³ª´©±â ÇÑ °á°ú¸¦ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå
-	public static void calcDiv(int a, int b) throws ArithmeticException { // È£ÃâÇÏ´Â ÂÊÀ¸·Î ¿¹¿Ü¸¦ Àü´Ş
+	// ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ë‚˜ëˆ„ê¸° í•œ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œ
+	public static void calcDiv(int a, int b) throws ArithmeticException { // í˜¸ì¶œí•˜ëŠ” ìª½ìœ¼ë¡œ ì˜ˆì™¸ë¥¼ ì „ë‹¬
 
 		int div = a / b;
-		System.out.println("³ª´©±â °á°ú: " + div);
+		System.out.println("ë‚˜ëˆ„ê¸° ê²°ê³¼: " + div);
 
 	}
 
 	public static void main(String[] args) {
 
-		try { //¿©±â¼­ Ã³¸®¸¦ ÇØÁØ´Ù.
+		try { //ì—¬ê¸°ì„œ ì²˜ë¦¬ë¥¼ í•´ì¤€ë‹¤.
 			calcDiv(9, 0);
 		} catch (ArithmeticException e) {
-			System.out.println("0À¸·Î ³ª´­ ¼ö ¾ø¾î¿ä!");
+			System.out.println("0ìœ¼ë¡œ ë‚˜ëˆŒ ìˆ˜ ì—†ì–´ìš”!");
 		}
 	}
 
 }
+ 
