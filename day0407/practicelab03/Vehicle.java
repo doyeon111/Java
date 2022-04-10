@@ -1,12 +1,12 @@
 package practicelab03;
 
-//pdf Lab 03¹ø
+//pdf Lab 03ë²ˆ
 public abstract class Vehicle {
 	int speed;
 	public abstract double getKilosPerLiter();
 	
 	public void printSpeed() {
-		System.out.println("ÇöÀç¼Óµµ: " + speed);
+		System.out.println("í˜„ì¬ì†ë„: " + speed);
 	}
 	
 }
