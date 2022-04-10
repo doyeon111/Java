@@ -11,23 +11,23 @@ public class Car extends Vehicle implements Movable {
 	}
 	
 	public void turnLeft() {
-		System.out.println("ÁÂÈ¸Àü ÇÕ´Ï´Ù.");
+		System.out.println("ì¢ŒíšŒì „ í•©ë‹ˆë‹¤.");
 	}	
 	
 	public void turnRight() {
-		System.out.println("¿ìÈ¸Àü ÇÕ´Ï´Ù.");
+		System.out.println("ìš°íšŒì „ í•©ë‹ˆë‹¤.");
 	}
 
 	@Override
 	public void speedUp(int amount) {
 		speed += amount;
-		System.out.println(amount + "¸¸Å­ ¼Óµµ¸¦ Áõ°¡ÇÏ¿´½À´Ï´Ù.");
+		System.out.println(amount + "ë§Œí¼ ì†ë„ë¥¼ ì¦ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.");
 	}
 
 	@Override
 	public void speedDown(int amount) {
 		speed -= amount;
-		System.out.println(amount + "¸¸Å­ ¼Óµµ¸¦ °¨¼ÒÇÏ¿´½À´Ï´Ù.");
+		System.out.println(amount + "ë§Œí¼ ì†ë„ë¥¼ ê°ì†Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	}
 
 	@Override
@@ -36,4 +36,4 @@ public class Car extends Vehicle implements Movable {
 		return 13;
 	}
 
-}
+} 
