@@ -1,5 +1,5 @@
 package exam13;
-//pdf 4¹ø¹®Á¦
+//pdf 4ë²ˆë¬¸ì œ
 
 import java.util.StringTokenizer;
 
@@ -8,7 +8,7 @@ class MyDate {
 	public MyDate(String data) throws IllegalArgumentException {
 		
 		if(data == null) {
-			throw new IllegalArgumentException("³¯Â¥ µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			throw new IllegalArgumentException("ë‚ ì§œ ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		}
 		
 		StringTokenizer st = new StringTokenizer(data, "/");
@@ -52,12 +52,13 @@ public class MyDateTest {
 		String data = "2022/04/08";
 //		String data=null;
 		MyDate md = new MyDate(data);
-		System.out.println("¿¬µµ: " + md.getYear());
-		System.out.println("¿ù: " + md.getMonth());
-		System.out.println("ÀÏ: " + md.getDate());
+		System.out.println("ì—°ë„: " + md.getYear());
+		System.out.println("ì›”: " + md.getMonth());
+		System.out.println("ì¼: " + md.getDate());
 		}catch(Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 
 }
+ 
