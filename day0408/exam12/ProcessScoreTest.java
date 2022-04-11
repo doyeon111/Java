@@ -1,8 +1,8 @@
 package exam12;
 
-//pdf 2¹ø¹®Á¦
+//pdf 2ë²ˆë¬¸ì œ
 
-class IllegalScore extends Exception { // »ç¿ëÀÚ Á¤ÀÇ ¿¹¿Ü(RuntimeExceptionÀÇ ÈÄ¼ÕÀÌ ¾Æ´Ï±â ¶§¹®¿¡ ¿¹¿ÜÃ³¸®¸¦ ÇØÁà¾ßÇÔ)
+class IllegalScore extends Exception { // ì‚¬ìš©ì ì •ì˜ ì˜ˆì™¸(RuntimeExceptionì˜ í›„ì†ì´ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•´ì¤˜ì•¼í•¨)
 	public IllegalScore(String msg) {
 		super(msg);
 	}
@@ -15,7 +15,7 @@ class ProcessScore {
 		int tot = 0;
 		for (int s : score) {
 			if (s < 0) {
-				throw new IllegalScore("¼ºÀûÀÌ À½¼öÀÏ ¼ö´Â ¾ø½À´Ï´Ù.");
+				throw new IllegalScore("ì„±ì ì´ ìŒìˆ˜ì¼ ìˆ˜ëŠ” ì—†ìŠµë‹ˆë‹¤.");
 			}
 			tot += s;
 
@@ -24,7 +24,7 @@ class ProcessScore {
 
 	}
 
-	public double getAvg() {// Æò±ÕÀ» ¹İÈ¯
+	public double getAvg() {// í‰ê· ì„ ë°˜í™˜
 		return avg;
 	}
 }
@@ -35,12 +35,12 @@ public class ProcessScoreTest {
 		try {
 			int[] a = { 90, 80, 100, 80, 90, 70 };
 			ProcessScore ps = new ProcessScore(a);
-			System.out.println("Æò±Õ: " + ps.getAvg());
+			System.out.println("í‰ê· : " + ps.getAvg());
 
 		} catch (IllegalScore e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
 
-}
+} 
