@@ -5,15 +5,16 @@ import java.util.HashSet;
 public class HashSetTest {
 
 	public static void main(String[] args) {
-		HashSet<String> set = new HashSet<String>(); //Áßº¹À» Çã¿ëÇÏÁö ¾Ê°í ¼ø¼­¸¦ ¹«½ÃÇÑ´Ù.
+		HashSet<String> set = new HashSet<String>(); //ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ ì•Šê³  ìˆœì„œë¥¼ ë¬´ì‹œí•œë‹¤.
 		
-		set.add("»ç°ú");
-		set.add("Æ÷µµ");
-		set.add("¼ö¹Ú");
-		set.add("µş±â");
-		set.add("Æ÷µµ"); //Áßº¹µÈ µ¥ÀÌÅÍ Çã¿ëÇÏÁö ¾Ê´Â´Ù.
+		set.add("ì‚¬ê³¼");
+		set.add("í¬ë„");
+		set.add("ìˆ˜ë°•");
+		set.add("ë”¸ê¸°");
+		set.add("í¬ë„"); //ì¤‘ë³µëœ ë°ì´í„° í—ˆìš©í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		System.out.println(set);
 
 	}
 
 }
+ 
