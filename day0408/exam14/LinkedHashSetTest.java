@@ -5,13 +5,14 @@ import java.util.LinkedHashSet;
 public class LinkedHashSetTest {
 
 	public static void main(String[] args) {
-		LinkedHashSet<String> set = new LinkedHashSet<String>(); //Áßº¹À» Çã¿ëÇÏÁö ¾Ê°í ¼ø¼­¸¦ À¯ÁöÇÏ¸ç Ãâ·Â
-		set.add("»ç°ú");
-		set.add("Æ÷µµ");
-		set.add("¼ö¹Ú");
-		set.add("Æ÷µµ");
-		set.add("µş±â");
+		LinkedHashSet<String> set = new LinkedHashSet<String>(); //ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ ì•Šê³  ìˆœì„œë¥¼ ìœ ì§€í•˜ë©° ì¶œë ¥
+		set.add("ì‚¬ê³¼");
+		set.add("í¬ë„");
+		set.add("ìˆ˜ë°•");
+		set.add("í¬ë„");
+		set.add("ë”¸ê¸°");
 		System.out.println(set);
 	}
 
 }
+ 
