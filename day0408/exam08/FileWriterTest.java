@@ -8,13 +8,13 @@ public class FileWriterTest {
 	public static void main(String[] args) {
 
 		try {
-			FileWriter fw = new FileWriter("c:/temp/hello.txt"); //ÇØ´ç Æú´õ¿¡ ÆÄÀÏÀ» »ı¼º
-			fw.write("hello java"); //ÆÄÀÏ ³»¿ë¿¡ hello java°¡ ÀÔ·ÂµÇ¾î ÀÖ´Ù.
+			FileWriter fw = new FileWriter("c:/temp/hello.txt"); //í•´ë‹¹ í´ë”ì— íŒŒì¼ì„ ìƒì„±
+			fw.write("hello java"); //íŒŒì¼ ë‚´ìš©ì— hello javaê°€ ì…ë ¥ë˜ì–´ ìˆë‹¤.
 			fw.close();
 			
-			System.out.println("ÆÄÀÏÀ» »ı¼ºÇÏ¿´½À´Ï´Ù.");
+			System.out.println("íŒŒì¼ì„ ìƒì„±í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		} catch (IOException e) {
-			System.out.println("¿¹¿Ü°¡ ¹ß»ıµÇ¾ú½À´Ï´Ù." + e.getMessage()); // e.getMessage¸¦ ÇÏ¸é ¿¹¿ÜÀÇ ¸Ş½ÃÁö¸¦ ¾Ë ¼ö ÀÖ´Ù.
+			System.out.println("ì˜ˆì™¸ê°€ ë°œìƒë˜ì—ˆìŠµë‹ˆë‹¤." + e.getMessage()); // e.getMessageë¥¼ í•˜ë©´ ì˜ˆì™¸ì˜ ë©”ì‹œì§€ë¥¼ ì•Œ ìˆ˜ ìˆë‹¤.
 		}
 	}
 
@@ -24,7 +24,7 @@ public class FileWriterTest {
  * public FileWriter(String fileName) throws IOException
  */
 
-//FileWriterÀÇ »ı¼ºÀÚ´Â ´ÙÀ½°ú °°ÀÌ ¿¹¿Ü¸¦ Æ÷ÇÔÇÏ°í ÀÖ´Ù.
+//FileWriterì˜ ìƒì„±ìëŠ” ë‹¤ìŒê³¼ ê°™ì´ ì˜ˆì™¸ë¥¼ í¬í•¨í•˜ê³  ìˆë‹¤.
 //public FileWriter(String fileName)
 //throws IOException
-//IOExceptionÀº RuntimeExceptionÀÇ ÈÄ¼ÕÀÌ ¾Æ´Ï±â ¶§¹®¿¡ »ç¿ëÀÚ°¡ ¹İµå½Ã ¿¹¿ÜÃ³¸®¸¦ ÇØ¾ß ÄÄÆÄÀÏÀÌ µÈ´Ù.
+//IOExceptionì€ RuntimeExceptionì˜ í›„ì†ì´ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ì‚¬ìš©ìê°€ ë°˜ë“œì‹œ ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•´ì•¼ ì»´íŒŒì¼ì´ ëœë‹¤. 
