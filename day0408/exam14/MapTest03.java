@@ -18,9 +18,10 @@ public class MapTest03 {
 			}
 		}
 		
-		System.out.println(map.size() + "°³ÀÇ ÀÌ¸§ÀÌ ¹ß°ßµÇ¾ú½À´Ï´Ù.");
+		System.out.println(map.size() + "ê°œì˜ ì´ë¦„ì´ ë°œê²¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		System.out.println(map);
 
 	}
 
 }
+ 
