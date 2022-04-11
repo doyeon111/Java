@@ -5,21 +5,22 @@ import java.util.LinkedList;
 public class LinkedListTest {
 
 	public static void main(String[] args) {
-		LinkedList<String> list = new LinkedList<String>(); //Áßº¹À» Çã¿ëÇÏ°í ¼ø¼­¸¦ À¯ÁöÇÑ´Ù.
+		LinkedList<String> list = new LinkedList<String>(); //ì¤‘ë³µì„ í—ˆìš©í•˜ê³  ìˆœì„œë¥¼ ìœ ì§€í•œë‹¤.
 		
-		list.add("»ç°ú");
-		list.add("Æ÷µµ");
-		list.add("¼ö¹Ú");
-		list.add("Æ÷µµ");
-		list.add("¿À·»Áö");
+		list.add("ì‚¬ê³¼");
+		list.add("í¬ë„");
+		list.add("ìˆ˜ë°•");
+		list.add("í¬ë„");
+		list.add("ì˜¤ë Œì§€");
 		System.out.println(list);
 		
 		System.out.println(list.get(0));
 		list.remove(1);
 		System.out.println(list);
 		
-		list.add(0, "Ã¼¸®");
+		list.add(0, "ì²´ë¦¬");
 		System.out.println(list);
 	}
 
 }
+ 
