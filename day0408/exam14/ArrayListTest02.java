@@ -7,15 +7,16 @@ public class ArrayListTest02 {
 	public static void main(String[] args) {
 	
 		ArrayList<String> data = new ArrayList<String>();
-		data.add("È«±æµ¿");
+		data.add("í™ê¸¸ë™");
 		data.add("010-1234-5678");
-		data.add("¼­¿ï½Ã ¸¶Æ÷±¸ ¼­±³µ¿");
+		data.add("ì„œìš¸ì‹œ ë§ˆí¬êµ¬ ì„œêµë™");
 		
-		System.out.println("ÀÌ¸§: " + data.get(0));
-		System.out.println("ÀüÈ­: " + data.get(1));
-		System.out.println("ÁÖ¼Ò: " + data.get(2));
+		System.out.println("ì´ë¦„: " + data.get(0));
+		System.out.println("ì „í™”: " + data.get(1));
+		System.out.println("ì£¼ì†Œ: " + data.get(2));
 
 
 	}
 
 }
+ 
