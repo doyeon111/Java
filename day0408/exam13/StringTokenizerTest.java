@@ -5,21 +5,21 @@ import java.util.StringTokenizer;
 public class StringTokenizerTest {
 
 	public static void main(String[] args) {
-		//String data = "È«±æµ¿: ÀÌ¼ø½Å: À¯°ü¼ø: ±èÀ¯½Å";
-		String data = "È«±æµ¿ ÀÌ¼ø½Å À¯°ü¼ø ±èÀ¯½Å";
+		//String data = "í™ê¸¸ë™: ì´ìˆœì‹ : ìœ ê´€ìˆœ: ê¹€ìœ ì‹ ";
+		String data = "í™ê¸¸ë™ ì´ìˆœì‹  ìœ ê´€ìˆœ ê¹€ìœ ì‹ ";
 		StringTokenizer st = new StringTokenizer(data, " ");
 		
 		
-		while(st.hasMoreTokens()) { //ÅäÅ«ÀÌ ÀÖ´Â¸¸Å­ ÇÏ³ª¾¿ °¡Á®¿È
+		while(st.hasMoreTokens()) { //í† í°ì´ ìˆëŠ”ë§Œí¼ í•˜ë‚˜ì”© ê°€ì ¸ì˜´
 			String name = st.nextToken();
 			System.out.println(name);
 		}
 		
 		
-//		String a = st.nextToken(); //ÇÏ³ª¾¿ ²ôÁı¾î ³»¾î¿È , È«±æµ¿
-//		String b = st.nextToken(); //ÀÌ¼ø½Å
-//		String c = st.nextToken(); //À¯°ü¼ø
-//		String d = st.nextToken(); //±èÀ¯½Å
+//		String a = st.nextToken(); //í•˜ë‚˜ì”© ë„ì§‘ì–´ ë‚´ì–´ì˜´ , í™ê¸¸ë™
+//		String b = st.nextToken(); //ì´ìˆœì‹ 
+//		String c = st.nextToken(); //ìœ ê´€ìˆœ
+//		String d = st.nextToken(); //ê¹€ìœ ì‹ 
 //		
 //		System.out.println(a);
 //		System.out.println(b);
@@ -32,5 +32,5 @@ public class StringTokenizerTest {
 		
 
 	}
-
+ 
 }
