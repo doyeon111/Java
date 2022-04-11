@@ -1,15 +1,15 @@
 package exam08;
 
-//ArithmeticExceptionÀº RuntimeExceptionÀÇ ÈÄ¼ÕÀÌ´Ù.
-// RuntimeExceptionÀº µû·Î ¿¹¿ÜÃ³¸®¸¦ ÇÏÁö ¾Ê¾Æµµ ÄÄÆÄÀÏÀÌ µÇ°í ½ÇÇàÀÌ µÈ´Ù.
-//ÇÊ¿äÇÏ´Ù¸é »ç¿ëÀÚ°¡ µû·Î ¿¹¿ÜÃ³¸® ÇÒ ¼ö ÀÖ´Ù.
+//ArithmeticExceptionì€ RuntimeExceptionì˜ í›„ì†ì´ë‹¤.
+// RuntimeExceptionì€ ë”°ë¡œ ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•˜ì§€ ì•Šì•„ë„ ì»´íŒŒì¼ì´ ë˜ê³  ì‹¤í–‰ì´ ëœë‹¤.
+//í•„ìš”í•˜ë‹¤ë©´ ì‚¬ìš©ìê°€ ë”°ë¡œ ì˜ˆì™¸ì²˜ë¦¬ í•  ìˆ˜ ìˆë‹¤.
 public class DivTest08 {
 
-	// µÎ °³ÀÇ Á¤¼ö¸¦ ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ³ª´©±â ÇÑ °á°ú¸¦ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå
-	public static void calcDiv(int a, int b) throws ArithmeticException { // È£ÃâÇÏ´Â ÂÊÀ¸·Î ¿¹¿Ü¸¦ Àü´Ş
+	// ë‘ ê°œì˜ ì •ìˆ˜ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ë‚˜ëˆ„ê¸° í•œ ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œ
+	public static void calcDiv(int a, int b) throws ArithmeticException { // í˜¸ì¶œí•˜ëŠ” ìª½ìœ¼ë¡œ ì˜ˆì™¸ë¥¼ ì „ë‹¬
 
 		int div = a / b;
-		System.out.println("³ª´©±â °á°ú: " + div);
+		System.out.println("ë‚˜ëˆ„ê¸° ê²°ê³¼: " + div);
 
 	}
 
@@ -20,3 +20,4 @@ public class DivTest08 {
 	}
 
 }
+ 
