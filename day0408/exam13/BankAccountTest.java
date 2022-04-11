@@ -1,25 +1,25 @@
 package exam13;
-//pdf 3¹ø¹®Á¦
-class NegativeBalanceException extends Exception { // »ç¿ëÀÚ Á¤ÀÇ ¿¹¿Ü(RuntimeExceptionÀÇ ÈÄ¼ÕÀÌ ¾Æ´Ï±â ¶§¹®¿¡ ¿¹¿ÜÃ³¸®¸¦ ÇØÁà¾ßÇÔ)
+//pdf 3ë²ˆë¬¸ì œ
+class NegativeBalanceException extends Exception { // ì‚¬ìš©ì ì •ì˜ ì˜ˆì™¸(RuntimeExceptionì˜ í›„ì†ì´ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•´ì¤˜ì•¼í•¨)
 	public NegativeBalanceException(String msg) {
 		super(msg);
 	}
 }
 
 class BankAccount {
-	private int balance; // ÀÜ¾×
+	private int balance; // ì”ì•¡
 
-	public void deposit(int amount) { // ÀÔ±İ
+	public void deposit(int amount) { // ì…ê¸ˆ
 		balance += amount;
-		System.out.println(amount + "¸¦ Àú±İÇÏ¿© ÀÜ¾×ÀÌ " +balance +"°¡ µÇ¾ú½À´Ï´Ù.");
+		System.out.println(amount + "ë¥¼ ì €ê¸ˆí•˜ì—¬ ì”ì•¡ì´ " +balance +"ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
-	public void withdraw(int amount) throws NegativeBalanceException { // ÀÎÃâ±İ¾×
+	public void withdraw(int amount) throws NegativeBalanceException { // ì¸ì¶œê¸ˆì•¡
 		if (amount > balance) {
-			throw new NegativeBalanceException("ÀÜ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
+			throw new NegativeBalanceException("ì”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
 		}
 		balance -= amount;
-		System.out.println(amount + "¸¦ ÀÎÃâÇÏ¿© ÀÜ¾×ÀÌ " + balance +"°¡ µÇ¾ú½À´Ï´Ù.");
+		System.out.println(amount + "ë¥¼ ì¸ì¶œí•˜ì—¬ ì”ì•¡ì´ " + balance +"ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
 }
@@ -33,8 +33,7 @@ public class BankAccountTest {
 			b.withdraw(500);
 			b.withdraw(700);
 		} catch (NegativeBalanceException e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
-	}
-}
+	} 
