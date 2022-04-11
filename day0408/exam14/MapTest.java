@@ -5,24 +5,25 @@ import java.util.HashMap;
 public class MapTest {
 
 	public static void main(String[] args) {
-		HashMap<String, String> data = new HashMap<String, String>(); //Å°·Î µ¥ÀÌÅÍ¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Ù.
-		data.put("name", "È«±æµ¿");
+		HashMap<String, String> data = new HashMap<String, String>(); //í‚¤ë¡œ ë°ì´í„°ì— ì ‘ê·¼í•  ìˆ˜ ìˆë‹¤.
+		data.put("name", "í™ê¸¸ë™");
 		data.put("phone", "010-1234-5678");
-		data.put("addr", "¼­¿ï½Ã ¸¶Æ÷±¸ ¼­±³µ¿");
+		data.put("addr", "ì„œìš¸ì‹œ ë§ˆí¬êµ¬ ì„œêµë™");
 		
-		System.out.println("ÀÌ¸§: " + data.get("name"));
-		System.out.println("ÀüÈ­: " + data.get("phone"));
-		System.out.println("ÁÖ¼Ò: " + data.get("addr"));
+		System.out.println("ì´ë¦„: " + data.get("name"));
+		System.out.println("ì „í™”: " + data.get("phone"));
+		System.out.println("ì£¼ì†Œ: " + data.get("addr"));
 		
 		String oldPhone = data.put("phone", "010-1234-7777");
-		System.out.println(oldPhone); //¿ø·¡ÀÖ´ø ¹øÈ£¸¦ ¹İÈ¯ÇÔ.
-		System.out.println(data); //±×¸®°í »õ·Î¿î °ªÀ¸·Î ¹Ù²ñ.
-		//Áßº¹µÈ key¿¡ °ªÀ» Ãß°¡ÇÏ¸é ¿ø·¡ÀÇ µ¥ÀÌÅÍ¸¦ ¹İÈ¯ÇÏ°í value¸¦ »õ·Î¿î °ªÀ¸·Î ¹İÈ¯ÇÑ´Ù.
+		System.out.println(oldPhone); //ì›ë˜ìˆë˜ ë²ˆí˜¸ë¥¼ ë°˜í™˜í•¨.
+		System.out.println(data); //ê·¸ë¦¬ê³  ìƒˆë¡œìš´ ê°’ìœ¼ë¡œ ë°”ë€œ.
+		//ì¤‘ë³µëœ keyì— ê°’ì„ ì¶”ê°€í•˜ë©´ ì›ë˜ì˜ ë°ì´í„°ë¥¼ ë°˜í™˜í•˜ê³  valueë¥¼ ìƒˆë¡œìš´ ê°’ìœ¼ë¡œ ë°˜í™˜í•œë‹¤.
 		
-		String title = data.get("title"); //¾ø´Â Å°¸¦ ¿äÃ»ÇÏ¸é null°ªÀ» ¹İÈ¯ÇÔ.
+		String title = data.get("title"); //ì—†ëŠ” í‚¤ë¥¼ ìš”ì²­í•˜ë©´ nullê°’ì„ ë°˜í™˜í•¨.
 		System.out.println(title);
-		//Á¸ÀçÇÏÁö ¾Ê´Â keyÀÇ °ªÀ» ¹İÈ¯ÇÏ¸é nullÀ» ¹İÈ¯ÇÔ.
+		//ì¡´ì¬í•˜ì§€ ì•ŠëŠ” keyì˜ ê°’ì„ ë°˜í™˜í•˜ë©´ nullì„ ë°˜í™˜í•¨.
 
 	}
 
 }
+ 
