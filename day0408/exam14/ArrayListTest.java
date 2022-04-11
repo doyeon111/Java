@@ -5,19 +5,20 @@ import java.util.ArrayList;
 public class ArrayListTest {
 
 	public static void main(String[] args) {
-		ArrayList<String> list = new ArrayList<String>(); //Áßº¹À» Çã¿ëÇÏ¸ç ¼ø¼­µµ À¯ÁöÇÑ´Ù.
+		ArrayList<String> list = new ArrayList<String>(); //ì¤‘ë³µì„ í—ˆìš©í•˜ë©° ìˆœì„œë„ ìœ ì§€í•œë‹¤.
 		
-		list.add("»ç°ú");
-		list.add("Æ÷µµ");
-		list.add("¿À·»Áö");
-		list.add("Æ÷µµ");
-		list.add("°¨");
+		list.add("ì‚¬ê³¼");
+		list.add("í¬ë„");
+		list.add("ì˜¤ë Œì§€");
+		list.add("í¬ë„");
+		list.add("ê°");
 		System.out.println(list);
-		list.remove(1); //1¹øÂ°¿¡ ÀÖ´Â °ÍÀ» Áö¿ö¶ó.
+		list.remove(1); //1ë²ˆì§¸ì— ìˆëŠ” ê²ƒì„ ì§€ì›Œë¼.
 		System.out.println(list);
 		
-		list.add(0, "Ã¼¸®"); //0¹øÂ° ÀÎµ¦½º¿¡ Ã¼¸® Ãß°¡
+		list.add(0, "ì²´ë¦¬"); //0ë²ˆì§¸ ì¸ë±ìŠ¤ì— ì²´ë¦¬ ì¶”ê°€
 		System.out.println(list);
 	}
 
 }
+ 
