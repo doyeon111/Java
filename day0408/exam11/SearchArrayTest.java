@@ -1,6 +1,6 @@
 package exam11;
 
-class NotFoundException extends Exception { //»ç¿ëÀÚ Á¤ÀÇ ¿¹¿Ü(RuntimeExceptionÀÇ ÈÄ¼ÕÀÌ ¾Æ´Ï±â ¶§¹®¿¡ ¿¹¿ÜÃ³¸®¸¦ ÇØÁà¾ßÇÔ)
+class NotFoundException extends Exception { //ì‚¬ìš©ì ì •ì˜ ì˜ˆì™¸(RuntimeExceptionì˜ í›„ì†ì´ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•´ì¤˜ì•¼í•¨)
 	public NotFoundException(String msg) {
 		super(msg);
 	}
@@ -18,9 +18,9 @@ class SearchArray {
 		}
 		
 		if(i == arr.length) {
-			throw new NotFoundException("Ã£°íÀÚ ÇÏ´Â " + data + "°¡ ¹è¿­¿¡ ¾ø½À´Ï´Ù."); 
+			throw new NotFoundException("ì°¾ê³ ì í•˜ëŠ” " + data + "ê°€ ë°°ì—´ì— ì—†ìŠµë‹ˆë‹¤."); 
 		} else {
-			System.out.println("Ã£°íÀÚ ÇÏ´Â " + data + "´Â ¹è¿­¿¡ " + i + "¹øÂ°¿¡ ÀÖ½À´Ï´Ù.");
+			System.out.println("ì°¾ê³ ì í•˜ëŠ” " + data + "ëŠ” ë°°ì—´ì— " + i + "ë²ˆì§¸ì— ìˆìŠµë‹ˆë‹¤.");
 		}
 	
 	
@@ -37,8 +37,8 @@ public class SearchArrayTest {
 		sa.search(a, 20);
 		sa.search(a, 100);
 		}catch(NotFoundException e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 
-}
+} 
