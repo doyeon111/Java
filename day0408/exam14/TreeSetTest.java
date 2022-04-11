@@ -5,15 +5,16 @@ import java.util.TreeSet;
 public class TreeSetTest {
 
 	public static void main(String[] args) {
-		TreeSet<String> set = new TreeSet<String>(); //Áßº¹À» Çã¿ëÇÏÁö ¾Ê°í »çÀü½ÄÀ¸·Î Á¤·ÄÇÑ´Ù.
-		set.add("»ç°ú");
-		set.add("Æ÷µµ");
-		set.add("¼ö¹Ú");
-		set.add("°¨");
-		set.add("¼ö¹Ú");
-		set.add("¿À·»Áö");
+		TreeSet<String> set = new TreeSet<String>(); //ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ ì•Šê³  ì‚¬ì „ì‹ìœ¼ë¡œ ì •ë ¬í•œë‹¤.
+		set.add("ì‚¬ê³¼");
+		set.add("í¬ë„");
+		set.add("ìˆ˜ë°•");
+		set.add("ê°");
+		set.add("ìˆ˜ë°•");
+		set.add("ì˜¤ë Œì§€");
 		
 		System.out.println(set);
 	}
 
 }
+ 
