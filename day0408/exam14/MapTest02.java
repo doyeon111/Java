@@ -8,31 +8,31 @@ public class MapTest02 {
 
 	public static void main(String[] args) {
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("ÀÌ¸§", "È«±æµ¿");
-		map.put("³ªÀÌ", "20");
-		map.put("ÁÖ¼Ò", "¼­¿ï");
+		map.put("ì´ë¦„", "í™ê¸¸ë™");
+		map.put("ë‚˜ì´", "20");
+		map.put("ì£¼ì†Œ", "ì„œìš¸");
 		
 		System.out.println(map);
-		//{ÀÌ¸§=È«±æµ¿, ÁÖ¼Ò=¼­¿ï, ³ªÀÌ=20} -> ³»°¡ ÀÔ·ÂÇÑ ¼ø¼­¸¦ À¯ÁöÇÏÁö ¾ÊÀ½.
+		//{ì´ë¦„=í™ê¸¸ë™, ì£¼ì†Œ=ì„œìš¸, ë‚˜ì´=20} -> ë‚´ê°€ ì…ë ¥í•œ ìˆœì„œë¥¼ ìœ ì§€í•˜ì§€ ì•ŠìŒ.
 
 		
 		 
-		LinkedHashMap<String, String> map2 = new LinkedHashMap<String, String>(); //¼ø¼­¸¦ À¯ÁöÇÑ´Ù
-		map2.put("ÀÌ¸§", "È«±æµ¿");
-		map2.put("³ªÀÌ", "20");
-		map2.put("ÁÖ¼Ò", "¼­¿ï");
+		LinkedHashMap<String, String> map2 = new LinkedHashMap<String, String>(); //ìˆœì„œë¥¼ ìœ ì§€í•œë‹¤
+		map2.put("ì´ë¦„", "í™ê¸¸ë™");
+		map2.put("ë‚˜ì´", "20");
+		map2.put("ì£¼ì†Œ", "ì„œìš¸");
 		
 		System.out.println(map2);
 		
 		
 		
-		TreeMap<String, String> map3 = new TreeMap<String, String>(); //Å°¸¦ ±âÁØÀ¸·Î Á¤·ÄÇØÁØ´Ù.
-		map3.put("ÀÌ¸§", "È«±æµ¿");
-		map3.put("³ªÀÌ", "20");
-		map3.put("ÁÖ¼Ò", "¼­¿ï");
+		TreeMap<String, String> map3 = new TreeMap<String, String>(); //í‚¤ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬í•´ì¤€ë‹¤.
+		map3.put("ì´ë¦„", "í™ê¸¸ë™");
+		map3.put("ë‚˜ì´", "20");
+		map3.put("ì£¼ì†Œ", "ì„œìš¸");
 		
 		System.out.println(map3); 
 
 	}
 
-}
+} 
