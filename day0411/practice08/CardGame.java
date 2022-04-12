@@ -53,15 +53,15 @@ class Player{
 		System.out.println(list);
 	}
 	
-	//°®°í ÀÖ´Â Ä«µå°¡ ¿øÆä¾îÀÎÁö ÆÇº°ÇÏ¿© ±× ¼ıÀÚ¸¦ ¹İÈ¯ÇÏ´Â ¸Ş™“¸¦ Á¤ÀÇ 
-	//¿øÆä¾î°¡ ¾Æ´Ï¸é -1À» ¹İÈ¯
+	//ê°–ê³  ìˆëŠ” ì¹´ë“œê°€ ì›í˜ì–´ì¸ì§€ íŒë³„í•˜ì—¬ ê·¸ ìˆ«ìë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ë¥¼ ì •ì˜ 
+	//ì›í˜ì–´ê°€ ì•„ë‹ˆë©´ -1ì„ ë°˜í™˜
 	public int isOnePair() {
 		int re = -1;
 		String num = "-1";
 		for(int i=0; i<list.size(); i++) {
 			for(int j=i+1; j<list.size(); j++) {
 				if(list.get(i).number.equals(list.get(j).number)) {
-					System.out.println("¿øÆä¾îÀÔ´Ï´Ù."+list.get(i).number);
+					System.out.println("ì›í˜ì–´ì…ë‹ˆë‹¤."+list.get(i).number);
 					num = list.get(i).number;
 					break;
 				}
@@ -90,12 +90,12 @@ public class CardGame {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CardDeck cardDeck = new CardDeck();
-		System.out.println("Ã³À½ »ı¼ºµÈ Ä«µåµ¥Å©");
+		System.out.println("ì²˜ìŒ ìƒì„±ëœ ì¹´ë“œë°í¬");
 		System.out.println(cardDeck.deck);
 		System.out.println();
 		
 		cardDeck.shuffle();
-		System.out.println("·£´ıÇÏ°Ô ¼¯ÀºÈÄÀÇ Ä«µåµ¥Å©");
+		System.out.println("ëœë¤í•˜ê²Œ ì„ì€í›„ì˜ ì¹´ë“œë°í¬");
 		System.out.println(cardDeck.deck);
 		System.out.println();
 		
@@ -107,12 +107,12 @@ public class CardGame {
 			p2.getCard(cardDeck.deal());
 		}		
 		
-		System.out.println("player1ÀÇ Ä«µå");
+		System.out.println("player1ì˜ ì¹´ë“œ");
 		p1.showCards();
 		int score1= p1.isOnePair();
 		System.out.println();
 		
-		System.out.println("player2ÀÇ Ä«µå");
+		System.out.println("player2ì˜ ì¹´ë“œ");
 		p2.showCards();
 		int score2 = p2.isOnePair();
 		System.out.println();
@@ -121,15 +121,15 @@ public class CardGame {
 //		System.out.println("score2:"+score2);
 		
 		if(score1 >  score2) {
-			System.out.println("player1ÀÌ ÀÌ°å½À´Ï´Ù.");
+			System.out.println("player1ì´ ì´ê²¼ìŠµë‹ˆë‹¤.");
 		}else if(score1 < score2){
-			System.out.println("player2°¡ ÀÌ°å½À´Ï´Ù.");
+			System.out.println("player2ê°€ ì´ê²¼ìŠµë‹ˆë‹¤.");
 		}else {
-			System.out.println("ºñ°å½À´Ï´Ù.");
+			System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤.");
 		}
 		
 		
-//		System.out.println("Ä«µå¸¦ ³ª´²ÁØ ÈÄÀÇ Ä«µåÅ×Å©");
+//		System.out.println("ì¹´ë“œë¥¼ ë‚˜ëˆ ì¤€ í›„ì˜ ì¹´ë“œí…Œí¬");
 //		System.out.println(cardDeck.deck);
 		
 	}
