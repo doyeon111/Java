@@ -1,6 +1,6 @@
 package practice02;
 
-//¸¶¿ì½º¸¦ Å¬¸¯ÇÏ°í ¶¿¶§ ¼± ±×¸®±â
+//ë§ˆìš°ìŠ¤ë¥¼ í´ë¦­í•˜ê³  ë—„ë•Œ ì„  ê·¸ë¦¬ê¸°
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
@@ -9,50 +9,50 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-//±×·¡ÇÈÀ» Ç¥ÇöÇÏ±â À§ÇÏ¿© JPanelÀ» »ó¼ÓÇÑ Å¬·¡½º¸¦ ¸¸µé¾îÁØ´Ù.
-//¶Ç, ¸¶¿ì½º
+//ê·¸ë˜í”½ì„ í‘œí˜„í•˜ê¸° ìœ„í•˜ì—¬ JPanelì„ ìƒì†í•œ í´ë˜ìŠ¤ë¥¼ ë§Œë“¤ì–´ì¤€ë‹¤.
+//ë˜, ë§ˆìš°ìŠ¤
 class GrimpanPanel extends JPanel implements MouseListener {
-	// ¸¶¿ì½º°¡ ´­·¯Áø ½ÃÀÛÁ¡, ³¡Á¡À» ÀúÀåÇÏ±â À§ÇÑ º¯¼ö¸¦ ¼±¾ğ
+	// ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì§„ ì‹œì‘ì , ëì ì„ ì €ì¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 	int x1, y1, x2, y2;
 
-	//»ı¼ºÀÚ¿¡¼­ ¸¶¿ì½º ÀÌº¥Æ®¸¦ µî·Ï
+	//ìƒì„±ìì—ì„œ ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 	public GrimpanPanel() {
-		// ÆĞ³Î¿¡ ¸¶¿ì½º ÀÌº¥Æ®¸¦ µî·Ï
+		// íŒ¨ë„ì— ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 		addMouseListener(this);
 	}
 
 	
-	//ÆĞ³ÎÀ» ´Ù½Ã ±×·ÁÁÙ ÇÊ¿ä°¡ ÀÖÀ» ¶§¿¡ paintComponent°¡ ÀÚµ¿À¸·Î µ¿ÀÛµÊ.
-	//paintComponent¸¦ ¿À¹ö¶óÀÌµù ÇÏ¿© ±×·¡ÇÈÀ» Ç¥ÇöÇØÁØ´Ù.
+	//íŒ¨ë„ì„ ë‹¤ì‹œ ê·¸ë ¤ì¤„ í•„ìš”ê°€ ìˆì„ ë•Œì— paintComponentê°€ ìë™ìœ¼ë¡œ ë™ì‘ë¨.
+	//paintComponentë¥¼ ì˜¤ë²„ë¼ì´ë”© í•˜ì—¬ ê·¸ë˜í”½ì„ í‘œí˜„í•´ì¤€ë‹¤.
 	@Override
 	protected void paintComponent(Graphics g) {
-		System.out.println("´Ù½Ã ±×·ÁÁİ´Ï´Ù.");
-		g.drawRect(x1, y1, x2, y2); // ¼±À» ±×¾îÁÜ.
+		System.out.println("ë‹¤ì‹œ ê·¸ë ¤ì¤ë‹ˆë‹¤.");
+		g.drawRect(x1, y1, x2, y2); // ì„ ì„ ê·¸ì–´ì¤Œ.
 
 	}
-
+ 
 	
-	//¸¶¿ì½º°¡ ´­·¯Á³À» ¶§ 
+	//ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì¡Œì„ ë•Œ 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 
 	}
-	//¸¶¿ì½º°¡ ´­·¯Á³À» ¶§ x,yÁÂÇ¥¸¦ ±×·¡ÇÈÀÇ ½ÃÀÛÁ¡À¸·Î ÀúÀå
+	//ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì¡Œì„ ë•Œ x,yì¢Œí‘œë¥¼ ê·¸ë˜í”½ì˜ ì‹œì‘ì ìœ¼ë¡œ ì €ì¥
 	@Override
 	public void mousePressed(MouseEvent e) {
-		x1 = e.getX(); // ¸¶¿ì½º°¡ ´­·¯Áø x1¿¡ ³Ö±â
+		x1 = e.getX(); // ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì§„ x1ì— ë„£ê¸°
 		y1 = e.getY();
 
 	}
-	//¸¶¿ì½º°¡ ¶¼¾îÁ³À» ¶§¿¡ x,yÁÂÇ¥¸¦ ±×·¡ÇÈÀÇ ³¡Á¡À¸·Î ÀúÀå
+	//ë§ˆìš°ìŠ¤ê°€ ë–¼ì–´ì¡Œì„ ë•Œì— x,yì¢Œí‘œë¥¼ ê·¸ë˜í”½ì˜ ëì ìœ¼ë¡œ ì €ì¥
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		x2 = e.getX(); // ¸¶¿ì½º°¡ ¶¼¾îÁø ¼ø°£ x2¿¡ ³Ö±â
+		x2 = e.getX(); // ë§ˆìš°ìŠ¤ê°€ ë–¼ì–´ì§„ ìˆœê°„ x2ì— ë„£ê¸°
 		y2 = e.getY();
 
-		//±×·¡ÇÈÀÌ ¿Ï¼ºµÇ¾úÀ» ¶§ ±×·¡ÇÈÀ» ±×·Á´Ş¶ó°í ¿äÃ»
-		// "´Ù½Ã ±×·ÁÁÖ¼¼¿ä"¶ó°í ¿äÃ»
-		repaint(); // paintComponent°¡ µ¿ÀÛµÈ´Ù.
+		//ê·¸ë˜í”½ì´ ì™„ì„±ë˜ì—ˆì„ ë•Œ ê·¸ë˜í”½ì„ ê·¸ë ¤ë‹¬ë¼ê³  ìš”ì²­
+		// "ë‹¤ì‹œ ê·¸ë ¤ì£¼ì„¸ìš”"ë¼ê³  ìš”ì²­
+		repaint(); // paintComponentê°€ ë™ì‘ëœë‹¤.
 
 	}
 
@@ -72,7 +72,7 @@ class GrimpanPanel extends JPanel implements MouseListener {
 
 class Grimpan extends JFrame {
 
-	// ±×¸²ÆÇ ¸Å³ÎÀ» ¸â¹ö·Î ¼±¾ğ
+	// ê·¸ë¦¼íŒ ë§¤ë„ì„ ë©¤ë²„ë¡œ ì„ ì–¸
 	GrimpanPanel gp;
 
 	public Grimpan() {
