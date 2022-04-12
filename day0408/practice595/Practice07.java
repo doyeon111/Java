@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Practice07 {
 
 	public static void main(String[] args) {
-		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>(); // ¼ø¼­¸¦ À¯ÁöÇÑ´Ù
+		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>(); // ìˆœì„œë¥¼ ìœ ì§€í•œë‹¤
 		map.put("USA", "Washington");
 		map.put("Japan", "Tokyo");
 		map.put("China", "Beijing");
@@ -16,11 +16,12 @@ public class Practice07 {
 		String name;
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("±¹°¡ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("êµ­ê°€ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
 
-		System.out.println(name + "ÀÇ ¼öµµ: " + map.get(name));
+		System.out.println(name + "ì˜ ìˆ˜ë„: " + map.get(name));
 
 	}
 
 }
+ 
