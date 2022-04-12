@@ -1,7 +1,7 @@
 package exam01;
 
 import java.awt.BorderLayout;
-//°è»ê±â ¸¸µé±â
+//ê³„ì‚°ê¸° ë§Œë“¤ê¸°
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -14,99 +14,99 @@ import javax.swing.JTextField;
 
 class Calc extends JFrame implements ActionListener {
 
-	// °è»ê°á°ú¸¦ Ãâ·ÂÇÒ JTextField¸¦ ¸â¹öº¯¼ö·Î ¼±¾ð
+	// ê³„ì‚°ê²°ê³¼ë¥¼ ì¶œë ¥í•  JTextFieldë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	JTextField jtf;
 
-	// ¿¬»êÀ» ÇÒ µÎ °³ÀÇ ¼ö¸¦ ÀúÀåÇÏ±â À§ÇÑ º¯¼ö¸¦ ¼±¾ðÇÔ.
+	// ì—°ì‚°ì„ í•  ë‘ ê°œì˜ ìˆ˜ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•¨.
 	int num1, num2;
 
-	// ¾î¶² ¿¬»êÀ» ÇÒÁö ¿¬»êÀÚ¸¦ ÀúÀåÇÒ º¯¼ö¸¦ ¼±¾ðÇÑ´Ù.
+	// ì–´ë–¤ ì—°ì‚°ì„ í• ì§€ ì—°ì‚°ìžë¥¼ ì €ìž¥í•  ë³€ìˆ˜ë¥¼ ì„ ì–¸í•œë‹¤.
 	String op;
 
 	public Calc() {
 
-		// JTextField °´Ã¼¸¦ »ý¼º
+		// JTextField ê°ì²´ë¥¼ ìƒì„±
 		jtf = new JTextField(50);
 
-		// Á¦¸ñ Ç¥½ÃÁÙ ¼³Á¤ÇÏ±â
-		setTitle("°è»ê±â");
-
-		// È­¸é¹èÄ¡¹æ½ÄÀ» ¼ø¼­´ë·Î ¹èÄ¡ÇÏµµ·Ï ¼³Á¤
+		// ì œëª© í‘œì‹œì¤„ ì„¤ì •í•˜ê¸°
+		setTitle("ê³„ì‚°ê¸°");
+ 
+		// í™”ë©´ë°°ì¹˜ë°©ì‹ì„ ìˆœì„œëŒ€ë¡œ ë°°ì¹˜í•˜ë„ë¡ ì„¤ì •
 //		setLayout(new FlowLayout());
 
-		// È­¸é¹èÄ¡¹æ½ÄÀ» µ¿,¼­,³²,ºÏ,°¡¿îµ¥·Î ¹èÄ¡¹æ½ÄÀÎ BorderLayoutÀ¸·Î ¹èÄ¡ÇÑ´Ù.
+		// í™”ë©´ë°°ì¹˜ë°©ì‹ì„ ë™,ì„œ,ë‚¨,ë¶,ê°€ìš´ë°ë¡œ ë°°ì¹˜ë°©ì‹ì¸ BorderLayoutìœ¼ë¡œ ë°°ì¹˜í•œë‹¤.
 		setLayout(new BorderLayout());
 
-		// 16°³ÀÇ ¹öÆ°¿¡ µé¾î°¥ ¹®ÀÚ¿­ ¹è¿­À» ¸¸µç´Ù.
+		// 16ê°œì˜ ë²„íŠ¼ì— ë“¤ì–´ê°ˆ ë¬¸ìžì—´ ë°°ì—´ì„ ë§Œë“ ë‹¤.
 		String[] str = { "1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "*", "0", "C", "=", "/" };
 
-		// ¹öÆ° ¹è¿­À» 16°³¸¦ ¸¸µç´Ù.
+		// ë²„íŠ¼ ë°°ì—´ì„ 16ê°œë¥¼ ë§Œë“ ë‹¤.
 		JButton[] btn = new JButton[16];
 
-		// ¹öÆ° 16°³¸¦ ´ãÀ» ÆÐ³ÎÀ» »ý¼ºÇÑ´Ù.
+		// ë²„íŠ¼ 16ê°œë¥¼ ë‹´ì„ íŒ¨ë„ì„ ìƒì„±í•œë‹¤.
 		JPanel p = new JPanel();
 
-		// ÆÐ³ÎÀÇ ·¹ÀÌ¾Æ¿ô¹æ½ÄÀ» ¹öÆ° 16°³¸¦ ´ãµµ·Ï
-		// 4Çà 4¿­ÀÇ ±×¸®µå·¹ÀÌ¾Æ¿ôÀ¸·Î ¼³Á¤
+		// íŒ¨ë„ì˜ ë ˆì´ì•„ì›ƒë°©ì‹ì„ ë²„íŠ¼ 16ê°œë¥¼ ë‹´ë„ë¡
+		// 4í–‰ 4ì—´ì˜ ê·¸ë¦¬ë“œë ˆì´ì•„ì›ƒìœ¼ë¡œ ì„¤ì •
 		p.setLayout(new GridLayout(4, 4));
 
-		// ¹Ýº¹¹®À» ÀÌ¿ëÇÏ¿© 16°³ÀÇ ¹öÆ°À» »ý¼ºÇÏ¿© ÆÐ³Î¿¡ ´ã´Â´Ù
+		// ë°˜ë³µë¬¸ì„ ì´ìš©í•˜ì—¬ 16ê°œì˜ ë²„íŠ¼ì„ ìƒì„±í•˜ì—¬ íŒ¨ë„ì— ë‹´ëŠ”ë‹¤
 		for (int i = 0; i < str.length; i++) {
 			btn[i] = new JButton(str[i]);
 
-			// ¹öÆ°ÀÌ ´­·¯Á³À» ¶§ ÀÏÀ» ÇÏµµ·Ï ÀÌº¥Æ® µî·ÏÀ» ÇÑ´Ù.
+			// ë²„íŠ¼ì´ ëˆŒëŸ¬ì¡Œì„ ë•Œ ì¼ì„ í•˜ë„ë¡ ì´ë²¤íŠ¸ ë“±ë¡ì„ í•œë‹¤.
 			btn[i].addActionListener(this);
 
-			p.add(btn[i]); // ÆÐ³Î¿¡ ´ã´Â´Ù
+			p.add(btn[i]); // íŒ¨ë„ì— ë‹´ëŠ”ë‹¤
 
 		}
 
-		// °è»ê°á°ú¸¦ Ãâ·ÂÇÒ ÅØ½ºÆ®ÇÊµå¸¦ ÇÁ·¹ÀÓÀÇ ºÏÂÊ¿¡ ´ã´Â´Ù.
+		// ê³„ì‚°ê²°ê³¼ë¥¼ ì¶œë ¥í•  í…ìŠ¤íŠ¸í•„ë“œë¥¼ í”„ë ˆìž„ì˜ ë¶ìª½ì— ë‹´ëŠ”ë‹¤.
 		add(jtf, BorderLayout.NORTH);
 
-		// 16°³ÀÇ ¹öÆ°ÀÌ ÀÖ´Â ÆÐ³ÎÀ» ÇÁ·¹ÀÓÀÇ °¡¿îµ¥¿¡ ´ã´Â´Ù.
+		// 16ê°œì˜ ë²„íŠ¼ì´ ìžˆëŠ” íŒ¨ë„ì„ í”„ë ˆìž„ì˜ ê°€ìš´ë°ì— ë‹´ëŠ”ë‹¤.
 		add(p, BorderLayout.CENTER);
 
-		// ¹öÆ°À» ¸¸µé¾î¼­ Ã¢¿¡ ´ã¾Æ¿ä.
-//		add(new JButton("¹öÆ°"));
-//		add(new JButton("¹öÆ°2"));
+		// ë²„íŠ¼ì„ ë§Œë“¤ì–´ì„œ ì°½ì— ë‹´ì•„ìš”.
+//		add(new JButton("ë²„íŠ¼"));
+//		add(new JButton("ë²„íŠ¼2"));
 
-		// Ã¢ÀÇ Å©±â¸¦ ¼³Á¤
+		// ì°½ì˜ í¬ê¸°ë¥¼ ì„¤ì •
 		setSize(300, 200);
 
-		// Ã¢À» º¸¿©ÁÖµµ·Ï ¼³Á¤
+		// ì°½ì„ ë³´ì—¬ì£¼ë„ë¡ ì„¤ì •
 		setVisible(true);
 
-		// Ã¢À» ´ÝÀ¸¸é ÇÁ·Î±×·¥À» Á¾·áÇÏµµ·Ï ¼³Á¤
+		// ì°½ì„ ë‹«ìœ¼ë©´ í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œí•˜ë„ë¡ ì„¤ì •
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// ´­·¯Áø ¹öÆ°ÀÇ ±ÛÀÚ¸¦ °¡Áö°í ¿Â´Ù.
+		// ëˆŒëŸ¬ì§„ ë²„íŠ¼ì˜ ê¸€ìžë¥¼ ê°€ì§€ê³  ì˜¨ë‹¤.
 		String cmd = e.getActionCommand();
 		System.out.print(cmd + " ");
 
-		// ¸¸¾à¿¡ ´­·¯Áø ¹öÆ°ÀÇ ±ÛÀÚ°¡ ¿¬»êÀÚ(+,-,*,/)¶ó¸é, ÇöÀç È­¸é¿¡ ÀÖ´Â ¼ýÀÚ¸¦ num1¿¡ ÀúÀåÇÏ°í È­¸éÀ» Áö¿î´Ù.
-		// ´­·¯Áø ¿¬»êÀÚ¸¦ º¯¼ö op¿¡ ÀúÀåÇÑ´Ù.
+		// ë§Œì•½ì— ëˆŒëŸ¬ì§„ ë²„íŠ¼ì˜ ê¸€ìžê°€ ì—°ì‚°ìž(+,-,*,/)ë¼ë©´, í˜„ìž¬ í™”ë©´ì— ìžˆëŠ” ìˆ«ìžë¥¼ num1ì— ì €ìž¥í•˜ê³  í™”ë©´ì„ ì§€ìš´ë‹¤.
+		// ëˆŒëŸ¬ì§„ ì—°ì‚°ìžë¥¼ ë³€ìˆ˜ opì— ì €ìž¥í•œë‹¤.
 
 		if (cmd.equals("+") || cmd.equals("-") || cmd.equals("*") || cmd.equals("/")) {
 
-			// ÇöÀç È­¸é¿¡ ÀÖ´Â ¼ýÀÚ¸¦ Á¤¼ö·Î º¯È¯ÇÏ¿© num1¿¡ ÀúÀå
+			// í˜„ìž¬ í™”ë©´ì— ìžˆëŠ” ìˆ«ìžë¥¼ ì •ìˆ˜ë¡œ ë³€í™˜í•˜ì—¬ num1ì— ì €ìž¥
 			num1 = Integer.parseInt(jtf.getText());
 
-			// È­¸éÀ» Áö¿î´Ù.
+			// í™”ë©´ì„ ì§€ìš´ë‹¤.
 			jtf.setText("");
 
-			// ¿¬»êÀÚ¸¦ op¿¡ ÀúÀå
+			// ì—°ì‚°ìžë¥¼ opì— ì €ìž¥
 			op = cmd;
 
 		} else if (cmd.equals("=")) {
-			// ÇöÀç ÅØ½ºÆ®ÇÊµåÀÇ ³»¿ëÀ» num2¿¡ ÀúÀåÇÑ´Ù.
+			// í˜„ìž¬ í…ìŠ¤íŠ¸í•„ë“œì˜ ë‚´ìš©ì„ num2ì— ì €ìž¥í•œë‹¤.
 			num2 = Integer.parseInt(jtf.getText());
 
-			// op¿¡ ´ã±ä ¿¬»êÀÚ¿¡ µû¶ó¼­ ÇØ´ç¿¬»êÀ» ¼öÇàÇÏ¿© º¯¼ö result¿¡ ´ã´Â´Ù.
+			// opì— ë‹´ê¸´ ì—°ì‚°ìžì— ë”°ë¼ì„œ í•´ë‹¹ì—°ì‚°ì„ ìˆ˜í–‰í•˜ì—¬ ë³€ìˆ˜ resultì— ë‹´ëŠ”ë‹¤.
 			int result = 0;
 			switch (op) {
 			case "+":
@@ -123,25 +123,25 @@ class Calc extends JFrame implements ActionListener {
 				break;
 			}
 
-			// result¸¦ ÅØ½ºÆ®ÇÊµå¿¡ Ãâ·ÂÇÑ´Ù.
-			jtf.setText(result + ""); // Çüº¯È¯
+			// resultë¥¼ í…ìŠ¤íŠ¸í•„ë“œì— ì¶œë ¥í•œë‹¤.
+			jtf.setText(result + ""); // í˜•ë³€í™˜
 
 		} else if (cmd.equals("C")) {
-			//num1, num2¸¦ 0À¸·Î ¼³Á¤
+			//num1, num2ë¥¼ 0ìœ¼ë¡œ ì„¤ì •
 			num1 = 0;
 			num2 = 0;
 			
 			
-			//ÅØ½ºÆ® ÇÊµå¸¦ Áö¿öÁØ´Ù.
+			//í…ìŠ¤íŠ¸ í•„ë“œë¥¼ ì§€ì›Œì¤€ë‹¤.
 			jtf.setText("");
 			
 			
 			
 		} else {
-			// ´­·¯Áø ¹öÆ°ÀÇ ±ÛÀÚ¸¦ ÅØ½ºÆ® ÇÊµå¿¡ Ãâ·ÂÇØº¸ÀÚ.
+			// ëˆŒëŸ¬ì§„ ë²„íŠ¼ì˜ ê¸€ìžë¥¼ í…ìŠ¤íŠ¸ í•„ë“œì— ì¶œë ¥í•´ë³´ìž.
 			// jtf.setText(cmd);
 
-			// ¹öÆ°ÀÌ ´­·¯Áö¸é ´­·¯Áø ¹öÆ°ÀÇ ±ÛÀÚ¸¦ ÅØ½ºÆ®ÇÊµå¿¡ ´©ÀûÇÏ¿© Ãâ·ÂÇØº¸ÀÚ.
+			// ë²„íŠ¼ì´ ëˆŒëŸ¬ì§€ë©´ ëˆŒëŸ¬ì§„ ë²„íŠ¼ì˜ ê¸€ìžë¥¼ í…ìŠ¤íŠ¸í•„ë“œì— ëˆ„ì í•˜ì—¬ ì¶œë ¥í•´ë³´ìž.
 			jtf.setText(jtf.getText() + cmd);
 		}
 	}
