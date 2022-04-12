@@ -23,7 +23,7 @@ class Paint extends JFrame implements ActionListener{
 	public void paintComponents(Graphics g) {
 		// TODO Auto-generated method stub
 		//super.paintComponents(g);
-		g.drawLine(10, 10, 100, 100); //¼±À» ±×¸®´Â ÄÚµå
+		g.drawLine(10, 10, 100, 100); //ì„ ì„ ê·¸ë¦¬ëŠ” ì½”ë“œ
 	
 	}
 	
