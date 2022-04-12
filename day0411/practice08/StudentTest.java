@@ -1,5 +1,5 @@
 package practice08;
-//0408 ¼÷Á¦ pdf 8¹ø¹®Á¦
+//0408 ìˆ™ì œ pdf 8ë²ˆë¬¸ì œ
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -31,7 +31,7 @@ class Student {
 		this.phone = phone;
 	}
 
-	public Student(String name, String addr, String phone) { //»ı¼ºÀÚ
+	public Student(String name, String addr, String phone) { //ìƒì„±ì
 		super();
 		this.name = name;
 		this.addr = addr;
@@ -44,7 +44,7 @@ class Student {
 	}
 
 	@Override
-	public boolean equals(Object obj) { //»èÁ¦ÇÏ±â À§ÇÏ¿© ÇÊ¿äÇÔ
+	public boolean equals(Object obj) { //ì‚­ì œí•˜ê¸° ìœ„í•˜ì—¬ í•„ìš”í•¨
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -62,12 +62,12 @@ class Student {
 }
 
 public class StudentTest {
-	public static Scanner sc; //½ºÄ³³Ê¸¦ ¸ğµÎ »ç¿ëÇÏ±â À§ÇÏ¿©
+	public static Scanner sc; //ìŠ¤ìºë„ˆë¥¼ ëª¨ë‘ ì‚¬ìš©í•˜ê¸° ìœ„í•˜ì—¬
 	
 	public static void printMenu() {
 		System.out.println("----------------------------------------------");
-		System.out.println("1. ÇĞ»ıµî·Ï, 2. °Ë»ö, 3. »èÁ¦, 4. ¸ğµÎÃâ·Â, 0. Á¾·á");
-		System.out.print("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä: ");
+		System.out.println("1. í•™ìƒë“±ë¡, 2. ê²€ìƒ‰, 3. ì‚­ì œ, 4. ëª¨ë‘ì¶œë ¥, 0. ì¢…ë£Œ");
+		System.out.print("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”: ");
 	}
 
 	public static void main(String[] args) {
@@ -92,11 +92,11 @@ public class StudentTest {
 			}
 		}
 		
-		System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÏ¿´½À´Ï´Ù.");
+		System.out.println("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 	}
 
 	private static void printStudent(ArrayList<Student> list) {
-		System.out.println("ÀÌ¸§\t ÁÖ¼Ò\t ÀüÈ­¹øÈ£\t");
+		System.out.println("ì´ë¦„\t ì£¼ì†Œ\t ì „í™”ë²ˆí˜¸\t");
 		for(int i=0; i<list.size(); i++) {
 			Student s = list.get(i);
 			System.out.println(s.getName() + "\t" + s.getAddr() + "\t" + s.getPhone());
@@ -106,31 +106,31 @@ public class StudentTest {
 
 	private static void deleteStudent(ArrayList<Student> list) {
 		String name;
-		System.out.print("»èÁ¦ÇÒ ÇĞ»ıÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì‚­ì œí•  í•™ìƒì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
 		
 		
 		
-//		Student s1 = new Student("È«±æµ¿", "¼­¿ï", "1111");
-//		Student s2 = new Student("È«±æµ¿", "¼­¿ï", "1111");
+//		Student s1 = new Student("í™ê¸¸ë™", "ì„œìš¸", "1111");
+//		Student s2 = new Student("í™ê¸¸ë™", "ì„œìš¸", "1111"); 
 //		
-//		if(s1.equals(s2)) { //µÎ °´Ã¼°¡ µ¿ÀÏÇÑ °ªÀ» °¡Áö°í ÀÖ´Â°¡?
+//		if(s1.equals(s2)) { //ë‘ ê°ì²´ê°€ ë™ì¼í•œ ê°’ì„ ê°€ì§€ê³  ìˆëŠ”ê°€?
 //			
 //		}
 		
 		
 //		ArrayList<Student> list2 = new ArrayList<Student>();
-//		list2.add(new Student("È«±æµ¿", "¼­¿ï", "1111"));
-//		list2.add(new Student("ÀÌ¼ø½Å", "ºÎ»ê", "2222"));
+//		list2.add(new Student("í™ê¸¸ë™", "ì„œìš¸", "1111"));
+//		list2.add(new Student("ì´ìˆœì‹ ", "ë¶€ì‚°", "2222"));
 //		
-//		Student s1 = new Student("È«±æµ¿", "¼­¿ï", "1111");
+//		Student s1 = new Student("í™ê¸¸ë™", "ì„œìš¸", "1111");
 //		list2.remove(s1);
-//		//¸®½ºÆ®ÀÇ ¿ä¼Ò¸¦ »èÁ¦ÇÒ ¶§¿¡ ÀÎµ¦½º°¡ ¾Æ´Ñ °´Ã¼¸¦ ¸Å°³º¯¼ö·Î Àü´ŞÇÏ¸é equals ¸Ş¼Òµå¸¦ ¿ä±¸ÇÑ´Ù.
+//		//ë¦¬ìŠ¤íŠ¸ì˜ ìš”ì†Œë¥¼ ì‚­ì œí•  ë•Œì— ì¸ë±ìŠ¤ê°€ ì•„ë‹Œ ê°ì²´ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬í•˜ë©´ equals ë©”ì†Œë“œë¥¼ ìš”êµ¬í•œë‹¤.
 		
 		
 		
 		
-//		for(int i=0; i<list.size(); i++) { //ÀÌ·¸°Ô ÇÏ¸é equals°¡ ¾ø¾îµµµÊ.( Student Å¬·¡½º¿¡¼­ ¸¸µé¾îÁØ  equals)
+//		for(int i=0; i<list.size(); i++) { //ì´ë ‡ê²Œ í•˜ë©´ equalsê°€ ì—†ì–´ë„ë¨.( Student í´ë˜ìŠ¤ì—ì„œ ë§Œë“¤ì–´ì¤€  equals)
 //			Student s = list.get(i);
 //			if(s.getName().equals(name)) {
 //				list.remove(i);
@@ -138,10 +138,10 @@ public class StudentTest {
 //		}
 		
 		
-		for(Student s: list) { //Student Å¬·¡½º¿¡¼­ equals ¸Ş¼Òµå¸¦ »ı¼ºÇØÁÜ.
+		for(Student s: list) { //Student í´ë˜ìŠ¤ì—ì„œ equals ë©”ì†Œë“œë¥¼ ìƒì„±í•´ì¤Œ.
 			if(s.getName().equals(name)) {
-				list.remove(s); //s°´Ã¼¸¦ Áö¿ö¶ó
-				System.out.println(name + "ÇĞ»ıÀÇ Á¤º¸¸¦ »èÁ¦ÇÏ¿´½À´Ï´Ù.");
+				list.remove(s); //sê°ì²´ë¥¼ ì§€ì›Œë¼
+				System.out.println(name + "í•™ìƒì˜ ì •ë³´ë¥¼ ì‚­ì œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 		} 
 		
@@ -151,12 +151,12 @@ public class StudentTest {
 
 	private static void searchStudent(ArrayList<Student> list) {
 		String name;
-		System.out.print("°Ë»öÇÒ ÇĞ»ıÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ê²€ìƒ‰í•  í•™ìƒì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
 		
 		for(Student s: list) {
 			if(s.getName().equals(name)) {
-				System.out.println("°Ë»öÇÑ ÇĞ»ıÀÇ Á¤º¸´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+				System.out.println("ê²€ìƒ‰í•œ í•™ìƒì˜ ì •ë³´ëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.");
 				System.out.println(s.getName()+"\t" + s.getAddr()+"\t" + s.getPhone());
 			}
 		}
@@ -166,17 +166,17 @@ public class StudentTest {
 	private static void insertStudent(ArrayList<Student> list) {
 		String name, addr, phone;
 		
-		System.out.print("µî·ÏÇÒ ÇĞ»ıÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë“±ë¡í•  í•™ìƒì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
-		System.out.print("µî·ÏÇÒ ÇĞ»ıÀÇ ÁÖ¼ÒÀ» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë“±ë¡í•  í•™ìƒì˜ ì£¼ì†Œì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		addr = sc.next();
-		System.out.print("µî·ÏÇÒ ÇĞ»ıÀÇ ÀüÈ­¹øÈ£À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë“±ë¡í•  í•™ìƒì˜ ì „í™”ë²ˆí˜¸ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		phone = sc.next();
 		
 		
 		Student s = new Student(name, addr, phone);
 		list.add(s);
-		System.out.println("ÇĞ»ıÀÇ Á¤º¸¸¦ µî·ÏÇÏ¿´½À´Ï´Ù.");
+		System.out.println("í•™ìƒì˜ ì •ë³´ë¥¼ ë“±ë¡í•˜ì˜€ìŠµë‹ˆë‹¤.");
 	}
 
 }
