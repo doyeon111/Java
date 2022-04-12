@@ -9,7 +9,7 @@ public class Practice08 {
 		String names[] = { new String("Kim"), new String("Choi"), new String("Park"), new String("Kim"),
 				new String("Kim"), new String("Park") };
 
-		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>(); // Å°·Î µ¥ÀÌÅÍ¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Ù.
+		LinkedHashMap<String, String> map = new LinkedHashMap<String, String>(); // í‚¤ë¡œ ë°ì´í„°ì— ì ‘ê·¼í•  ìˆ˜ ìˆë‹¤.
 		int cnt = 1;
 		int j = 0;
 
@@ -27,3 +27,4 @@ public class Practice08 {
 	}
 
 }
+ 
