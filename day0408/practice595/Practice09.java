@@ -6,14 +6,15 @@ public class Practice09 {
 
 	public static void main(String[] args) {
 		ArrayList<String> data = new ArrayList<String>();
-		data.add("ȫ�浿");
+		data.add("홍길동");
 		
 		
-		System.out.println("�̸�: " + data.get(0));
-		System.out.println("��ȭ: " + data.get(1));
-		System.out.println("�ּ�: " + data.get(2));
+		System.out.println("이름: " + data.get(0));
+		System.out.println("전화: " + data.get(1));
+		System.out.println("주소: " + data.get(2));
 
 
 	}
 
 }
+ 
