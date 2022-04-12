@@ -14,14 +14,14 @@ class GrimpanPanel extends JPanel {
 		//super.paintComponent(g);
 		
 		g.setColor(Color.red);
-		g.drawLine(10, 10, 100, 100); //¼±À» ±×¾îÁÜ.
+		g.drawLine(10, 10, 100, 100); //ì„ ì„ ê·¸ì–´ì¤Œ.
 		
 		g.setColor(Color.blue);
-		g.drawOval(10, 10, 100, 100); //¿ø ±×¸®±â
+		g.drawOval(10, 10, 100, 100); //ì› ê·¸ë¦¬ê¸°
 	
 	
 		g.setColor(Color.green);
-		g.drawRect(10, 10, 100, 100); //»ç°¢Çü ±×¸®±â
+		g.drawRect(10, 10, 100, 100); //ì‚¬ê°í˜• ê·¸ë¦¬ê¸°
 	}
 	
 }
@@ -29,7 +29,7 @@ class GrimpanPanel extends JPanel {
 
 class Grimpan extends JFrame { 
 	
-	//±×¸²ÆÇ ¸Å³ÎÀ» ¸â¹ö·Î ¼±¾ğ
+	//ê·¸ë¦¼íŒ ë§¤ë„ì„ ë©¤ë²„ë¡œ ì„ ì–¸
 	GrimpanPanel gp;
 	
 	
@@ -51,3 +51,4 @@ public class GrimpanTest {
 	}
 
 }
+ 
