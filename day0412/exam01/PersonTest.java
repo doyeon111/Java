@@ -1,5 +1,5 @@
 package exam01;
-//¸ÖÆ¼¾²·¹µåÀÇ ÇÊ¿ä¼º
+//ë©€í‹°ì“°ë ˆë“œì˜ í•„ìš”ì„±
 class Person {
 	String name;
 	
@@ -18,11 +18,12 @@ class Person {
 public class PersonTest {
 
 	public static void main(String[] args) {
-		Person p1 = new Person("±èÀ¯½Å");
-		Person p2 = new Person("È«±æµ¿");
+		Person p1 = new Person("ê¹€ìœ ì‹ ");
+		Person p2 = new Person("í™ê¸¸ë™");
 		p1.sayHello();
 		p2.sayHello();
 
 	}
 
 }
+ 
