@@ -1,8 +1,8 @@
 package exam02;
 
-//¸Ş´º Ãß°¡ÇØÁÖ±â
+//ë©”ë‰´ ì¶”ê°€í•´ì£¼ê¸°
 
-//¸¶¿ì½º¸¦ Å¬¸¯ÇÏ°í ¶¿¶§ ¼± ±×¸®±â
+//ë§ˆìš°ìŠ¤ë¥¼ í´ë¦­í•˜ê³  ë—„ë•Œ ì„  ê·¸ë¦¬ê¸°
 import java.awt.Color;
 
 import java.awt.Graphics;
@@ -27,12 +27,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-//ÇÏ³ªÀÇ ±×·¡ÇÈÀÇ Á¤º¸¸¦ Ç¥ÇöÇÏ±â À§ÇÑ Å¬·¡½º¸¦ ¸¸µç´Ù.
-//°´Ã¼ ´ÜÀ§·Î Ãâ·ÂÀ» ÇÏ±â À§ÇÑ Å¬·¡½º´Â "Á÷·ÄÈ­" µÇ¾î¾ß ÇÑ´Ù. (Á÷·ÄÈ­: ¼ø¼­°¡ ÀÖ´Ù) // Serializable
+//í•˜ë‚˜ì˜ ê·¸ë˜í”½ì˜ ì •ë³´ë¥¼ í‘œí˜„í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
+//ê°ì²´ ë‹¨ìœ„ë¡œ ì¶œë ¥ì„ í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ëŠ” "ì§ë ¬í™”" ë˜ì–´ì•¼ í•œë‹¤. (ì§ë ¬í™”: ìˆœì„œê°€ ìˆë‹¤) // Serializable
 class GraphicInfo implements Serializable {
 	private int x1, y1, x2, y2;
-	private int drawType; // ±×·¡ÇÈÀÇ Á¾·ù¸¦ À§ÇÑ ¼Ó¼ºÀ» Ãß°¡
-	private Color drawColor; // »ö»ó°ú °ü·ÃµÈ ¸â¹öº¯¼ö
+	private int drawType; // ê·¸ë˜í”½ì˜ ì¢…ë¥˜ë¥¼ ìœ„í•œ ì†ì„±ì„ ì¶”ê°€
+	private Color drawColor; // ìƒ‰ìƒê³¼ ê´€ë ¨ëœ ë©¤ë²„ë³€ìˆ˜
 
 	public GraphicInfo(int x1, int y1, int x2, int y2, int drawType, Color drawColor) {
 		super();
@@ -100,39 +100,39 @@ class GraphicInfo implements Serializable {
 
 }
 
-//±×·¡ÇÈÀ» Ç¥ÇöÇÏ±â À§ÇÏ¿© JPanelÀ» »ó¼ÓÇÑ Å¬·¡½º¸¦ ¸¸µé¾îÁØ´Ù.
-//¶Ç, ¸¶¿ì½º ÀÌº¥Æ® Ã³¸®¸¦ À§ÇÏ¿© MouseListener¸¦ ±¸Çö
+//ê·¸ë˜í”½ì„ í‘œí˜„í•˜ê¸° ìœ„í•˜ì—¬ JPanelì„ ìƒì†í•œ í´ë˜ìŠ¤ë¥¼ ë§Œë“¤ì–´ì¤€ë‹¤.
+//ë˜, ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ ì²˜ë¦¬ë¥¼ ìœ„í•˜ì—¬ MouseListenerë¥¼ êµ¬í˜„
 class GrimpanPanel extends JPanel implements MouseListener {
 
-	// ±×·ÁÁø ±×·¡ÇÈÀÇ Á¤º¸¸¦ ´ã±â À§ÇÑ ¸®½ºÆ®¸¦ ¸¸µç´Ù.
+	// ê·¸ë ¤ì§„ ê·¸ë˜í”½ì˜ ì •ë³´ë¥¼ ë‹´ê¸° ìœ„í•œ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“ ë‹¤.
 	ArrayList<GraphicInfo> list;
 
-	// ¼±, ¿ø, »ç°¢ÇüÀ» ±×¸±Áö¸¦ À§ÇÑ º¯¼ö¸¦ ¼±¾ğ
-	int drawType; // 0: ¼±, 1: ¿ø, 2: »ç°¢Çü
+	// ì„ , ì›, ì‚¬ê°í˜•ì„ ê·¸ë¦´ì§€ë¥¼ ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸
+	int drawType; // 0: ì„ , 1: ì›, 2: ì‚¬ê°í˜•
 
-	// »ö»óÀ» À§ÇÑ º¯¼ö¸¦ ¼±¾ğ
+	// ìƒ‰ìƒì„ ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 	Color drawColor;
 
-	// ¸¶¿ì½º°¡ ´­·¯Áø ½ÃÀÛÁ¡, ³¡Á¡À» ÀúÀåÇÏ±â À§ÇÑ º¯¼ö¸¦ ¼±¾ğ
+	// ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì§„ ì‹œì‘ì , ëì ì„ ì €ì¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 	int x1, y1, x2, y2;
 
-	// »ı¼ºÀÚ¿¡¼­ ¸¶¿ì½º ÀÌº¥Æ®¸¦ µî·Ï
+	// ìƒì„±ìì—ì„œ ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 	public GrimpanPanel() {
 
-		// ±×·ÁÁø ±×·¡ÇÈÀÇ Á¤º¸¸¦ ´ã±â À§ÇÑ ¸®½ºÆ®¸¦ »ı¼º
+		// ê·¸ë ¤ì§„ ê·¸ë˜í”½ì˜ ì •ë³´ë¥¼ ë‹´ê¸° ìœ„í•œ ë¦¬ìŠ¤íŠ¸ë¥¼ ìƒì„±
 		list = new ArrayList<GraphicInfo>();
 
-		// ÆĞ³Î¿¡ ¸¶¿ì½º ÀÌº¥Æ®¸¦ µî·Ï
+		// íŒ¨ë„ì— ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 		addMouseListener(this);
 	}
 
-	// ÆĞ³ÎÀ» ´Ù½Ã ±×·ÁÁÙ ÇÊ¿ä°¡ ÀÖÀ» ¶§¿¡ paintComponent°¡ ÀÚµ¿À¸·Î µ¿ÀÛµÊ.
-	// paintComponent¸¦ ¿À¹ö¶óÀÌµù ÇÏ¿© ±×·¡ÇÈÀ» Ç¥ÇöÇØÁØ´Ù.
+	// íŒ¨ë„ì„ ë‹¤ì‹œ ê·¸ë ¤ì¤„ í•„ìš”ê°€ ìˆì„ ë•Œì— paintComponentê°€ ìë™ìœ¼ë¡œ ë™ì‘ë¨.
+	// paintComponentë¥¼ ì˜¤ë²„ë¼ì´ë”© í•˜ì—¬ ê·¸ë˜í”½ì„ í‘œí˜„í•´ì¤€ë‹¤.
 	@Override
 	protected void paintComponent(Graphics g) {
 
-		// ¸®½ºÆ®¿¡ ´ã±ä ±×·¡ÇÈÀÇ Á¤º¸¸¸Å­ ±×·ÁÁØ´Ù.
-		for (GraphicInfo info : list) { // ÇöÀç ±×¸° Á¤º¸¸¦ ¸®½ºÆ®¿¡ ´ã¾Æ Å©±â¸¦ Á¶ÀıÇÏ¿©µµ ¿øÀÌ »ç¶óÁöÁö ¾Ê°í ³²¾ÆÀÖ°Ô ÇÏ±â
+		// ë¦¬ìŠ¤íŠ¸ì— ë‹´ê¸´ ê·¸ë˜í”½ì˜ ì •ë³´ë§Œí¼ ê·¸ë ¤ì¤€ë‹¤.
+		for (GraphicInfo info : list) { // í˜„ì¬ ê·¸ë¦° ì •ë³´ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ë‹´ì•„ í¬ê¸°ë¥¼ ì¡°ì ˆí•˜ì—¬ë„ ì›ì´ ì‚¬ë¼ì§€ì§€ ì•Šê³  ë‚¨ì•„ìˆê²Œ í•˜ê¸°
 			int width = info.getX2() - info.getX1();
 			int height = info.getY2() - info.getY1();
 			int x = info.getX1();
@@ -149,10 +149,10 @@ class GrimpanPanel extends JPanel implements MouseListener {
 				height = info.getY1() - info.getY2();
 			}
 
-			System.out.println("±×¸®±â »ö»ó: " + info.getDrawColor());
-			g.setColor(info.getDrawColor()); // »ö»ó ¼³Á¤
+			System.out.println("ê·¸ë¦¬ê¸° ìƒ‰ìƒ: " + info.getDrawColor());
+			g.setColor(info.getDrawColor()); // ìƒ‰ìƒ ì„¤ì •
 
-			// drawType¿¡ µû¶ó ¼±, ¿ø, »ç°¢Çü ¼±ÅÃ
+			// drawTypeì— ë”°ë¼ ì„ , ì›, ì‚¬ê°í˜• ì„ íƒ
 			switch (info.getDrawType()) {
 			case 0:
 				g.drawLine(info.getX1(), info.getY1(), info.getX2(), info.getY2());
@@ -169,32 +169,32 @@ class GrimpanPanel extends JPanel implements MouseListener {
 
 	}
 
-	// ¸¶¿ì½º°¡ ´­·¯Á³À» ¶§
+	// ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì¡Œì„ ë•Œ
 	@Override
 	public void mouseClicked(MouseEvent e) {
 
 	}
 
-	// ¸¶¿ì½º°¡ ´­·¯Á³À» ¶§ x,yÁÂÇ¥¸¦ ±×·¡ÇÈÀÇ ½ÃÀÛÁ¡À¸·Î ÀúÀå
+	// ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì¡Œì„ ë•Œ x,yì¢Œí‘œë¥¼ ê·¸ë˜í”½ì˜ ì‹œì‘ì ìœ¼ë¡œ ì €ì¥
 	@Override
 	public void mousePressed(MouseEvent e) {
-		x1 = e.getX(); // ¸¶¿ì½º°¡ ´­·¯Áø x1¿¡ ³Ö±â
+		x1 = e.getX(); // ë§ˆìš°ìŠ¤ê°€ ëˆŒëŸ¬ì§„ x1ì— ë„£ê¸°
 		y1 = e.getY();
 
 	}
 
-	// ¸¶¿ì½º°¡ ¶¼¾îÁ³À» ¶§¿¡ x,yÁÂÇ¥¸¦ ±×·¡ÇÈÀÇ ³¡Á¡À¸·Î ÀúÀå
+	// ë§ˆìš°ìŠ¤ê°€ ë–¼ì–´ì¡Œì„ ë•Œì— x,yì¢Œí‘œë¥¼ ê·¸ë˜í”½ì˜ ëì ìœ¼ë¡œ ì €ì¥
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		x2 = e.getX(); // ¸¶¿ì½º°¡ ¶¼¾îÁø ¼ø°£ x2¿¡ ³Ö±â
+		x2 = e.getX(); // ë§ˆìš°ìŠ¤ê°€ ë–¼ì–´ì§„ ìˆœê°„ x2ì— ë„£ê¸°
 		y2 = e.getY();
 
-		// ÇöÀç ¿Ï¼ºµÈ ±×·¡ÇÈÀÇ Á¤º¸¸¦ ¸®½ºÆ®¿¡ ´ã´Â´Ù.
+		// í˜„ì¬ ì™„ì„±ëœ ê·¸ë˜í”½ì˜ ì •ë³´ë¥¼ ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 		list.add(new GraphicInfo(x1, y1, x2, y2, drawType, drawColor));
 
-		// ±×·¡ÇÈÀÌ ¿Ï¼ºµÇ¾úÀ» ¶§ ±×·¡ÇÈÀ» ±×·Á´Ş¶ó°í ¿äÃ»
-		// "´Ù½Ã ±×·ÁÁÖ¼¼¿ä"¶ó°í ¿äÃ»
-		repaint(); // paintComponent°¡ µ¿ÀÛµÈ´Ù.
+		// ê·¸ë˜í”½ì´ ì™„ì„±ë˜ì—ˆì„ ë•Œ ê·¸ë˜í”½ì„ ê·¸ë ¤ë‹¬ë¼ê³  ìš”ì²­
+		// "ë‹¤ì‹œ ê·¸ë ¤ì£¼ì„¸ìš”"ë¼ê³  ìš”ì²­
+		repaint(); // paintComponentê°€ ë™ì‘ëœë‹¤.
 
 	}
 
@@ -210,97 +210,97 @@ class GrimpanPanel extends JPanel implements MouseListener {
 
 	}
 
-}
+} 
 
-class Grimpan extends JFrame implements ActionListener { // ¸Ş´º¿¡ ´ëÇÑ ÀÌº¥Æ®Ã³¸®¸¦ ÇÏ±â À§ÇØ¼­´Â ActionListenerÀÎÅÍÆäÀÌ½º ÇÊ¿ä
+class Grimpan extends JFrame implements ActionListener { // ë©”ë‰´ì— ëŒ€í•œ ì´ë²¤íŠ¸ì²˜ë¦¬ë¥¼ í•˜ê¸° ìœ„í•´ì„œëŠ” ActionListenerì¸í„°í˜ì´ìŠ¤ í•„ìš”
 
-	// ´Ù¾çÇÑ »ö»óÀ» ¼±ÅÃÇÏ±â À§ÇÑ ´ÙÀÌ¾ó·Î±×¸¦ ¸â¹öº¯¼ö·Î ¼±¾ğ
+	// ë‹¤ì–‘í•œ ìƒ‰ìƒì„ ì„ íƒí•˜ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	JColorChooser jcc;
 
-	// ÀúÀåÇÏ°í, ¿­±â¸¦ ÇÒ ¶§¿¡ ÆÄÀÏÀ» ¼±ÅÃÇÏ±â À§ÇÑ ´ÙÀÌ¾ó·Î±×¸¦ ¸â¹öº¯¼ö·Î ¼±¾ğ
+	// ì €ì¥í•˜ê³ , ì—´ê¸°ë¥¼ í•  ë•Œì— íŒŒì¼ì„ ì„ íƒí•˜ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	JFileChooser jfc;
 
-	// ±×¸²ÆÇ ¸Å³ÎÀ» ¸â¹ö·Î ¼±¾ğ
-	GrimpanPanel gp; // Grimpan°ú ±×¸²ÆÇ ÆĞ³ÎÀº has a °ü°è
+	// ê·¸ë¦¼íŒ ë§¤ë„ì„ ë©¤ë²„ë¡œ ì„ ì–¸
+	GrimpanPanel gp; // Grimpanê³¼ ê·¸ë¦¼íŒ íŒ¨ë„ì€ has a ê´€ê³„
 
 	public Grimpan() {
-		jfc = new JFileChooser("c:/temp"); // ÆÄÀÏÀ» ¼±ÅÃÇÏ±â À§ÇÑ ´ÙÀÌ¾ó·Î±× »ı¼º
+		jfc = new JFileChooser("c:/temp"); // íŒŒì¼ì„ ì„ íƒí•˜ê¸° ìœ„í•œ ë‹¤ì´ì–¼ë¡œê·¸ ìƒì„±
 
 		jcc = new JColorChooser();
 
 		gp = new GrimpanPanel();
 		add(gp);
 
-		// ¸Ş´º¹Ù »ı¼º
+		// ë©”ë‰´ë°” ìƒì„±
 		JMenuBar jmb = new JMenuBar();
 
-		// ÆÄÀÏÀÇ ÁÖ¸Ş´º ¸¸µé±â
-		JMenu mn_file = new JMenu("ÆÄÀÏ");
-		// ÆÄÀÏÀÇ ºÎ¸Ş´º
-		JMenuItem file_new = new JMenuItem("»õÆÄÀÏ");
-		JMenuItem file_open = new JMenuItem("¿­±â");
-		JMenuItem file_save = new JMenuItem("ÀúÀå");
-		JMenuItem file_exit = new JMenuItem("Á¾·á");
+		// íŒŒì¼ì˜ ì£¼ë©”ë‰´ ë§Œë“¤ê¸°
+		JMenu mn_file = new JMenu("íŒŒì¼");
+		// íŒŒì¼ì˜ ë¶€ë©”ë‰´
+		JMenuItem file_new = new JMenuItem("ìƒˆíŒŒì¼");
+		JMenuItem file_open = new JMenuItem("ì—´ê¸°");
+		JMenuItem file_save = new JMenuItem("ì €ì¥");
+		JMenuItem file_exit = new JMenuItem("ì¢…ë£Œ");
 
 		file_new.addActionListener(this);
 		file_open.addActionListener(this);
 		file_save.addActionListener(this);
 		file_exit.addActionListener(this);
 
-		// ºÎ¸Ş´ºµéÀ» ÁÖ¸Ş´º¿¡ ´ã±â
+		// ë¶€ë©”ë‰´ë“¤ì„ ì£¼ë©”ë‰´ì— ë‹´ê¸°
 		mn_file.add(file_new);
 		mn_file.add(file_open);
 		mn_file.add(file_save);
 		mn_file.add(file_exit);
 
-		// ±×¸®±â µµ±¸ÀÇ ÁÖ¸Ş´º
-		JMenu mn_draw = new JMenu("±×¸®±âµµ±¸");
+		// ê·¸ë¦¬ê¸° ë„êµ¬ì˜ ì£¼ë©”ë‰´
+		JMenu mn_draw = new JMenu("ê·¸ë¦¬ê¸°ë„êµ¬");
 
-		// ±×¸®±âµµ±¸ÀÇ ºÎ¸Ş´º
-		JMenuItem draw_line = new JMenuItem("¼±");
-		JMenuItem draw_rect = new JMenuItem("»ç°¢Çü");
-		JMenuItem draw_oval = new JMenuItem("¿ø");
+		// ê·¸ë¦¬ê¸°ë„êµ¬ì˜ ë¶€ë©”ë‰´
+		JMenuItem draw_line = new JMenuItem("ì„ ");
+		JMenuItem draw_rect = new JMenuItem("ì‚¬ê°í˜•");
+		JMenuItem draw_oval = new JMenuItem("ì›");
 
-		// ¸Ş´º¿¡ ´ëÇÑ ÀÌº¥Æ®Ã³¸®
+		// ë©”ë‰´ì— ëŒ€í•œ ì´ë²¤íŠ¸ì²˜ë¦¬
 		draw_line.addActionListener(this);
 		draw_rect.addActionListener(this);
 		draw_oval.addActionListener(this);
 
-		// ºä¸Ş´ºµéÀ» ÁÖ¸Ş´º¿¡ ´ã±â
+		// ë·°ë©”ë‰´ë“¤ì„ ì£¼ë©”ë‰´ì— ë‹´ê¸°
 		mn_draw.add(draw_line);
 		mn_draw.add(draw_rect);
 		mn_draw.add(draw_oval);
 
-		// »ö»ó°ú °ü·ÃµÈ ÁÖ¸Ş´º
-		JMenu mn_color = new JMenu("±×¸®±â »ö»ó");
+		// ìƒ‰ìƒê³¼ ê´€ë ¨ëœ ì£¼ë©”ë‰´
+		JMenu mn_color = new JMenu("ê·¸ë¦¬ê¸° ìƒ‰ìƒ");
 
-		// »ö»ó°ú °ü·ÃµÈ ºÎ¸Ş´º
-		JMenuItem color_black = new JMenuItem("°ËÁ¤");
-		JMenuItem color_red = new JMenuItem("»¡°­");
-		JMenuItem color_blue = new JMenuItem("ÆÄ¶û");
-		JMenuItem color_green = new JMenuItem("ÃÊ·Ï");
-		JMenuItem color_other = new JMenuItem("´Ù¸¥»ö»ó...");
+		// ìƒ‰ìƒê³¼ ê´€ë ¨ëœ ë¶€ë©”ë‰´
+		JMenuItem color_black = new JMenuItem("ê²€ì •");
+		JMenuItem color_red = new JMenuItem("ë¹¨ê°•");
+		JMenuItem color_blue = new JMenuItem("íŒŒë‘");
+		JMenuItem color_green = new JMenuItem("ì´ˆë¡");
+		JMenuItem color_other = new JMenuItem("ë‹¤ë¥¸ìƒ‰ìƒ...");
 
-		// »ö»ó°ú °ü·ÃµÈ ÀÌº¥Æ® µî·Ï
+		// ìƒ‰ìƒê³¼ ê´€ë ¨ëœ ì´ë²¤íŠ¸ ë“±ë¡
 		color_black.addActionListener(this);
 		color_red.addActionListener(this);
 		color_blue.addActionListener(this);
 		color_green.addActionListener(this);
 		color_other.addActionListener(this);
 
-		// ºÎ¸Ş´º¸¦ ÁÖ¸Ş´º¿¡ Ãß°¡
+		// ë¶€ë©”ë‰´ë¥¼ ì£¼ë©”ë‰´ì— ì¶”ê°€
 		mn_color.add(color_black);
 		mn_color.add(color_red);
 		mn_color.add(color_blue);
 		mn_color.add(color_green);
 		mn_color.add(color_other);
 
-		// ÁÖ¸Ş´º¸¦ ¸Ş´º¹Ù¿¡ ´ã´Â´Ù.
+		// ì£¼ë©”ë‰´ë¥¼ ë©”ë‰´ë°”ì— ë‹´ëŠ”ë‹¤.
 		jmb.add(mn_file);
 		jmb.add(mn_draw);
 		jmb.add(mn_color);
 
-		// ¸Ş´º¹Ù ½ÇÇà
+		// ë©”ë‰´ë°” ì‹¤í–‰
 		setJMenuBar(jmb);
 
 		setSize(400, 300);
@@ -309,96 +309,96 @@ class Grimpan extends JFrame implements ActionListener { // ¸Ş´º¿¡ ´ëÇÑ ÀÌº¥Æ®Ã³
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) { // ¸Ş´º¸¦ ´©¸£¸é ÀÌ ÂÊÀ¸·Î ÀÌµ¿
+	public void actionPerformed(ActionEvent e) { // ë©”ë‰´ë¥¼ ëˆ„ë¥´ë©´ ì´ ìª½ìœ¼ë¡œ ì´ë™
 
-		// 0: ¼±, 1: ¿ø, 2: »ç°¢Çü
-		String cmd = e.getActionCommand(); // ´­·¯Áø ¸Ş´ºÀÇ ±ÛÀÚµéÀ» °¡Á®¿À´Â °Í
-		if (cmd.equals("¼±")) {
+		// 0: ì„ , 1: ì›, 2: ì‚¬ê°í˜•
+		String cmd = e.getActionCommand(); // ëˆŒëŸ¬ì§„ ë©”ë‰´ì˜ ê¸€ìë“¤ì„ ê°€ì ¸ì˜¤ëŠ” ê²ƒ
+		if (cmd.equals("ì„ ")) {
 			gp.drawType = 0;
-		} else if (cmd.equals("¿ø")) {
+		} else if (cmd.equals("ì›")) {
 			gp.drawType = 1;
-		} else if (cmd.equals("»ç°¢Çü")) {
+		} else if (cmd.equals("ì‚¬ê°í˜•")) {
 			gp.drawType = 2;
 
-		} else if (cmd.equals("»¡°­")) { // »ö»óÀ» °áÁ¤
+		} else if (cmd.equals("ë¹¨ê°•")) { // ìƒ‰ìƒì„ ê²°ì •
 			gp.drawColor = Color.red;
-		} else if (cmd.equals("°ËÁ¤")) {
+		} else if (cmd.equals("ê²€ì •")) {
 			gp.drawColor = Color.black;
-		} else if (cmd.equals("ÆÄ¶û")) {
+		} else if (cmd.equals("íŒŒë‘")) {
 			gp.drawColor = Color.blue;
-		} else if (cmd.equals("ÃÊ·Ï")) {
+		} else if (cmd.equals("ì´ˆë¡")) {
 			gp.drawColor = Color.green;
-		} else if (cmd.equals("´Ù¸¥»ö»ó...")) {
-			gp.drawColor = jcc.showDialog(this, "»ö»óÀ» ¼±ÅÃÇÏ¼¼¿ä", Color.red);
-		} else if (cmd.equals("»õÆÄÀÏ")) {
-			//±×¸²ÆÇ ÆĞ³ÎÀÇ ¸®½ºÆ®¸¦ Áö¿î´Ù.
+		} else if (cmd.equals("ë‹¤ë¥¸ìƒ‰ìƒ...")) {
+			gp.drawColor = jcc.showDialog(this, "ìƒ‰ìƒì„ ì„ íƒí•˜ì„¸ìš”", Color.red);
+		} else if (cmd.equals("ìƒˆíŒŒì¼")) {
+			//ê·¸ë¦¼íŒ íŒ¨ë„ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ì§€ìš´ë‹¤.
 			gp.list.clear();
 			
-			//±×¸²ÆÇ ÆĞ³ÎÀ» ´Ù½Ã ±×·ÁÁØ´Ù.
+			//ê·¸ë¦¼íŒ íŒ¨ë„ì„ ë‹¤ì‹œ ê·¸ë ¤ì¤€ë‹¤.
 			gp.repaint(); 
 			
-		} else if (cmd.equals("¿­±â")) {
+		} else if (cmd.equals("ì—´ê¸°")) {
 			try {
-				int re = jfc.showOpenDialog(this); // ÀĞ±âÀ§ÇÑ ¿ëµµ·Î ¿¬´Ù.
+				int re = jfc.showOpenDialog(this); // ì½ê¸°ìœ„í•œ ìš©ë„ë¡œ ì—°ë‹¤.
 				if (re == 0) {
 					File file = jfc.getSelectedFile();
 
-					// °´Ã¼´ÜÀ§¸¦ ÀĞ±â À§ÇÑ ObjectInputStream°´Ã¼¸¦ »ı¼º
+					// ê°ì²´ë‹¨ìœ„ë¥¼ ì½ê¸° ìœ„í•œ ObjectInputStreamê°ì²´ë¥¼ ìƒì„±
 					ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 
-					// ÆÄÀÏ·ÎºÎÅÍ °´Ã¼¸¦ ÀĞ¾îµé¿© ±×¸²ÆÇ ÆĞ³ÎÀÇ ¸®½ºÆ®¸¦ ´ã´Â´Ù.
+					// íŒŒì¼ë¡œë¶€í„° ê°ì²´ë¥¼ ì½ì–´ë“¤ì—¬ ê·¸ë¦¼íŒ íŒ¨ë„ì˜ ë¦¬ìŠ¤íŠ¸ë¥¼ ë‹´ëŠ”ë‹¤.
 					gp.list = (ArrayList) ois.readObject();
 
-					// ±×¸²ÆÇ ÆĞ³Î¿¡°Ô ¸®½ºÆ®¿¡ ´ã±ä °Í ¸¸Å­ ´Ù½Ã ±×·Á´Ş¶ó°í ¿äÃ»
+					// ê·¸ë¦¼íŒ íŒ¨ë„ì—ê²Œ ë¦¬ìŠ¤íŠ¸ì— ë‹´ê¸´ ê²ƒ ë§Œí¼ ë‹¤ì‹œ ê·¸ë ¤ë‹¬ë¼ê³  ìš”ì²­
 					gp.repaint();
 				}
 
 			} catch (Exception ex) {
-				System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+				System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 			}
-		} else if (cmd.equals("ÀúÀå")) {
-			// ¹«¾ùÀ» ÀúÀåÇØ¾ß ÇÒ±î?
-			// ÀúÀåÇÒ µ¥ÀÌÅÍ´Â ¾îµğ¿¡ ÀÖ³ª¿ä? ==> gp.list
+		} else if (cmd.equals("ì €ì¥")) {
+			// ë¬´ì—‡ì„ ì €ì¥í•´ì•¼ í• ê¹Œ?
+			// ì €ì¥í•  ë°ì´í„°ëŠ” ì–´ë””ì— ìˆë‚˜ìš”? ==> gp.list
 
-			// ¹®ÀÚ´ÜÀ§ÀÇ ÀÔÃâ·Â Reader, Writer
-			// ¹ÙÀÌÆ®´ÜÀ§ÀÇ ÀÔÃâ·Â <---------- ±×¸²ÆÇ InputStream, OutputStream
-			// ObjectOutputStream : OutputStreamÀÇ ÈÄ¼ÕÀÌ¸ç, °´Ã¼´ÜÀ§·Î Ãâ·ÂÀ» À§ÇÑ Å¬·¡½º
-			// ObjectInputStream: InputStreamÀÇ ÈÄ¼ÕÀÌ¸ç, °´Ã¼´ÜÀ§·Î ÀÔ·ÂÀ» À§ÇÑ Å¬·¡½º
+			// ë¬¸ìë‹¨ìœ„ì˜ ì…ì¶œë ¥ Reader, Writer
+			// ë°”ì´íŠ¸ë‹¨ìœ„ì˜ ì…ì¶œë ¥ <---------- ê·¸ë¦¼íŒ InputStream, OutputStream
+			// ObjectOutputStream : OutputStreamì˜ í›„ì†ì´ë©°, ê°ì²´ë‹¨ìœ„ë¡œ ì¶œë ¥ì„ ìœ„í•œ í´ë˜ìŠ¤
+			// ObjectInputStream: InputStreamì˜ í›„ì†ì´ë©°, ê°ì²´ë‹¨ìœ„ë¡œ ì…ë ¥ì„ ìœ„í•œ í´ë˜ìŠ¤
 
 			try {
-				int re = jfc.showSaveDialog(this); // ´ÙÀÌ¾ó·Î±×¸¦ ¶ç¿ò
+				int re = jfc.showSaveDialog(this); // ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ë„ì›€
 
 				if (re == 0) {
-					File file = jfc.getSelectedFile(); // ´ÙÀÌ¾ó·Î±×¿¡¼­ ¼±ÅÃÇÑ ÆÄÀÏÀ» °¡Á®¿È
+					File file = jfc.getSelectedFile(); // ë‹¤ì´ì–¼ë¡œê·¸ì—ì„œ ì„ íƒí•œ íŒŒì¼ì„ ê°€ì ¸ì˜´
 
-					// °´Ã¼´ÜÀ§·Î ÆÄÀÏ Ãâ·ÂÀ» À§ÇÑ ObjectOutputStream °´Ã¼¸¦ »ı¼º
+					// ê°ì²´ë‹¨ìœ„ë¡œ íŒŒì¼ ì¶œë ¥ì„ ìœ„í•œ ObjectOutputStream ê°ì²´ë¥¼ ìƒì„±
 					ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
 
-					// ±×·¡ÇÈÀÇ Á¤º¸°¡ ´ã°ÜÀÖ´Â list¸¦ ÆÄÀÏ·Î Ãâ·ÂÇÑ´Ù.
+					// ê·¸ë˜í”½ì˜ ì •ë³´ê°€ ë‹´ê²¨ìˆëŠ” listë¥¼ íŒŒì¼ë¡œ ì¶œë ¥í•œë‹¤.
 					oos.writeObject(gp.list);
 
-					// ÆÄÀÏÀÇ »ç¿ëÀÌ ³¡³ª¸é ÆÄÀÏÀ» ´İ¾ÆÁØ´Ù.
+					// íŒŒì¼ì˜ ì‚¬ìš©ì´ ëë‚˜ë©´ íŒŒì¼ì„ ë‹«ì•„ì¤€ë‹¤.
 					oos.close();
 
-					JOptionPane.showMessageDialog(this, "ÀúÀåÇÏ¿´½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(this, "ì €ì¥í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 				}
 
 			} catch (Exception ex) {
-				System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+				System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 			}
 
-		} else if (cmd.equals("Á¾·á")) {
-			// Á¤¸» Á¾·áÇÏ´ÂÁö ¹°¾îº¸°í Á¾·áÇÏµµ·Ï ÇÏ±â
-			int re = JOptionPane.showConfirmDialog(this, "Á¤¸»·Î Á¾·áÇÒ±î¿ä?");
+		} else if (cmd.equals("ì¢…ë£Œ")) {
+			// ì •ë§ ì¢…ë£Œí•˜ëŠ”ì§€ ë¬¼ì–´ë³´ê³  ì¢…ë£Œí•˜ë„ë¡ í•˜ê¸°
+			int re = JOptionPane.showConfirmDialog(this, "ì •ë§ë¡œ ì¢…ë£Œí• ê¹Œìš”?");
 			System.out.println(re);
-			// 0: ¿¹ 1: ¾Æ´Ï¿À 2: Ãë¼Ò
+			// 0: ì˜ˆ 1: ì•„ë‹ˆì˜¤ 2: ì·¨ì†Œ
 
 			if (re == 0) {
 				System.exit(0);
 			}
 
-			// System.exit(0); //ÇÁ·Î±×·¥ Á¾·á
+			// System.exit(0); //í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 		}
 
 	}
