@@ -20,20 +20,20 @@ import javax.swing.JTextField;
 
 public class URLTestGUI extends JFrame implements ActionListener {
 	
-	private JFileChooser jfc; //ÆÄÀÏÀÇ ´ÙÀÌ¾ó·Î±×¸¦ À§ÇÑ º¯¼ö
-	private JTextField jtf; // ¸â¹ö·Î °®´Â´Ù
+	private JFileChooser jfc; //íŒŒì¼ì˜ ë‹¤ì´ì–¼ë¡œê·¸ë¥¼ ìœ„í•œ ë³€ìˆ˜
+	private JTextField jtf; // ë©¤ë²„ë¡œ ê°–ëŠ”ë‹¤
 	private JTextArea jta;
 
 	public URLTestGUI() {
 		jfc = new JFileChooser("c:/temp");
 		jtf = new JTextField(50);
 		jta = new JTextArea();
-		JScrollPane jsp = new JScrollPane(jta); // jta¸¦ °¡Áö°í ½ºÅ©·ÑÀ» ¸¸µç´Ù.
+		JScrollPane jsp = new JScrollPane(jta); // jtaë¥¼ ê°€ì§€ê³  ìŠ¤í¬ë¡¤ì„ ë§Œë“ ë‹¤.
 
-		JButton btnRead = new JButton("ÀĞ¾î¿À±â");
-		JButton btnSave = new JButton("ÆÄÀÏÀúÀå");
-
-		// ÀÌº¥Æ® µî·Ï
+		JButton btnRead = new JButton("ì½ì–´ì˜¤ê¸°");
+		JButton btnSave = new JButton("íŒŒì¼ì €ì¥");
+ 
+		// ì´ë²¤íŠ¸ ë“±ë¡
 		btnRead.addActionListener(this);
 		btnSave.addActionListener(this);
 
@@ -42,7 +42,7 @@ public class URLTestGUI extends JFrame implements ActionListener {
 		p.add(btnRead);
 		p.add(btnSave);
 
-		add(p, BorderLayout.NORTH); // ÆĞ³Î¿¡
+		add(p, BorderLayout.NORTH); // íŒ¨ë„ì—
 		add(jsp, BorderLayout.CENTER);
 
 		setSize(800, 600);
@@ -58,18 +58,18 @@ public class URLTestGUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 
-		if (cmd.equals("ÀĞ¾î¿À±â")) {
-			// ÅØ½ºÆ®ÇÊµå¿¡ ÀÔ·ÂÇÑ URLÀÇ ³»¿ëÀ» ¸ğµÎ ÀĞ¾î¿Í¼­ ÅØ½ºÆ® ¿¡¸®¾î¿¡ Ãâ·ÂÇÏµµ·Ï ÇÁ·Î±×·¥À» ¿Ï¼º
+		if (cmd.equals("ì½ì–´ì˜¤ê¸°")) {
+			// í…ìŠ¤íŠ¸í•„ë“œì— ì…ë ¥í•œ URLì˜ ë‚´ìš©ì„ ëª¨ë‘ ì½ì–´ì™€ì„œ í…ìŠ¤íŠ¸ ì—ë¦¬ì–´ì— ì¶œë ¥í•˜ë„ë¡ í”„ë¡œê·¸ë¨ì„ ì™„ì„±
 			try {
 
-				// ÅØ½ºÆ® ÇÊµå¿¡ ÀÔ·ÂÇÑ ³»¿ëÀ¸·Î URL°´Ã¼¸¦ »ı¼º
+				// í…ìŠ¤íŠ¸ í•„ë“œì— ì…ë ¥í•œ ë‚´ìš©ìœ¼ë¡œ URLê°ì²´ë¥¼ ìƒì„±
 				URL url = new URL(jtf.getText());
 
-				// ±× ¹®¼­ÀÇ ³»¿ëÀ» ÀĞ¾îµéÀÌ±â À§ÇÑ ½ºÆ®¸²À» »ı¼º
-				InputStream is = url.openStream(); // url ÀÇ ¿ÀÇÂ½ºÆ®¸²À» ÅëÇØ¼­ input½ºÆ®¸²À» »ı¼ºÇÒ ¼ö ÀÖ´Ù.
+				// ê·¸ ë¬¸ì„œì˜ ë‚´ìš©ì„ ì½ì–´ë“¤ì´ê¸° ìœ„í•œ ìŠ¤íŠ¸ë¦¼ì„ ìƒì„±
+				InputStream is = url.openStream(); // url ì˜ ì˜¤í”ˆìŠ¤íŠ¸ë¦¼ì„ í†µí•´ì„œ inputìŠ¤íŠ¸ë¦¼ì„ ìƒì„±í•  ìˆ˜ ìˆë‹¤.
 
-				// ÇÑ ¹ø¿¡ ÀĞ¾îµéÀÏ byteÇüÀÇ ¹è¿­À» ¸¸µé±â
-				byte[] data = new byte[100]; // ÇÑ ¹ø¿¡ 100¹ÙÀÌÆ®¾¿ ÀĞ¾î¿È
+				// í•œ ë²ˆì— ì½ì–´ë“¤ì¼ byteí˜•ì˜ ë°°ì—´ì„ ë§Œë“¤ê¸°
+				byte[] data = new byte[100]; // í•œ ë²ˆì— 100ë°”ì´íŠ¸ì”© ì½ì–´ì˜´
 
 				String str = "";
 
@@ -78,28 +78,28 @@ public class URLTestGUI extends JFrame implements ActionListener {
 					Arrays.fill(data, (byte) 0);
 				}
 
-				// ÀüºÎ ÀĞ¾îµéÀÎ ¹®ÀÚ¿­À» ÅØ½ºÆ®¿¡¸®¾î¿¡ ¼³Á¤ÇÑ´Ù.
+				// ì „ë¶€ ì½ì–´ë“¤ì¸ ë¬¸ìì—´ì„ í…ìŠ¤íŠ¸ì—ë¦¬ì–´ì— ì„¤ì •í•œë‹¤.
 				jta.setText(str);
 
 			} catch (Exception ex) {
-				System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+				System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 			}
 
-		} else if (cmd.equals("ÆÄÀÏÀúÀå")) {
+		} else if (cmd.equals("íŒŒì¼ì €ì¥")) {
 			try {
 				int re = jfc.showSaveDialog(this);
-				if(re == JFileChooser.APPROVE_OPTION) { //re==0 ÀÎ°¡?¿Í °°Àº¸»ÀÌ´Ù. // ±àÁ¤´ë´äÀ» ÇÏ¿´À¸¸é
+				if(re == JFileChooser.APPROVE_OPTION) { //re==0 ì¸ê°€?ì™€ ê°™ì€ë§ì´ë‹¤. // ê¸ì •ëŒ€ë‹µì„ í•˜ì˜€ìœ¼ë©´
 					File file = jfc.getSelectedFile();
 					
-					//¹®ÀÚ´ÜÀ§ÀÇ Ãâ·Â
+					//ë¬¸ìë‹¨ìœ„ì˜ ì¶œë ¥
 					FileWriter fw = new FileWriter(file);
 					fw.write(jta.getText());
 					fw.close();
-					JOptionPane.showMessageDialog(this, "ÆÄÀÏ·Î ÀúÀåÇÏ¿´½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(this, "íŒŒì¼ë¡œ ì €ì¥í•˜ì˜€ìŠµë‹ˆë‹¤.");
 				}
 
 			} catch (Exception ex) {
-				System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+				System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 			}
 
 		}
