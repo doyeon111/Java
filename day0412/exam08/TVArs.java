@@ -1,45 +1,45 @@
 package exam08;
 
-//ÀÓ°è¿µ¿ª
+//ì„ê³„ì˜ì—­
 
-//¸ğ±İ¾×À» À§ÇÑ Å¬·¡½º
+//ëª¨ê¸ˆì•¡ì„ ìœ„í•œ í´ë˜ìŠ¤
 class Account {
-	// ÀÜ¾×À» À§ÇÑ º¯¼ö
+	// ì”ì•¡ì„ ìœ„í•œ ë³€ìˆ˜
 	private int balance;
 
-	// ÀÔ±İÀ» À§ÇÑ ¸Ş¼Òµå Á¤ÀÇ
-	// balance´Â ÇÑ ¹ø¿¡ ÇÏ³ªÀÇ ¾²·¹µå¿¡°Ô Á¢±ÙÇÏµµ·Ï ÇÏ±â À§ÇÏ¿© synchronized Å°¿öµå¸¦ ºÙ¿© "ÀÓ°è¿µ¿ª"À» ¼³Á¤
+	// ì…ê¸ˆì„ ìœ„í•œ ë©”ì†Œë“œ ì •ì˜
+	// balanceëŠ” í•œ ë²ˆì— í•˜ë‚˜ì˜ ì“°ë ˆë“œì—ê²Œ ì ‘ê·¼í•˜ë„ë¡ í•˜ê¸° ìœ„í•˜ì—¬ synchronized í‚¤ì›Œë“œë¥¼ ë¶™ì—¬ "ì„ê³„ì˜ì—­"ì„ ì„¤ì •
 	public synchronized void deposit(String name, int amount) {
 
-		// ÀÔ±İÇÒ ±İ¾×À» ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ÀÜ¾×¿¡ ´©ÀûÇÑ´Ù.
+		// ì…ê¸ˆí•  ê¸ˆì•¡ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ì”ì•¡ì— ëˆ„ì í•œë‹¤.
 		balance += amount;
-		System.out.println(name + "ÀÌ(°¡) " + amount + "ÀÔ±İÇÏ¿© ÀÜ¾×ÀÌ " + balance + "°¡ µÇ¾ú½À´Ï´Ù.");
+		System.out.println(name + "ì´(ê°€) " + amount + "ì…ê¸ˆí•˜ì—¬ ì”ì•¡ì´ " + balance + "ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 	}
 
-	// ÇöÀç ÀÜ¾×À» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
+	// í˜„ì¬ ì”ì•¡ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
 	public int getBalance() {
 		return balance;
 	}
 }
 
-//¼º±İÀÚ¸¦ À§ÇÑ Å¬·¡½º¸¦ Á¤ÀÇ
-//°¢°¢ÀÇ ¼º±İÀÚµéÀº ¼­·Î ¿µÇâÀ» ³¢Ä¡Áö ¾Ê°í µ·À» º¸³»µµ·Ï ÇÏ±â À§ÇÏ¿© ¾²·¹µå·Î ±¸Çö
+//ì„±ê¸ˆìë¥¼ ìœ„í•œ í´ë˜ìŠ¤ë¥¼ ì •ì˜
+//ê°ê°ì˜ ì„±ê¸ˆìë“¤ì€ ì„œë¡œ ì˜í–¥ì„ ë¼ì¹˜ì§€ ì•Šê³  ëˆì„ ë³´ë‚´ë„ë¡ í•˜ê¸° ìœ„í•˜ì—¬ ì“°ë ˆë“œë¡œ êµ¬í˜„
 class Contributor extends Thread {
-	// ¼º±İÀÚ¸¦ ±¸º°ÇÏ±â À§ÇÏ¿© ÀÌ¸§À» ¸â¹öº¯¼ö·Î ¼±¾ğ
+	// ì„±ê¸ˆìë¥¼ êµ¬ë³„í•˜ê¸° ìœ„í•˜ì—¬ ì´ë¦„ì„ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	private String name;
 
-	// ¸ğ±İ¾× Å¬·¡½ºÀÇ °´Ã¼¸¦ ¸â¹öº¯¼ö·Î °¡Áø´Ù.
+	// ëª¨ê¸ˆì•¡ í´ë˜ìŠ¤ì˜ ê°ì²´ë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ê°€ì§„ë‹¤. 
 	private Account account;
 
-	// »ı¼º½Ã¿¡ ¸ğ±İ¾× °´Ã¼¸¦ Àü´Ş¹Ş´Â´Ù.
+	// ìƒì„±ì‹œì— ëª¨ê¸ˆì•¡ ê°ì²´ë¥¼ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public Contributor(String name, Account account) {
 		this.name = name;
 		this.account = account;
 	}
 
 	@Override
-	// runÀ» ¿À¹ö¶óÀÌµù ÇÏ¿© ¾²·¹µå°¡ ÇØ¾ßÇÏ´Â ÀÏÀ» ½áÁØ´Ù.
-	// ÀÌ ¾²·¹µå(¼º±İÀÚ)µéÀº °æÀïÀûÀ¸·Î µ·À» ÀÔ±İÇØ¿ä, ¸ğ±İ¾×ÀÌ 500,000¿øÀÌ µÉ ¶§ ±îÁö
+	// runì„ ì˜¤ë²„ë¼ì´ë”© í•˜ì—¬ ì“°ë ˆë“œê°€ í•´ì•¼í•˜ëŠ” ì¼ì„ ì¨ì¤€ë‹¤.
+	// ì´ ì“°ë ˆë“œ(ì„±ê¸ˆì)ë“¤ì€ ê²½ìŸì ìœ¼ë¡œ ëˆì„ ì…ê¸ˆí•´ìš”, ëª¨ê¸ˆì•¡ì´ 500,000ì›ì´ ë  ë•Œ ê¹Œì§€
 	public void run() {
 		while (true) {
 
@@ -47,7 +47,7 @@ class Contributor extends Thread {
 				break;
 			}
 
-			account.deposit(name, 1000); //¼ø¼­ ÁÖÀÇ
+			account.deposit(name, 1000); //ìˆœì„œ ì£¼ì˜
 			
 			try {
 
@@ -65,15 +65,15 @@ class Contributor extends Thread {
 public class TVArs {
 
 	public static void main(String[] args) {
-		//¸ğ±İ¾× °èÁÂ¸¦ À§ÇÑ °´Ã¼¸¦ »ı¼º
+		//ëª¨ê¸ˆì•¡ ê³„ì¢Œë¥¼ ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 		Account account = new Account();
 		
-		//ÀÌ °èÁÂ¸¦ °øÀ¯ÇÏ´Â 5¸íÀÇ ¼º±İÀÚ °´Ã¼¸¦ »ı¼º
-		Contributor c1 = new Contributor("±è¼ÒÀ±", account);
-		Contributor c2 = new Contributor("°í¹ÎÁö", account);
-		Contributor c3 = new Contributor("¼­µ¿Çõ", account);
-		Contributor c4 = new Contributor("°íÁÖÈñ", account);
-		Contributor c5 = new Contributor("¼Û½Â¹Î", account);
+		//ì´ ê³„ì¢Œë¥¼ ê³µìœ í•˜ëŠ” 5ëª…ì˜ ì„±ê¸ˆì ê°ì²´ë¥¼ ìƒì„±
+		Contributor c1 = new Contributor("ê¹€ì†Œìœ¤", account);
+		Contributor c2 = new Contributor("ê³ ë¯¼ì§€", account);
+		Contributor c3 = new Contributor("ì„œë™í˜", account);
+		Contributor c4 = new Contributor("ê³ ì£¼í¬", account);
+		Contributor c5 = new Contributor("ì†¡ìŠ¹ë¯¼", account);
 		
 		c1.start();
 		c2.start();
@@ -82,9 +82,9 @@ public class TVArs {
 		c5.start();
 		
 		
-		//c1, c2, c3, c4, c5ÀÇ ½º·¹µå°¡ ³¡³¯ ¶§ ±îÁö ±â´Ù¸®µµ·Ï ÇÑ´Ù.
+		//c1, c2, c3, c4, c5ì˜ ìŠ¤ë ˆë“œê°€ ëë‚  ë•Œ ê¹Œì§€ ê¸°ë‹¤ë¦¬ë„ë¡ í•œë‹¤.
 		try {
-			c1.join(); //±â´Ù¸®µµ·Ï ÇÏ´Â ¸í·É¾î
+			c1.join(); //ê¸°ë‹¤ë¦¬ë„ë¡ í•˜ëŠ” ëª…ë ¹ì–´
 			c2.join();
 			c3.join();
 			c4.join();
@@ -93,7 +93,7 @@ public class TVArs {
 			
 		}
 		
-		System.out.println("ÃÖÁ¾¸ğ±İ¾×: " + account.getBalance());
+		System.out.println("ìµœì¢…ëª¨ê¸ˆì•¡: " + account.getBalance());
 		
 
 	}
