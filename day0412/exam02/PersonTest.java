@@ -13,7 +13,7 @@ class Person extends Thread {
 			System.out.println("Hello, " + name + " " + i);
 
 			try {
-				Thread.sleep(100); // ´ë±â½Ã°£À» »ı¼º , ÄÄÇ»ÅÍ¸¦ 0.1ÃÊ ¸ØÃßµµ·Ï ÇÑ´Ù.
+				Thread.sleep(100); // ëŒ€ê¸°ì‹œê°„ì„ ìƒì„± , ì»´í“¨í„°ë¥¼ 0.1ì´ˆ ë©ˆì¶”ë„ë¡ í•œë‹¤.
 			} catch (Exception e) {
 
 			}
@@ -25,15 +25,15 @@ class Person extends Thread {
 public class PersonTest {
 
 	public static void main(String[] args) {
-		Person p1 = new Person("È«±æµ¿");
-		Person p2 = new Person("ÀÌ¼ø½Å");
+		Person p1 = new Person("í™ê¸¸ë™");
+		Person p2 = new Person("ì´ìˆœì‹ ");
 		
-//		p1.run(); //ÀÏ¹İ¸Ş¼Òµå·Î È£ÃâÇÏ¿© p1ÀÌ ³¡³ª¾ß¸¸ p2¸¦ ½ÇÇàÇÔ.
+//		p1.run(); //ì¼ë°˜ë©”ì†Œë“œë¡œ í˜¸ì¶œí•˜ì—¬ p1ì´ ëë‚˜ì•¼ë§Œ p2ë¥¼ ì‹¤í–‰í•¨.
 //		p2.run();
 		
-		p1.start(); //µÑÀÌ °øÆòÇÏ°Ô ½ÇÇàÇÒ ¼ö ÀÖ°Ô ²û 
+		p1.start(); //ë‘˜ì´ ê³µí‰í•˜ê²Œ ì‹¤í–‰í•  ìˆ˜ ìˆê²Œ ë” 
 		p2.start();
 
 	}
 
-}
+} 
