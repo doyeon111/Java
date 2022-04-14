@@ -1,7 +1,7 @@
 package exam03;
 
 
-//InetAddress¿¡¼­ list[]  ¹è¿­À» »ç¿ëÇÏ¿© ¿©·¯ °³ÀÇ ÁÖ¼Ò¸¦ ºÒ·¯¿À±â 
+//InetAddressì—ì„œ list[]  ë°°ì—´ì„ ì‚¬ìš©í•˜ì—¬ ì—¬ëŸ¬ ê°œì˜ ì£¼ì†Œë¥¼ ë¶ˆëŸ¬ì˜¤ê¸° 
 
 import java.net.InetAddress;
 
@@ -10,15 +10,16 @@ public class InetAddressTest02 {
 	public static void main(String[] args) {
 
 		try {
-			InetAddress[] list = InetAddress.getAllByName("www.naver.com"); //getAllByNameÀ» ÅëÇØ¼­ www.naver.com¿¡ ¼³Á¤µÈ ¸ğµç ¾ÆÀÌÇÇ¸¦ Ãâ·Â
+			InetAddress[] list = InetAddress.getAllByName("www.naver.com"); //getAllByNameì„ í†µí•´ì„œ www.naver.comì— ì„¤ì •ëœ ëª¨ë“  ì•„ì´í”¼ë¥¼ ì¶œë ¥
 			for (InetAddress addr : list) {
 				System.out.println(addr);
 			}
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
 
 }
+ 
