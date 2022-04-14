@@ -1,5 +1,5 @@
 package exam06;
-//°øÀÇ À§Ä¡¸¦ º¯°æ½ÃÅ°±â
+//ê³µì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½ì‹œí‚¤ê¸°
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -10,32 +10,32 @@ import javax.swing.JPanel;
 class RedBall extends JPanel implements Runnable{
 	
 	
-	//°øÀÇ À§Ä¡¸¦ ÀúÀåÇÒ º¯¼ö¸¦ ¸â¹öº¯¼ö·Î ¼±¾ğ
+	//ê³µì˜ ìœ„ì¹˜ë¥¼ ì €ì¥í•  ë³€ìˆ˜ë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	private int x=10, y=200;
 
 	@Override
 	protected void paintComponent(Graphics g) {
-		//ºÎ¸ğÀÇ paintComponent¸¦ È£ÃâÇÏ¿© È­¸éÀ» Áö¿öÁØ´Ù.
+		//ë¶€ëª¨ì˜ paintComponentë¥¼ í˜¸ì¶œí•˜ì—¬ í™”ë©´ì„ ì§€ì›Œì¤€ë‹¤.
 		super.paintComponent(g);
 		
-		//»¡°£»öÀ¸·Î »ö»óÀ» ¼±ÅÃ
+		//ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ìƒ‰ìƒì„ ì„ íƒ
 		g.setColor(Color.red);
 		
-		//Ã¤¿î ¿øÀ» ±×¸®±â.
+		//ì±„ìš´ ì›ì„ ê·¸ë¦¬ê¸°.
 		g.fillOval(x, y, 30, 30);
 	}
 
 	@Override
-	public void run() { //¿øÀ» ÀÌµ¿½ÃÅ°±â
+	public void run() { //ì›ì„ ì´ë™ì‹œí‚¤ê¸°
 		
-		//°è¼ÓÇÏ¿© ÁøÇà
+		//ê³„ì†í•˜ì—¬ ì§„í–‰
 		while(true) {
-			x += 10; //xÀÇ À§Ä¡¸¦ º¯°æ
-			y -= 10;  //yÀÇ À§Ä¡¸¦ º¯°æ , x y ¸ğµÎ ´Ù ´ë°¢¼± ¹æÇâÀ¸·Î º¯°æ
+			x += 10; //xì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½
+			y -= 10;  //yì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½ , x y ëª¨ë‘ ë‹¤ ëŒ€ê°ì„  ë°©í–¥ìœ¼ë¡œ ë³€ê²½
 			
 			try {
 				Thread.sleep(100);
-				repaint(); //´Ù½Ã±×·ÁÁÖ¼¼¿ä
+				repaint(); //ë‹¤ì‹œê·¸ë ¤ì£¼ì„¸ìš”
 			}catch(Exception e) {
 				
 			}
@@ -49,7 +49,7 @@ class RedBall extends JPanel implements Runnable{
 class MyFrame extends JFrame {
 	
 	RedBall rb;
-	
+	 
 	public MyFrame() {
 		rb = new RedBall();
 		add(rb);
