@@ -1,6 +1,6 @@
 package exam03;
 
-class Person implements Runnable { //Runnable ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹Ş¾Æ ¾²·¹µå
+class Person implements Runnable { //Runnable ì¸í„°í˜ì´ìŠ¤ë¥¼ ìƒì†ë°›ì•„ ì“°ë ˆë“œ
 
 	private String name;
 	public Person(String name) {
@@ -26,21 +26,22 @@ class Person implements Runnable { //Runnable ÀÎÅÍÆäÀÌ½º¸¦ »ó¼Ó¹Ş¾Æ ¾²·¹µå
 public class PersonTest {
 
 	public static void main(String[] args) {
-		Person p1 = new Person("È«±æµ¿");
-		Person p2 = new Person("ÀÌ¼ø½Å");
+		Person p1 = new Person("í™ê¸¸ë™");
+		Person p2 = new Person("ì´ìˆœì‹ ");
 		
-		//p1.start(); // Runnable ÀÎÅÍÆäÀÌ½º¿¡´Â start°¡ ¾ø´Ù.
+		//p1.start(); // Runnable ì¸í„°í˜ì´ìŠ¤ì—ëŠ” startê°€ ì—†ë‹¤.
 		
-		//Runnable ÀÎÅÍÆäÀÌ½º¸¦ ±¸ÇöÇÑ °´Ã¼¸¦ ¾²·¹µå¸¦ °¡µ¿½ÃÅ°±â À§ÇØ¼­´Â Thread Å¬·¡½ºÀÇ °´Ã¼¸¦ »ı¼ºÇÑ ÈÄ °¡µ¿ÇØ¾ß ÇÑ´Ù.
+		//Runnable ì¸í„°í˜ì´ìŠ¤ë¥¼ êµ¬í˜„í•œ ê°ì²´ë¥¼ ì“°ë ˆë“œë¥¼ ê°€ë™ì‹œí‚¤ê¸° ìœ„í•´ì„œëŠ” Thread í´ë˜ìŠ¤ì˜ ê°ì²´ë¥¼ ìƒì„±í•œ í›„ ê°€ë™í•´ì•¼ í•œë‹¤.
 //		Thread t1 = new Thread(p1);
 //		Thread t2 = new Thread(p2);
-//		t1.start(); //thread°´Ã¼·Î Æ÷ÀåÇÏ¿© start¸¦ ½ÇÇàÇØ¾ß ÇÑ´Ù.
+//		t1.start(); //threadê°ì²´ë¡œ í¬ì¥í•˜ì—¬ startë¥¼ ì‹¤í–‰í•´ì•¼ í•œë‹¤.
 //		t2.start();
 		
 		
-		(new Thread(p1)).start(); //¹Ù·Î °´Ã¼¸¦ »ı¼ºÇÏ¿© ¹Ù·Î startÇØµµ µÈ´Ù.
+		(new Thread(p1)).start(); //ë°”ë¡œ ê°ì²´ë¥¼ ìƒì„±í•˜ì—¬ ë°”ë¡œ startí•´ë„ ëœë‹¤.
 		(new Thread(p2)).start();
 		
 	}
 
 }
+ 
