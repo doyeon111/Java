@@ -2,8 +2,8 @@ package exam03;
 
 import java.net.DatagramPacket;
 
-//UDPSender 192.168.0.2 / 9001  / ¾È³ç?  °¢°¢ ¹è¿­ÀÇ 0, 1, 2¹øÂ°
-//		    192.168.0.2 / 9001  / Àç¹ÌÀÖ´Â ÀÚ¹Ù
+//UDPSender 192.168.0.2 / 9001  / ì•ˆë…•?  ê°ê° ë°°ì—´ì˜ 0, 1, 2ë²ˆì§¸
+//		    192.168.0.2 / 9001  / ì¬ë¯¸ìˆëŠ” ìë°”
 
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -13,35 +13,35 @@ public class UDPSender {
 	public static void main(String[] args) {
 		try {
 
-			// ÇÁ·Î±×·¥ ½ÇÇà ½Ã¿¡ Àü´Ş¹Ş´Â Ã¹ ¹øÂ°´Â º¸³»°íÀÚ ÇÏ´Â µ¥ÀÌÅÍ¸¦ ¼ö½ÅÇÏ´Â ÄÄÇ»ÅÍÀÇ ipÁÖ¼Ò ÀÌ´Ù.
+			// í”„ë¡œê·¸ë¨ ì‹¤í–‰ ì‹œì— ì „ë‹¬ë°›ëŠ” ì²« ë²ˆì§¸ëŠ” ë³´ë‚´ê³ ì í•˜ëŠ” ë°ì´í„°ë¥¼ ìˆ˜ì‹ í•˜ëŠ” ì»´í“¨í„°ì˜ ipì£¼ì†Œ ì´ë‹¤.
 			String ip = args[0];
 
-			// ÇÁ·Î±×·¥ ½ÇÇà ½Ã¿¡ Àü´Ş¹Ş´Â µÎ ¹øÂ°´Â ¾à¼ÓÇÑ Æ÷Æ®¹øÈ£ÀÌ´Ù.
+			// í”„ë¡œê·¸ë¨ ì‹¤í–‰ ì‹œì— ì „ë‹¬ë°›ëŠ” ë‘ ë²ˆì§¸ëŠ” ì•½ì†í•œ í¬íŠ¸ë²ˆí˜¸ì´ë‹¤.
 			int port = Integer.parseInt(args[1]);
 
-			// ÇÁ·Î±×·¥ ½ÇÇà ½Ã¿¡ Àü´Ş¹Ş´Â ¼¼ ¹øÂ°´Â Àü´ŞÇÑ ³»¿ëÀÌ´Ù.
+			// í”„ë¡œê·¸ë¨ ì‹¤í–‰ ì‹œì— ì „ë‹¬ë°›ëŠ” ì„¸ ë²ˆì§¸ëŠ” ì „ë‹¬í•œ ë‚´ìš©ì´ë‹¤.
 			String msg = args[2];
 
-			// Àü´ŞÇÒ ³»¿ëÀ» ¹ÙÀÌÆ®·Î º¯È¯ÇÑ´Ù.
+			// ì „ë‹¬í•  ë‚´ìš©ì„ ë°”ì´íŠ¸ë¡œ ë³€í™˜í•œë‹¤.
 			byte[] data = msg.getBytes();
 
-			// ipÁÖ¼Ò¸¦ °®°í InetAddress °´Ã¼¸¦ »ı¼º
+			// ipì£¼ì†Œë¥¼ ê°–ê³  InetAddress ê°ì²´ë¥¼ ìƒì„±
 			InetAddress addr = InetAddress.getByName(ip);
 
-			// UDP ¹æ½ÄÀÇ µ¥ÀÌÅÍ Àü¼Û´ÜÀ§ÀÎ ÆĞÅ¶À» »ı¼º
+			// UDP ë°©ì‹ì˜ ë°ì´í„° ì „ì†¡ë‹¨ìœ„ì¸ íŒ¨í‚·ì„ ìƒì„±
 			DatagramPacket packet = new DatagramPacket(data, data.length, addr, port);
 
-			// µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ±â À§ÇÑ µ¥ÀÌÅÍ±×·¥ ¼ÒÄÏ °´Ã¼¸¦ »ı¼º
+	 		// ë°ì´í„°ë¥¼ ì „ì†¡í•˜ê¸° ìœ„í•œ ë°ì´í„°ê·¸ë¨ ì†Œì¼“ ê°ì²´ë¥¼ ìƒì„±
 			DatagramSocket socket = new DatagramSocket();
 
-			// µ¥ÀÌÅÍ¸¦ Àü¼Û
+			// ë°ì´í„°ë¥¼ ì „ì†¡
 			socket.send(packet);
 
-			// »ç¿ëÇß´ø ÀÚ¿øÀ» ´İ¾ÆÁØ´Ù.
+			// ì‚¬ìš©í–ˆë˜ ìì›ì„ ë‹«ì•„ì¤€ë‹¤.
 			socket.close();
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
