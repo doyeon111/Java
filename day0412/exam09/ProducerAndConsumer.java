@@ -2,22 +2,22 @@ package exam09;
 
 import java.util.Random;
 
-//Á¦Ç°¿¡ ´ëÇÑ Å¬·¡½º
+//ì œí’ˆì— ëŒ€í•œ í´ëž˜ìŠ¤
 class Product {
-	// ³­¼ö¹ß»ýÀ» À§ÇÑ ·£´ý°´Ã¼¸¦ »ý¼º
+	// ë‚œìˆ˜ë°œìƒì„ ìœ„í•œ ëžœë¤ê°ì²´ë¥¼ ìƒì„±
 	Random r = new Random();
 
-	// »ý»êÀÚ´Â °è¼ÓÇØ¼­ »õ·Î¿î Á¤¼ö¸¦ ¸¸µé¾î³»°í, ¼ÒºñÀÚ´Â ±× Á¤¼ö¸¦ °¡Á®´Ù ¾²µµ·Ï ÇÑ´Ù.
+	// ìƒì‚°ìžëŠ” ê³„ì†í•´ì„œ ìƒˆë¡œìš´ ì •ìˆ˜ë¥¼ ë§Œë“¤ì–´ë‚´ê³ , ì†Œë¹„ìžëŠ” ê·¸ ì •ìˆ˜ë¥¼ ê°€ì ¸ë‹¤ ì“°ë„ë¡ í•œë‹¤.
 	private int num;
 
-	// »õ·Î¿î Á¦Ç°ÀÌ »ý»êµÇ¾ú´ÂÁö ÆÇº°ÇÒ º¯¼ö¸¦ ¸¸µç´Ù.
-	// »ý»êÀÚ°¡ »õ·Î¿î Á¦Ç°À» ¸¸µé¸é true¿¡ ´ã°í, ¼ÒºñÀÚ°¡ Á¦Ç°À» ¼ÒºñÇÏ¸é false¿¡ ´ã´Â´Ù.
+	// ìƒˆë¡œìš´ ì œí’ˆì´ ìƒì‚°ë˜ì—ˆëŠ”ì§€ íŒë³„í•  ë³€ìˆ˜ë¥¼ ë§Œë“ ë‹¤.
+	// ìƒì‚°ìžê°€ ìƒˆë¡œìš´ ì œí’ˆì„ ë§Œë“¤ë©´ trueì— ë‹´ê³ , ì†Œë¹„ìžê°€ ì œí’ˆì„ ì†Œë¹„í•˜ë©´ falseì— ë‹´ëŠ”ë‹¤.
 	boolean isNew;
 
-	// »ý»êÀ» À§ÇÑ ¸Þ¼Òµå
+	// ìƒì‚°ì„ ìœ„í•œ ë©”ì†Œë“œ
 	public synchronized void makeNumber() {
 
-		// ¾ÆÁ÷ ¼ÒºñÀÚ°¡ ¼Òºñ¸¦ ¾ÈÇÑµ¿¾È ±â´Ù¸°´Ù.
+		// ì•„ì§ ì†Œë¹„ìžê°€ ì†Œë¹„ë¥¼ ì•ˆí•œë™ì•ˆ ê¸°ë‹¤ë¦°ë‹¤.
 		while (isNew == true) {
 
 			try {
@@ -27,57 +27,57 @@ class Product {
 			}
 		}
 
-		// »õ·Î¿î Á¦Ç°À» »ý»êÇÑ´Ù.
+		// ìƒˆë¡œìš´ ì œí’ˆì„ ìƒì‚°í•œë‹¤.
 		num = r.nextInt(100);
 
-		System.out.println("»ý»êÀÚ°¡ »õ·Î¿î Á¦Ç°À» »ý»êÇÏ¿´½À´Ï´Ù. ===>" + num);
+		System.out.println("ìƒì‚°ìžê°€ ìƒˆë¡œìš´ ì œí’ˆì„ ìƒì‚°í•˜ì˜€ìŠµë‹ˆë‹¤. ===>" + num);
 
-		// »õ·Î¿î Á¦Ç°ÀÌ »ý»êµÇ¾ú´Ù´Â Ç¥½Ã·Î isNew¿¡ true¸¦ ÀúÀå
+		// ìƒˆë¡œìš´ ì œí’ˆì´ ìƒì‚°ë˜ì—ˆë‹¤ëŠ” í‘œì‹œë¡œ isNewì— trueë¥¼ ì €ìž¥
 		isNew = true;
 
-		// ´ë±âÁßÀÎ ¼ÒºñÀÚ¸¦ ±ú¿öÁØ´Ù
+		// ëŒ€ê¸°ì¤‘ì¸ ì†Œë¹„ìžë¥¼ ê¹¨ì›Œì¤€ë‹¤
 		notify();
 	}
 
-	// ¼Òºñ¸¦ À§ÇÑ ¸Þ¼Òµå
+	// ì†Œë¹„ë¥¼ ìœ„í•œ ë©”ì†Œë“œ
 	public synchronized int useNum() {
 
-		// »ý»êÀÚ°¡ »õ·Î¿î Á¦Ç°À» »ý»êÇÒ ¶§±îÁö ±â´Ù¸².
+		// ìƒì‚°ìžê°€ ìƒˆë¡œìš´ ì œí’ˆì„ ìƒì‚°í•  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦¼.
 		while (isNew == false) {
 			try {
-				wait(); // ±â´Ù¸®´Â ¸Þ¼Òµå´Â ¿¹¿ÜÃ³¸®¸¦ ¾È°íÀÖ´Ù.
+				wait(); // ê¸°ë‹¤ë¦¬ëŠ” ë©”ì†Œë“œëŠ” ì˜ˆì™¸ì²˜ë¦¬ë¥¼ ì•ˆê³ ìžˆë‹¤.
 			} catch (Exception e) {
 
 			}
 		}
 
-		// ¼ÒºñµÇ¾ú´Ù°í Ç¥½ÃÇÏ±â À§ÇÏ¿© isNew¿¡ false¸¦ ÀúÀå
+		// ì†Œë¹„ë˜ì—ˆë‹¤ê³  í‘œì‹œí•˜ê¸° ìœ„í•˜ì—¬ isNewì— falseë¥¼ ì €ìž¥
 		isNew = false;
 
-		// ´ë±âÁßÀÎ »ý»êÀÚ¸¦ ±ú¿öÁÜ.
+		// ëŒ€ê¸°ì¤‘ì¸ ìƒì‚°ìžë¥¼ ê¹¨ì›Œì¤Œ.
 		notify();
 
-		System.out.println("¼ÒºñÀÚ°¡ Á¦Ç°À» ¼ÒºñÇÏ¿´½À´Ï´Ù. ==> " + num);
+		System.out.println("ì†Œë¹„ìžê°€ ì œí’ˆì„ ì†Œë¹„í•˜ì˜€ìŠµë‹ˆë‹¤. ==> " + num);
 
 		return num;
 	}
 
 }
 
-//»ý»êÀÚ Å¬·¡½º
+//ìƒì‚°ìž í´ëž˜ìŠ¤
 class Producer extends Thread {
-	// Á¦Ç° Å¬·¡½º¸¦ ¸â¹öº¯¼ö·Î ¼±¾ð
+	// ì œí’ˆ í´ëž˜ìŠ¤ë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	Product product;
 
-	// »ý¼º½Ã¿¡ Á¦Ç°°´Ã¼¸¦ Àü´Þ¹Þ´Â´Ù.
+	// ìƒì„±ì‹œì— ì œí’ˆê°ì²´ë¥¼ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public Producer(Product product) {
 		this.product = product;
 	}
 
-	// runÀ» ¿À¹ö¶óÀÌµùÇÏ¿© ½º·¹µå°¡ ÇØ¾ßÇÒ ÀÏÀ» ½áÁØ´Ù.
+	// runì„ ì˜¤ë²„ë¼ì´ë”©í•˜ì—¬ ìŠ¤ë ˆë“œê°€ í•´ì•¼í•  ì¼ì„ ì¨ì¤€ë‹¤.
 	public void run() {
 
-		// 10¹ø ¹Ýº¹ÇÏ¿© »õ·Î¿î Á¦Ç°À» »ý»êÇÏµµ·Ï ÇÑ´Ù.
+		// 10ë²ˆ ë°˜ë³µí•˜ì—¬ ìƒˆë¡œìš´ ì œí’ˆì„ ìƒì‚°í•˜ë„ë¡ í•œë‹¤.
 		for (int i = 0; i <= 10; i++) {
 			product.makeNumber();
 
@@ -91,17 +91,17 @@ class Producer extends Thread {
 
 }
 
-//¼ÒºñÀÚ Å¬·¡½º
+//ì†Œë¹„ìž í´ëž˜ìŠ¤
 class Consumer extends Thread {
-	// Á¦Ç°À» ¸â¹öº¯¼ö·Î ¼±¾ð
+	// ì œí’ˆì„ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	private Product product;
 
-	// »ý¼º½Ã¿¡ Á¦Ç°À» Àü´Þ¹Þ´Â´Ù.
+	// ìƒì„±ì‹œì— ì œí’ˆì„ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public Consumer(Product product) {
 		this.product = product;
 	}
 
-	// runÀ» ¿À¹ö¶óÀÌµù ÇÏ¿© ½º·¹µå°¡ ÇØ¾ßÇÒ ÀÏÀ» ½áÁØ´Ù.
+	// runì„ ì˜¤ë²„ë¼ì´ë”© í•˜ì—¬ ìŠ¤ë ˆë“œê°€ í•´ì•¼í•  ì¼ì„ ì¨ì¤€ë‹¤.
 	public void run() {
 		for (int i = 0; i < 10; i++) {
 			product.useNum();
@@ -114,24 +114,24 @@ class Consumer extends Thread {
 		}
 	}
 
-}
+} 
 
 public class ProducerAndConsumer {
 
 	public static void main(String[] args) {
-		//Á¦Ç°°´Ã¼¸¦ »ý¼º
+		//ì œí’ˆê°ì²´ë¥¼ ìƒì„±
 		Product product = new Product();
 		
-		//»ý»êÀÚ°´Ã¼¸¦ »ý¼º
+		//ìƒì‚°ìžê°ì²´ë¥¼ ìƒì„±
 		Producer pd = new Producer(product);
 		
-		//¼ÒºñÀÚ°´Ã¼¸¦ »ý¼º
+		//ì†Œë¹„ìžê°ì²´ë¥¼ ìƒì„±
 		Consumer c = new Consumer(product);
 		
-		//»ý»êÀÚÀÇ ½º·¹µå¸¦ °¡µ¿
+		//ìƒì‚°ìžì˜ ìŠ¤ë ˆë“œë¥¼ ê°€ë™
 		pd.start();
 		
-		//¼ÒºñÀÚÀÇ ½º·¹µå¸¦ °¡µ¿
+		//ì†Œë¹„ìžì˜ ìŠ¤ë ˆë“œë¥¼ ê°€ë™
 		c.start();
 
 	}
