@@ -7,13 +7,14 @@ public class InetAddressTest {
 	public static void main(String[] args) {
 		try {
 			
-			InetAddress addr = InetAddress.getByName("www.naver.com"); //³×ÀÌ¹ö ´åÄÄÀÇ ipadress Á¤º¸¸¦ È®ÀÎÇÒ ¼ö ÀÖ´Ù.
+			InetAddress addr = InetAddress.getByName("www.naver.com"); //ë„¤ì´ë²„ ë‹·ì»´ì˜ ipadress ì •ë³´ë¥¼ í™•ì¸í•  ìˆ˜ ìˆë‹¤.
 			System.out.println(addr);
 			
 		} catch (Exception e) {
 			
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 
 }
+ 
