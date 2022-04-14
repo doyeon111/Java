@@ -1,7 +1,7 @@
 package practice02;
 
 
-//pdf 01¹ø¹®Á¦ (¾²·¹µå¿¬½À)
+//pdf 01ë²ˆë¬¸ì œ (ì“°ë ˆë“œì—°ìŠµ)
 
 class Count implements Runnable {
 	protected int count;
@@ -14,7 +14,7 @@ class Count implements Runnable {
 	@Override
 	public void run() {
 		for (int i = count; i >=1; i--) {
-			System.out.println(i + "ÃÊ ÀüÀÔ´Ï´Ù.");
+			System.out.println(i + "ì´ˆ ì „ìž…ë‹ˆë‹¤.");
 
 			try {
 				Thread.sleep(1000);
@@ -22,11 +22,11 @@ class Count implements Runnable {
 
 			}
 		}
-		System.out.println("¹ß»ç !!!");
+		System.out.println("ë°œì‚¬ !!!");
 	}
 
 }
-
+ 
 public class ThreadPractice {
 
 	public static void main(String[] args) {
