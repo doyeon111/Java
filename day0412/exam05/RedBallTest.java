@@ -11,10 +11,10 @@ class RedBall extends JPanel {
 
 	@Override
 	protected void paintComponent(Graphics g) {
-		//»¡°£»öÀ¸·Î »ö»óÀ» ¼±ÅÃ
+		//ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ìƒ‰ìƒì„ ì„ íƒ
 		g.setColor(Color.red);
 		
-		//Ã¤¿î ¿øÀ» ±×¸®±â.
+		//ì±„ìš´ ì›ì„ ê·¸ë¦¬ê¸°.
 		g.fillOval(10, 220, 30, 30);
 	}
 	
@@ -33,7 +33,7 @@ class MyFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
-
+ 
 
 
 public class RedBallTest {
