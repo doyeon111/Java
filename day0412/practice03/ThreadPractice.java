@@ -1,6 +1,6 @@
 package practice03;
 
-//pdf 01¹ø¹®Á¦ (¾²·¹µå¿¬½À)
+//pdf 01ë²ˆë¬¸ì œ (ì“°ë ˆë“œì—°ìŠµ)
 
 class Count implements Runnable {
 	int count;
@@ -13,14 +13,14 @@ class Count implements Runnable {
 	@Override
 	public void run() {
 		for (int i = count; i >= 1; i--) {
-			System.out.println(i + "ÃÊ ÀüÀÔ´Ï´Ù.");
+			System.out.println(i + "ì´ˆ ì „ìž…ë‹ˆë‹¤.");
 
 			try {
 				Thread.sleep(1000);
 			} catch (Exception e) {
 
 			}
-		}System.out.println("¹ß»ç !!!");
+		}System.out.println("ë°œì‚¬ !!!");
 		
 	}
 }
@@ -47,14 +47,14 @@ class CountDownEvent extends Thread {
 
 	
 }
-
+ 
 public class ThreadPractice {
 
 	public static void main(String[] args) {
 		Count c = new Count(20);
 //		CountDownEvent c1 = new CountDownEvent(20, 30, )
 		(new Thread(c)).start();
-		CountDownEvent cde = new CountDownEvent(2, "¿¬°á ÀåÄ¡ ºÐ¸®!!");
+		CountDownEvent cde = new CountDownEvent(2, "ì—°ê²° ìž¥ì¹˜ ë¶„ë¦¬!!");
 		cde.start();
 	}
 
