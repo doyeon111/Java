@@ -2,7 +2,7 @@ package practice01;
 
 import practice01.Count.CountDownEvent;
 
-//pdf 01¹ø¹®Á¦ (¾²·¹µå¿¬½À)
+//pdf 01ë²ˆë¬¸ì œ (ì“°ë ˆë“œì—°ìŠµ)
 
 class Count extends Thread {
 	protected int count;
@@ -15,7 +15,7 @@ class Count extends Thread {
 	@Override
 	public void run() {
 		for (int i = count; i >=1; i--) {
-			System.out.println(i + "ÃÊ ÀüÀÔ´Ï´Ù.");
+			System.out.println(i + "ì´ˆ ì „ìž…ë‹ˆë‹¤.");
 
 			try {
 				Thread.sleep(1000);
@@ -23,7 +23,7 @@ class Count extends Thread {
 
 			}
 		}
-		System.out.println("¹ß»ç !!!");
+		System.out.println("ë°œì‚¬ !!!");
 	}
 
 	class CountDownEvent extends Count {
@@ -32,17 +32,17 @@ class Count extends Thread {
 		public CountDownEvent(int count, int time) {
 			super(count);
 			this.time = time;
-		}
+		} 
 
 		@Override
 		public void run() {
 			for (int i = 1; i <= 20; i--) {
-				System.out.println(i + "ÃÊ ÀüÀÔ´Ï´Ù.");
+				System.out.println(i + "ì´ˆ ì „ìž…ë‹ˆë‹¤.");
 
 				try {
 					Thread.sleep(100);
 				} catch (Exception e) {
-					System.out.println("´ë±â½Ã°£ÀÌ Áö³µ½À´Ï´Ù.");
+					System.out.println("ëŒ€ê¸°ì‹œê°„ì´ ì§€ë‚¬ìŠµë‹ˆë‹¤.");
 				}
 			}
 
