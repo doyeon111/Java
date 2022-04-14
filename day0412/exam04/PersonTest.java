@@ -13,7 +13,7 @@ class Person extends Thread {
 			System.out.println("Hello, " + name + " " + i);
 
 			try {
-				Thread.sleep(100); // ´ë±â½Ã°£À» »ı¼º , ÄÄÇ»ÅÍ¸¦ 0.1ÃÊ ¸ØÃßµµ·Ï ÇÑ´Ù.
+				Thread.sleep(100); // ëŒ€ê¸°ì‹œê°„ì„ ìƒì„± , ì»´í“¨í„°ë¥¼ 0.1ì´ˆ ë©ˆì¶”ë„ë¡ í•œë‹¤.
 			} catch (Exception e) {
 
 			}
@@ -29,18 +29,18 @@ public class PersonTest {
 		System.out.println(Thread.MIN_PRIORITY); //1
 		System.out.println(Thread.NORM_PRIORITY); //5
 		
-		Person p1 = new Person("È«±æµ¿");
-		Person p2 = new Person("ÀÌ¼ø½Å");
-		Person p3 = new Person("±èÀ¯½Å");
+		Person p1 = new Person("í™ê¸¸ë™");
+		Person p2 = new Person("ì´ìˆœì‹ ");
+		Person p3 = new Person("ê¹€ìœ ì‹ ");
 		
-		p1.setPriority(Thread.MIN_PRIORITY); //ÃÖ°í ¿ì¼±¼øÀ§
-		p2.setPriority(1); //¹Ù·Î À§¿¡Ã³·³ ½áÁàµµ µÇ°í 1·Î½áÁàµµ µ¿ÀÏ
-		p3.setPriority(Thread.MAX_PRIORITY ); //ÀÏÀ» ¸ÕÀú ³¡³»´Ş¶ó°í ¿äÃ»À» ÇÏÁö¸¸ ²À ¹İµå½Ã ¸ÕÀú ³¡³»´Â °ÍÀº ¾Æ´Ï´Ù.
+		p1.setPriority(Thread.MIN_PRIORITY); //ìµœê³  ìš°ì„ ìˆœìœ„
+		p2.setPriority(1); //ë°”ë¡œ ìœ„ì—ì²˜ëŸ¼ ì¨ì¤˜ë„ ë˜ê³  1ë¡œì¨ì¤˜ë„ ë™ì¼
+		p3.setPriority(Thread.MAX_PRIORITY ); //ì¼ì„ ë¨¼ì € ëë‚´ë‹¬ë¼ê³  ìš”ì²­ì„ í•˜ì§€ë§Œ ê¼­ ë°˜ë“œì‹œ ë¨¼ì € ëë‚´ëŠ” ê²ƒì€ ì•„ë‹ˆë‹¤.
 
-		p1.start(); //µÑÀÌ °øÆòÇÏ°Ô ½ÇÇàÇÒ ¼ö ÀÖ°Ô ²û 
+		p1.start(); //ë‘˜ì´ ê³µí‰í•˜ê²Œ ì‹¤í–‰í•  ìˆ˜ ìˆê²Œ ë” 
 		p2.start();
 		p3.start();
 
 	}
 
-}
+} 
