@@ -1,5 +1,5 @@
 package practice01;
-//0414¼÷Á¦1¹ø
+//0414ìˆ™ì œ1ë²ˆ
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Arrays;
@@ -8,44 +8,44 @@ public class EchoServerUDP {
 
 	public static void main(String[] args) {
 		try {
-			//UDP ¹æ½Ä¿¡¼­ µ¥ÀÌÅÍ¸¦ ÁÖ°í¹Ş±â À§ÇØ¼­´Â µ¥ÀÌÅÍ±×·¥ ¼ÒÄÏÀ» ÀÌ¿ë
+			//UDP ë°©ì‹ì—ì„œ ë°ì´í„°ë¥¼ ì£¼ê³ ë°›ê¸° ìœ„í•´ì„œëŠ” ë°ì´í„°ê·¸ë¨ ì†Œì¼“ì„ ì´ìš©
 			DatagramSocket socket = new DatagramSocket(9002);
 			
-			//µ¥ÀÌÅÍ¸¦ ´ãÀ» ¹è¿­À» ¸¸µç´Ù.
+			//ë°ì´í„°ë¥¼ ë‹´ì„ ë°°ì—´ì„ ë§Œë“ ë‹¤.
 			byte []data = new byte[100];
 			
-			//UDP ¹æ½Ä¿¡¼­ µ¥ÀÌÅÍ¸¦ ÁÖ°í¹Ş´Â ´ÜÀ§ÀÎ µ¥ÀÌÅÍ±×·¥ÆĞÅ¶À» »ı¼º
+			//UDP ë°©ì‹ì—ì„œ ë°ì´í„°ë¥¼ ì£¼ê³ ë°›ëŠ” ë‹¨ìœ„ì¸ ë°ì´í„°ê·¸ë¨íŒ¨í‚·ì„ ìƒì„±
 			DatagramPacket packet = new DatagramPacket(data, data.length);
 			
-			//°è¼Ó µ¿ÀÛ
+			//ê³„ì† ë™ì‘
 			while(true) {
 				
-				//UDP ¹æ½Ä¿¡¼­ µ¥ÀÌÅÍ¸¦ ÁÖ°í¹Ş´Â ±â´ÉÀ» °®°íÀÖ´Â µ¥ÀÌÅÍ±×·¥¼ÒÄÏ °´Ã¼¸¦ ÅëÇÏ¿© µ¥ÀÌÅÍ¸¦ ¹Ş´Â´Ù.
+				//UDP ë°©ì‹ì—ì„œ ë°ì´í„°ë¥¼ ì£¼ê³ ë°›ëŠ” ê¸°ëŠ¥ì„ ê°–ê³ ìˆëŠ” ë°ì´í„°ê·¸ë¨ì†Œì¼“ ê°ì²´ë¥¼ í†µí•˜ì—¬ ë°ì´í„°ë¥¼ ë°›ëŠ”ë‹¤.
 				socket.receive(packet);
 				
-				//¹ŞÀº µ¥ÀÌÅÍ¸¦ ±×´ë·Î ¸Ş¾Æ¸®ÇÑ´Ù.
+				//ë°›ì€ ë°ì´í„°ë¥¼ ê·¸ëŒ€ë¡œ ë©”ì•„ë¦¬í•œë‹¤.
 				socket.send(packet);
 				
-				//¼ö½ÅÇÑ ¹®ÀÚ¿­ÀÌ q!ÀÌ¸é Á¾·á
+				//ìˆ˜ì‹ í•œ ë¬¸ìì—´ì´ q!ì´ë©´ ì¢…ë£Œ
 				String msg = new String(data).trim();
 				
 				if(msg.equals("q!")) {
-					break;
+					break; 
 				}
 				
-				System.out.println("Å¬¶óÀÌ¾ğÆ®·ÎºÎÅÍ ¼ö½ÅµÈ µ¥ÀÌÅÍ: " + msg);
+				System.out.println("í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ìˆ˜ì‹ ëœ ë°ì´í„°: " + msg);
 				
-				//´ÙÀ½µ¥ÀÌÅÍ ¼ö½ÅÀ» À§ÇÏ¿© ¹è¿­À» ºñ¿öÁØ´Ù.
+				//ë‹¤ìŒë°ì´í„° ìˆ˜ì‹ ì„ ìœ„í•˜ì—¬ ë°°ì—´ì„ ë¹„ì›Œì¤€ë‹¤.
 				Arrays.fill(data, (byte)0);
 			}
 			
-			//»ç¿ëÇß´ø ÀÚ¿øÀ» ´İ¾ÆÁØ´Ù.
+			//ì‚¬ìš©í–ˆë˜ ìì›ì„ ë‹«ì•„ì¤€ë‹¤.
 			socket.close();
 			
 			
 			
 		}catch(Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
