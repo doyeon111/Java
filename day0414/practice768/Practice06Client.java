@@ -19,30 +19,30 @@ public class Practice06Client {
 			byte []data = new byte[100];
 
 			while (true) {
-				System.out.print("¼­¹ö·Î Àü¼ÛÇÒ ÅØ½ºÆ®: ");
+				System.out.print("ì„œë²„ë¡œ ì „ì†¡í•  í…ìŠ¤íŠ¸: ");
 				msg = sc.next();
 				os.write(msg.getBytes());
 				
-				if (msg.equals("q!")) { // ¸Ş½ÃÁö°¡ q!¸¦ ÀÔ·ÂÇÏ¸é Á¾·á
+				if (msg.equals("q!")) { // ë©”ì‹œì§€ê°€ q!ë¥¼ ì…ë ¥í•˜ë©´ ì¢…ë£Œ
 					break;
 				}
 				is.read(data);
 				String reMsg = new String(data);
-				String msg_U = msg.toUpperCase(); //ÀÔ·Â¹ŞÀº ¹®ÀÚ¸¦ ¸ğµÎ ´ë¹®ÀÚ·Î ¹Ù²Ş toUpperCase
-				System.out.println("¼­¹ö·ÎºÎÅÍ Àü¼ÛµÈ ÅØ½ºÆ®: " + msg_U);
-				Arrays.fill(data, (byte)0); //µ¥ÀÌÅÍ¸¦ ºñ¿öÁÜ.
+				String msg_U = msg.toUpperCase(); //ì…ë ¥ë°›ì€ ë¬¸ìë¥¼ ëª¨ë‘ ëŒ€ë¬¸ìë¡œ ë°”ê¿ˆ toUpperCase
+				System.out.println("ì„œë²„ë¡œë¶€í„° ì „ì†¡ëœ í…ìŠ¤íŠ¸: " + msg_U);
+				Arrays.fill(data, (byte)0); //ë°ì´í„°ë¥¼ ë¹„ì›Œì¤Œ.
 			}
 			
-			System.out.println("Åë½ÅÀ» Á¾·áÇÏ¿´½À´Ï´Ù.");
+			System.out.println("í†µì‹ ì„ ì¢…ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 			is.close();
 			os.close();
 			socket.close();
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
-
+ 
 	}
 
 }
