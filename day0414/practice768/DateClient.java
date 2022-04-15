@@ -9,18 +9,18 @@ public class DateClient {
 
 	public static void main(String[] args) {
 		try {
-			// 3. ¼­¹ö¿¡°Ô Åë½ÅÀ» ¿äÃ»ÇÑ´Ù.
-			Socket socket = new Socket("192.168.35.171", 9000); // ipÁÖ¼Ò¿Í Æ÷Æ®¹øÈ£ 9000¹ø (server¿¡¼­ ¼³Á¤ÇØÁÜ) //cmd¿¡¼­ È®ÀÎÇÑ ¾ÆÀÌÇÇÁÖ¼Ò¸¦
-																// Àû¾îÁØ´Ù.
+			// 3. ì„œë²„ì—ê²Œ í†µì‹ ì„ ìš”ì²­í•œë‹¤.
+			Socket socket = new Socket("192.168.35.171", 9000); // ipì£¼ì†Œì™€ í¬íŠ¸ë²ˆí˜¸ 9000ë²ˆ (serverì—ì„œ ì„¤ì •í•´ì¤Œ) //cmdì—ì„œ í™•ì¸í•œ ì•„ì´í”¼ì£¼ì†Œë¥¼
+																// ì ì–´ì¤€ë‹¤.
 
-			// 5. µ¥ÀÌÅÍ¸¦ ÁÖ°í¹ŞÀ» ½ºÆ®¸²À» »ı¼º
+			// 5. ë°ì´í„°ë¥¼ ì£¼ê³ ë°›ì„ ìŠ¤íŠ¸ë¦¼ì„ ìƒì„±
 			InputStream is = socket.getInputStream();
 			OutputStream os = socket.getOutputStream();
 			
-			Date today = new Date(); //dateÀ» ÀÌ¿ëÇÏ±â À§ÇÔ
+			Date today = new Date(); //dateì„ ì´ìš©í•˜ê¸° ìœ„í•¨
 			
 			int year = today.getYear() + 1900;
-			int month = today.getMonth() + 1; //0~11ÀÌ±â ¶§¹®¿¡ + 1À» ´õÇØÁØ´Ù.
+			int month = today.getMonth() + 1; //0~11ì´ê¸° ë•Œë¬¸ì— + 1ì„ ë”í•´ì¤€ë‹¤.
 			int date = today.getDate();
 			int hour = today.getHours();
 			int minute = today.getMinutes();
@@ -28,15 +28,15 @@ public class DateClient {
 			
 			System.out.println(today);
 			
-			int n = is.read(); //¼ö½ÅµÈ µ¥ÀÌÅÍ¸¦ ÀĞ¾î¿È.
+			int n = is.read(); //ìˆ˜ì‹ ëœ ë°ì´í„°ë¥¼ ì½ì–´ì˜´.
 			
-			// 7. »ç¿ëÇß´ø ÀÚ¿øÀ» ´İ¾ÆÁØ´Ù.
+			// 7. ì‚¬ìš©í–ˆë˜ ìì›ì„ ë‹«ì•„ì¤€ë‹¤. 
 			is.close();
 			os.close();
 			socket.close();	
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
