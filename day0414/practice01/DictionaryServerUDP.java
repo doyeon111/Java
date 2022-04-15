@@ -9,83 +9,83 @@ import java.util.HashMap;
 public class DictionaryServerUDP {
 
 	public static void main(String[] args) {
-		// ¿µ¾î´Ü¾î¸¦ Å°·ÎÇÏ°í, ÇÑ±¹¾î¸¦ °ªÀ¸·Î ÇÏ´Â mapÀ» »ý¼º
+		// ì˜ì–´ë‹¨ì–´ë¥¼ í‚¤ë¡œí•˜ê³ , í•œêµ­ì–´ë¥¼ ê°’ìœ¼ë¡œ í•˜ëŠ” mapì„ ìƒì„±
 		HashMap<String, String> map = new HashMap<String, String>();
 
-		map.put("apple", "»ç°ú");
-		map.put("grape", "Æ÷µµ");
-		map.put("watermelon", "¼ö¹Ú");
-		map.put("strawberry", "µþ±â");
+		map.put("apple", "ì‚¬ê³¼");
+		map.put("grape", "í¬ë„");
+		map.put("watermelon", "ìˆ˜ë°•");
+		map.put("strawberry", "ë”¸ê¸°");
 
 		try {
 
-			// UDP ¹æ½ÄÀÇ µ¥ÀÌÅÍ¸¦ ÁÖ°í¹ÞÀ» µ¥ÀÌÅÍ±×·¥ ¼ÒÄÏ °´Ã¼¸¦ »ý¼º
+			// UDP ë°©ì‹ì˜ ë°ì´í„°ë¥¼ ì£¼ê³ ë°›ì„ ë°ì´í„°ê·¸ëž¨ ì†Œì¼“ ê°ì²´ë¥¼ ìƒì„±
 			DatagramSocket socket = new DatagramSocket(9004);
 			
-			System.out.println("*** ¼­¹ö°¡ ÁØºñµÇ¾ú½À´Ï´Ù. ***");
+			System.out.println("*** ì„œë²„ê°€ ì¤€ë¹„ë˜ì—ˆìŠµë‹ˆë‹¤. ***");
 
-			// ÆÐÅ¶ »ý¼º¿¡ ÇÊ¿äÇÑ ¹è¿­À» ¸¸µç´Ù.
+			// íŒ¨í‚· ìƒì„±ì— í•„ìš”í•œ ë°°ì—´ì„ ë§Œë“ ë‹¤.
 			byte[] data = new byte[100];
 
-			// UDP¹æ½ÄÀÇ µ¥ÀÌÅÍ Àü¼Û´ÜÀ§ÀÎ ÆÐÅ¶À» »ý¼º
+			// UDPë°©ì‹ì˜ ë°ì´í„° ì „ì†¡ë‹¨ìœ„ì¸ íŒ¨í‚·ì„ ìƒì„±
 			DatagramPacket packet = new DatagramPacket(data, data.length);
 			
-			//¹ø¿ªµÈ µ¥ÀÌÅÍ Àü¼ÛÀ» À§ÇÑ ÆÐÅ¶º¯¼ö¸¦ ¼±¾ð
+			//ë²ˆì—­ëœ ë°ì´í„° ì „ì†¡ì„ ìœ„í•œ íŒ¨í‚·ë³€ìˆ˜ë¥¼ ì„ ì–¸
 			DatagramPacket rePacket = null;
-
-			// Å¬¶óÀÌ¾ðÆ®·Î ºÎÅÍ ¿À´Â µ¥ÀÌÅÍ¸¦ °è¼ÓÇØ¼­ ¹Þ±â À§ÇÏ¿© ¹«ÇÑ·çÇÁ¸¦ Ç¥Çö
+  
+			// í´ë¼ì´ì–¸íŠ¸ë¡œ ë¶€í„° ì˜¤ëŠ” ë°ì´í„°ë¥¼ ê³„ì†í•´ì„œ ë°›ê¸° ìœ„í•˜ì—¬ ë¬´í•œë£¨í”„ë¥¼ í‘œí˜„
 			while (true) {
-				// Å¬¶óÀÌ¾ðÆ®·ÎºÎÅÍ µ¥ÀÌÅÍ¸¦ ¹Þ´Â´Ù.
-				socket.receive(packet);
+				// í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ë°ì´í„°ë¥¼ ë°›ëŠ”ë‹¤.
+				socket.receive(packet); 
 
-				// ¼ö½ÅµÈ µ¥ÀÌÅÍ°¡ ´ã±ä ¹è¿­À» °®°í ¹®ÀÚ¿­À» »ý¼º
+				// ìˆ˜ì‹ ëœ ë°ì´í„°ê°€ ë‹´ê¸´ ë°°ì—´ì„ ê°–ê³  ë¬¸ìžì—´ì„ ìƒì„±
 				String eng = new String(data).trim();
 				
-				System.out.println("Å¬¶óÀÌ¾ðÆ®·ÎºÎÅÍ ¼ö½ÅµÈ µ¥ÀÌÅÍ: " +eng);
+				System.out.println("í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ìˆ˜ì‹ ëœ ë°ì´í„°: " +eng);
 
-				// ¸¸¾à ¼ö½ÅµÈ ¹®ÀÚ¿­ÀÌ q!¶ó¸é Á¾·á
+				// ë§Œì•½ ìˆ˜ì‹ ëœ ë¬¸ìžì—´ì´ q!ë¼ë©´ ì¢…ë£Œ
 				if (eng.equals("q!")) {
 					break;
 				}
 
-				// eng¸¦ key·Î ÇÏ¿© map¿¡¼­ ÇÑ±¹¾î¸¦ »Ì¾Æ¿Â´Ù.
+				// engë¥¼ keyë¡œ í•˜ì—¬ mapì—ì„œ í•œêµ­ì–´ë¥¼ ë½‘ì•„ì˜¨ë‹¤.
 				String kor = map.get(eng);
 
-				// ¸¸¾à »çÀü¿¡ µî·ÏµÈ ´Ü¾î°¡ ¾Æ´Ï¸é "¾øÀ½"À» ÀúÀå
+				// ë§Œì•½ ì‚¬ì „ì— ë“±ë¡ëœ ë‹¨ì–´ê°€ ì•„ë‹ˆë©´ "ì—†ìŒ"ì„ ì €ìž¥
 				if (kor == null) {
-					kor = "¾øÀ½";
+					kor = "ì—†ìŒ";
 				}
 
-				// ¹ø¿ªµÈ µ¥ÀÌÅÍ kor¸¦ º¸³»±â À§ÇØ¼­ µ¥ÀÌÅÍ±×·¥ ÆÐÅ¶ÀÌ ÇÊ¿äÇÏ´Ù.
-				//ÀÌ¹Ì °®°íÀÖ´Â Å¬¶óÀÌ¾ðÆ®·ÎºÎÅÍ ¼ö½ÅÀ» À§ÇØ¼­ ¸¸µé¾îÁØ ÆÐÅ¶À» »ç¿ë
-				//±×ÆÐÅ¶ ¾È¿¡´Â ÀÌ¹Ì ¸ñÀûÁö ÁÖ¼Ò¿Í, Æ÷Æ®¹øÈ£µµ ÀÖ±â ¶§¹®¿¡ µ¥ÀÌÅÍ¸¸ °¥¾Æ³¢¿ì¸é µÈ´Ù.
-				//¸Ç Ã³À½ ¹ÞÀº µ¥ÀÌÅÍ¿¡ ´ëÇÑ ÀÀ´äÀÌ µÇ°í, ´ÙÀ½ µ¥ÀÌÅÍ¸¦ ¼ö½ÅÀ» ¸øÇÑ´Ù.
-				//³»º¸³»±â À§ÇÑ ÆÐÅ¶À» µû·Î ¸¸µç´Ù.
+				// ë²ˆì—­ëœ ë°ì´í„° korë¥¼ ë³´ë‚´ê¸° ìœ„í•´ì„œ ë°ì´í„°ê·¸ëž¨ íŒ¨í‚·ì´ í•„ìš”í•˜ë‹¤.
+				//ì´ë¯¸ ê°–ê³ ìžˆëŠ” í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ìˆ˜ì‹ ì„ ìœ„í•´ì„œ ë§Œë“¤ì–´ì¤€ íŒ¨í‚·ì„ ì‚¬ìš©
+				//ê·¸íŒ¨í‚· ì•ˆì—ëŠ” ì´ë¯¸ ëª©ì ì§€ ì£¼ì†Œì™€, í¬íŠ¸ë²ˆí˜¸ë„ ìžˆê¸° ë•Œë¬¸ì— ë°ì´í„°ë§Œ ê°ˆì•„ë¼ìš°ë©´ ëœë‹¤.
+				//ë§¨ ì²˜ìŒ ë°›ì€ ë°ì´í„°ì— ëŒ€í•œ ì‘ë‹µì´ ë˜ê³ , ë‹¤ìŒ ë°ì´í„°ë¥¼ ìˆ˜ì‹ ì„ ëª»í•œë‹¤.
+				//ë‚´ë³´ë‚´ê¸° ìœ„í•œ íŒ¨í‚·ì„ ë”°ë¡œ ë§Œë“ ë‹¤.
 				
 				
-				//µ¥ÀÌÅÍ¸¦ º¸³»±â À§ÇÑ ¸ñÀûÁö ÁÖ¼Ò¸¦ ¼ö½ÅÇÑ ÆÐÅ¶À¸·ÎºÎÅÍ ¹Þ¾Æ¿Â´Ù.
+				//ë°ì´í„°ë¥¼ ë³´ë‚´ê¸° ìœ„í•œ ëª©ì ì§€ ì£¼ì†Œë¥¼ ìˆ˜ì‹ í•œ íŒ¨í‚·ìœ¼ë¡œë¶€í„° ë°›ì•„ì˜¨ë‹¤.
 				InetAddress reAddr = packet.getAddress();
 				
-				//µ¥ÀÌÅÍ¸¦ º¸³»±â À§ÇÑ ¸ñÀûÁöÀÇ port¹øÈ£µµ ¹Þ¾Æ¿Â´Ù.
+				//ë°ì´í„°ë¥¼ ë³´ë‚´ê¸° ìœ„í•œ ëª©ì ì§€ì˜ portë²ˆí˜¸ë„ ë°›ì•„ì˜¨ë‹¤.
 				int rePort = packet.getPort();
 				
-				//¹ø¿ªµÈ µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ±â À§ÇÑ ÆÐÅ¶À» »ý¼º
+				//ë²ˆì—­ëœ ë°ì´í„°ë¥¼ ì „ì†¡í•˜ê¸° ìœ„í•œ íŒ¨í‚·ì„ ìƒì„±
 				rePacket =  new DatagramPacket(kor.getBytes(), kor.getBytes().length, reAddr, rePort);
 				
 
-				// ¹ø¿ªµÈ µ¥ÀÌÅÍ¸¦ Å¬¶óÀÌ¾ðÆ®¿¡°Ô ³»º¸³½´Ù.
+				// ë²ˆì—­ëœ ë°ì´í„°ë¥¼ í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë‚´ë³´ë‚¸ë‹¤.
 				socket.send(rePacket);
 				
-				// ´ÙÀ½µ¥ÀÌÅÍ ¼ö½ÅÀ» À§ÇÏ¿© ¹è¿­À» ºñ¿öÁØ´Ù.
+				// ë‹¤ìŒë°ì´í„° ìˆ˜ì‹ ì„ ìœ„í•˜ì—¬ ë°°ì—´ì„ ë¹„ì›Œì¤€ë‹¤.
 				Arrays.fill(data, (byte) 0);
 			}
 			
 			socket.close();
-			System.out.println("*** Á¾·áÇÏ¿´½À´Ï´Ù. ***");
+			System.out.println("*** ì¢…ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤. ***");
 			
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 
