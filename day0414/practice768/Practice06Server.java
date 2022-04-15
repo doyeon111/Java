@@ -12,10 +12,10 @@ public class Practice06Server {
 	public static void main(String[] args) {
 		try {
 			ServerSocket server = new ServerSocket(9001);
-			System.out.println("¼­¹öÇÁ·Î±×·¥ÀÔ´Ï´Ù.");
+			System.out.println("ì„œë²„í”„ë¡œê·¸ë¨ì…ë‹ˆë‹¤.");
 			while(true) {
 				Socket socket = server.accept();
-				System.out.println("¿¬°áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("ì—°ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				System.out.println("-----------------------------------------------------");
 				
 				InputStream is = socket.getInputStream();
@@ -23,21 +23,21 @@ public class Practice06Server {
 				byte []data= new byte[100];
 				
 				while(true) {
-					is.read(data); //µ¥ÀÌÅÍ¸¦ ¹ŞÀº °Í
+					is.read(data); //ë°ì´í„°ë¥¼ ë°›ì€ ê²ƒ
 					String msg = new String(data);
-					System.out.println("Å¬¶óÀÌ¾ğÆ®°¡ Àü¼ÛÇÑ ÅØ½ºÆ®: " +msg);
+					System.out.println("í´ë¼ì´ì–¸íŠ¸ê°€ ì „ì†¡í•œ í…ìŠ¤íŠ¸: " +msg);
 					
-					String msg_U = msg.toUpperCase(); //ÀÔ·Â¹ŞÀº ¹®ÀÚ¸¦ ¸ğµÎ ´ë¹®ÀÚ·Î ¹Ù²Ş toUpperCase
+					String msg_U = msg.toUpperCase(); //ì…ë ¥ë°›ì€ ë¬¸ìë¥¼ ëª¨ë‘ ëŒ€ë¬¸ìë¡œ ë°”ê¿ˆ toUpperCase
 					
 					if(msg.trim().equals("q!")) {
 						break;
-					}
-					os.write(data); //µ¥ÀÌÅÍ¸¦ ¹ŞÀº °ÍÀ» ±×´ë·Î ³»º¸³»´Â °Í ==> ¸Ş¾Æ¸®
-					System.out.println("Å¬¶óÀÌ¾ğÆ®°¡ º¸³½ ÅØ½ºÆ®: " +msg_U);
-					Arrays.fill(data, (byte)0); //µ¥ÀÌÅÍ¸¦ ºñ¿öÁÜ.
+					} 
+					os.write(data); //ë°ì´í„°ë¥¼ ë°›ì€ ê²ƒì„ ê·¸ëŒ€ë¡œ ë‚´ë³´ë‚´ëŠ” ê²ƒ ==> ë©”ì•„ë¦¬
+					System.out.println("í´ë¼ì´ì–¸íŠ¸ê°€ ë³´ë‚¸ í…ìŠ¤íŠ¸: " +msg_U);
+					Arrays.fill(data, (byte)0); //ë°ì´í„°ë¥¼ ë¹„ì›Œì¤Œ.
 				}
 				
-				System.out.println("Å¬¶óÀÌ¾ğÆ®¿Í ¿¬°áÀ» Á¾·áÇÏ¿´½À´Ï´Ù.");
+				System.out.println("í´ë¼ì´ì–¸íŠ¸ì™€ ì—°ê²°ì„ ì¢…ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 				System.out.println("-------------------------------------------------------");
 				
 				is.close();
@@ -48,7 +48,7 @@ public class Practice06Server {
 			
 			
 		} catch(Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
