@@ -1,6 +1,6 @@
 package practice01;
 
-//0413 °úÁ¦ 
+//0413 ê³¼ì œ 
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
@@ -14,7 +14,7 @@ public class LottoServer {
 	public static void main(String[] args) {
 		try {
 			ServerSocket server = new ServerSocket(9000);
-			System.out.println(" ** ¼­¹ö°¡ °¡µ¿µÇ¾ú½À´Ï´Ù. **");
+			System.out.println(" ** ì„œë²„ê°€ ê°€ë™ë˜ì—ˆìŠµë‹ˆë‹¤. **");
 
 			while (true) {
 				Socket socket = server.accept();
@@ -28,20 +28,20 @@ public class LottoServer {
 
 				while (true) {
 					if (set.size() >= 6) {
-						break;
+			 			break;
 					}
 					set.add(r.nextInt(45) + 1);
 				}
 
-				// set¿¡ ´ã±ä µ¥ÀÌÅÍ¸¦ ¼ø¼­´ë·Î ÇÏ³ª¾¿ ²ôÁı¾î ³»¾î¿Í¼­ Å¬¶óÀÌ¾ğÆ®¿¡°Ô ³»º¸³»º¸±â.
-				// setÀÇ ¿ä¼Ò¸¦ ÇÏ³ª¾¿ ²ôÁı¾î ³»¾î¿À·Á¸é Iterator·Î ¸¸µç´Ù.
+				// setì— ë‹´ê¸´ ë°ì´í„°ë¥¼ ìˆœì„œëŒ€ë¡œ í•˜ë‚˜ì”© ë„ì§‘ì–´ ë‚´ì–´ì™€ì„œ í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë‚´ë³´ë‚´ë³´ê¸°.
+				// setì˜ ìš”ì†Œë¥¼ í•˜ë‚˜ì”© ë„ì§‘ì–´ ë‚´ì–´ì˜¤ë ¤ë©´ Iteratorë¡œ ë§Œë“ ë‹¤.
 				Iterator<Integer> iter = set.iterator();
 				while (iter.hasNext()) {
 					int n = iter.next();
 					os.write(n);
 					Thread.sleep(200);
 				}
-				System.out.println("Å¬¶óÀÌ¾ğÆ®¿¡°Ô ·Î¶Ç¹øÈ£¸¦ Àü¼ÛÇÏ¿´½À´Ï´Ù.");
+				System.out.println("í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë¡œë˜ë²ˆí˜¸ë¥¼ ì „ì†¡í•˜ì˜€ìŠµë‹ˆë‹¤.");
 				os.close();
 				is.close();
 				socket.close();
@@ -49,7 +49,7 @@ public class LottoServer {
 			}
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
