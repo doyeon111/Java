@@ -19,28 +19,28 @@ public class EchoClient {
 			byte []data = new byte[100];
 
 			while (true) {
-				System.out.print("¼­¹ö·Î º¸³¾ ¹®ÀÚ¿­À» ÀÔ·Â: ");
+				System.out.print("ì„œë²„ë¡œ ë³´ë‚¼ ë¬¸ìì—´ì„ ì…ë ¥: ");
 				msg = sc.next();
 				os.write(msg.getBytes());
 				
-				if (msg.equals("q!")) { // ¸Ş½ÃÁö°¡ q!¸¦ ÀÔ·ÂÇÏ¸é Á¾·á
+				if (msg.equals("q!")) { // ë©”ì‹œì§€ê°€ q!ë¥¼ ì…ë ¥í•˜ë©´ ì¢…ë£Œ
 					break;
 				}
 				is.read(data);
 				String reMsg = new String(data);
-				System.out.println("¼­¹ö·ÎºÎÅÍ ¸Ş¾Æ¸® µÈ ¸Ş¼¼Áö: " + reMsg);
-				Arrays.fill(data, (byte)0); //µ¥ÀÌÅÍ¸¦ ºñ¿öÁÜ.
+				System.out.println("ì„œë²„ë¡œë¶€í„° ë©”ì•„ë¦¬ ëœ ë©”ì„¸ì§€: " + reMsg);
+				Arrays.fill(data, (byte)0); //ë°ì´í„°ë¥¼ ë¹„ì›Œì¤Œ.
 			}
 			
-			System.out.println("Åë½ÅÀ» Á¾·áÇÏ¿´½À´Ï´Ù.");
+			System.out.println("í†µì‹ ì„ ì¢…ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 			is.close();
 			os.close();
 			socket.close();
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
-	}
+	} 
 
 }
