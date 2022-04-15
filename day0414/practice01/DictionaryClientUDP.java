@@ -10,70 +10,70 @@ public class DictionaryClientUDP {
 
 	public static void main(String[] args) {
 		try {
-			// UDP¹æ½ÄÀÇ µ¥ÀÌÅÍ¸¦ ÁÖ°í ¹ÞÀ» µ¥ÀÌÅÍ±×·¥¼ÒÄÏ °´Ã¼¸¦ »ý¼º
+			// UDPë°©ì‹ì˜ ë°ì´í„°ë¥¼ ì£¼ê³  ë°›ì„ ë°ì´í„°ê·¸ëž¨ì†Œì¼“ ê°ì²´ë¥¼ ìƒì„±
 			DatagramSocket socket = new DatagramSocket();
 			
-			System.out.println("*** Å¬¶óÀÌ¾ðÆ®°¡ ÁØºñµÇ¾ú½À´Ï´Ù. ***");
+			System.out.println("*** í´ë¼ì´ì–¸íŠ¸ê°€ ì¤€ë¹„ë˜ì—ˆìŠµë‹ˆë‹¤. ***");
 
-			// Å°º¸µå ÀÔ·ÂÀ» À§ÇÑ ½ºÄ³³Ê °´Ã¼¸¦ »ý¼º
+			// í‚¤ë³´ë“œ ìž…ë ¥ì„ ìœ„í•œ ìŠ¤ìºë„ˆ ê°ì²´ë¥¼ ìƒì„±
 			Scanner sc = new Scanner(System.in);
 
-			// »ç¿ëÀÚ·ÎºÎÅÍ ¿µ¾î´Ü¾î ÀÔ·ÂÀ» À§ÇÑ º¯¼ö¸¦ ¼±¾ð
+			// ì‚¬ìš©ìžë¡œë¶€í„° ì˜ì–´ë‹¨ì–´ ìž…ë ¥ì„ ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 			String eng;
 
-			// ¼­¹ö·ÎºÎÅÍ ¹ø¿ªµÇ¾î ¼ö½ÅµÈ ÇÑ±¹¾î¸¦ ÀúÀåÇÏ±â À§ÇÑ º¯¼ö¸¦ ¼±¾ð
+			// ì„œë²„ë¡œë¶€í„° ë²ˆì—­ë˜ì–´ ìˆ˜ì‹ ëœ í•œêµ­ì–´ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 			String kor;
 
-			// UDP¹æ½ÄÀÇ µ¥ÀÌÅÍ Àü¼Û´ÜÀ§ÀÎ µ¥ÀÌÅÍ±×·¥ÆÐÅ¶ º¯¼ö¸¦ ¼±¾ð
+			// UDPë°©ì‹ì˜ ë°ì´í„° ì „ì†¡ë‹¨ìœ„ì¸ ë°ì´í„°ê·¸ëž¨íŒ¨í‚· ë³€ìˆ˜ë¥¼ ì„ ì–¸
 			DatagramPacket packet = null;
 			
-			
-			//¼ö½ÅµÈ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ±â À§ÇÑ ¹è¿­À» ¼±¾ð
+			 
+			//ìˆ˜ì‹ ëœ ë°ì´í„°ë¥¼ ì €ìž¥í•˜ê¸° ìœ„í•œ ë°°ì—´ì„ ì„ ì–¸
 			byte []data = new byte[100];
 			
-			//¼­¹ö·ÎºÎÅÍ ¹ø¿ªµÈ ÇÑ±¹¾î¸¦ ¼ö½ÅÇÏ±â À§ÇÑ µ¥ÀÌÅÍ¸¦ ¹ÞÀ» ÆÐÅ¶À» »ý¼º
+			//ì„œë²„ë¡œë¶€í„° ë²ˆì—­ëœ í•œêµ­ì–´ë¥¼ ìˆ˜ì‹ í•˜ê¸° ìœ„í•œ ë°ì´í„°ë¥¼ ë°›ì„ íŒ¨í‚·ì„ ìƒì„±
 			DatagramPacket rePacket = new DatagramPacket(data, data.length);
 
-			// ÆÐÅ¶À» »ý¼ºÇÒ ¶§¿¡ ÇÊ¿äÇÑ InetAddress °´Ã¼¸¦ »ý¼º
+			// íŒ¨í‚·ì„ ìƒì„±í•  ë•Œì— í•„ìš”í•œ InetAddress ê°ì²´ë¥¼ ìƒì„±
 			InetAddress addr = InetAddress.getByName("192.168.35.171");
 
-			// ÆÐÅ¶À» »ý¼ºÇÒ ¶§¿¡ ÇÊ¿äÇÑ Æ÷Æ®¹øÈ£¸¦ º¯¼ö¿¡ ÀúÀå
+			// íŒ¨í‚·ì„ ìƒì„±í•  ë•Œì— í•„ìš”í•œ í¬íŠ¸ë²ˆí˜¸ë¥¼ ë³€ìˆ˜ì— ì €ìž¥
 			int port = 9004;
 
-			// °è¼Ó¹Ýº¹ÇÏ¿© ½ÇÇà
+			// ê³„ì†ë°˜ë³µí•˜ì—¬ ì‹¤í–‰
 			while (true) {
-				// »ç¿ëÀÚÇÑÅ× ¹ø¿ªÇÒ ¿µ¾î´Ü¾î¸¦ ÀÔ·Â¹Þ´Â´Ù.
-				System.out.print("¹ø¿ªÇÒ ¿µ¾î´Ü¾î¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+				// ì‚¬ìš©ìží•œí…Œ ë²ˆì—­í•  ì˜ì–´ë‹¨ì–´ë¥¼ ìž…ë ¥ë°›ëŠ”ë‹¤.
+				System.out.print("ë²ˆì—­í•  ì˜ì–´ë‹¨ì–´ë¥¼ ìž…ë ¥í•˜ì„¸ìš”: ");
 				eng = sc.next();
 
-				// ÀÔ·Â¹ÞÀº ¿µ¾î´Ü¾î¿Í, ¸ñÀûÁö ÁÖ¼Ò, Æ÷Æ®¹øÈ£¸¦ °®°í UDP¹æ½ÄÀÇ µ¥ÀÌÅÍ Àü¼Û´ÜÀ§ÀÎ ÆÐÅ¶À» »ý¼º
+				// ìž…ë ¥ë°›ì€ ì˜ì–´ë‹¨ì–´ì™€, ëª©ì ì§€ ì£¼ì†Œ, í¬íŠ¸ë²ˆí˜¸ë¥¼ ê°–ê³  UDPë°©ì‹ì˜ ë°ì´í„° ì „ì†¡ë‹¨ìœ„ì¸ íŒ¨í‚·ì„ ìƒì„±
 				packet = new DatagramPacket(eng.getBytes(), eng.getBytes().length, addr, port);
 
-				// »ý¼ºµÈ ÆÐÅ¶À» ¼­¹ö·Î º¸³½´Ù.
+				// ìƒì„±ëœ íŒ¨í‚·ì„ ì„œë²„ë¡œ ë³´ë‚¸ë‹¤.
 				socket.send(packet);
 
-				// ¸¸¾à, ÀÔ·ÂÇÑ ¿µ¾î´Ü¾î°¡ "q!"ÀÌ¸é Á¾·á
+				// ë§Œì•½, ìž…ë ¥í•œ ì˜ì–´ë‹¨ì–´ê°€ "q!"ì´ë©´ ì¢…ë£Œ
 				if (eng.equals("q!")) {
 					break;
 				}
 				
-				//¼­¹ö·ÎºÎÅÍ ¹ø¿ªÇÑ ÇÑ±¹¾î¸¦ ¼ö½ÅÇÑ´Ù.
+				//ì„œë²„ë¡œë¶€í„° ë²ˆì—­í•œ í•œêµ­ì–´ë¥¼ ìˆ˜ì‹ í•œë‹¤.
 				socket.receive(rePacket);
 				
-				//¼ö½ÅµÈ µ¥ÀÌÅÍ°¡ ´ã±ä ¹è¿­À» °®°í ¹®ÀÚ¿­À» »ý¼º
+				//ìˆ˜ì‹ ëœ ë°ì´í„°ê°€ ë‹´ê¸´ ë°°ì—´ì„ ê°–ê³  ë¬¸ìžì—´ì„ ìƒì„±
 				kor = new String(data);
 				
-				//¹ø¿ªÇÑ ÇÑ±¹¾î¸¦ Ãâ·ÂÇÑ´Ù.
-				System.out.println("¼­¹ö·ÎºÎÅÍ ¹ø¿ªÇÏ¿© ¼ö½ÅÇÑ µ¥ÀÌÅÍ: " + kor);
+				//ë²ˆì—­í•œ í•œêµ­ì–´ë¥¼ ì¶œë ¥í•œë‹¤.
+				System.out.println("ì„œë²„ë¡œë¶€í„° ë²ˆì—­í•˜ì—¬ ìˆ˜ì‹ í•œ ë°ì´í„°: " + kor);
 				
-				//´ÙÀ½ µ¥ÀÌÅÍ ¼ö½ÅÀ» À§ÇÏ¿© ¹è¿­À» ºñ¿öÁØ´Ù.
+				//ë‹¤ìŒ ë°ì´í„° ìˆ˜ì‹ ì„ ìœ„í•˜ì—¬ ë°°ì—´ì„ ë¹„ì›Œì¤€ë‹¤.
 				Arrays.fill(data, (byte)0);
 			}
 			socket.close();
-			System.out.println("***Á¾·áÇÏ¿´½À´Ï´Ù.***");
+			System.out.println("***ì¢…ë£Œí•˜ì˜€ìŠµë‹ˆë‹¤.***");
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
