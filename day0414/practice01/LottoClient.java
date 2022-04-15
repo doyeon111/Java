@@ -12,7 +12,7 @@ public class LottoClient {
 			InputStream is = socket.getInputStream();
 			OutputStream os = socket.getOutputStream();
 			
-			System.out.println("¼­¹ö·Î ºÎÅÍ ¼ö½ÅµÈ ·Î¶Ç ¹øÈ£´Â ´ÙÀ½°ú °°½À´Ï´Ù.");
+			System.out.println("ì„œë²„ë¡œ ë¶€í„° ìˆ˜ì‹ ëœ ë¡œë˜ ë²ˆí˜¸ëŠ” ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.");
 			System.out.println("-----------------------------------------------------");
 			
 			for(int i=1; i<=6; i++) {
@@ -26,9 +26,9 @@ public class LottoClient {
 			socket.close();
 			
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
 
-}
+} 
