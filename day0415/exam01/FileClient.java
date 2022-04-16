@@ -20,17 +20,17 @@ public class FileClient extends JFrame implements ActionListener {
 	JTextField jtf;
 	JFileChooser jfc;
 
-	// ¼±ÅÃÇÑ ÆÄÀÏÀ» ´ã±âÀ§ÇÑ º¯¼ö
+	// ì„ íƒí•œ íŒŒì¼ì„ ë‹´ê¸°ìœ„í•œ ë³€ìˆ˜
 	File file;
 
-	// µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ±â À§ÇÑ ½ºÆ®¸²À» ¸â¹öº¯¼ö·Î ¼±¾ğ
+	// ë°ì´í„°ë¥¼ ì „ì†¡í•˜ê¸° ìœ„í•œ ìŠ¤íŠ¸ë¦¼ì„ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	OutputStream os;
 
 	public FileClient() {
-		jfc = new JFileChooser("c:/temp");
+		jfc = new JFileChooser("c:/temp"); 
 		jtf = new JTextField(30);
-		JButton btnFile = new JButton("ÆÄÀÏ¼±ÅÃ");
-		JButton btnSend = new JButton("ÆÄÀÏÀü¼Û");
+		JButton btnFile = new JButton("íŒŒì¼ì„ íƒ");
+		JButton btnSend = new JButton("íŒŒì¼ì „ì†¡");
 
 		btnFile.addActionListener(this);
 		btnSend.addActionListener(this);
@@ -45,14 +45,14 @@ public class FileClient extends JFrame implements ActionListener {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		try {
-			// ¼­¹ö¿¡°Ô Åë½ÅÀ» ¿äÃ»
+			// ì„œë²„ì—ê²Œ í†µì‹ ì„ ìš”ì²­
 			Socket socket = new Socket("192.168.35.171", 9005);
 
-			// µ¥ÀÌÅÍ Àü¼ÛÀ» À§ÇÑ ½ºÆ®¸²À» »ı¼º
+			// ë°ì´í„° ì „ì†¡ì„ ìœ„í•œ ìŠ¤íŠ¸ë¦¼ì„ ìƒì„±
 			os = socket.getOutputStream();
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 
@@ -60,42 +60,42 @@ public class FileClient extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String cmd = e.getActionCommand();
 
-		if (cmd.equals("ÆÄÀÏ¼±ÅÃ")) {
+		if (cmd.equals("íŒŒì¼ì„ íƒ")) {
 
 			int re = jfc.showOpenDialog(this);
 
 			if (re == JFileChooser.APPROVE_OPTION) {
 
-				// Àü¼ÛÇÏ±â À§ÇÏ¿© ¼±ÅÃÇÑ ÆÄÀÏÀ» ¸â¹öº¯¼ö file¿¡ ´ã¾ÆµĞ´Ù.
+				// ì „ì†¡í•˜ê¸° ìœ„í•˜ì—¬ ì„ íƒí•œ íŒŒì¼ì„ ë©¤ë²„ë³€ìˆ˜ fileì— ë‹´ì•„ë‘”ë‹¤.
 				file = jfc.getSelectedFile();
 
-				// ¼±ÅÃÇÑ ÆÄÀÏÀÌ¸§À» ÅØ½ºÆ®ÇÊµå¿¡ Ãâ·Â
+				// ì„ íƒí•œ íŒŒì¼ì´ë¦„ì„ í…ìŠ¤íŠ¸í•„ë“œì— ì¶œë ¥
 				jtf.setText(file.getName());
 			}
 
-		} else if (cmd.equals("ÆÄÀÏÀü¼Û")) {
+		} else if (cmd.equals("íŒŒì¼ì „ì†¡")) {
 			try {
-				// ¼±ÅÃÇÑ ÆÄÀÏÀ» ¸Ş¸ğ¸®·Î ÀĞ¾îµéÀÌ±â À§ÇÑ FileInputStream °´Ã¼¸¦ »ı¼º
+				// ì„ íƒí•œ íŒŒì¼ì„ ë©”ëª¨ë¦¬ë¡œ ì½ì–´ë“¤ì´ê¸° ìœ„í•œ FileInputStream ê°ì²´ë¥¼ ìƒì„±
 				FileInputStream fis = new FileInputStream(file);
 
-				// ÆÄÀÏÀÇ ³»¿ëÀ» ÀĞ¾îµéÀÌ±â À§ÇÑ ¹è¿­À» ¸¸µç´Ù.
+				// íŒŒì¼ì˜ ë‚´ìš©ì„ ì½ì–´ë“¤ì´ê¸° ìœ„í•œ ë°°ì—´ì„ ë§Œë“ ë‹¤.
 				byte[] data = new byte[200];
 
-				// ÆÄÀÏÀÇ ³¡ÀÌ ¾Æ´Ò ¶§ ±îÁö ÀĞ¾îµéÀÎ´Ù
+				// íŒŒì¼ì˜ ëì´ ì•„ë‹ ë•Œ ê¹Œì§€ ì½ì–´ë“¤ì¸ë‹¤
 				while (fis.read(data) != -1) {
-					// ÀĞ¾îµéÀÎ ³»¿ëÀ» ½ºÆ®¸²À» ÅëÇØ ¼­¹ö·Î º¸³½´Ù.
+					// ì½ì–´ë“¤ì¸ ë‚´ìš©ì„ ìŠ¤íŠ¸ë¦¼ì„ í†µí•´ ì„œë²„ë¡œ ë³´ë‚¸ë‹¤.
 					os.write(data);
 
-					// ´ÙÀ½ µ¥ÀÌÅÍ¸¦ À§ÇÏ¿© ¹è¿­À» ºñ¿öÁØ´Ù.
+					// ë‹¤ìŒ ë°ì´í„°ë¥¼ ìœ„í•˜ì—¬ ë°°ì—´ì„ ë¹„ì›Œì¤€ë‹¤.
 					Arrays.fill(data, (byte) 0);
 				}
-				// ³»º¸³»±â ³¡³­ ÆÄÀÏÀ» ´İ¾ÆÁØ´Ù.
+				// ë‚´ë³´ë‚´ê¸° ëë‚œ íŒŒì¼ì„ ë‹«ì•„ì¤€ë‹¤.
 				fis.close();
 				
-				JOptionPane.showMessageDialog(this, "ÆÄÀÏÀ» Àü¼ÛÇÏ¿´½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(this, "íŒŒì¼ì„ ì „ì†¡í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 			} catch (Exception ex) {
-				System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+				System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 			}
 		}
 
