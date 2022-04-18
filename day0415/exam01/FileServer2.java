@@ -4,41 +4,41 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//0414 °úÁ¦ 8¹ø
+//0414 ê³¼ì œ 8ë²ˆ
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class FileServer2 extends JFrame {
-	// ÀÌ¹ÌÁö¸¦ Ç¥ÇöÇÏ±â À§ÇÑ ¶óº§À» ¸â¹öº¯¼ö·Î ¼±¾ğ
+	// ì´ë¯¸ì§€ë¥¼ í‘œí˜„í•˜ê¸° ìœ„í•œ ë¼ë²¨ì„ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	JLabel label;
 
-	// ¶óº§ÀÇ ÀÌ¹ÌÁö¸¦ Ç¥ÇöÇÏ±â À§ÇÏ¿© ÀÌ¹ÌÁö ¾ÆÀÌÄÜÀÌ ÇÊ¿äÇÏ´Ù
+	// ë¼ë²¨ì˜ ì´ë¯¸ì§€ë¥¼ í‘œí˜„í•˜ê¸° ìœ„í•˜ì—¬ ì´ë¯¸ì§€ ì•„ì´ì½˜ì´ í•„ìš”í•˜ë‹¤
 	ImageIcon icon;
 
 	public FileServer2() {
-		// ÀÌ¹ÌÁö ¾ÆÀÌÄÜ °´Ã¼¸¦ »ı¼º
+		// ì´ë¯¸ì§€ ì•„ì´ì½˜ ê°ì²´ë¥¼ ìƒì„±
 		icon = new ImageIcon("flower.png");
 
-		// ÀÌ¹ÌÁö ¾ÆÀÌÄÜ °´Ã¼¸¦ °®°í ¶óº§À» »ı¼º
+		// ì´ë¯¸ì§€ ì•„ì´ì½˜ ê°ì²´ë¥¼ ê°–ê³  ë¼ë²¨ì„ ìƒì„±
 		label = new JLabel(icon);
 
-		// ¶óº§À» ÇÁ·¹ÀÓÀÇ °¡¿îµ¥¿¡ ´ã´Â´Ù.
+		// ë¼ë²¨ì„ í”„ë ˆì„ì˜ ê°€ìš´ë°ì— ë‹´ëŠ”ë‹¤.
 		add(label, BorderLayout.CENTER);
 
-		JButton btn = new JButton("ÀÌ¹ÌÁö ¹Ù²Ù±â");
+		JButton btn = new JButton("ì´ë¯¸ì§€ ë°”ê¾¸ê¸°");
 		add(btn, BorderLayout.SOUTH);
 
-		// ÀÌ¸§¾ø´Â InnerÅ¬·¡½º(ÀÍ¸íÅ¬·¡½º)¸¦ ÅëÇØ¼­ ÀÌº¥Æ® Ã³¸®
+		// ì´ë¦„ì—†ëŠ” Innerí´ë˜ìŠ¤(ìµëª…í´ë˜ìŠ¤)ë¥¼ í†µí•´ì„œ ì´ë²¤íŠ¸ ì²˜ë¦¬
 		btn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// ÀÌ¹ÌÁö ¾ÆÀÌÄÜÀ» ´Ù½Ã¸¸µç´Ù.
+				// ì´ë¯¸ì§€ ì•„ì´ì½˜ì„ ë‹¤ì‹œë§Œë“ ë‹¤.
 				icon = new ImageIcon("enemy.png");
 
-				// ´Ù½Ã ¸¸µé¾îÁø ÀÌ¹ÌÁö ¾ÆÀÌÄÜÀ» ¶óº§¿¡ ¼³Á¤
+				// ë‹¤ì‹œ ë§Œë“¤ì–´ì§„ ì´ë¯¸ì§€ ì•„ì´ì½˜ì„ ë¼ë²¨ì— ì„¤ì •
 				label.setIcon(icon);
 			}
 		});
@@ -51,6 +51,6 @@ public class FileServer2 extends JFrame {
 	public static void main(String[] args) {
 		new FileServer2();
 
-	}
+	} 
 
 }
