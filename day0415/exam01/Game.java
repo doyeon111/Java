@@ -1,7 +1,7 @@
 package exam01;
-//pdf ½º·¹µå¿Í ±×·¡ÇÈ ¿¬½À programmin 1¹ø
+//pdf ìŠ¤ë ˆë“œì™€ ê·¸ëž˜í”½ ì—°ìŠµ programmin 1ë²ˆ
 
-//°ÔÀÓ + Ãß°¡
+//ê²Œìž„ + ì¶”ê°€
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -18,143 +18,143 @@ import javax.sound.sampled.Clip;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-//Àû, ÇÃ·¹ÀÌ¾î, ¹Ì»çÀÏÀÌ °øÅëÀ¸·Î °¡Á®¾ß ÇÒ ºÎ¸ðÅ¬·¡½º¸¦ ¸¸µç´Ù.
+//ì , í”Œë ˆì´ì–´, ë¯¸ì‚¬ì¼ì´ ê³µí†µìœ¼ë¡œ ê°€ì ¸ì•¼ í•  ë¶€ëª¨í´ëž˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
 class GraphicObject {
-	// ±×¸²ÆÄÀÏÀ» ÂüÁ¶ÇÒ º¯¼ö¸¦ ¼±¾ð
+	// ê·¸ë¦¼íŒŒì¼ì„ ì°¸ì¡°í•  ë³€ìˆ˜ë¥¼ ì„ ì–¸
 	BufferedImage img = null;
 
-	// ±×¸²À» Ãâ·ÂÇÒ À§Ä¡ º¯¼ö¸¦ ¼±¾ð
+	// ê·¸ë¦¼ì„ ì¶œë ¥í•  ìœ„ì¹˜ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 	int x = 0, y = 0;
 
-	// »ý¼º ½Ã¿¡ ±×¸²ÆÄÀÏ¸íÀ» Àü´Þ¹Þ´Â´Ù.
+	// ìƒì„± ì‹œì— ê·¸ë¦¼íŒŒì¼ëª…ì„ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public GraphicObject(String name) {
-		try { // ±×¸²ÆÄÀÏÀ» ÀÐ¾î µéÀÏ ¶§¿¡ ¿¹¿Ü°¡ ¹ß»ýÇÏ±â ¶§¹®¿¡ ¿¹¿ÜÃ³¸®¸¦ ÇØÁØ´Ù.
-			img = ImageIO.read(new File(name)); // ÆÄÀÏÀÇ ÀÌ¸§À» ¸Å°³º¯¼ö·Î Àü´Þ¹Þ´Â´Ù.
+		try { // ê·¸ë¦¼íŒŒì¼ì„ ì½ì–´ ë“¤ì¼ ë•Œì— ì˜ˆì™¸ê°€ ë°œìƒí•˜ê¸° ë•Œë¬¸ì— ì˜ˆì™¸ì²˜ë¦¬ë¥¼ í•´ì¤€ë‹¤.
+			img = ImageIO.read(new File(name)); // íŒŒì¼ì˜ ì´ë¦„ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ëŠ”ë‹¤.
 
 		} catch (IOException e) {
-			// ¿¹¿Ü°¡ ¹ß»ýÇÏ¸é ¿¹¿Ü ¸Þ½ÃÁö¸¦ Ãâ·Â
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			// ì˜ˆì™¸ê°€ ë°œìƒí•˜ë©´ ì˜ˆì™¸ ë©”ì‹œì§€ë¥¼ ì¶œë ¥
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 
-			// ¿¹¿Ü°¡ ¹ß»ýÇÏ¸é ÇÁ·Î±×·¥À» Á¾·á½ÃÅ´
+			// ì˜ˆì™¸ê°€ ë°œìƒí•˜ë©´ í”„ë¡œê·¸ëž¨ì„ ì¢…ë£Œì‹œí‚´
 			System.exit(0);
 		}
 	}
 
-	// ±×·¡ÇÈÀÇ À§Ä¡¸¦ º¯°æÇÏ±â À§ÇÑ ¸Þ¼Òµå¸¦ Á¤ÀÇ
-	// body¸¦ ±¸Ã¼È­ÇÏÁö ¾Ê¾Æ¼­ ÀÚ½ÄÅ¬·¡½ºµéÀÌ ÀÚ½Å¿¡°Ô ¸Âµµ·Ï ¿À¹ö¶óÀÌµù ÇÏµµ·Ï ÇÑ´Ù.
+	// ê·¸ëž˜í”½ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½í•˜ê¸° ìœ„í•œ ë©”ì†Œë“œë¥¼ ì •ì˜
+	// bodyë¥¼ êµ¬ì²´í™”í•˜ì§€ ì•Šì•„ì„œ ìžì‹í´ëž˜ìŠ¤ë“¤ì´ ìžì‹ ì—ê²Œ ë§žë„ë¡ ì˜¤ë²„ë¼ì´ë”© í•˜ë„ë¡ í•œë‹¤.
 	public void update() {
 	}
 
-	// º¯°æµÈ À§Ä¡¿¡ ±×·¡ÇÈÀ» ±×·ÁÁÖ±â À§ÇÑ ¸Þ¼Òµå
+	// ë³€ê²½ëœ ìœ„ì¹˜ì— ê·¸ëž˜í”½ì„ ê·¸ë ¤ì£¼ê¸° ìœ„í•œ ë©”ì†Œë“œ
 	public void draw(Graphics g) {
 		g.drawImage(img, x, y, null);
 	}
 
-	// Å°º¸µå ÀÌº¥Æ®¸¦ Ã³¸®ÇÏ±â À§ÇÑ ¸Þ¼Òµå
-	// body¸¦ ±¸Ã¼È­ÇÏÁö ¾Ê¾Æ¼­ ÀÚ½ÄÅ¬·¡½ºµéÀÌ ÀÚ½Å¿¡°Ô ¸Âµµ·Ï ¿À¹ö¶óÀÌµù ÇÏµµ·Ï ÇÑ´Ù.
+	// í‚¤ë³´ë“œ ì´ë²¤íŠ¸ë¥¼ ì²˜ë¦¬í•˜ê¸° ìœ„í•œ ë©”ì†Œë“œ
+	// bodyë¥¼ êµ¬ì²´í™”í•˜ì§€ ì•Šì•„ì„œ ìžì‹í´ëž˜ìŠ¤ë“¤ì´ ìžì‹ ì—ê²Œ ë§žë„ë¡ ì˜¤ë²„ë¼ì´ë”© í•˜ë„ë¡ í•œë‹¤.
 	public void keyPressed(KeyEvent event) {
 	}
 
 }
 
-//GrapicObject¸¦ È®ÀåÇÑ ¹Ì»çÀÏ Å¬·¡½º¸¦ ¸¸µç´Ù.
+//GrapicObjectë¥¼ í™•ìž¥í•œ ë¯¸ì‚¬ì¼ í´ëž˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
 class Missile extends GraphicObject {
-	// ¹Ì»çÀÏÀ» ±×·ÁÁÙÁö ¸»Áö¸¦ À§ÇÑ »óÅÂº¯¼ö
+	// ë¯¸ì‚¬ì¼ì„ ê·¸ë ¤ì¤„ì§€ ë§ì§€ë¥¼ ìœ„í•œ ìƒíƒœë³€ìˆ˜
 	boolean launched = false;
 
-	// »ý¼º ½Ã¿¡ ¹Ì»çÀÏÀÇ ±×¸²ÆÄÀÏ ÀÌ¸§À» Àü´Þ¹Þ´Â´Ù.
+	// ìƒì„± ì‹œì— ë¯¸ì‚¬ì¼ì˜ ê·¸ë¦¼íŒŒì¼ ì´ë¦„ì„ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public Missile(String name) {
-		// ±×¸² ÆÄÀÏÀÇ ÀÌ¸§À» ºÎ¸ð»ý¼ºÀÚ¿¡°Ô Àü´Þ
+		// ê·¸ë¦¼ íŒŒì¼ì˜ ì´ë¦„ì„ ë¶€ëª¨ìƒì„±ìžì—ê²Œ ì „ë‹¬
 		super(name);
 
-		// ¹Ì»çÀÏÀÇ yÁÂÇ¥¸¦ -200À¸·Î ¼³Á¤
+		// ë¯¸ì‚¬ì¼ì˜ yì¢Œí‘œë¥¼ -200ìœ¼ë¡œ ì„¤ì •
 		y = -200;
 	}
 
 	@Override
-	// ¹Ì»çÀÏÀÇ À§Ä¡¸¦ º¯°æÇÏ±â À§ÇÏ¿© ºÎ¸ðÀÇ update ¸Þ¼Òµå¸¦ ¿À¹ö¶óÀÌµùÇÑ´Ù.
+	// ë¯¸ì‚¬ì¼ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½í•˜ê¸° ìœ„í•˜ì—¬ ë¶€ëª¨ì˜ update ë©”ì†Œë“œë¥¼ ì˜¤ë²„ë¼ì´ë”©í•œë‹¤.
 	public void update() {
-		// ÇöÀç ¹Ì»çÀÏÀÌ ¹ß»çµÈ »óÅÂ¶ó¸é(±×·ÁÁà¾ß ÇÒ »óÅÂ¶ó¸é)
-		// ¹Ì»çÀÏÀÌ À§·Î ÁøÇàÇÏµµ·Ï 1¸¸Å­ °è¼ÓÇÏ¿© °¨¼Ò½ÃÅ²´Ù.
+		// í˜„ìž¬ ë¯¸ì‚¬ì¼ì´ ë°œì‚¬ëœ ìƒíƒœë¼ë©´(ê·¸ë ¤ì¤˜ì•¼ í•  ìƒíƒœë¼ë©´)
+		// ë¯¸ì‚¬ì¼ì´ ìœ„ë¡œ ì§„í–‰í•˜ë„ë¡ 1ë§Œí¼ ê³„ì†í•˜ì—¬ ê°ì†Œì‹œí‚¨ë‹¤.
 		if (launched == true) {
 			y -= 50;
 		}
 
-		// ¸¸¾à ¹Ì»çÀÏÀÇ À§Ä¡°¡ °¨¼ÒÇÏ¿© È­¸éÀÇ ¿µ¿ª¿¡¼­ ¹þ¾î³µ´Ù¸é
-		// ¹Ì»çÀÏÀ» È­¸é¿¡ ±×¸±ÇÊ¿ä°¡ ¾øÀ¸¹Ç·Î launched¿¡ false¸¦ ÀúÀåÇÑ´Ù.
+		// ë§Œì•½ ë¯¸ì‚¬ì¼ì˜ ìœ„ì¹˜ê°€ ê°ì†Œí•˜ì—¬ í™”ë©´ì˜ ì˜ì—­ì—ì„œ ë²—ì–´ë‚¬ë‹¤ë©´
+		// ë¯¸ì‚¬ì¼ì„ í™”ë©´ì— ê·¸ë¦´í•„ìš”ê°€ ì—†ìœ¼ë¯€ë¡œ launchedì— falseë¥¼ ì €ìž¥í•œë‹¤.
 		if (y < -100) {
 			launched = false;
 		}
 
 	}
 
-	// Å°º¸µå°¡ ´­·¯Áö´Â ÀÌº¥Æ® Ã³¸®¸¦ À§ÇÑ ¸Þ¼Òµå¸¦ ¸¸µç´Ù.
-	// Å°º¸µå ÀÌº¥Æ®¿Í ¹Ì»çÀÏÀÇ Ãâ¹ßÁ¡ x,yÁÂÇ¥¸¦ ¸Å°³º¯¼ö·Î Àü´Þ¹Þ´Â´Ù.
+	// í‚¤ë³´ë“œê°€ ëˆŒëŸ¬ì§€ëŠ” ì´ë²¤íŠ¸ ì²˜ë¦¬ë¥¼ ìœ„í•œ ë©”ì†Œë“œë¥¼ ë§Œë“ ë‹¤.
+	// í‚¤ë³´ë“œ ì´ë²¤íŠ¸ì™€ ë¯¸ì‚¬ì¼ì˜ ì¶œë°œì  x,yì¢Œí‘œë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public void keyPressed(KeyEvent event, int x, int y) {
 
-		// ´­·¯Áø Å°°¡ ½ºÆäÀÌ½º¹ÙÀÎÁö ÆÇº°
+		// ëˆŒëŸ¬ì§„ í‚¤ê°€ ìŠ¤íŽ˜ì´ìŠ¤ë°”ì¸ì§€ íŒë³„
 		if (event.getKeyCode() == KeyEvent.VK_SPACE) {
 
-			// ¹Ì»çÀÏÀ» ¹ß»ç½ÃÅ°±â À§ÇÏ¿© launched¿¡ true¸¦ ¼³Á¤
+			// ë¯¸ì‚¬ì¼ì„ ë°œì‚¬ì‹œí‚¤ê¸° ìœ„í•˜ì—¬ launchedì— trueë¥¼ ì„¤ì •
 			launched = true;
 
-			// ¹Ì»çÀÏÀÇ Ãâ¹ßÀ§Ä¡¸¦ ¼³Á¤
+			// ë¯¸ì‚¬ì¼ì˜ ì¶œë°œìœ„ì¹˜ë¥¼ ì„¤ì •
 			this.x = x;
 			this.y = y;
 
-			// ¹Ì»çÀÏÀÌ ¹ß»çµÇ¾úÀ» ¶§ ¼Ò¸®³ª°Ô ÇÏ±â.
+			// ë¯¸ì‚¬ì¼ì´ ë°œì‚¬ë˜ì—ˆì„ ë•Œ ì†Œë¦¬ë‚˜ê²Œ í•˜ê¸°.
 
-			// ¼Ò¸®ÆÄÀÏ °´Ã¼¸¦ »ý¼º
+			// ì†Œë¦¬íŒŒì¼ ê°ì²´ë¥¼ ìƒì„±
 			File file = new File("LASER.WAV");
 
 			try {
-				// ¿Àµð¿À ÆÄÀÏÀ» ÀÐ¾î¿À±â À§ÇÑ ÁØºñ
+				// ì˜¤ë””ì˜¤ íŒŒì¼ì„ ì½ì–´ì˜¤ê¸° ìœ„í•œ ì¤€ë¹„
 				Clip clip = AudioSystem.getClip();
 
-				// ¿Àµð¿À ÆÄÀÏÀ» ÀÐ¾î¿À±â
+				// ì˜¤ë””ì˜¤ íŒŒì¼ì„ ì½ì–´ì˜¤ê¸°
 				clip.open(AudioSystem.getAudioInputStream(file));
 
-				// ¿Àµð¿À ÆÄÀÏÀ» Àç»ý
+				// ì˜¤ë””ì˜¤ íŒŒì¼ì„ ìž¬ìƒ
 				clip.start();
 
 			} catch (Exception e) {
-				System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+				System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 			}
 		}
 	}
 
 }
 
-//ÀûÀ» À§ÇÑ Å¬·¡½º
+//ì ì„ ìœ„í•œ í´ëž˜ìŠ¤
 class Enermy extends GraphicObject {
-	// ÀûÀÇ xÃà ÀÌµ¿ °£°ÝÀ» Á¤ÇÏ±â
+	// ì ì˜ xì¶• ì´ë™ ê°„ê²©ì„ ì •í•˜ê¸°
 	// int dx = -10;
 
-	// ÀûÀÇ ÀÌµ¿°æ·Î¸¦ ³­¼ö·Î ¸¸µç´Ù.
+	// ì ì˜ ì´ë™ê²½ë¡œë¥¼ ë‚œìˆ˜ë¡œ ë§Œë“ ë‹¤.
 	int dx, dy;
 
-	// »ý¼º½Ã¿¡ ÀûÀÇ ±×¸²ÆÄÀÏ¸íÀ» Àü´Þ¹Þ´Â´Ù.
+	// ìƒì„±ì‹œì— ì ì˜ ê·¸ë¦¼íŒŒì¼ëª…ì„ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public Enermy(String name) {
-		// ºÎ¸ðÀÇ »ý¼ºÀÚ¿¡°Ô ±×¸²ÆÄÀÏ¸íÀ» Àü´Þ
+		// ë¶€ëª¨ì˜ ìƒì„±ìžì—ê²Œ ê·¸ë¦¼íŒŒì¼ëª…ì„ ì „ë‹¬
 		super(name);
 
-		System.out.println("ÀûÀÌ »ý¼ºµÊ");
+		System.out.println("ì ì´ ìƒì„±ë¨");
 
 		Random r = new Random();
 
-		// ÀûÀÇ À§Ä¡¸¦ ¼³Á¤, ¸Ç Ã³À½ ÀûÀÇ À§Ä¡¸¦ ³­¼ö¸¦ ¸¸µé¾î¼­ ¼³Á¤
+		// ì ì˜ ìœ„ì¹˜ë¥¼ ì„¤ì •, ë§¨ ì²˜ìŒ ì ì˜ ìœ„ì¹˜ë¥¼ ë‚œìˆ˜ë¥¼ ë§Œë“¤ì–´ì„œ ì„¤ì •
 		x = r.nextInt(500);
 		y = r.nextInt(300);
 
-		// ÀûÀÇ ÀÌµ¿ÇÏ´Â °ªÀ» ³­¼ö·Î ¸¸µç´Ù.
-		dx = r.nextInt() % 30; // ¸¸¾à¿¡ ¾ç¼ö¶ó¸é 0~29±îÁö ¿Ã ¼ö ÀÖ´Ù.
+		// ì ì˜ ì´ë™í•˜ëŠ” ê°’ì„ ë‚œìˆ˜ë¡œ ë§Œë“ ë‹¤.
+		dx = r.nextInt() % 30; // ë§Œì•½ì— ì–‘ìˆ˜ë¼ë©´ 0~29ê¹Œì§€ ì˜¬ ìˆ˜ ìžˆë‹¤.
 		dy = r.nextInt() % 30; //
 
-		// ÀÌµ¿ÇÏ´Â °Å¸®ÀÇ ÃÖ¼Ò°ªÀ» 10 ÀÌ»óÀ¸·Î ¸¸µé°í ½Í´Ù.
+		// ì´ë™í•˜ëŠ” ê±°ë¦¬ì˜ ìµœì†Œê°’ì„ 10 ì´ìƒìœ¼ë¡œ ë§Œë“¤ê³  ì‹¶ë‹¤.
 		if (dx >= 0) {
-			dx += 10; // 10~39ÀÇ ¹üÀ§
+			dx += 10; // 10~39ì˜ ë²”ìœ„
 		} else {
-			dx -= 10;
+			dx -= 10; 
 		}
 
 		if (dy >= 0) {
@@ -166,118 +166,118 @@ class Enermy extends GraphicObject {
 	}
 
 	@Override
-	// ÀûÀÇ À§Ä¡¸¦ º¯°æ½ÃÅ°±â À§ÇÑ update ¸Þ¼Òµå¸¦ ¿À¹ö¶óÀÌµù ÇÑ´Ù.
+	// ì ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½ì‹œí‚¤ê¸° ìœ„í•œ update ë©”ì†Œë“œë¥¼ ì˜¤ë²„ë¼ì´ë”© í•œë‹¤.
 	public void update() {
-		// xÃàÀ¸·Î¸¸ ÀÌµ¿½ÃÅ°±â À§ÇÏ¿© x¿¡ ÀÌµ¿°Å¸®ÀÎ dx¸¦ ´©ÀûÇÑ´Ù.
+		// xì¶•ìœ¼ë¡œë§Œ ì´ë™ì‹œí‚¤ê¸° ìœ„í•˜ì—¬ xì— ì´ë™ê±°ë¦¬ì¸ dxë¥¼ ëˆ„ì í•œë‹¤.
 		x += dx;
 
-		// yÃàÀ¸·Î ÀÌµ¿½ÃÅ°±â À§ÇÏ¿©
-		// yÀÇ ÀÌµ¿°Å¸®ÀÎ dy¸¦ ´©Àû
+		// yì¶•ìœ¼ë¡œ ì´ë™ì‹œí‚¤ê¸° ìœ„í•˜ì—¬
+		// yì˜ ì´ë™ê±°ë¦¬ì¸ dyë¥¼ ëˆ„ì 
 		y += dy;
 
-		// xÃàÀÇ ¹üÀ§¸¦ ³Ñ¾ú´Ù¸é ¹Ý´ë¹æÇâÀ¸·Î ÀÌµ¿
+		// xì¶•ì˜ ë²”ìœ„ë¥¼ ë„˜ì—ˆë‹¤ë©´ ë°˜ëŒ€ë°©í–¥ìœ¼ë¡œ ì´ë™
 		if (x < 0 || x >= 500) {
-			dx = dx * -1; // ÇöÀç¹æÇâ¿¡¼­ ¹Ý´ë¹æÇâ
+			dx = dx * -1; // í˜„ìž¬ë°©í–¥ì—ì„œ ë°˜ëŒ€ë°©í–¥
 		}
 
-		// yÃàÀÇ ÀÌµ¿¹üÀ§¸¦ ³Ñ¾ú´Ù¸é ¹Ý´ë¹æÇâÀ¸·Î ÀÌµ¿
+		// yì¶•ì˜ ì´ë™ë²”ìœ„ë¥¼ ë„˜ì—ˆë‹¤ë©´ ë°˜ëŒ€ë°©í–¥ìœ¼ë¡œ ì´ë™
 		if (y < 0 || y >= 300) {
 			dy = dx * -1;
 		}
 	}
 
-	// ÀûÀÌ ¹Ì»çÀÏ¿¡ ¸Â¾ÒÀ¸¸é »ç¶óÁö°Ô ÇÏ´Â ¸Þ¼Òµå Á¤ÀÇ
-	// ÀÌ ¸Þ¼Òµå´Â ÀÏÀ» ÇÏ±â À§ÇÏ¿© ¸Å°³º¯¼ö·Î ¹«¾ùÀ» Àü´Þ¹Þ¾Æ¾ß ÇÒ±î? ==> ¹Ì»çÀÏ ÁÂÇ¥
-	// ÀÌ ¸Þ¼Òµå´Â ¾îµð¼­ È£ÃâÇÏ¸é µÉ±î?
+	// ì ì´ ë¯¸ì‚¬ì¼ì— ë§žì•˜ìœ¼ë©´ ì‚¬ë¼ì§€ê²Œ í•˜ëŠ” ë©”ì†Œë“œ ì •ì˜
+	// ì´ ë©”ì†Œë“œëŠ” ì¼ì„ í•˜ê¸° ìœ„í•˜ì—¬ ë§¤ê°œë³€ìˆ˜ë¡œ ë¬´ì—‡ì„ ì „ë‹¬ë°›ì•„ì•¼ í• ê¹Œ? ==> ë¯¸ì‚¬ì¼ ì¢Œí‘œ
+	// ì´ ë©”ì†Œë“œëŠ” ì–´ë””ì„œ í˜¸ì¶œí•˜ë©´ ë ê¹Œ?
 	public void crush(Missile missile) {
-		// ÀûÀÇ °¡·Î, ¼¼·Î ±æÀÌ¸¦ 40ÀÌ¶ó°í º¸°í, ¹Ì»çÀÏÀÇ x, y ÁÂÇ¥°¡ ±× ¹üÀ§ ¾È¿¡ ÀÖ´ÂÁö ÆÇº°
+		// ì ì˜ ê°€ë¡œ, ì„¸ë¡œ ê¸¸ì´ë¥¼ 40ì´ë¼ê³  ë³´ê³ , ë¯¸ì‚¬ì¼ì˜ x, y ì¢Œí‘œê°€ ê·¸ ë²”ìœ„ ì•ˆì— ìžˆëŠ”ì§€ íŒë³„
 		if (missile.x >= x && missile.x <= x + 40 && missile.y >= y && missile.y <= y + 40) {
 			
 			try {
-				//ÀûÀ» ¸ÂÃß¾úÀ» ¶§¸¦ À§ÇÑ ¼Ò¸®ÆÄÀÏ °´Ã¼¸¦ »ý¼º
+				//ì ì„ ë§žì¶”ì—ˆì„ ë•Œë¥¼ ìœ„í•œ ì†Œë¦¬íŒŒì¼ ê°ì²´ë¥¼ ìƒì„±
 				File file = new File("EXPLODE.WAV");
 				
-				//¿Àµð¿À ÆÄÀÏÀ» ÀÐ¾î¿À±â À§ÇÑ ÁØºñ
+				//ì˜¤ë””ì˜¤ íŒŒì¼ì„ ì½ì–´ì˜¤ê¸° ìœ„í•œ ì¤€ë¹„
 				Clip clip = AudioSystem.getClip();
 				
-				//¿Àµð¿À ÆÄÀÏÀ» ÀÐ¾î¿Â´Ù.
+				//ì˜¤ë””ì˜¤ íŒŒì¼ì„ ì½ì–´ì˜¨ë‹¤.
 				clip.open(AudioSystem.getAudioInputStream(file));
 				
-				//¿Àµð¿À ÆÄÀÏÀ» Àç»ý
+				//ì˜¤ë””ì˜¤ íŒŒì¼ì„ ìž¬ìƒ
 				clip.start();
 				
 			} catch(Exception e) {
 				
 			}
 
-			// y ÁÂÇ¥ °ªÀ» À½¼ö¸¦ ÁÖ¾î¼­ »ç¶óÁö°Ô ÇÑ´Ù.
+			// y ì¢Œí‘œ ê°’ì„ ìŒìˆ˜ë¥¼ ì£¼ì–´ì„œ ì‚¬ë¼ì§€ê²Œ í•œë‹¤.
 			y = -1000;
 		}
 	}
 
 }
 
-//ÇÃ·¹ÀÌ¾î¸¦ À§ÇÑ Å¬·¡½º
+//í”Œë ˆì´ì–´ë¥¼ ìœ„í•œ í´ëž˜ìŠ¤
 class SpaceShip extends GraphicObject {
 
-	// »ý¼º ½Ã¿¡ ±×¸²ÆÄÀÏ¸íÀ» Àü´Þ¹Þ´Â´Ù.
+	// ìƒì„± ì‹œì— ê·¸ë¦¼íŒŒì¼ëª…ì„ ì „ë‹¬ë°›ëŠ”ë‹¤.
 	public SpaceShip(String name) {
-		// ºÎ¸ðÀÇ »ý¼ºÀÚ¿¡°Ô ±×¸²ÆÄÀÏ¸íÀ» Àü´Þ¹Þ´Â´Ù.
+		// ë¶€ëª¨ì˜ ìƒì„±ìžì—ê²Œ ê·¸ë¦¼íŒŒì¼ëª…ì„ ì „ë‹¬ë°›ëŠ”ë‹¤.
 		super(name);
 
-		// ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¸¦ ¼³Á¤
+		// í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ë¥¼ ì„¤ì •
 		x = 150;
 		y = 350;
 	}
 
-	// Å°º¸µå ÀÌº¥Æ®Ã³¸®¸¦ À§ÇÑ ¸Þ¼Òµå¸¦ Á¤ÀÇ
+	// í‚¤ë³´ë“œ ì´ë²¤íŠ¸ì²˜ë¦¬ë¥¼ ìœ„í•œ ë©”ì†Œë“œë¥¼ ì •ì˜
 	public void keyPressed(KeyEvent event) {
-		// ¿ÞÂÊ ¹æÇâÅ°¸¦ ´­·¶´Ù¸é xÀÇ °ªÀ» °¨¼Ò½ÃÄÑ ÇÃ·¹ÀÌ¾î À§Ä¡¸¦ ¿ÞÂÊÀ¸·Î ÀÌµ¿½ÃÅ´.
+		// ì™¼ìª½ ë°©í–¥í‚¤ë¥¼ ëˆŒë €ë‹¤ë©´ xì˜ ê°’ì„ ê°ì†Œì‹œì¼œ í”Œë ˆì´ì–´ ìœ„ì¹˜ë¥¼ ì™¼ìª½ìœ¼ë¡œ ì´ë™ì‹œí‚´.
 		if (event.getKeyCode() == KeyEvent.VK_LEFT) {
 			x -= 10;
 		}
 
-		// ¿À¸¥ÂÊ ¹æÇâÅ°¸¦ ´­·¶´Ù¸é xÀÇ °ªÀ» Áõ°¡½ÃÄÑ ÇÃ·¹ÀÌ¾î À§Ä¡¸¦ ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿½ÃÅ´.
+		// ì˜¤ë¥¸ìª½ ë°©í–¥í‚¤ë¥¼ ëˆŒë €ë‹¤ë©´ xì˜ ê°’ì„ ì¦ê°€ì‹œì¼œ í”Œë ˆì´ì–´ ìœ„ì¹˜ë¥¼ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™ì‹œí‚´.
 		if (event.getKeyCode() == KeyEvent.VK_RIGHT) {
 			x += 10;
 		}
 
-		// À§ÂÊ ¹æÇâÅ°¸¦ ´­·¶´Ù¸é xÀÇ °ªÀ» °¨¼Ò½ÃÄÑ ÇÃ·¹ÀÌ¾î À§Ä¡¸¦ À§ÂÊÀ¸·Î ÀÌµ¿½ÃÅ´.
+		// ìœ„ìª½ ë°©í–¥í‚¤ë¥¼ ëˆŒë €ë‹¤ë©´ xì˜ ê°’ì„ ê°ì†Œì‹œì¼œ í”Œë ˆì´ì–´ ìœ„ì¹˜ë¥¼ ìœ„ìª½ìœ¼ë¡œ ì´ë™ì‹œí‚´.
 		if (event.getKeyCode() == KeyEvent.VK_UP) {
 			y -= 10;
 		}
 
-		// ¾Æ·¡ÂÊ ¹æÇâÅ°¸¦ ´­·¶´Ù¸é xÀÇ °ªÀ» Áõ°¡½ÃÄÑ ÇÃ·¹ÀÌ¾î À§Ä¡¸¦ ¾Æ·¡ÂÊÀ¸·Î ÀÌµ¿½ÃÅ´.
+		// ì•„ëž˜ìª½ ë°©í–¥í‚¤ë¥¼ ëˆŒë €ë‹¤ë©´ xì˜ ê°’ì„ ì¦ê°€ì‹œì¼œ í”Œë ˆì´ì–´ ìœ„ì¹˜ë¥¼ ì•„ëž˜ìª½ìœ¼ë¡œ ì´ë™ì‹œí‚´.
 		if (event.getKeyCode() == KeyEvent.VK_DOWN) {
 			y += 10;
 		}
 	}
 }
 
-//Àû, ÇÃ·¹ÀÌ¾î, ¹Ì»çÀÏÀ» ±×·¡ÇÈÀ¸·Î Ç¥ÇöÇÏ±â À§ÇÑ ÆÐ³Î Å¬·¡½º¸¦ ¸¸µç´Ù.
-//Å°º¸µå ÀÌº¥Æ® Ã³¸®¸¦ À§ÇÏ¿© KeyListener ÀÎÅÍÆäÀÌ½º¸¦ ±¸Çö
+//ì , í”Œë ˆì´ì–´, ë¯¸ì‚¬ì¼ì„ ê·¸ëž˜í”½ìœ¼ë¡œ í‘œí˜„í•˜ê¸° ìœ„í•œ íŒ¨ë„ í´ëž˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
+//í‚¤ë³´ë“œ ì´ë²¤íŠ¸ ì²˜ë¦¬ë¥¼ ìœ„í•˜ì—¬ KeyListener ì¸í„°íŽ˜ì´ìŠ¤ë¥¼ êµ¬í˜„
 class MyPanel extends JPanel implements KeyListener {
 
-	// °ÔÀÓÀÇ ±¸¼º¿ä¼ÒÀÎ Àû, ÇÃ·¹ÀÌ¾î, ¹Ì»çÀÏ °´Ã¼¸¦ ¸â¹öº¯¼ö·Î ¼±¾ð
+	// ê²Œìž„ì˜ êµ¬ì„±ìš”ì†Œì¸ ì , í”Œë ˆì´ì–´, ë¯¸ì‚¬ì¼ ê°ì²´ë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	// Enermy enermy;
-	// ÀûÀ» ¿©·¯ °³ ¸¸µç´Ù.
+	// ì ì„ ì—¬ëŸ¬ ê°œ ë§Œë“ ë‹¤.
 	ArrayList<Enermy> enermyList;
 	SpaceShip spaceship;
 	Missile missile;
 
-	// »ý¼ºÀÚ¿¡¼­ Å°º¸µåÀÌº¥Æ®¸¦ µî·ÏÇÏ°í °¢°¢ÀÇ Àû, ÇÃ·¹ÀÌ¾î, ¹Ì»çÀÏÀÇ °´Ã¼¸¦ »ý¼º
+	// ìƒì„±ìžì—ì„œ í‚¤ë³´ë“œì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•˜ê³  ê°ê°ì˜ ì , í”Œë ˆì´ì–´, ë¯¸ì‚¬ì¼ì˜ ê°ì²´ë¥¼ ìƒì„±
 	public MyPanel() {
 
-		// Å°º¸µå ÀÌº¥Æ®¸¦ µî·Ï
+		// í‚¤ë³´ë“œ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 		addKeyListener(this);
 
-		// ÄÁÅ×ÀÌ³Ê ¿ªÇÒÀÎ ÆÐ³Î¿¡ Å°º¸µå ÀÌº¥Æ®¸¦ µî·ÏÇÏ±â À§ÇÏ¿© ´ÙÀ½ÀÇ ¸Þ¼Òµå¸¦ È£Ãâ
+		// ì»¨í…Œì´ë„ˆ ì—­í• ì¸ íŒ¨ë„ì— í‚¤ë³´ë“œ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡í•˜ê¸° ìœ„í•˜ì—¬ ë‹¤ìŒì˜ ë©”ì†Œë“œë¥¼ í˜¸ì¶œ
 		requestFocus();
 		setFocusable(true);
 
-		// ÀûÀ» À§ÇÑ °´Ã¼¸¦ »ý¼º
+		// ì ì„ ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 		// enermy = new Enermy("enemy.png");
-		// ¿©·¯ °³ÀÇ ÀûÀ» ¸¸µé±â À§ÇÏ¿© list¸¦ »ý¼º
+		// ì—¬ëŸ¬ ê°œì˜ ì ì„ ë§Œë“¤ê¸° ìœ„í•˜ì—¬ listë¥¼ ìƒì„±
 		enermyList = new ArrayList<Enermy>();
 		enermyList.add(new Enermy("enemy.png"));
 		enermyList.add(new Enermy("enemy.png"));
@@ -285,37 +285,37 @@ class MyPanel extends JPanel implements KeyListener {
 		enermyList.add(new Enermy("enemy.png"));
 		enermyList.add(new Enermy("enemy.png"));
 
-		// ÇÃ·¹ÀÌ¾î¸¦ À§ÇÑ °´Ã¼¸¦ »ý¼º
+		// í”Œë ˆì´ì–´ë¥¼ ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 		spaceship = new SpaceShip("player.png");
 
-		// ¹Ì»çÀÏÀ» À§ÇÑ °´Ã¼¸¦ »ý¼º
+		// ë¯¸ì‚¬ì¼ì„ ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 		missile = new Missile("misile.png");
 
-		// Àû, ÇÃ·¹ÀÌ¾î, ¹Ì»çÀÏÀÌ °¢ÀÚ ¼­·Î ¹æÇØ¹ÞÁö ¾Ê°í ±×·¡ÇÈÀ» Ç¥ÇöÇÏµµ·Ï ¾²·¹µå Å¬·¡½º¸¦ ¸¸µç´Ù.
-		// ±×¸®°í ÀÌ Å¬·¡½º´Â ´Ù¸¥ °÷¿¡¼­´Â »ç¿ëµÉ ÀÏÀÌ ¾ø°í ¿©±â ÆÐ³Î¿¡¼­¸¸ ÇÊ¿äÇÏ´Ù.
-		// ÀÌ ¶§¿¡ Å¬·¡½º¸¦ Å¬·¡½º ¾È¿¡ ¸¸µé ¼ö ÀÖ´Ù. ==> inner Å¬·¡½º
+		// ì , í”Œë ˆì´ì–´, ë¯¸ì‚¬ì¼ì´ ê°ìž ì„œë¡œ ë°©í•´ë°›ì§€ ì•Šê³  ê·¸ëž˜í”½ì„ í‘œí˜„í•˜ë„ë¡ ì“°ë ˆë“œ í´ëž˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
+		// ê·¸ë¦¬ê³  ì´ í´ëž˜ìŠ¤ëŠ” ë‹¤ë¥¸ ê³³ì—ì„œëŠ” ì‚¬ìš©ë  ì¼ì´ ì—†ê³  ì—¬ê¸° íŒ¨ë„ì—ì„œë§Œ í•„ìš”í•˜ë‹¤.
+		// ì´ ë•Œì— í´ëž˜ìŠ¤ë¥¼ í´ëž˜ìŠ¤ ì•ˆì— ë§Œë“¤ ìˆ˜ ìžˆë‹¤. ==> inner í´ëž˜ìŠ¤
 		class MyThread extends Thread {
 
 			@Override
-			// runÀ» ¿À¹ö¶óÀÌµùÇÏ¿© ¾²·¹µå°¡ ÇØ¾ßÇÒ ÀÏÀ» ½áÁØ´Ù.
+			// runì„ ì˜¤ë²„ë¼ì´ë”©í•˜ì—¬ ì“°ë ˆë“œê°€ í•´ì•¼í•  ì¼ì„ ì¨ì¤€ë‹¤.
 			public void run() {
 
-				// °è¼Ó ¹Ýº¹ÇÏ¿© Àû, ÇÃ·¹ÀÌ¾î, ¹Ì»çÀÏÀÇ À§Ä¡¸¦ º¯°æÇÏ¿© ´Ù½Ã ±×¸®µµ·Ï ÇÑ´Ù.
+				// ê³„ì† ë°˜ë³µí•˜ì—¬ ì , í”Œë ˆì´ì–´, ë¯¸ì‚¬ì¼ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½í•˜ì—¬ ë‹¤ì‹œ ê·¸ë¦¬ë„ë¡ í•œë‹¤.
 				while (true) {
-					// enermy.update(); // ÀûÀÇ À§Ä¡¸¦ º¯°æ
-					spaceship.update(); // ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¸¦ º¯°æ
-					missile.update(); // ¹Ì»çÀÏÀÇ À§Ä¡¸¦ º¯°æ
+					// enermy.update(); // ì ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½
+					spaceship.update(); // í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½
+					missile.update(); // ë¯¸ì‚¬ì¼ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½
 //
-//					// ÀûÀÌ ¹Ì»çÀÏ¿¡ ¸Â¾ÒÀ¸¸é »ç¶óÁö°Ô ÇÏ´Â ¸Þ¼Òµå¸¦ È£Ãâ
+//					// ì ì´ ë¯¸ì‚¬ì¼ì— ë§žì•˜ìœ¼ë©´ ì‚¬ë¼ì§€ê²Œ í•˜ëŠ” ë©”ì†Œë“œë¥¼ í˜¸ì¶œ
 //					enermy.crush(missile);
 
-					// ¿©·¯ °³ÀÇ ÀûÀÌ ´ã±ä ¸®½ºÆ®ÀÇ ¼ö ¸¸Å­ ¼øÈ¸ÇÏ¸é¼­ °¢°¢ÀÇ ÀûÀÇ À§Ä¡¸¦ °»½ÅÇÏ°í ¸Â¾Ò´ÂÁö ÆÇº°
+					// ì—¬ëŸ¬ ê°œì˜ ì ì´ ë‹´ê¸´ ë¦¬ìŠ¤íŠ¸ì˜ ìˆ˜ ë§Œí¼ ìˆœíšŒí•˜ë©´ì„œ ê°ê°ì˜ ì ì˜ ìœ„ì¹˜ë¥¼ ê°±ì‹ í•˜ê³  ë§žì•˜ëŠ”ì§€ íŒë³„
 					for (Enermy enermy : enermyList) {
 						enermy.update();
 						enermy.crush(missile);
 					}
 
-					repaint(); // º¯°æµÈ À§Ä¡¿¡ ´Ù½Ã ±×·ÁÁØ´Ù.
+					repaint(); // ë³€ê²½ëœ ìœ„ì¹˜ì— ë‹¤ì‹œ ê·¸ë ¤ì¤€ë‹¤.
 
 					try {
 						Thread.sleep(100);
@@ -328,32 +328,32 @@ class MyPanel extends JPanel implements KeyListener {
 
 		}// end Thread
 
-		// ¾²·¹µå °´Ã¼¸¦ »ý¼º
+		// ì“°ë ˆë“œ ê°ì²´ë¥¼ ìƒì„±
 		Thread t = new MyThread();
 
-		// ¾²·¹µå¸¦ °¡µ¿
+		// ì“°ë ˆë“œë¥¼ ê°€ë™
 		t.start();
 
 	}
 
 	@Override
-	// ÆÐ³Î¿¡ ±×·¡ÇÈÀ» Ç¥ÇöÇÏ±â À§ÇÏ¿© paint ¸Þ¼Òµå¸¦ ¿À¹ö¶óÀÌµù ÇÑ´Ù.
+	// íŒ¨ë„ì— ê·¸ëž˜í”½ì„ í‘œí˜„í•˜ê¸° ìœ„í•˜ì—¬ paint ë©”ì†Œë“œë¥¼ ì˜¤ë²„ë¼ì´ë”© í•œë‹¤.
 	public void paint(Graphics g) {
 
-		// ºÎ¸ðÀÇ paint¸¦ È£ÃâÇÏ¿© È­¸éÀ» ±ú²ýÇÏ°Ô Áö¿î´Ù.
+		// ë¶€ëª¨ì˜ paintë¥¼ í˜¸ì¶œí•˜ì—¬ í™”ë©´ì„ ê¹¨ë—í•˜ê²Œ ì§€ìš´ë‹¤.
 		super.paint(g);
 
-		// ÀûÀ» ±×¸°´Ù.
+		// ì ì„ ê·¸ë¦°ë‹¤.
 		// enermy.draw(g);
-		// ¸®½ºÆ®ÀÇ ´ã±ä ¸ðµç ÀûÀ» ±×·ÁÁØ´Ù.
+		// ë¦¬ìŠ¤íŠ¸ì˜ ë‹´ê¸´ ëª¨ë“  ì ì„ ê·¸ë ¤ì¤€ë‹¤.
 		for (Enermy enermy : enermyList) {
 			enermy.draw(g);
 		}
 
-		// ÇÃ·¹ÀÌ¾î¸¦ ±×¸°´Ù.
+		// í”Œë ˆì´ì–´ë¥¼ ê·¸ë¦°ë‹¤.
 		spaceship.draw(g);
 
-		// ¹Ì»çÀÏÀ» ±×¸°´Ù.
+		// ë¯¸ì‚¬ì¼ì„ ê·¸ë¦°ë‹¤.
 		missile.draw(g);
 	}
 
@@ -364,13 +364,13 @@ class MyPanel extends JPanel implements KeyListener {
 	}
 
 	@Override
-	// Å°º¸µå°¡ ´­·¯Á³À» ¶§¿¡ ´ÙÀ½ÀÇ ¸Þ¼Òµå°¡ µ¿ÀÛ
+	// í‚¤ë³´ë“œê°€ ëˆŒëŸ¬ì¡Œì„ ë•Œì— ë‹¤ìŒì˜ ë©”ì†Œë“œê°€ ë™ìž‘
 	public void keyPressed(KeyEvent e) {
-		// Å°º¸µå°¡ ´­·¯Áö¸é ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¸¦ º¯°æÇÏµµ·Ï ¸Þ¼Òµå¸¦ È£Ãâ
+		// í‚¤ë³´ë“œê°€ ëˆŒëŸ¬ì§€ë©´ í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ë¥¼ ë³€ê²½í•˜ë„ë¡ ë©”ì†Œë“œë¥¼ í˜¸ì¶œ
 		spaceship.keyPressed(e);
 
-		// Å°º¸µå°¡ ´­·¯Áö¸é ¹Ì»çÀÏÀ» ¹ß»ç½ÃÅ°±â À§ÇÏ¿© ¸Þ¼Òµå¸¦ È£Ãâ
-		// ÇöÀç ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¿¡¼­ ¹Ì»çÀÏÀÌ ¹ß»çµÇµµ·Ï ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¸¦ Àü´Þ
+		// í‚¤ë³´ë“œê°€ ëˆŒëŸ¬ì§€ë©´ ë¯¸ì‚¬ì¼ì„ ë°œì‚¬ì‹œí‚¤ê¸° ìœ„í•˜ì—¬ ë©”ì†Œë“œë¥¼ í˜¸ì¶œ
+		// í˜„ìž¬ í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ì—ì„œ ë¯¸ì‚¬ì¼ì´ ë°œì‚¬ë˜ë„ë¡ í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ë¥¼ ì „ë‹¬
 		missile.keyPressed(e, spaceship.x, spaceship.y);
 
 	}
@@ -383,11 +383,11 @@ class MyPanel extends JPanel implements KeyListener {
 
 }
 
-//ÇÁ·¹ÀÓÀ» À§ÇÑ Å¬·¡½º¸¦ ¸¸µç´Ù.
+//í”„ë ˆìž„ì„ ìœ„í•œ í´ëž˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
 
 class MyFrame extends JFrame {
 
-	// »ý¼ºÀÚ¿¡¼­ ÆÐ³ÎÀ» »ý¼ºÇÏ¿© ´ã´Â´Ù.
+	// ìƒì„±ìžì—ì„œ íŒ¨ë„ì„ ìƒì„±í•˜ì—¬ ë‹´ëŠ”ë‹¤.
 	public MyFrame() {
 		setTitle("My Game");
 		add(new MyPanel());
