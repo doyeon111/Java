@@ -15,43 +15,43 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-//µ¥ÀÌÅÍº£ÀÌ½º ¿¬µ¿ÇÏ¿© ¸ğµç °í°´ÀÇ Á¤º¸¸¦ Á¦ÀÌÅ×ÀÌºí¿¡ Ãâ·Â
+//ë°ì´í„°ë² ì´ìŠ¤ ì—°ë™í•˜ì—¬ ëª¨ë“  ê³ ê°ì˜ ì •ë³´ë¥¼ ì œì´í…Œì´ë¸”ì— ì¶œë ¥
 public class JTableTestDB extends JFrame implements ActionListener {
 
-	// ¿¢¼¿ÀÇ È­¸é°ú °°ÀÌ Çà, ¿­·Î ±¸¼ºµÇ´Â È­¸éÀ» À§ÇÏ¿© JTableÀ» ¸¸µç´Ù.
+	// ì—‘ì…€ì˜ í™”ë©´ê³¼ ê°™ì´ í–‰, ì—´ë¡œ êµ¬ì„±ë˜ëŠ” í™”ë©´ì„ ìœ„í•˜ì—¬ JTableì„ ë§Œë“ ë‹¤.
 	JTable table;
 
-	// JTable¿¡ µé¾î°¥ ÄÃ·³ÀÌ¸§À» ´ã±â À§ÇÑ Vector¸¦ ¼±¾ğ
+	// JTableì— ë“¤ì–´ê°ˆ ì»¬ëŸ¼ì´ë¦„ì„ ë‹´ê¸° ìœ„í•œ Vectorë¥¼ ì„ ì–¸
 	Vector<String> colNames;
 
-	// JTable¿¡ µé¾î°¥ µ¥ÀÌÅÍ¸¦ ´ã±â À§ÇÑ Vector¸¦ ¼±¾ğ
+	// JTableì— ë“¤ì–´ê°ˆ ë°ì´í„°ë¥¼ ë‹´ê¸° ìœ„í•œ Vectorë¥¼ ì„ ì–¸
 	Vector<Vector<String>> rowData;
 
 	public JTableTestDB() {
-		// ÄÃ·³ÀÌ¸§À» À§ÇÑ Vector¸¦ »ı¼º
+		// ì»¬ëŸ¼ì´ë¦„ì„ ìœ„í•œ Vectorë¥¼ ìƒì„±
 		colNames = new Vector<String>();
 
-		// Å×ÀÌºí¿¡ ´ã±æ µ¥ÀÌÅÍ¸¦ À§ÇÑ º¤ÅÍ¸¦ »ı¼º
+		// í…Œì´ë¸”ì— ë‹´ê¸¸ ë°ì´í„°ë¥¼ ìœ„í•œ ë²¡í„°ë¥¼ ìƒì„± 
 		rowData = new Vector<Vector<String>>();
 
-		// ÄÃ·³ÀÌ¸§ÀÇ ¹éÅÍ µ¥ÀÌÅÍ¸¦ Ãß°¡
-		colNames.add("¾ÆÀÌµğ");
-		colNames.add("ÀÌ¸§");
-		colNames.add("³ªÀÌ");
+		// ì»¬ëŸ¼ì´ë¦„ì˜ ë°±í„° ë°ì´í„°ë¥¼ ì¶”ê°€
+		colNames.add("ì•„ì´ë””");
+		colNames.add("ì´ë¦„");
+		colNames.add("ë‚˜ì´");
 
 		rowData = new Vector<Vector<String>>();
 
-		// Çà ÀÌ¸§ÀÌ ÀÖ´Â º¤ÅÍ¿Í ÀüÃ¼µ¥ÀÌÅÍ°¡ ´ã±ä º¤ÅÍ¸¦ °®°í Á¦ÀÌÅ×ÀÌºíÀ» ¸¸µç´Ù.
+		// í–‰ ì´ë¦„ì´ ìˆëŠ” ë²¡í„°ì™€ ì „ì²´ë°ì´í„°ê°€ ë‹´ê¸´ ë²¡í„°ë¥¼ ê°–ê³  ì œì´í…Œì´ë¸”ì„ ë§Œë“ ë‹¤.
 
 		table = new JTable(rowData, colNames);
 
-		// Á¦ÀÌÅ×ÀÌºíÀ» ½ºÅ©·ÑÆÒÀ¸·Î °¨½Ñ´Ù.
+		// ì œì´í…Œì´ë¸”ì„ ìŠ¤í¬ë¡¤íŒ¬ìœ¼ë¡œ ê°ì‹¼ë‹¤.
 		JScrollPane jsp = new JScrollPane(table);
 
-		// Á¦ÀÌÅ×ÀÌºíÀ» °¨½Î°íÀÖ´Â ½ºÅ©·ÑÆÒÀ» ÇÁ·¹ÀÓ¿¡ ´ã´Â´Ù.
+		// ì œì´í…Œì´ë¸”ì„ ê°ì‹¸ê³ ìˆëŠ” ìŠ¤í¬ë¡¤íŒ¬ì„ í”„ë ˆì„ì— ë‹´ëŠ”ë‹¤.
 		add(jsp, BorderLayout.CENTER);
 
-		JButton btn = new JButton("È¸¿ø¸ñ·Ï ÀĞ¾î¿À±â");
+		JButton btn = new JButton("íšŒì›ëª©ë¡ ì½ì–´ì˜¤ê¸°");
 		add(btn, BorderLayout.SOUTH);
 
 		btn.addActionListener(this);
@@ -67,39 +67,39 @@ public class JTableTestDB extends JFrame implements ActionListener {
 		String sql = "select * from member";
 
 		try {
-			// jdbc µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®·Î ·Îµå
+			// jdbc ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// DB¼­¹ö¿¡ ¿¬°á
+			// DBì„œë²„ì— ì—°ê²°
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.35.171:1521:XE", "c##sist",
 					"sist");
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼¸¦ »ı¼º
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 			Statement stmt = conn.createStatement();
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇà
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰
 			ResultSet rs = stmt.executeQuery(sql);
 
-			// °Ë»öÇÑ °á°ú¸¸Å­ ¹İº¹½ÇÇà
-			while (rs.next()) { // ·¹ÄÚµå¸¦ ¹İÈ¯
+			// ê²€ìƒ‰í•œ ê²°ê³¼ë§Œí¼ ë°˜ë³µì‹¤í–‰
+			while (rs.next()) { // ë ˆì½”ë“œë¥¼ ë°˜í™˜
 
-				// ¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ¸¦ »Ì¾Æ¿Â´Ù.
+				// ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ë¥¼ ë½‘ì•„ì˜¨ë‹¤.
 				String id = rs.getString(1);
 				String name = rs.getString(2);
 				int age = rs.getInt(3);
 
-				// ÇÏ³ªÀÇ ÇàÀ» Ç¥ÇöÇÏ±â À§ÇÑ º¤ÅÍ¸¦ »ı¼º
+				// í•˜ë‚˜ì˜ í–‰ì„ í‘œí˜„í•˜ê¸° ìœ„í•œ ë²¡í„°ë¥¼ ìƒì„±
 				Vector<String> row = new Vector<String>();
 
-				// º¤ÅÍÀÇ ¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ¸¦ ´ã´Â´Ù
+				// ë²¡í„°ì˜ ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ë¥¼ ë‹´ëŠ”ë‹¤
 				row.add(id);
 				row.add(name);
 				row.add(age + "");
 
-				// ÇÏ³ªÀÇ ÇàÀÌ ´ã±ä º¤ÅÍ¸¦ ÀüÃ¼µ¥ÀÌÅÍ¸¦ ´ã±â À§ÇÑ º¤ÅÍ¿¡ ´ã´Â´Ù.
+				// í•˜ë‚˜ì˜ í–‰ì´ ë‹´ê¸´ ë²¡í„°ë¥¼ ì „ì²´ë°ì´í„°ë¥¼ ë‹´ê¸° ìœ„í•œ ë²¡í„°ì— ë‹´ëŠ”ë‹¤.
 				rowData.add(row);
 				
-				//Á¦ÀÌ Å×ÀÌºíÀ» ´Ù½Ã ±×·ÁÁÙ °ÍÀ» ¿äÃ»
+				//ì œì´ í…Œì´ë¸”ì„ ë‹¤ì‹œ ê·¸ë ¤ì¤„ ê²ƒì„ ìš”ì²­
 				table.updateUI();
 
 			}
@@ -109,7 +109,7 @@ public class JTableTestDB extends JFrame implements ActionListener {
 			conn.close();
 
 		} catch (Exception ex) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 		}
 
 	}
