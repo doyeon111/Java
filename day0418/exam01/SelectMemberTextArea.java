@@ -25,7 +25,7 @@ public class SelectMemberTextArea extends JFrame implements ActionListener {
 
 		jta = new JTextArea(10, 80);
 		JScrollPane jsp = new JScrollPane(jta);
-		JButton btn = new JButton("È¸¿ø ¸ñ·Ï Ãâ·Â");
+		JButton btn = new JButton("íšŒì› ëª©ë¡ ì¶œë ¥");
 		add(jsp, BorderLayout.CENTER);
 		add(btn, BorderLayout.SOUTH);
 
@@ -39,44 +39,44 @@ public class SelectMemberTextArea extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		// ½ÇÇàÇÒ µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ¸¸µç´Ù.
+		// ì‹¤í–‰í•  ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ë§Œë“ ë‹¤.
 		String sql = "select * from member";
 
 		try {
-			// jdbc µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®·Î ·Îµå
+			// jdbc ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// DB¼­¹ö¿¡ ¿¬°á
+			// DBì„œë²„ì— ì—°ê²°
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.35.171:1521:XE", "c##sist",
 					"sist");
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼¸¦ »ı¼º
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 			Statement stmt = conn.createStatement();
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇà
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰
 			ResultSet rs = stmt.executeQuery(sql);
 
-			while (rs.next()) { // ·¹ÄÚµå¸¦ ¹İÈ¯
+			while (rs.next()) { // ë ˆì½”ë“œë¥¼ ë°˜í™˜
 
 				String id = rs.getString(1);
 				String name = rs.getString(2);
 				int age = rs.getInt(3);
 
-				// ¹®ÀÚ¿­·Î ¸¸µç´Ù.
+				// ë¬¸ìì—´ë¡œ ë§Œë“ ë‹¤.
 				String row = id + "\t" + name + "\t" + age;
 
-				// ÅØ½ºÆ® ¿¡¸®¾î¿¡ Ãß°¡
+				// í…ìŠ¤íŠ¸ ì—ë¦¬ì–´ì— ì¶”ê°€
 				jta.append(row + "\n");
 
 			}
 
-			// »ç¿ëÇß´ø ÀÚ¿øÀ» ´İ¾ÆÁØ´Ù.
-			// °¡Àå ³ªÁß¿¡ ¸¸µé¾ú´ø ÀÚ¿øºÎÅÍ ´İ¾ÆÁØ´Ù.
+			// ì‚¬ìš©í–ˆë˜ ìì›ì„ ë‹«ì•„ì¤€ë‹¤.
+			// ê°€ì¥ ë‚˜ì¤‘ì— ë§Œë“¤ì—ˆë˜ ìì›ë¶€í„° ë‹«ì•„ì¤€ë‹¤.
 			rs.close();
 			stmt.close();
 			conn.close();
 		} catch (Exception ex) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 		}
 
 	}
@@ -87,5 +87,5 @@ public class SelectMemberTextArea extends JFrame implements ActionListener {
 	}
 	
 	
-
+ 
 }
