@@ -13,48 +13,48 @@ public class InsertMember {
 		String id, name;
 		int age;
 
-		System.out.print("µî·ÏÇÒ È¸¿øÀÇ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë“±ë¡í•  íšŒì›ì˜ ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		id = sc.next();
 
-		System.out.print("µî·ÏÇÒ È¸¿øÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë“±ë¡í•  íšŒì›ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”: ");
 		name = sc.next();
 
-		System.out.print("µî·ÏÇÒ È¸¿øÀÇ ³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ë“±ë¡í•  íšŒì›ì˜ ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		age = sc.nextInt();
 
 		String sql = "insert into member values('" + id + "', '" + name + "', " + age + ")";
 
 		try {
-			// jdbc µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®·Î ·Îµå
+			// jdbc ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			
-			// DB¼­¹ö¿¡ ¿¬°á
+			// DBì„œë²„ì— ì—°ê²°
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.35.171:1521:XE", "c##sist",
 					"sist");
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·ÉÀ» ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼¸¦ »ı¼º
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì„ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 			Statement stmt = conn.createStatement();
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇà
-			// executeUpdate ==> µ¥ÀÌÅÍº£ÀÌ½º¿¡ º¯µ¿ÀÌ ÀÖ´Â ¸í·ÉÀ» ½ÇÇàÇÒ ¶§ »ç¿ë
-			// executeQuery ==> µ¥ÀÌÅÍº£ÀÌ½ºÀÇ ³»¿ëÀ» Á¶È¸ÇÏ´Â ¸í·ÉÀ» ½ÇÇàÇÒ ¶§ »ç¿ë
-			int re = stmt.executeUpdate(sql); // ¼º°øÀûÀ¸·Î ¸í·ÉÀ» ½ÇÇàÇÑ ·¹ÄÚµåÀÇ ¼ö¸¦ ¹İÈ¯ (¼º°øÇÏ¸é1, ½ÇÆĞÇÏ¸é 0À» ¹İÈ¯)
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰
+			// executeUpdate ==> ë°ì´í„°ë² ì´ìŠ¤ì— ë³€ë™ì´ ìˆëŠ” ëª…ë ¹ì„ ì‹¤í–‰í•  ë•Œ ì‚¬ìš©
+			// executeQuery ==> ë°ì´í„°ë² ì´ìŠ¤ì˜ ë‚´ìš©ì„ ì¡°íšŒí•˜ëŠ” ëª…ë ¹ì„ ì‹¤í–‰í•  ë•Œ ì‚¬ìš©
+			int re = stmt.executeUpdate(sql); // ì„±ê³µì ìœ¼ë¡œ ëª…ë ¹ì„ ì‹¤í–‰í•œ ë ˆì½”ë“œì˜ ìˆ˜ë¥¼ ë°˜í™˜ (ì„±ê³µí•˜ë©´1, ì‹¤íŒ¨í•˜ë©´ 0ì„ ë°˜í™˜)
 
 			if (re == 1) {
-				System.out.println("È¸¿øÀÇ Á¤º¸¸¦ Ãß°¡ÇÏ¿´½À´Ï´Ù.");
+				System.out.println("íšŒì›ì˜ ì •ë³´ë¥¼ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			} else {
-				System.out.println("È¸¿øÁ¤º¸ Ãß°¡¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+				System.out.println("íšŒì›ì •ë³´ ì¶”ê°€ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 
-			// »ç¿ëÇß´ø ÀÚ¿øÀ» ´İ¾ÆÁØ´Ù.
+			// ì‚¬ìš©í–ˆë˜ ìì›ì„ ë‹«ì•„ì¤€ë‹¤.
 			stmt.close();
 			conn.close();
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
-
+ 
 }
