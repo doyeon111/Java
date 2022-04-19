@@ -13,23 +13,23 @@ public class BookTest {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// °í°´¹øÈ£ ÀÔ·ÂÀ» À§ÇÏ¿© º¯¼ö¸¦ ¼±¾ğ
+		// ì¶œíŒì‚¬ ì…ë ¥ì„ ìœ„í•˜ì—¬ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 		String publicsher;
 
-		// °í°´¹øÈ£¸¦ ÀÔ·Â¹Ş´Â´Ù
-		System.out.print("ÃâÆÇ»ç¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		// ì¶œíŒì‚¬ë¥¼ ì…ë ¥ë°›ëŠ”ë‹¤
+		System.out.print("ì¶œíŒì‚¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		publicsher = sc.next();
 
-		// ÇØ´ç°í°´ÀÇ ÁÖ¹®³»¿ªÀ» °Ë»öÇÏ±â À§ÇÏ¿© OrderDAO°´Ã¼¸¦ »ı¼ºÇÑ´Ù.
+		// í•´ë‹¹ ë„ì„œì˜ ëª©ë¡ì„ ê²€ìƒ‰í•˜ê¸° ìœ„í•˜ì—¬ BookDAOê°ì²´ë¥¼ ìƒì„±í•œë‹¤.
 		BookDAO dao = new BookDAO();
 
-		// daoÀÇ ¸Ş¼Òµå¸¦ È£ÃâÇÏ¿© °í°´ÀÇ ÁÖ¹®³»¿ªÀ» °Ë»öÇÑ´Ù.
+		// daoì˜ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ë„ì„œì˜ ì¶œíŒì‚¬ ëª©ë¡ì„ ê²€ìƒ‰í•œë‹¤.
 		ArrayList<BookVO> list = dao.listBook(publicsher);
 
-		// Á¦¸ñÀ» Ãâ·Â
-		System.out.println("µµ¼­¹øÈ£\t" + "µµ¼­ÀÌ¸§\t\t" + "ÃâÆÇ»ç\t" + "°¡°İ\t");
+		// ì œëª©ì„ ì¶œë ¥
+		System.out.println("ë„ì„œë²ˆí˜¸\t" + "ë„ì„œì´ë¦„\t\t" + "ì¶œíŒì‚¬\t" + "ê°€ê²©\t");
 
-		// ¸®½ºÆ®¿¡ ´ã±ä ÁÖ¹®³»¿ªÀ» ¸ğµÎ Ãâ·Â
+		// ë¦¬ìŠ¤íŠ¸ì— ë‹´ê¸´ ì¶œíŒì‚¬ ëª¨ë‘ ì¶œë ¥
 		for (BookVO vo : list) {
 			System.out.println(vo.getBookid() + "\t" 
 					+ vo.getBookname() + "\t\t" 
