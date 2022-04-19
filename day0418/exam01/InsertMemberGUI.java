@@ -18,29 +18,29 @@ public class InsertMemberGUI extends JFrame implements ActionListener {
 	JTextField jtf_id, jtf_name, jtf_age;
 
 	public InsertMemberGUI() {
-		// Ã¢ Á¦¸ñ ¼³Á¤
-		setTitle("È¸¿øµî·Ï");
+		// ì°½ ì œëª© ì„¤ì •
+		setTitle("íšŒì›ë“±ë¡");
 
-		// È­¸éÀÇ ·¹ÀÌ¾Æ¿ôÀ» ¼ø¼­´ë·Î ¹èÄ¡ÇÏ´Â ¹æ½ÄÀ» ¼³Á¤
+		// í™”ë©´ì˜ ë ˆì´ì•„ì›ƒì„ ìˆœì„œëŒ€ë¡œ ë°°ì¹˜í•˜ëŠ” ë°©ì‹ì„ ì„¤ì •
 		setLayout(new FlowLayout());
 
-		// ÅØ½ºÆ® ÇÊµå¸¦ »ı¼º
+		// í…ìŠ¤íŠ¸ í•„ë“œë¥¼ ìƒì„±
 		jtf_id = new JTextField(10);
 		jtf_name = new JTextField(10);
 		jtf_age = new JTextField(10);
 
-		// ¶óº§À» »ı¼º
-		JLabel id_label = new JLabel("¾ÆÀÌµğ: ");
-		JLabel name_label = new JLabel("ÀÌ¸§: ");
-		JLabel age_label = new JLabel("³ªÀÌ: ");
+		// ë¼ë²¨ì„ ìƒì„±
+		JLabel id_label = new JLabel("ì•„ì´ë””: ");
+		JLabel name_label = new JLabel("ì´ë¦„: "); 
+		JLabel age_label = new JLabel("ë‚˜ì´: ");
 
-		// ¹öÆ°À» »ı¼º
-		JButton btn = new JButton("µî·Ï");
+		// ë²„íŠ¼ì„ ìƒì„±
+		JButton btn = new JButton("ë“±ë¡");
 
-		// ¹öÆ°ÀÇ ÀÌº¥Æ®¸¦ µî·Ï
+		// ë²„íŠ¼ì˜ ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 		btn.addActionListener(this);
 
-		// ¶óº§À» ÇÁ·¹ÀÓ¿¡ ´ã´Â´Ù.
+		// ë¼ë²¨ì„ í”„ë ˆì„ì— ë‹´ëŠ”ë‹¤.
 		add(id_label);
 		add(jtf_id);
 
@@ -50,63 +50,63 @@ public class InsertMemberGUI extends JFrame implements ActionListener {
 		add(age_label);
 		add(jtf_age);
 
-		// ¹öÆ°À» ÇÁ·¹ÀÓ¿¡ ´ã´Â´Ù.
+		// ë²„íŠ¼ì„ í”„ë ˆì„ì— ë‹´ëŠ”ë‹¤.
 		add(btn);
 
-		// ÇÁ·¹ÀÓÀÇ Å©±â¸¦ ¼³Á¤
+		// í”„ë ˆì„ì˜ í¬ê¸°ë¥¼ ì„¤ì •
 		setSize(800, 300);
 
-		// ÇÁ·¹ÀÓÀ» º¸ÀÌµµ·Ï ¼³Á¤
+		// í”„ë ˆì„ì„ ë³´ì´ë„ë¡ ì„¤ì •
 		setVisible(true);
 
-		// ´İ±â¹öÆ°À» ´©¸£¸é ÇÁ·Î±×·¥À» Á¾·á
+		// ë‹«ê¸°ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œ
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// »èÁ¦ÇÒ È¸¿øÀÇ ¾ÆÀÌµğ¸¦ º¯¼ö¿¡ ÀúÀå
+		// ì‚­ì œí•  íšŒì›ì˜ ì•„ì´ë””ë¥¼ ë³€ìˆ˜ì— ì €ì¥
 		String id = jtf_id.getText();
 		String name = jtf_name.getText();
 		int age = Integer.parseInt(jtf_age.getText());
 
-		// ½ÇÇàÇÒ µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ¸¸µç´Ù.
+		// ì‹¤í–‰í•  ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ë§Œë“ ë‹¤.
 		String sql = "insert into member values('" + id + "', '" + name + "', " + age + ")";
 
 		try {
-			// jdbc µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®·Î ·Îµå
+			// jdbc ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// DB¼­¹ö¿¡ ¿¬°á
+			// DBì„œë²„ì— ì—°ê²°
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.35.171:1521:XE", "c##sist",
 					"sist");
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼¸¦ »ı¼º
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 			Statement stmt = conn.createStatement();
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇà
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰
 			int re = stmt.executeUpdate(sql);
 			
 			
 
 			if (re == 1) {
-				JOptionPane.showMessageDialog(this, "È¸¿øÀÇ Á¤º¸¸¦ Ãß°¡ÇÏ¿´½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(this, "íšŒì›ì˜ ì •ë³´ë¥¼ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			} else {
-				JOptionPane.showMessageDialog(this, "È¸¿øÀÇ Á¤º¸Ãß°¡¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(this, "íšŒì›ì˜ ì •ë³´ì¶”ê°€ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 			}
 
-			// »ç¿ëÇß´ø ÀÚ¿øÀ» ´İ¾ÆÁØ´Ù.
+			// ì‚¬ìš©í–ˆë˜ ìì›ì„ ë‹«ì•„ì¤€ë‹¤.
 			stmt.close();
 			conn.close();
 		} catch (Exception ex) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 		}
 
 	}
 
 	public static void main(String[] args) {
-		// ÇÁ·¹ÀÓ »ı¼º
+		// í”„ë ˆì„ ìƒì„±
 		new InsertMemberGUI();
 
 	}
