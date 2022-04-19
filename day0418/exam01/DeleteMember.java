@@ -6,8 +6,8 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.Scanner;
 
-//¼öÁ¤ÇÒ È¸¿øÀÇ ¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ¸¦ ÀÔ·Â¹Ş¾Æ È¸¿øÀÇ Á¤º¸¸¦ ¼öÁ¤ÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼º
-//¾ÆÀÌµğ´Â º¯°æÇÏÁö ¾Ê°í Á¶°Ç½Ä¿¡ »ç¿ëÇÏ°í ±× Á¶°Ç¿¡ ¸Â´Â id¿¡ ÇØ´çÇÏ´Â È¸¿øÀÇ ÀÌ¸§°ú ³ªÀÌ¸¦ ¼öÁ¤
+//ìˆ˜ì •í•  íšŒì›ì˜ ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ë¥¼ ì…ë ¥ë°›ì•„ íšŒì›ì˜ ì •ë³´ë¥¼ ì‚­ì œí•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±
+//ì•„ì´ë””ëŠ” ë³€ê²½í•˜ì§€ ì•Šê³  ì¡°ê±´ì‹ì— ì‚¬ìš©í•˜ê³  ê·¸ ì¡°ê±´ì— ë§ëŠ” idì— í•´ë‹¹í•˜ëŠ” íšŒì›ì˜ ì´ë¦„ê³¼ ë‚˜ì´ë¥¼ ì‚­ì œ
 public class DeleteMember {
 
 	public static void main(String[] args) {
@@ -16,41 +16,41 @@ public class DeleteMember {
 
 		String id;
 
-		System.out.print("»èÁ¦ÇÒ È¸¿øÀÇ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		System.out.print("ì‚­ì œí•  íšŒì›ì˜ ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		id = sc.next();
 
 		String sql = "delete member where id = '" + id + "'";
 
 		try {
 
-			// jdbc µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®·Î ·Îµå
+			// jdbc ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// DB¼­¹ö¿¡ ¿¬°á
+			// DBì„œë²„ì— ì—°ê²°
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.35.171:1521:XE", "c##sist",
 					"sist");
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼¸¦ »ı¼º
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 			Statement stmt = conn.createStatement();
-
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇà
+ 
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰
 			// executeUpdate
 			// executeQuery
 
 			int re = stmt.executeUpdate(sql);
 
 			if (re == 1) {
-				System.out.println(id + "È¸¿øÀÇ Á¤º¸¸¦ »èÁ¦ÇÏ¿´½À´Ï´Ù.");
+				System.out.println(id + "íšŒì›ì˜ ì •ë³´ë¥¼ ì‚­ì œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 			} else {
-				System.out.println(id + "È¸¿ø Á¤º¸ÀÇ »èÁ¦¸¦ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+				System.out.println(id + "íšŒì› ì •ë³´ì˜ ì‚­ì œë¥¼ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 
-			// »ç¿ëÇß´ø ÀÚ¿øÀ» ´İ¾ÆÁØ´Ù.
+			// ì‚¬ìš©í–ˆë˜ ìì›ì„ ë‹«ì•„ì¤€ë‹¤.
 			stmt.close();
 			conn.close();
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
