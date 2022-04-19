@@ -23,119 +23,119 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-//µ¥ÀÌÅÍº£ÀÌ½º ¿¬µ¿ÇÏ¿© ¸ğµç °í°´ÀÇ Á¤º¸¸¦ Á¦ÀÌÅ×ÀÌºí¿¡ Ãâ·Â, ÀÔ·Â¹Ş¾Æ µî·Ï, ¼öÁ¤, »èÁ¦, Á¶È¸ÇÏ±â
+//ë°ì´í„°ë² ì´ìŠ¤ ì—°ë™í•˜ì—¬ ëª¨ë“  ê³ ê°ì˜ ì •ë³´ë¥¼ ì œì´í…Œì´ë¸”ì— ì¶œë ¥, ì…ë ¥ë°›ì•„ ë“±ë¡, ìˆ˜ì •, ì‚­ì œ, ì¡°íšŒí•˜ê¸°
 public class MemberTest extends JFrame implements ActionListener, MouseListener {
 
-	// ¿¢¼¿ÀÇ È­¸é°ú °°ÀÌ Çà, ¿­·Î ±¸¼ºµÇ´Â È­¸éÀ» À§ÇÏ¿© JTableÀ» ¸¸µç´Ù.
+	// ì—‘ì…€ì˜ í™”ë©´ê³¼ ê°™ì´ í–‰, ì—´ë¡œ êµ¬ì„±ë˜ëŠ” í™”ë©´ì„ ìœ„í•˜ì—¬ JTableì„ ë§Œë“ ë‹¤.
 	JTable table;
 
-	// JTable¿¡ µé¾î°¥ ÄÃ·³ÀÌ¸§À» ´ã±â À§ÇÑ Vector¸¦ ¼±¾ğ
+	// JTableì— ë“¤ì–´ê°ˆ ì»¬ëŸ¼ì´ë¦„ì„ ë‹´ê¸° ìœ„í•œ Vectorë¥¼ ì„ ì–¸
 	Vector<String> colNames;
 
-	// JTable¿¡ µé¾î°¥ µ¥ÀÌÅÍ¸¦ ´ã±â À§ÇÑ Vector¸¦ ¼±¾ğ
+	// JTableì— ë“¤ì–´ê°ˆ ë°ì´í„°ë¥¼ ë‹´ê¸° ìœ„í•œ Vectorë¥¼ ì„ ì–¸
 	Vector<Vector<String>> rowData;
 
-	// ¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ ÀÔ·ÂÀ» À§ÇÑ ÅØ½ºÆ®ÇÊµå¸¦ ¸â¹öº¯¼ö·Î ¼±¾ğ
+	// ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ ì…ë ¥ì„ ìœ„í•œ í…ìŠ¤íŠ¸í•„ë“œë¥¼ ë©¤ë²„ë³€ìˆ˜ë¡œ ì„ ì–¸
 	JTextField jtf_id;
 	JTextField jtf_name;
 	JTextField jtf_age;
 
 	public MemberTest() {
 
-		// ÅØ½ºÆ®ÇÊµåµéÀ» »ı¼º
+		// í…ìŠ¤íŠ¸í•„ë“œë“¤ì„ ìƒì„±
 		jtf_id = new JTextField(10);
 		jtf_name = new JTextField(10);
 		jtf_age = new JTextField(10);
 
-		// ÄÃ·³ÀÌ¸§À» À§ÇÑ Vector¸¦ »ı¼º
+		// ì»¬ëŸ¼ì´ë¦„ì„ ìœ„í•œ Vectorë¥¼ ìƒì„±
 		colNames = new Vector<String>();
 
-		// Å×ÀÌºí¿¡ ´ã±æ µ¥ÀÌÅÍ¸¦ À§ÇÑ º¤ÅÍ¸¦ »ı¼º
+		// í…Œì´ë¸”ì— ë‹´ê¸¸ ë°ì´í„°ë¥¼ ìœ„í•œ ë²¡í„°ë¥¼ ìƒì„±
 		rowData = new Vector<Vector<String>>();
 
-		// ÄÃ·³ÀÌ¸§ÀÇ ¹éÅÍ µ¥ÀÌÅÍ¸¦ Ãß°¡
-		colNames.add("¾ÆÀÌµğ");
-		colNames.add("ÀÌ¸§");
-		colNames.add("³ªÀÌ");
+		// ì»¬ëŸ¼ì´ë¦„ì˜ ë°±í„° ë°ì´í„°ë¥¼ ì¶”ê°€
+		colNames.add("ì•„ì´ë””"); 
+		colNames.add("ì´ë¦„");
+		colNames.add("ë‚˜ì´");
 
 		rowData = new Vector<Vector<String>>();
 
-		// Çà ÀÌ¸§ÀÌ ÀÖ´Â º¤ÅÍ¿Í ÀüÃ¼µ¥ÀÌÅÍ°¡ ´ã±ä º¤ÅÍ¸¦ °®°í Á¦ÀÌÅ×ÀÌºíÀ» ¸¸µç´Ù.
+		// í–‰ ì´ë¦„ì´ ìˆëŠ” ë²¡í„°ì™€ ì „ì²´ë°ì´í„°ê°€ ë‹´ê¸´ ë²¡í„°ë¥¼ ê°–ê³  ì œì´í…Œì´ë¸”ì„ ë§Œë“ ë‹¤.
 
 		table = new JTable(rowData, colNames);
 
-		// Á¦ÀÌÅ×ÀÌºíÀ» ½ºÅ©·ÑÆÒÀ¸·Î °¨½Ñ´Ù.
+		// ì œì´í…Œì´ë¸”ì„ ìŠ¤í¬ë¡¤íŒ¬ìœ¼ë¡œ ê°ì‹¼ë‹¤.
 		JScrollPane jsp = new JScrollPane(table);
 
-		// Á¦ÀÌÅ×ÀÌºíÀ» °¨½Î°íÀÖ´Â ½ºÅ©·ÑÆÒÀ» ÇÁ·¹ÀÓ¿¡ ´ã´Â´Ù.
+		// ì œì´í…Œì´ë¸”ì„ ê°ì‹¸ê³ ìˆëŠ” ìŠ¤í¬ë¡¤íŒ¬ì„ í”„ë ˆì„ì— ë‹´ëŠ”ë‹¤.
 		add(jsp, BorderLayout.CENTER);
 
-//		JButton btn = new JButton("È¸¿ø¸ñ·Ï ÀĞ¾î¿À±â");
+//		JButton btn = new JButton("íšŒì›ëª©ë¡ ì½ì–´ì˜¤ê¸°");
 //		add(btn, BorderLayout.SOUTH);
 //
 //		btn.addActionListener(this);
 
-		// ÅØ½ºÆ®ÇÊµå¿Í ¶óº§À» ´ãÀ» ÆĞ³ÎÀ» »ı¼º
+		// í…ìŠ¤íŠ¸í•„ë“œì™€ ë¼ë²¨ì„ ë‹´ì„ íŒ¨ë„ì„ ìƒì„±
 		JPanel p_input = new JPanel();
 
-		// ÆĞ³ÎÀÇ ·¹ÀÌ¾Æ¿ôÀ» 3Çà2¿­ÀÇ ±×¸®µå ·¹ÀÌ¾Æ¿ôÀ¸·Î ¼³Á¤
+		// íŒ¨ë„ì˜ ë ˆì´ì•„ì›ƒì„ 3í–‰2ì—´ì˜ ê·¸ë¦¬ë“œ ë ˆì´ì•„ì›ƒìœ¼ë¡œ ì„¤ì •
 		p_input.setLayout(new GridLayout(3, 2));
 
-		// ÆĞ³ÎÀÇ ¶óº§°ú ÅØ½ºÆ®ÇÊµå¸¦ Â÷·Ê·Î ´ã´Â´Ù.
-		p_input.add(new JLabel("¾ÆÀÌµğ: "));
+		// íŒ¨ë„ì˜ ë¼ë²¨ê³¼ í…ìŠ¤íŠ¸í•„ë“œë¥¼ ì°¨ë¡€ë¡œ ë‹´ëŠ”ë‹¤.
+		p_input.add(new JLabel("ì•„ì´ë””: "));
 		p_input.add(jtf_id);
 
-		p_input.add(new JLabel("ÀÌ¸§: "));
+		p_input.add(new JLabel("ì´ë¦„: "));
 		p_input.add(jtf_name);
 
-		p_input.add(new JLabel("³ªÀÌ: "));
+		p_input.add(new JLabel("ë‚˜ì´: "));
 		p_input.add(jtf_age);
 
-		// ¹öÆ° 4°³¸¦ »ı¼º
-		JButton btnAdd = new JButton("µî·Ï");
-		JButton btnUpdate = new JButton("¼öÁ¤");
-		JButton btnDelete = new JButton("»èÁ¦");
-		JButton btnList = new JButton("¸ñ·Ï");
+		// ë²„íŠ¼ 4ê°œë¥¼ ìƒì„±
+		JButton btnAdd = new JButton("ë“±ë¡");
+		JButton btnUpdate = new JButton("ìˆ˜ì •");
+		JButton btnDelete = new JButton("ì‚­ì œ");
+		JButton btnList = new JButton("ëª©ë¡");
 
-		// 4°³ÀÇ ¹öÆ°À» ´ãÀ» ÆĞ³ÎÀ» ¸¸µç´Ù.
+		// 4ê°œì˜ ë²„íŠ¼ì„ ë‹´ì„ íŒ¨ë„ì„ ë§Œë“ ë‹¤.
 		JPanel p_button = new JPanel();
 
-		// ¼ø¼­´ë·Î ¹öÆ°À» ¹èÄ¡ÇÏ±â À§ÇÏ¿© ÇÃ·Î¿ì·¹ÀÌ¾Æ¿ôÀ¸·Î ¼³Á¤
+		// ìˆœì„œëŒ€ë¡œ ë²„íŠ¼ì„ ë°°ì¹˜í•˜ê¸° ìœ„í•˜ì—¬ í”Œë¡œìš°ë ˆì´ì•„ì›ƒìœ¼ë¡œ ì„¤ì •
 		p_button.setLayout(new FlowLayout());
 
-		// ¹öÆ° 4°³¸¦ Â÷·Ê·Î ÆĞ³Î¿¡ ´ã´Â´Ù.
+		// ë²„íŠ¼ 4ê°œë¥¼ ì°¨ë¡€ë¡œ íŒ¨ë„ì— ë‹´ëŠ”ë‹¤.
 		p_button.add(btnAdd);
 		p_button.add(btnUpdate);
 		p_button.add(btnDelete);
 		p_button.add(btnList);
 
-		// ÀÔ·ÂÃ¢ÀÌ ´ã±ä ÆĞ³Î°ú ¹öÆ°ÀÌ ´ã±ä ÆĞ³ÎÀ» ´ãÀ» ÆĞ³ÎÀ» ¸¸µç´Ù.
+		// ì…ë ¥ì°½ì´ ë‹´ê¸´ íŒ¨ë„ê³¼ ë²„íŠ¼ì´ ë‹´ê¸´ íŒ¨ë„ì„ ë‹´ì„ íŒ¨ë„ì„ ë§Œë“ ë‹¤.
 		JPanel p_south;
 		p_south = new JPanel();
 
-		// ÆĞ³ÎÀÇ ·¹ÀÌ¾Æ¿ôÀ» º¸´õ·¹ÀÌ¾Æ¿ôÀ¸·Î ¼³Á¤
+		// íŒ¨ë„ì˜ ë ˆì´ì•„ì›ƒì„ ë³´ë”ë ˆì´ì•„ì›ƒìœ¼ë¡œ ì„¤ì •
 		p_south.setLayout(new BorderLayout());
 
-		// ÆĞ³ÎÀÇ °¡¿îµ¥¿¡ ÀÔ·ÂÃ¢ÀÌ ´ã±ä ÆĞ³ÎÀ» ´ã´Â´Ù.
+		// íŒ¨ë„ì˜ ê°€ìš´ë°ì— ì…ë ¥ì°½ì´ ë‹´ê¸´ íŒ¨ë„ì„ ë‹´ëŠ”ë‹¤.
 		p_south.add(p_input, BorderLayout.CENTER);
 
-		// ÆĞ³ÎÀÇ ¾Æ·¡ÂÊ¿¡ ¹öÆ°ÀÌ ´ã±ä ÆĞ³ÎÀ» ´ã´Â´Ù.
+		// íŒ¨ë„ì˜ ì•„ë˜ìª½ì— ë²„íŠ¼ì´ ë‹´ê¸´ íŒ¨ë„ì„ ë‹´ëŠ”ë‹¤.
 		p_south.add(p_button, BorderLayout.SOUTH);
 
-		// ÀÔ·ÂÃ¢°ú ¹öÆ°ÀÌ ´ã±ä ÆĞ³ÎÀ» ÇÁ·¹ÀÓÀÇ ¾Æ·¡ÂÊ¿¡ ´ã´Â´Ù.
+		// ì…ë ¥ì°½ê³¼ ë²„íŠ¼ì´ ë‹´ê¸´ íŒ¨ë„ì„ í”„ë ˆì„ì˜ ì•„ë˜ìª½ì— ë‹´ëŠ”ë‹¤.
 		add(p_south, BorderLayout.SOUTH);
 
 		setSize(400, 300);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		// °¢°¢ÀÇ ¹öÆ°¿¡ ÀÌº¥Æ®¸¦ µî·Ï
+		// ê°ê°ì˜ ë²„íŠ¼ì— ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 		btnAdd.addActionListener(this);
 		btnUpdate.addActionListener(this);
 		btnDelete.addActionListener(this);
 		btnList.addActionListener(this);
 
-		// Á¦ÀÌÅ×ÀÌºí¿¡ ¸¶¿ì½ºÀÌº¥Æ®¸¦ µî·Ï
+		// ì œì´í…Œì´ë¸”ì— ë§ˆìš°ìŠ¤ì´ë²¤íŠ¸ë¥¼ ë“±ë¡
 		table.addMouseListener(this);
 
 	}
@@ -143,21 +143,21 @@ public class MemberTest extends JFrame implements ActionListener, MouseListener 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		// ´­·¯Áø ¹öÆ°ÀÇ ±ÛÀÚ¸¦ ÀĞ¾î¿Â´Ù.
+		// ëˆŒëŸ¬ì§„ ë²„íŠ¼ì˜ ê¸€ìë¥¼ ì½ì–´ì˜¨ë‹¤.
 		String cmd = e.getActionCommand();
 
-		// ´­·¯Áø ¹öÆ°ÀÇ ±ÛÀÚ¿¡ µû¶ó ÇØ´ç ÀÏÃ³¸®¸¦ À§ÇÑ ¸Ş¼Òµå¸¦ È£Ãâ
+		// ëˆŒëŸ¬ì§„ ë²„íŠ¼ì˜ ê¸€ìì— ë”°ë¼ í•´ë‹¹ ì¼ì²˜ë¦¬ë¥¼ ìœ„í•œ ë©”ì†Œë“œë¥¼ í˜¸ì¶œ
 		switch (cmd) {
-		case "µî·Ï":
+		case "ë“±ë¡":
 			insertMember();
 			break;
-		case "¼öÁ¤":
+		case "ìˆ˜ì •":
 			updateMember();
 			break;
-		case "»èÁ¦":
+		case "ì‚­ì œ":
 			deleteMember();
 			break;
-		case "¸ñ·Ï":
+		case "ëª©ë¡":
 			listMember();
 			break;
 
@@ -166,45 +166,45 @@ public class MemberTest extends JFrame implements ActionListener, MouseListener 
 	}
 
 	private void listMember() {
-		// º¤ÅÍÀÇ µ¥ÀÌÅÍ¸¦ À§ÇÑ rowData¸¦ ºñ¿öÁØ´Ù.
+		// ë²¡í„°ì˜ ë°ì´í„°ë¥¼ ìœ„í•œ rowDataë¥¼ ë¹„ì›Œì¤€ë‹¤.
 		rowData.clear();
 
 		String sql = "select * from member";
 
 		try {
-			// jdbc µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®·Î ·Îµå
+			// jdbc ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// DB¼­¹ö¿¡ ¿¬°á
+			// DBì„œë²„ì— ì—°ê²°
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.35.171:1521:XE", "c##sist",
 					"sist");
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼¸¦ »ı¼º
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 			Statement stmt = conn.createStatement();
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇà
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰
 			ResultSet rs = stmt.executeQuery(sql);
 
-			// °Ë»öÇÑ °á°ú¸¸Å­ ¹İº¹½ÇÇà
-			while (rs.next()) { // ·¹ÄÚµå¸¦ ¹İÈ¯
+			// ê²€ìƒ‰í•œ ê²°ê³¼ë§Œí¼ ë°˜ë³µì‹¤í–‰
+			while (rs.next()) { // ë ˆì½”ë“œë¥¼ ë°˜í™˜
 
-				// ¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ¸¦ »Ì¾Æ¿Â´Ù.
+				// ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ë¥¼ ë½‘ì•„ì˜¨ë‹¤.
 				String id = rs.getString(1);
 				String name = rs.getString(2);
 				int age = rs.getInt(3);
 
-				// ÇÏ³ªÀÇ ÇàÀ» Ç¥ÇöÇÏ±â À§ÇÑ º¤ÅÍ¸¦ »ı¼º
+				// í•˜ë‚˜ì˜ í–‰ì„ í‘œí˜„í•˜ê¸° ìœ„í•œ ë²¡í„°ë¥¼ ìƒì„±
 				Vector<String> row = new Vector<String>();
 
-				// º¤ÅÍÀÇ ¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ¸¦ ´ã´Â´Ù
+				// ë²¡í„°ì˜ ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ë¥¼ ë‹´ëŠ”ë‹¤
 				row.add(id);
 				row.add(name);
 				row.add(age + "");
 
-				// ÇÏ³ªÀÇ ÇàÀÌ ´ã±ä º¤ÅÍ¸¦ ÀüÃ¼µ¥ÀÌÅÍ¸¦ ´ã±â À§ÇÑ º¤ÅÍ¿¡ ´ã´Â´Ù.
+				// í•˜ë‚˜ì˜ í–‰ì´ ë‹´ê¸´ ë²¡í„°ë¥¼ ì „ì²´ë°ì´í„°ë¥¼ ë‹´ê¸° ìœ„í•œ ë²¡í„°ì— ë‹´ëŠ”ë‹¤.
 				rowData.add(row);
 
-				// Á¦ÀÌ Å×ÀÌºíÀ» ´Ù½Ã ±×·ÁÁÙ °ÍÀ» ¿äÃ»
+				// ì œì´ í…Œì´ë¸”ì„ ë‹¤ì‹œ ê·¸ë ¤ì¤„ ê²ƒì„ ìš”ì²­
 				table.updateUI();
 
 			}
@@ -214,7 +214,7 @@ public class MemberTest extends JFrame implements ActionListener, MouseListener 
 			conn.close();
 
 		} catch (Exception ex) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + ex.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + ex.getMessage());
 		}
 
 	}
@@ -236,15 +236,15 @@ public class MemberTest extends JFrame implements ActionListener, MouseListener 
 
 			int re = stmt.executeUpdate(sql);
 
-			if (re == 1) { // °í°´ µî·Ï¿¡ ¼º°øÇÏ¸é
-				// ´Ù½Ã °í°´ ¸ñ·ÏÀ» Ãâ·Â
+			if (re == 1) { // ê³ ê° ë“±ë¡ì— ì„±ê³µí•˜ë©´
+				// ë‹¤ì‹œ ê³ ê° ëª©ë¡ì„ ì¶œë ¥
 				listMember();
 			} else {
-				JOptionPane.showMessageDialog(this, "°í°´»èÁ¦¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(this, "ê³ ê°ì‚­ì œì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
@@ -257,28 +257,28 @@ public class MemberTest extends JFrame implements ActionListener, MouseListener 
 
 			String sql = "update member set name = '" + name + "', age =" + age + "  where id = '" + id + "'";
 
-			// jdbc µå¶óÀÌ¹ö¸¦ ¸Ş¸ğ¸®·Î ·Îµå
+			// jdbc ë“œë¼ì´ë²„ë¥¼ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			// DB¼­¹ö¿¡ ¿¬°á
+			// DBì„œë²„ì— ì—°ê²°
 			Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.35.171:1521:XE", "c##sist",
 					"sist");
 
-			// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇàÇÏ±â À§ÇÑ °´Ã¼¸¦ »ı¼º
+			// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•˜ê¸° ìœ„í•œ ê°ì²´ë¥¼ ìƒì„±
 			Statement stmt = conn.createStatement();
 
-			// executeUpdate ==> µ¥ÀÌÅÍº£ÀÌ½º¿¡ º¯µ¿ÀÌ ÀÖ´Â ¸í·ÉÀ» ½ÇÇàÇÒ ¶§ »ç¿ë
+			// executeUpdate ==> ë°ì´í„°ë² ì´ìŠ¤ì— ë³€ë™ì´ ìˆëŠ” ëª…ë ¹ì„ ì‹¤í–‰í•  ë•Œ ì‚¬ìš©
 			int re = stmt.executeUpdate(sql);
 
-			if (re == 1) { // °í°´ µî·Ï¿¡ ¼º°øÇÏ¸é
-				// ´Ù½Ã °í°´ ¸ñ·ÏÀ» Ãâ·Â
+			if (re == 1) { // ê³ ê° ë“±ë¡ì— ì„±ê³µí•˜ë©´
+				// ë‹¤ì‹œ ê³ ê° ëª©ë¡ì„ ì¶œë ¥
 				listMember();
 			} else {
-				JOptionPane.showMessageDialog(this, "°í°´¼öÁ¤¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(this, "ê³ ê°ìˆ˜ì •ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
@@ -300,15 +300,15 @@ public class MemberTest extends JFrame implements ActionListener, MouseListener 
 
 			int re = stmt.executeUpdate(sql);
 
-			if (re == 1) { // °í°´ µî·Ï¿¡ ¼º°øÇÏ¸é
-				// ´Ù½Ã °í°´ ¸ñ·ÏÀ» Ãâ·Â
+			if (re == 1) { // ê³ ê° ë“±ë¡ì— ì„±ê³µí•˜ë©´
+				// ë‹¤ì‹œ ê³ ê° ëª©ë¡ì„ ì¶œë ¥
 				listMember();
 			} else {
-				JOptionPane.showMessageDialog(this, "°í°´µî·Ï¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(this, "ê³ ê°ë“±ë¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 	}
@@ -331,19 +331,19 @@ public class MemberTest extends JFrame implements ActionListener, MouseListener 
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// JTable¿¡¼­ ¼±ÅÃÇÑ Çà ¹øÈ£¸¦ ÀĞ¾î¿Â´Ù.
+		// JTableì—ì„œ ì„ íƒí•œ í–‰ ë²ˆí˜¸ë¥¼ ì½ì–´ì˜¨ë‹¤.
 		int row = table.getSelectedRow();
 		System.out.println(row);
 		
-		//rowData·ÎºÎÅÍ ½ÇÁ¦ µ¥ÀÌÅÍ¸¦ ²ôÁı¾î ³»¿Â´Ù.
+		//rowDataë¡œë¶€í„° ì‹¤ì œ ë°ì´í„°ë¥¼ ë„ì§‘ì–´ ë‚´ì˜¨ë‹¤.
 		Vector<String> v = rowData.get(row);
 		
-		//¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ¸¦ »Ì¾Æ¿Â´Ù.
+		//ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ë¥¼ ë½‘ì•„ì˜¨ë‹¤.
 		String id = v.get(0);
 		String name = v.get(1);
 		String age = v.get(2);
 		
-		//°¢°¢ÀÇ »Ì¾Æ¿Â ¾ÆÀÌµğ, ÀÌ¸§, ³ªÀÌ¸¦ ÅØ½ºÆ®ÇÊµå¿¡ Ãâ·Â
+		//ê°ê°ì˜ ë½‘ì•„ì˜¨ ì•„ì´ë””, ì´ë¦„, ë‚˜ì´ë¥¼ í…ìŠ¤íŠ¸í•„ë“œì— ì¶œë ¥
 		jtf_id.setText(id);
 		jtf_name.setText(name);
 		jtf_age.setText(age);
