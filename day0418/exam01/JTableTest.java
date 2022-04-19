@@ -8,63 +8,63 @@ import javax.swing.JTable;
 
 public class JTableTest extends JFrame {
 
-	// ¿¢¼¿ÀÇ È­¸é°ú °°ÀÌ Çà, ¿­·Î ±¸¼ºµÇ´Â È­¸éÀ» À§ÇÏ¿© JTableÀ» ¸¸µç´Ù.
+	// ì—‘ì…€ì˜ í™”ë©´ê³¼ ê°™ì´ í–‰, ì—´ë¡œ êµ¬ì„±ë˜ëŠ” í™”ë©´ì„ ìœ„í•˜ì—¬ JTableì„ ë§Œë“ ë‹¤.
 	JTable table;
 
-	// JTable¿¡ µé¾î°¥ ÄÃ·³ÀÌ¸§À» ´ã±â À§ÇÑ Vector¸¦ ¼±¾ð
+	// JTableì— ë“¤ì–´ê°ˆ ì»¬ëŸ¼ì´ë¦„ì„ ë‹´ê¸° ìœ„í•œ Vectorë¥¼ ì„ ì–¸
 	Vector<String> colNames;
 
-	// JTable¿¡ µé¾î°¥ µ¥ÀÌÅÍ¸¦ ´ã±â À§ÇÑ Vector¸¦ ¼±¾ð
+	// JTableì— ë“¤ì–´ê°ˆ ë°ì´í„°ë¥¼ ë‹´ê¸° ìœ„í•œ Vectorë¥¼ ì„ ì–¸
 	Vector<Vector<String>> rowData;
 
 	public JTableTest() {
-		// ÄÃ·³ÀÌ¸§À» À§ÇÑ Vector¸¦ »ý¼º
+		// ì»¬ëŸ¼ì´ë¦„ì„ ìœ„í•œ Vectorë¥¼ ìƒì„±
 		colNames = new Vector<String>();
 
-		// Å×ÀÌºí¿¡ ´ã±æ µ¥ÀÌÅÍ¸¦ À§ÇÑ º¤ÅÍ¸¦ »ý¼º
+		// í…Œì´ë¸”ì— ë‹´ê¸¸ ë°ì´í„°ë¥¼ ìœ„í•œ ë²¡í„°ë¥¼ ìƒì„±
 		rowData = new Vector<Vector<String>>();
 
-		// ÄÃ·³ÀÌ¸§ÀÇ ¹éÅÍ µ¥ÀÌÅÍ¸¦ Ãß°¡
-		colNames.add("¾ÆÀÌµð");
-		colNames.add("ÀÌ¸§");
-		colNames.add("³ªÀÌ");
+		// ì»¬ëŸ¼ì´ë¦„ì˜ ë°±í„° ë°ì´í„°ë¥¼ ì¶”ê°€
+		colNames.add("ì•„ì´ë””");
+		colNames.add("ì´ë¦„");
+		colNames.add("ë‚˜ì´");
 
-		// Å×ÀÌºíÀÇ rowµ¥ÀÌÅÍ¿¡ µé¾î°¥ Ã¹ ¹øÂ° ·¹ÄÚµå¸¦ À§ÇÑ º¤ÅÍ¸¦ ¸¸µç´Ù.
+		// í…Œì´ë¸”ì˜ rowë°ì´í„°ì— ë“¤ì–´ê°ˆ ì²« ë²ˆì§¸ ë ˆì½”ë“œë¥¼ ìœ„í•œ ë²¡í„°ë¥¼ ë§Œë“ ë‹¤.
 		Vector<String> row1 = new Vector<String>();
 
-		// Ã¹ ¹øÂ° ÇàÀÇ µ¥ÀÌÅÍ¸¦ Ãß°¡
+		// ì²« ë²ˆì§¸ í–‰ì˜ ë°ì´í„°ë¥¼ ì¶”ê°€
 		row1.add("tiger");
-		row1.add("È«±æµ¿");
+		row1.add("í™ê¸¸ë™");
 		row1.add("20");
 
-		// Å×ÀÌºíÀÇ rowµ¥ÀÌÅÍ¿¡ µé¾î°¥ µÎ ¹øÂ° ·¹ÄÚµå¸¦ À§ÇÑ º¤ÅÍ¸¦ ¸¸µç´Ù.
+		// í…Œì´ë¸”ì˜ rowë°ì´í„°ì— ë“¤ì–´ê°ˆ ë‘ ë²ˆì§¸ ë ˆì½”ë“œë¥¼ ìœ„í•œ ë²¡í„°ë¥¼ ë§Œë“ ë‹¤.
 		Vector<String> row2 = new Vector<String>();
 
-		// µÎ ¹øÂ° ÇàÀÇ µ¥ÀÌÅÍ¸¦ Ãß°¡
+		// ë‘ ë²ˆì§¸ í–‰ì˜ ë°ì´í„°ë¥¼ ì¶”ê°€
 		row2.add("lion");
-		row2.add("±è»çÀÚ");
+		row2.add("ê¹€ì‚¬ìž");
 		row2.add("24");
 
-		// Å×ÀÌºíÀÇ rowµ¥ÀÌÅÍ¿¡ µé¾î°¥ ¼¼ ¹øÂ° ·¹ÄÚµå¸¦ À§ÇÑ º¤ÅÍ¸¦ ¸¸µç´Ù.
+		// í…Œì´ë¸”ì˜ rowë°ì´í„°ì— ë“¤ì–´ê°ˆ ì„¸ ë²ˆì§¸ ë ˆì½”ë“œë¥¼ ìœ„í•œ ë²¡í„°ë¥¼ ë§Œë“ ë‹¤.
 		Vector<String> row3 = new Vector<String>();
 
-		// ¼¼ ¹øÂ° ÇàÀÇ µ¥ÀÌÅÍ¸¦ Ãß°¡
+		// ì„¸ ë²ˆì§¸ í–‰ì˜ ë°ì´í„°ë¥¼ ì¶”ê°€
 		row3.add("kim");
-		row3.add("±èÀ¯½Å");
+		row3.add("ê¹€ìœ ì‹ ");
 		row3.add("30");
 
-		// rowµ¥ÀÌÅÍ¿¡ °¢ ÇàÀÇ µ¥ÀÌÅÍ°¡ ´ã±ä º¤ÅÍ¸¦ Ãß°¡
+		// rowë°ì´í„°ì— ê° í–‰ì˜ ë°ì´í„°ê°€ ë‹´ê¸´ ë²¡í„°ë¥¼ ì¶”ê°€
 		rowData.add(row1);
 		rowData.add(row2);
 		rowData.add(row3);
 		
-		// JTable¸¦ »ý¼º
+		// JTableë¥¼ ìƒì„±
 		table = new JTable(rowData, colNames);
 
-		// ÅØ½ºÆ®¿¡¸®¾î¸¦ ½ºÅ©·ÑÆÒÀ¸·Î °¨½ÎµíÀÌ JTableµµ ½ºÅ©·ÑÆÒÀ¸·Î °¨½Î¾ßÇÑ´Ù.
+		// í…ìŠ¤íŠ¸ì—ë¦¬ì–´ë¥¼ ìŠ¤í¬ë¡¤íŒ¬ìœ¼ë¡œ ê°ì‹¸ë“¯ì´ JTableë„ ìŠ¤í¬ë¡¤íŒ¬ìœ¼ë¡œ ê°ì‹¸ì•¼í•œë‹¤.
 		JScrollPane jsp = new JScrollPane(table);
 
-		// Å×ÀÌºíÀÌ ´ã±ä ½ºÅ©·ÑÆÒÀ» ÇÁ·¹ÀÓ¿¡ ´ã´Â´Ù.
+		// í…Œì´ë¸”ì´ ë‹´ê¸´ ìŠ¤í¬ë¡¤íŒ¬ì„ í”„ë ˆìž„ì— ë‹´ëŠ”ë‹¤.
 		add(jsp);
 
 		setSize(400, 300);
@@ -77,4 +77,4 @@ public class JTableTest extends JFrame {
 		
 	}
 
-}
+} 
