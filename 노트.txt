@@ -1,0 +1,429 @@
+* 서점 관리를 위하여 필요한 테이블을 만들기.
+
+	- 도서 테이블(도서번호, 도서이름, 출판사, 가격)
+	- 고객 테이블(고객번호, 고객이름, 주소, 전화)
+	- 주문 테이블(주문번호, 고객번호, 도서번호, 구매가격, 구매일)
+	
+	
+	* 도서 테이블
+		create table book (
+			bookid number primary key,
+			bookname varchar2(50),
+			publicsher varchar2(50),
+			price number
+		);
+			
+			
+	* 고객 테이블
+		create table customer (
+			custid number primary key,
+			name varchar2(50),
+			address varchar2(50),
+			phone varchar2(50)
+		);
+		
+	
+	* 주문 테이블
+		create table orders (
+			orderid number primary key,
+			custid number references customer(custid),
+			bookid number references book(bookid),
+			saleprice number,
+			orderdate date
+		);
+		
+		
+		
+	- custid number references customer(custid)
+	  //customer 테이블에 있는 custid를 참조해야 한다. (그냥 하면 새로운 아이디가 만들어지기 때문에
+	  	반드시 그 테이블에 있는 아이디를 참조해야한다는 뜻)
+	  	
+	  	
+
+* desc book;
+-> book 칼럼 확인
+
+-------------------------------------------------------------------
+
+* 자료 추가
+
+	insert into book values(1, '축구의 역사', '굿스포츠', 7000); //반드시 홋따옴표!
+	insert into book values(2, '축구아는 여자', '나무수', 13000);
+	insert into book values(3, '축구의 이해', '대한미디어', 22000);
+	insert into book values(4, '골프 바이블', '대한미디어', 35000);
+	insert into book values(5, '피겨 교본', '굿스포츠', 8000);
+	insert into book values(6, '역도 단계별 기술', '굿스포츠', 6000);
+	insert into book values(7, '야구의 추억', '이상미디어', 20000);
+	insert into book values(8, '야구를 부탁해', '이상미디어', 13000);
+	insert into book values(9, '올림픽 이야기', '삼성당', 7500);
+	insert into book values(10, 'Olympic Chapions', 'Pearson', 13000);
+	
+	
+* 커밋
+	- 데이터를 추가하고 그것을 데이터베이스에 반영하기 위하여 commit 한다.
+	
+---------------------------------------------------------------------
+
+연습) 다음과 같은 고객의 정보를 추가해보자.
+
+	1, 박지성, 영국 맨체스타, 000-5000-0001
+	2, 김연아, 대한민국 서울, 000-6000-0001
+	3, 장미란, 대한민국 강원도, 000-7000-0001
+	4, 추신수, 미국 클리블랜드, 000-8000-0001
+	
+		insert into customer values(1, '박지성', '영국 맨체스타', '000-5000-0001');
+		insert into customer values(2, '김연아', '대한민국 서울', '000-6000-0001');
+		insert into customer values(3, '장미란', '대한민국 강원도', '000-7000-0001');
+		insert into customer values(4, '추신수', '미국 클리블랜드', '000-8000-0001');
+		insert into customer values(5, '박세리', '대한민국 대전', null);
+	
+	  	
+	  	
+------------------------------------------------------------------------
+
+* 테이블 지우기
+
+	drop table 테이블명;
+	-> 참조하는 키가 있으면 자식 테이블을 먼저 지워준다.
+	  	
+------------------------------------------------------------------------
+	  	
+연습) 고객테이블에 대한 각 컬럼에 대하여 컬럼 포멧을 설정하고 고객의 정보를 조회
+
+	col custid format 9999;
+	col name format a10;
+	col address format a20;
+	col phone format a20;
+	
+-------------------------------------------------------------------------
+
+CUSTID NAME       ADDRESS              PHONE
+------ ---------- -------------------- ---------------
+     1 박지성       영국 맨체스타        		000-5000-0001
+     2 김연아       대한민국 서울       		000-6000-0001
+     3 장미란       대한민국 강원도     		000-7000-0001
+     4 추신수       미국 클리블랜드      		000-8000-0001
+     5 박세리       대한민국 대전
+     
+     
+BOOKID BOOKNAME             PUBLICSHER    PRICE
+------ -------------------- ---------- --------
+     1 축구의 역사         		 굿스포츠      7,000
+     2 축구아는 여자       		 나무수       13,000
+     3 축구의 이해        		 대한미디어  	22,000
+     4 골프 바이블          	 대한미디어   	35,000
+     5 피겨 교본           	 굿스포츠      8,000
+     6 역도 단계별 기술    		 굿스포츠      6,000
+     7 야구의 추억         		 이상미디어   	20,000
+     8 야구를 부탁해       		 이상미디어   	13,000
+     9 올림픽 이야기       		 삼성당        7,500
+    10 Olympic Chapions      Pearson    13,000
+	  	
+---------------------------------------------------------------------------
+
+'박지성' 고객에 '축구의 역사'를 6000에 구매한 정보를 orders 테이블에 추가
+
+-> 1번 고객이 1번 도서를 6000원에 구매한 정보를 orders 테이블에 추가
+
+	 insert into orders values(1, 1, 1, 6000, '2022/04/01');
+	 
+	 insert into orders values(2, 1, 3, 21000, '2022/04/03');
+	 insert into orders values(3, 2, 5, 8000, '2022/04/03');
+	 insert into orders values(4, 3, 6, 6000, '2022/04/04');
+	 insert into orders values(5, 4, 7, 20000, '2022/04/05');
+	 insert into orders values(6, 1, 2, 12000, '2022/04/07');
+	 insert into orders values(7, 4, 8, 13000, '2022/04/07');
+	 insert into orders values(8, 3, 10, 12000, '2022/04/08');
+	 insert into orders values(9, 2, 10, 7000, '2022/04/09');
+	 insert into orders values(10, 3, 8, 13000, '2022/04/10');
+	 
+---------------------------------------------------------------------------
+
+연습) orders 테이블의 각 컬럼에 대하여 컬럼포멧을 설정하고 모든 주문내역을 조회
+
+	col orderid format 9999;
+	col custid format 9999;
+	col bookid format 9999;
+	col saleprice format 999,999;
+	col orderdate format a12;	
+	  	
+---------------------------------------------------------------------------
+
+* 관계형 데이터베이스
+	- 서로 공통되는 컬럼이 있다. 
+
+---------------------------------------------------------------------------
+
+연습) 도서의 이름과 가격을 출력
+	select bookname, price from book;
+
+연습) 도서 가격과 이름을 출력
+	select price, bookname from book;
+
+연습) 고객의 이름과 주소를 출력
+	select name, address from customer;
+	
+연습) 고객의 주소와 이름을 출력
+	select address, name from customer;
+	
+연습) 모든 도서의 도서번호, 도서명, 출판사, 가격을 출력
+	select * from book;
+	
+연습) book 테이블에 있는 모든 출판사를 출력
+	select publicsher from book;
+	
+연습) 위의 출력문을 중복을 제거하여 출력
+	select distinct publicsher from book;
+	
+----------------------------------------------------------------------------
+	
+연습) 가격이 20000원 미만인 도서의 정보를 출력
+	select * from book where price < 20000;
+	
+연습) 가격이 10000원 이상 20000원 이하인 도서를 검색
+	select * from book where price between 10000 and 20000;
+	select * from book where price >= 10000 and price <= 20000;
+	
+연습) 출판사가 '굿스포츠' 혹은 '대한미디어'인 도서를 검색
+	select * from book where publicsher IN ('굿스포츠', '대한미디어');
+	select * from book where publicsher = '굿스포츠' or publicsher = '대한미디어';
+	
+연습) 출판사가 '굿스포츠' 혹은 '대한미디어'가 아닌 도서를 검색
+	select * from book where publicsher NOT IN ('굿스포츠', '대한미디어');
+	select * from book where publicsher <> '굿스포츠' and  publicsher <> '대한미디어';
+	--> <>은 아닌 것을 출력
+	
+	
+------------------------------------------------------------------------------
+
+* like 연산자
+	- 문자열의 패턴을 검색하고자 할 때에 사용하는 연산자
+	
+	%	아무글자
+	_	모르는 한 글자
+	
+	
+-------------------------------------------------------------------------------
+
+연습) '축구의 역사'를 출간한 출판사를 검색
+	select bookname, publicsher from book where bookname like '축구의 역사';
+	select bookname, publicsher from book where bookname = '축구의 역사';
+	
+연습) 도서이름에 '축구'가 포함된 출판사를 검색
+	select publicsher from book where bookname like '%축구%';
+	
+연습) 도서이름의 왼쪽 두 번째 위치에 '구'라는 문자열을 갖는 도서를 검색
+	select * from book where bookname like '_구%';
+	
+	
+-------------------------------------------------------------------------------
+
+* 복합 연산자
+	- and
+	- or
+
+-------------------------------------------------------------------------------
+	
+연습) 축구에 관한 도서 중 가격이 20,000원 이상인 도서를 검색
+	select * from book where bookname like '%축구%' and price >= 20000;
+	
+연습) 출판사가 '굿스포츠' 혹은 '대한미디어'인 도서를 검색
+	select * from book where publicsher = '굿스포츠' or publicsher = '대한미디어'; 
+	select * from book where publicsher in ('굿스포츠', '대한미디어');
+	
+-------------------------------------------------------------------------------
+
+* order by
+	- 특정 컬럼을 기준으로 자료를 정렬하여 검색하고자 할 때 사용
+	
+	order by 컬럼명 [asc, desc];
+		- asc: 오름차순(기본, 생략이 가능)
+		- desc: 내림차순
+	
+	
+-------------------------------------------------------------------------------
+
+연습) 도서를 이름순으로 검색
+	select * from book order by bookname;
+
+연습) 도서를 가격순으로 검색하고, 가격이 같으면 이름순으로 검색
+	select * from book order by price, bookname;
+	
+연습) 모든 도서의 정보를 가격이 높은순으로 정렬하여 출력. 단 가격이 동일할 때는 도서명 순으로 정렬
+	select * from book order by price desc, bookname;
+	
+연습) 모든 도서의 정보를 출판사 순으로 출력한다. 단, 출판사가 동일할 때에는 가격이 높은 순으로 출력
+	select * from book order by publicsher, price desc;
+	
+연습) '굿스포츠'나 '대한미디어'나 '이상미디어'에서 출판하는 도서 중에 가격이 7000원 이상인 도서의 정보를 출력하시오.
+	단, 가격이 높은순으로 출력하되 가격이 동일할 때는 도서명 순으로 출력
+	
+	select * from book where publicsher in ('굿스포츠', '대한미디어', '이상미디어') and price >= 7000 order by price desc, bookname;
+	
+--------------------------------------------------------------------------------
+
+* 집계 함수
+	- 컬럼별로 총합, 평균, 최대값, 최소값, 개수를 파악하기 위한 함수들을 말한다.
+			sum, avg, max, min, count
+	
+--------------------------------------------------------------------------------
+
+연습) 고객이 주문한 도서의 총 판매액을 구하시오.
+	select SUM(saleprice) from orders;
+	select SUM(saleprice) AS 총매출 from orders; //as 키워드는 생략해도 된다.
+	
+	
+연습) 1번 고객의 총 주문금액을 출력
+	select SUM(saleprice) as 총주문금액 from orders where custid = 1;
+
+연습) 이상미디어에서 출간하는 도서의 수를 출력
+	select count(bookname) from book where publicsher = '이상미디어';
+
+연습) 이상미디어에서 출간하는 도서의 최고 금액을 출력
+	select max(price) from book where publicsher = '이상미디어';
+
+연습) 이상미디어에서 출간하는 도서의 평균 금액을 출력
+	select avg(price) as 평균금액 from book where publicsher = '이상미디어';
+	
+	
+연습) 2번 김연아 고객이 주문한 도서의 총 판매액을 출력
+	select sum(saleprice) as 총매출 from orders where custid = 2;
+	
+연습) 고객이 주문한 도서의 총 판매액, 평균값, 최저가, 최고가 출력
+	select sum(saleprice) Total,
+		   avg(saleprice) Average,
+		   min(saleprice) Minimum,
+		   max(saleprice) Maximum from orders;
+		   
+----------------------------------------------------------------------------------
+
+* count 함수
+	- 개수를 파악하는 함수
+	
+	count(컬럼명)  <=== 그 컬럼의 값이 null이 아닌 개수를 알려주는 함수
+	count(*)     <=== 모든 레코드의 수를 알려주는 함수
+	
+	
+		   
+연습) 마당서점의 도서 판매 건수를 구하시오.
+	select count(*) from orders; //모든 도서의 판매 건수
+	
+	
+연습) 모든 고객의 수를 출력
+	select count(*) from customer;
+	select count(phone) from customer; //언제나 값이 같지는 않다. phone의 수는 4
+	
+연습) 1번 고객이 주문한 총 주문건수와 총 주문 금액을 출력
+	select count(*) 총주문건수, sum(saleprice) 총주문금액 from orders where custid = 1;
+	
+연습) 총 주문건수와 총 주문금액을 출력
+	select count(*), sum(saleprice) from orders;
+	
+	select custid, count(*), sum(saleprice) from orders; // 집계함수의 결과는 한 건이기 때문에 다른 컬럼을 함께 출력할 수 없다!
+	
+	
+연습) 고객 아이디별로 총 주문건수와 총 주문금액을 출력 ==> 한 건이 아니라 고객 아이디의 수 만큼 출력, 집계함수와 함께 group by 절을 사용
+	select custid, count(*), sum(saleprice) from orders group by custid;
+	
+	===> 집계함수를 사용할 때에 group by 절에 나타난 컬럼만이 select절에 올 수 있다.
+	
+	
+	
+연습) 출판사별로 출간하는 도서의 수, 평균도서가격, 최저도서가격, 최고도서가격을 출력. 단, 도서의 수가 높은 순으로 출력
+	select publicsher, count(*), avg(price), min(price), max(price) from book group by publicsher order by count(*) desc;
+	
+	
+연습) '굿스포츠'나 '이상미디어', '대한미디어'에서 출간하는 도서를 고객아이디 별로 구매한 건수를 출력하세요. (서브쿼리 나중)
+	
+	- 구매한 정보 --> orders 테이블
+	- 출판사 정보 --> book 테이블
+	
+	- book 테이블로부터 '굿스포츠'나 '이상미디어', '대한미디어' 에서 출간하는 도서 번호를 검색
+		select bookid from book where publicsher in('굿스포츠', '이상미디어', '대한미디어');
+		
+		
+	- 고객 아이디별로 구매한 건수
+		select custid, count(*) from orders where bookid in 
+		(select bookid from book where publicsher in('굿스포츠', '이상미디어', '대한미디어')) 
+		group by custid; //sql문 안에 sql문이 또 들어감 ==> 중첩질의
+		
+		
+		
+		
+연습) 구매 가격이 8000원 이상 구매가격에 대하여 구매한 정보에 대하여 고객 아이디별로 총 구매 건수를 출력
+	select custid, count(*) from orders where saleprice >= 8000 group by custid;
+
+	
+----------------------------------------------------------------------------------------------------------------------------
+	
+* having
+	- group by 절에 나타난 결과에 대하여 조건식을 표현하고자 할 때 사용
+	
+	
+연습) 구매 가격이 8000원 이상 구매가격에 대하여 구매한 정보에 대하여 고객 아이디별로 총 구매 건수를 출력하세요. 단, 총 구매건수가 2건 이상인 것만 출력
+	select custid, count(*) from orders where saleprice >= 8000 group by custid having count(*) >= 2;
+	
+	
+연습) '굿스포츠'나 '이상미디어', '대한미디어'에서 출간하는 출판사별 도서의 수, 평균 도서가격을 출력하세요. 단, 평균 도서 가격이 8000원 이상인 도서만 출력. 또 평균가격이 높은 순으로 출력
+	select publicsher, count(*), avg(price) from book where publicsher in ('굿스포츠', '이상미디어', '대한미디어') group by publicsher 
+	having avg(price) >= 8000 order by avg(price) desc;
+	
+------------------------------------------------------------------------------------------------------------------------------
+
+연습) 1. 마당서점의 고객이 요구하는 다음 질문에 대해 sql문을 작성하세요.
+	(1) 도서번호가 1인 도서의 이름
+	(2) 가격이 20,000원 이상인 도서의 이름
+	(3) 박지성의 총 구매액(박지성의 고객번호는 1번)
+	(4) 박지성이 구매한 도서의 수(박지성 고객번호 1)
+	
+	(1) select bookname from book where bookid = 1;
+	(2) select bookname from book where price >= 20000;
+	(3) select sum(saleprice) from orders where custid = 1;
+	(4) select count(*) from orders where custid = 1;
+	
+-----------------------------------------------------------------------------------------
+
+연습) 2. 마당서점의 운영자와 경영자가 요구하는 다음질문에 대해 sql문을 작성하세요.
+	(1) 마당서점 도서의 총 개수
+	(2) 마당서점에 도서를 출고하는 출판사의 총 개수
+	(3) 모든 고객의 이름, 주소
+	(4) 2022년 4월 4일~4월 7일 사이에 주문받은 도서의 주문번호
+	(5) 2022년 4월 4일~4월 7일 사이에 주문받은 도서를 제외한 도서의 주문번호
+	(6) 성이 '김' 씨인 고객의 이름과 주소
+	(7) 성이 '김' 씨이고 이름이 '아'로 끝나는 고객의 이름과 주소
+	
+	(1) select count(*) from book;
+	(2) select count(distinct publicsher) from book;
+	(3) select name, address from customer;
+	(4) select orderid from orders where orderdate between '2022/04/04' and '2022/04/07';
+		select orderid from orders where orderdate >= '2022/04/04' and orderdate <= '2022/04/07';
+		
+	(5) select orderid from orders where orderdate not between '2022/04/04' and '2022/04/07';
+		select orderid from orders where orderdate < '2022/04/04' or orderdate > '2022/04/07';
+	
+	(6) select name, address from customer where name like '김%';
+	(7) select name, address from customer where name like '김_아';
+	
+	
+	insert into customer values(6, '김철수', '대한민국 인천', '000-9000-0001');
+	insert into customer values(7, '김시아', '대한민국 부산', '000-7777-0001');
+	
+----------------------------------------------------------------------------------------
+
+연습) 고객번호를 입력받아 그 고객이 주문한 주문번호, 고객번호, 도서번호, 구매금액, 구매일을 출력하는 프로그램을 작성(OrdersVO, OrdersDAO)
+
+
+	1번 고객의 주문내역을 출력
+	select * from orders where custid = 1;
+	
+	
+----------------------------------------------------------------------------------------
+
+* 데이터베이스 연동 프로그램 만들기 
+	- VO(Value Object)  ==> 데이터베이스 테이블을 객체로 표현하기 위한 클래스를 말한다.
+	- DAO(Database Access Object) ==> 데이터베이스에 접근하여 검색, 추가, 수정, 삭제의 명령을 수행하는 클래스를 말한다.
+	
+	
+	
+	
+	  	
