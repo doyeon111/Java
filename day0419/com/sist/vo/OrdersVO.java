@@ -2,7 +2,7 @@ package com.sist.vo;
 
 import java.util.Date;
 
-//µ¥ÀÌÅÍº£ÀÌ½º Å×ÀÌºí Orders¸¦ °´Ã¼·Î Ç¥ÇöÇÏ±â À§ÇÑ Å¬·¡½º¸¦ ¸¸µç´Ù.
+//ë°ì´í„°ë² ì´ìŠ¤ í…Œì´ë¸” Ordersë¥¼ ê°ì²´ë¡œ í‘œí˜„í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
 public class OrdersVO {
 	private int orderid, custid, bookid, saleprice;
 	private Date orderdate;
@@ -32,7 +32,7 @@ public class OrdersVO {
 	}
 
 	public int getSaleprice() {
-		return saleprice;
+		return saleprice; 
 	}
 
 	public void setSaleprice(int saleprice) {
