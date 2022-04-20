@@ -11,28 +11,28 @@ public class OrdersTest {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		// °í°´¹øÈ£ ÀÔ·ÂÀ» À§ÇÏ¿© º¯¼ö¸¦ ¼±¾ğ
+		// ê³ ê°ë²ˆí˜¸ ì…ë ¥ì„ ìœ„í•˜ì—¬ ë³€ìˆ˜ë¥¼ ì„ ì–¸
 		int custid;
 
-		// °í°´¹øÈ£¸¦ ÀÔ·Â¹Ş´Â´Ù
-		System.out.print("°í°´¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+		// ê³ ê°ë²ˆí˜¸ë¥¼ ì…ë ¥ë°›ëŠ”ë‹¤
+		System.out.print("ê³ ê°ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
 		custid = sc.nextInt();
 
-		// ÇØ´ç°í°´ÀÇ ÁÖ¹®³»¿ªÀ» °Ë»öÇÏ±â À§ÇÏ¿© OrderDAO°´Ã¼¸¦ »ı¼ºÇÑ´Ù.
+		// í•´ë‹¹ê³ ê°ì˜ ì£¼ë¬¸ë‚´ì—­ì„ ê²€ìƒ‰í•˜ê¸° ìœ„í•˜ì—¬ OrderDAOê°ì²´ë¥¼ ìƒì„±í•œë‹¤.
 		OrdersDAO dao = new OrdersDAO();
 
-		// daoÀÇ ¸Ş¼Òµå¸¦ È£ÃâÇÏ¿© °í°´ÀÇ ÁÖ¹®³»¿ªÀ» °Ë»öÇÑ´Ù.
+		// daoì˜ ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ê³ ê°ì˜ ì£¼ë¬¸ë‚´ì—­ì„ ê²€ìƒ‰í•œë‹¤.
 		ArrayList<OrdersVO> list = dao.listOrder(custid);
 
-		// Á¦¸ñÀ» Ãâ·Â
-		System.out.println("ÁÖ¹®¹øÈ£\t" + "°í°´¹øÈ£\t" + "µµ¼­¹øÈ£\t" + "±¸¸Å°¡°İ\t" + "±¸¸ÅÀÏ\t");
+		// ì œëª©ì„ ì¶œë ¥
+		System.out.println("ì£¼ë¬¸ë²ˆí˜¸\t" + "ê³ ê°ë²ˆí˜¸\t" + "ë„ì„œë²ˆí˜¸\t" + "êµ¬ë§¤ê°€ê²©\t" + "êµ¬ë§¤ì¼\t");
 
-		// ¸®½ºÆ®¿¡ ´ã±ä ÁÖ¹®³»¿ªÀ» ¸ğµÎ Ãâ·Â
+		// ë¦¬ìŠ¤íŠ¸ì— ë‹´ê¸´ ì£¼ë¬¸ë‚´ì—­ì„ ëª¨ë‘ ì¶œë ¥
 		for(OrdersVO vo : list) {
 			System.out.println(vo.getOrderid()+ "\t" +
 								vo.getCustid()+ "\t" +
 								vo.getBookid()+ "\t" +
-								vo.getSaleprice()+ "\t" +
+				 				vo.getSaleprice()+ "\t" +
 								vo.getOrderdate());
 		}
 		
