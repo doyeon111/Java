@@ -9,17 +9,17 @@ import java.util.ArrayList;
 
 import com.sist.vo.OrdersVO;
 
-//°í°´¹øÈ£¸¦ ÀÔ·Â¹Ş¾Æ ±× °í°´ÀÌ ÁÖ¹®ÇÑ ÁÖ¹®¹øÈ£, °í°´¹øÈ£, µµ¼­¹øÈ£, ±¸¸Å±İ¾×, ±¸¸ÅÀÏÀ» Ãâ·ÂÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼º
+//ê³ ê°ë²ˆí˜¸ë¥¼ ì…ë ¥ë°›ì•„ ê·¸ ê³ ê°ì´ ì£¼ë¬¸í•œ ì£¼ë¬¸ë²ˆí˜¸, ê³ ê°ë²ˆí˜¸, ë„ì„œë²ˆí˜¸, êµ¬ë§¤ê¸ˆì•¡, êµ¬ë§¤ì¼ì„ ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±
 
-//µ¥ÀÌÅÍº£ÀÌ½º¿¡ Á¢±ÙÇÏ¿© Orders Å×ÀÌºíÀÇ ÀÚ·á¸¦ Ãß°¡ÇÏ°Å³ª ¼öÁ¤ÇÏ°Å³ª °Ë»öÇÏ°Å³ª »èÁ¦¸¦ À§ÇÑ ¸Ş¼Òµå¸¦ °®°íÀÖ´Â Å¬·¡½º¸¦ ¸¸µç´Ù.
+//ë°ì´í„°ë² ì´ìŠ¤ì— ì ‘ê·¼í•˜ì—¬ Orders í…Œì´ë¸”ì˜ ìë£Œë¥¼ ì¶”ê°€í•˜ê±°ë‚˜ ìˆ˜ì •í•˜ê±°ë‚˜ ê²€ìƒ‰í•˜ê±°ë‚˜ ì‚­ì œë¥¼ ìœ„í•œ ë©”ì†Œë“œë¥¼ ê°–ê³ ìˆëŠ” í´ë˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
 public class OrdersDAO {
-	// °í°´ ¾ÆÀÌµğ¸¦ ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ÇØ´ç °í°´ÀÇ ÁÖ¹®³»¿ªÀ» °Ë»öÇÏ¿© ArrayList·Î ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
+	// ê³ ê° ì•„ì´ë””ë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ í•´ë‹¹ ê³ ê°ì˜ ì£¼ë¬¸ë‚´ì—­ì„ ê²€ìƒ‰í•˜ì—¬ ArrayListë¡œ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
 	public ArrayList<OrdersVO> listOrder(int custid) {
 		ArrayList<OrdersVO> list = new ArrayList<OrdersVO>();
 
 		String sql = "select * from orders where custid = " + custid;
 
-		// µ¥ÀÌÅÍº£ÀÌ½º ¸í·É¾î¸¦ ½ÇÇàÇÏ´Âµ¥ ±îÁö ÄÚµå¸¦ ¿Ï¼º
+		// ë°ì´í„°ë² ì´ìŠ¤ ëª…ë ¹ì–´ë¥¼ ì‹¤í–‰í•˜ëŠ”ë° ê¹Œì§€ ì½”ë“œë¥¼ ì™„ì„±
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
@@ -30,29 +30,29 @@ public class OrdersDAO {
 
 			ResultSet rs = stmt.executeQuery(sql);
 
-			// °Ë»öÇÑ °á°ú¸¸Å­ ¹İº¹ ½ÇÇà
+			// ê²€ìƒ‰í•œ ê²°ê³¼ë§Œí¼ ë°˜ë³µ ì‹¤í–‰
 			while (rs.next()) {
-				// ÇöÀç Ä¿¼­°¡ ¹Ù¶óº¸°í ÀÖ´Â °÷¿¡ µ¥ÀÌÅÍ¸¦ »Ì¾Æ¿Â´Ù.
+				// í˜„ì¬ ì»¤ì„œê°€ ë°”ë¼ë³´ê³  ìˆëŠ” ê³³ì— ë°ì´í„°ë¥¼ ë½‘ì•„ì˜¨ë‹¤.
 				int orderid = rs.getInt(1);
 				int cid = rs.getInt(2);
 				int bookid = rs.getInt(3);
 				int saleprice = rs.getInt(4);
 				Date orderdate = rs.getDate(5);
 
-				// ÇöÀç Ä¿¼­°¡ ¹Ù¶óº¸°íÀÖ´Â °÷¿¡ µ¥ÀÌÅÍ¸¦ °®°í VO¸¦ »ı¼º
+				// í˜„ì¬ ì»¤ì„œê°€ ë°”ë¼ë³´ê³ ìˆëŠ” ê³³ì— ë°ì´í„°ë¥¼ ê°–ê³  VOë¥¼ ìƒì„±
 				OrdersVO vo = new OrdersVO(orderid, custid, bookid, saleprice, orderdate);
 
-				// »ı¼ºÇÑ VO¸¦ ¸®½ºÆ®¿¡ ´ã´Â´Ù.
+				// ìƒì„±í•œ VOë¥¼ ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 				list.add(vo);
 			}
 
-			// »ç¿ëÇß´ø ÀÚ¿øµéÀ» ´İ¾ÆÁØ´Ù.
+			// ì‚¬ìš©í–ˆë˜ ìì›ë“¤ì„ ë‹«ì•„ì¤€ë‹¤.
 			rs.close();
 			stmt.close();
 			conn.close();
-
+ 
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 		return list;
