@@ -2,7 +2,7 @@ package com.sist.vo;
 
 import java.util.Date;
 
-//µ¥ÀÌÅÍº£ÀÌ½º Å×ÀÌºí Orders¸¦ °´Ã¼·Î Ç¥ÇöÇÏ±â À§ÇÑ Å¬·¡½º¸¦ ¸¸µç´Ù.
+//ë°ì´í„°ë² ì´ìŠ¤ í…Œì´ë¸” Ordersë¥¼ ê°ì²´ë¡œ í‘œí˜„í•˜ê¸° ìœ„í•œ í´ë˜ìŠ¤ë¥¼ ë§Œë“ ë‹¤.
 public class BookVO {
 	private int bookid;
 	private String bookname; 
@@ -32,7 +32,7 @@ public class BookVO {
 		return price;
 	}
 	public void setPrice(int price) {
-		this.price = price;
+		this.price = price; 
 	}
 	public BookVO(int bookid, String bookname, String publicsher, int price) {
 		super();
