@@ -1,0 +1,353 @@
+연습) 김연아 고객의 고객번호와 주소를 출력
+	select custid, address from customer where name = '김연아';
+
+연습) 대한민국에 거주하는 모든 고객의 정보를 출력
+	select * from customer where address like '대한민국%';
+
+연습) 이상미디어나 대한미디어에서 출간하는 도서 중에 가격이 10000원 이상인 모든 도서의 정보를 출력
+	select * from book where publicsher in ('이상미디어', '대한미디어') and price >= 10000;
+
+연습) 출판사명이 '미디어'로 끝나는 출판사에서 출간하는 도서의 총 수를 출력
+	select publicsher, count(*) from book where publicsher like '%미디어' group by publicsher;
+
+연습) 날짜별로 판매한 총 판매량, 총 판매금액을 출력
+	select orderdate, count(*), sum(saleprice) from orders group by orderdate;
+
+연습) 2022년 4월 3일과 4월 10일 사이에 판매중에 고객 별로 총 구매건수와 총 구매금액을 출력. 
+	 단, 총 구매건수가 2건 이상인 정보만 출력, 또한 총 구매건수가 높은 순으로 출력
+	 select custid, count(*), sum(saleprice) from orders where orderdate between '2022/04/03' and '2022/04/10' 
+	 group by custid having count(*)>=2 order by count(*) desc;
+	 
+----------------------------------------------------------------------------------------------------------------
+
+* 조인(join)
+	- 관계형 데이터베이스에서 검색하고자 하는 컬럼이 두 개 이상의 테이블에 있을 때 조인을 사용한다. 
+	- 조인을 할 때는 두 개의 테이블에 공통으로 들어가는 컬럼으로 조건식을 표현한다.
+	
+	
+연습) 1번 고객이 주문한 모든 주문내역을 출력
+	select * from orders where custid = 1;
+	
+연습) '박지성' 고객이 주문한 모든 도서명과, 도서의 가격, 구매가격, 주문일을 출력
+	select bookname, price, saleprice, orderdate
+	from book, customer, orders
+	where name = '박지성' and 
+	customer.custid = orders.custid and // customer 테이블에 있는 custid와 orders 테이블에 있는 custid와 동일해야함.
+	orders.bookid = book.bookid;
+	
+	
+연습) '축구의 이해'를 구매한 모든 고객의 이름, 주소, 전화, 구매일을 출력하세요.
+	select name, address, phone, orderdate
+	from customer, orders, book
+	where bookname = '축구의 이해' and
+	customer.custid = orders.custid and
+	orders.bookid = book.bookid;
+	
+	
+연습) 축구 관련 도서중에 가격이 8000원 이상인 도서를 구매한 고객의 이름, 도서명, 출판사명, 구매일을 출력하세요.
+	단, 최근의 구매일 순으로 출력하고 동일할 때에는 고객이름 순으로 출력
+	select name, bookname, publicsher, orderdate
+	from customer, book, orders
+	where bookname like '%축구%' and price >= 8000 and
+	customer.custid = orders.custid and
+	orders.bookid = book.bookid
+	order by orderdate desc, name;
+
+
+	select name, bookname, publicsher, orderdate
+	from customer c, book b, orders o				 //짧게 사용하기 위하여 알파벳을 지정해준다.
+	where bookname like '%축구%' and price >= 8000 and
+	c.custid = o.custid and
+	o.bookid = b.bookid
+	order by orderdate desc, name;
+	
+	
+연습) 대한민국에 거주하는 고객별로 총 주문건수, 총 주문금액을 출력하세요. 단, 총 주문금액이 10000원 이상인 경우만 출력
+	select name, count(*), sum(saleprice)
+	from customer c, orders o
+	where address like '대한민국%' and
+	c.custid = o.custid
+	group by name having sum(saleprice) >= 10000; //group by 절에 나타난 결과에 대하여 조건식을 표현할 때 사용하는 것
+	
+	
+	
+-----------------------------------------------------------------------------------------------------------
+
+(having 연습)
+
+연습) 모든 도서의 수를 출력
+	select count(*) from book;
+
+
+연습) 출판사 별로 총 도서의 수를 출력
+	select publicsher, count(*) from book group by publicsher; //출판사의 수 만큼 나타남
+	
+	
+연습) 출판사 별로 총 도서의 수를 출력하세요. 단, 총 도서의 수가 2건 이상인 것만 출력
+	select publicsher, count(*) from book group by publicsher having count(*) >= 2;
+	
+
+연습) 도서의 가격이 8000원 이상인 도서에 대하여 출판사별로 총 도서의 수를 출력하세요. 단, 총 도서의 수가 2건 이상인 것만 출력
+	select publicsher, count(*) from book where price >= 8000 group by publicsher having count(*) >= 2;
+
+-------------------------------------------------------------------------------------------------------------
+
+연습) 2022년 4월 3일에서 10일 사이에 판매된 도서명 별로 총 판매건수를 출력하세요. 
+	select bookname, count(*)
+	from orders o, book b
+	where orderdate between '2022/04/03' and '2022/04/10' and
+	o.bookid = b.bookid
+	group by bookname;
+
+
+연습) 2022년 4월 3일에서 10일 사이에 판매된 도서명 별로 총 판매건수를 출력하세요. 단, 판매건수가 2건 이상인 것만 출력
+	select bookname, count(*)
+	from orders o, book b
+	where orderdate between '2022/04/03' and '2022/04/10' and
+	o.bookid = b.bookid
+	group by bookname having count(*) >= 2;
+
+	
+	
+연습) 출판사명이 '미디어'로 끝나는 출판사의 도서를 구매한 고객 이름별로 총 주문건수, 총 주문금액을 출력하세요. 단, 총 주문금액이 10000원 이상인 것만 출력
+	또, 총 주문금액이 높은순으로 출력하고 동일할 때에는 이름순으로 출력
+	select name, count(*), sum(saleprice) 
+	from book b, orders o, customer c
+	where publicsher like '%미디어' and
+	b.bookid = o.bookid and
+	c.custid = o.custid
+	group by name having sum(saleprice) >= 10000
+	order by sum(saleprice) desc, name;
+	
+--------------------------------------------------------------------------------------------------------------------
+
+연습) 2022년 4월 3일에 구매한 고객의 이름과 주소를 출력
+	select name, address 
+	from customer c, orders o
+	where orderdate = '2022/04/03' and
+	c.custid = o.custid;
+	
+	
+	
+연습) 2022년 4월 3일에 구매한 고객번호와 이름과 주소를 출력
+	select custid, name, address 
+	from customer c, orders o
+	where orderdate = '2022/04/03' and
+	c.custid = o.custid;
+	---------------------------------
+	<결과>
+	
+	SQL> select custid, name, address
+  2  from customer c, orders o
+  3  where orderdate = '2022/04/03' and
+  4  c.custid = o.custid;
+	select custid, name, address
+	       *
+	1행에 오류:
+	ORA-00918: 열의 정의가 애매합니다 <==== name, address는 customer 테이블에만 있다. 
+									그런데, custid는 customer 테이블에도 있고, orders 테이블에도 있기 때문에 
+									어디에 있는 custid를 출력해야할지 모르겠다!
+									==> 둘 중에 아무거나 테이블이름을 명시해준다. (c.custid)
+									
+	select c.custid, name, address 
+	from customer c, orders o
+	where orderdate = '2022/04/03' and
+	c.custid = o.custid;
+	
+	==> 조인을 할 때 양쪽 테이블에 모두 있는 컬럼을 select절에 표현할 때에는 테이블 이름을 명시해야 한다.
+	
+--------------------------------------------------------------------------------------------------------
+
+연습) 대한민국에 거주하는 고객이 2022년 4월 3일에서 10일 사이에 '축구' 관련 도서를 구매한 고객번호, 고객명, 도서번호, 도서명, 도서가격, 구매가격, 구매일을 출력하세요.
+	단, 최근의 구매일 순으로 출력하고 동일할 때에는 고객명 순으로 출력
+	select c.custid, name, b.bookid, bookname, price, saleprice, orderdate
+	from customer c, book b, orders o
+	where address like '대한민국%' and orderdate between '2022/04/03' and '2022/04/10' and bookname like '%축구%' and
+	c.custid = o.custid and
+	b.bookid = o.bookid
+	order by orderdate desc, name;
+	
+	1,2,3 -> '축구' 관련 도서번호
+	2,3,5,6,7 -> '대한민국' 거주하는 고객번호
+	
+	실습을 위하여 다음의 레코드를 주문테이블에 추가
+	insert into orders values(11, 2, 1, 6000, '2022/04/03');
+	insert into orders values(12, 2, 2, 6000, '2022/04/03');
+	insert into orders values(13, 5, 3, 22000, '2022/04/10');
+
+	
+--------------------------------------------------------------------------------------------------------
+
+* 테이블 만들기
+
+	* 부서테이블
+	
+		create table dept(
+			dno number primary key,
+			dname varchar2(20),
+			dloc varchar2(20)
+		);
+		
+		
+		insert into dept values(10, '총무팀', '서교동');
+		insert into dept values(20, '기획팀', '판교');
+		insert into dept values(30, '개발1팀', '서교동');
+		insert into dept values(40, '개발2팀', '판교');
+	
+
+
+	* 사원 테이블
+
+		create table emp (
+			eno number primary key,
+			ename varchar2(20),
+			dno number references dept(dno),
+			salary number,
+			comm number,
+			hiredate date,
+			phone varchar2(20),
+			addr varchar2(50),
+			mgr number, //관리자
+			job varchar2(30)
+		);
+		
+		
+		사장: 박정수 (총무팀) 1000
+		
+				   과장        대리        사원 ----------->
+		개발2팀 40: 김도연 1001, 김한희 1002, 이유리 1003, 이진주 1004, 이창희 1005
+		개발1팀 30: 김민혁 1006, 서동혁 1007, 송승민 1008, 정은선 1009, 최우림 1010
+		기획팀 20 : 김소윤 1011, 이희승 1012, 조태헌 1013, 황예은 1014
+		총무팀 10 : 고주희 1015, 김다정 1016, 고민지 1017, 백지연 1018
+		
+		
+		insert into emp values(1000, '박정수', 10, 700, 70, '2005/01/05', '010-1234-1111', '서울', null, '사장');
+		insert into emp values(1001, '김도연', 40, 500, 50, '2020/03/05', '010-1234-2222', '인천', 1000, '과장');
+		
+		insert into emp values(1002, '김한희', 40, 300, 30, '2021/09/09', '010-3330-8446', '인천', 1001, '대리');
+		insert into emp values(1003, '이유리', 40, 400, 40, '2022/03/21', '010-4567-8910', '서울', 1002, '사원');
+		insert into emp values(1004, '이진주', 40, 400, 40, '2022/11/11', '010-3111-2358', '서울', 1002, '사원');
+		INSERT INTO emp VALUES(1005, '이창희', 40, 300, 30, '2022/04/05', '010-8994-8667', '인천', 1002, '사원');
+		insert into emp values(1006, '김민혁', 30, 500, 50, '2007/04/20', '010-1234-4259', '인천', 1000, '과장');
+		insert into emp values(1007, '서동혁', 30, 350, 30, '2015/04/14', '010-9391-4578', '일산', 1006, '대리');
+		insert into emp values(1008, '송승민', 30, 400, 40, '2007,07,21', '010-5541-2111', '인천', 1007, '사원');
+		insert into emp values(1009, '정은선', 30, 300, 30, '2022/01/01', '010-0000-5155', '서울', 1007, '사원');
+		insert into emp values(1010, '최우림', 30, 400, 50, '2022/04/20', '010-8922-6044', '광주', 1010, '사원');
+		insert into emp values(1011, '김소윤', 20, 600, 50, '2005/03/07', '010-1234-9999', '인천', 1000, '과장');
+		insert into emp values(1012, '이희승', 20, 500, 50, '2020/03/16', '010-1234-3223', '경기', 1011, '대리');
+		insert into emp values(1013, '조태헌', 20, 500, 50, '2022/04/20', '010-9707-7895', '서울', 1012, '사원');
+		insert into emp values(1014, '황예은', 20, 500, 50, '2020/05/05', '010-9999-7777', '경기', 1012, '사원');
+		insert into emp values(1015, '고주희', 10, 500, 50, '2020/03/05', '010-7256-1004', '서울', 1000, '과장');
+		insert into emp values(1016, '김다정', 10, 400, 50, '2021/05/20', '010-7187-9823', '인천', 1015, '대리');
+		insert into emp values(1017, '고민지', 10, 300, 40, '2020/05/05', '010-1515-1111', '서울', 300,  '사원');
+		insert into emp values(1018, '백지연', 10, 300, 50, '2020/03/06', '010-2460-4782', '대전', 1015, '사원');
+		
+		
+
+연습) 부서테이블과 사원테이블의 칼럼포멧을 설정하여 검색하기 
+		
+		
+		
+연습) 개발팀의 평균 급여를 출력해본다. 
+	select avg(salary) 
+	from emp e, dept d 
+	where dname like '개발%' and
+	e.dno = d.dno;
+		
+		
+연습) 부서이름별 근무자의 수를 출력
+	select dname, count(*) 
+	from dept d, emp e
+	where d.dno = e.dno
+	group by dname;
+		
+		
+연습) 사원의 이름, 직위를 출력
+	select ename, job from emp;
+
+
+연습) 판교에 근무하는 직원의 이름, 부서번호, 부서명, 급여, 수당, 실수령액을 출력하세요. 단, 실수령액이 높은순으로 출력하고 동일할 때에는 이름순으로 출력
+	select ename, d.dno, dname, salary, comm, (salary + comm) as 실수령액
+	from emp e, dept d
+	where dloc = '판교' and
+	e.dno = d.dno
+	order by 실수령액 desc, ename;
+
+
+연습) 개발팀에 근무하는 사원들의 급여를 10% 인상하려고 한다. 해당 직원들의 사원번호, 부서번호, 부서명, 부서위치, 급여, 증가된 급여분, 10% 인상된 급여를 출력
+	사원번호 순으로 출력하세요.
+	select eno, d.dno, dname, dloc, salary, (salary * 0.1) as 인상액, (salary * 1.1) as 인상액급여
+	from emp e, dept d
+	where dname like '개발%' and
+	e.dno = d.dno
+	order by ename;
+	
+	
+	
+연습) '김'씨인 모든 직원들의 사원이름과 부서번호, 부서명을 출력하세요.
+	select ename, d.dno, dname
+	from emp e, dept d
+	where ename like '김%' and
+	e.dno = d.dno;
+
+
+연습) 직위가 '대리'이거나 '사원'인 직원들의 최대급여, 최소급여, 총급여, 평균급여를 출력
+	select max(salary), min(salary), sum(salary), avg(salary)
+	from emp
+	where job in ('대리', '사원');
+
+
+연습) '판교'에 근무하는 직급이 '사원'과 '대리', '과장'들의 직급별 근무자의 수를 출력하세요. 단, 근무자의 수가 2명 이상인 직급만 출력  
+	select job, count(*)
+	from emp e, dept d
+	where dloc = '판교' and
+	e.dno = d.dno
+	group by job having count(*) >= 2;
+	
+	
+연습) 모든 직원의 '최대급여'와 '최소급여'의 차이를 출력하세요.
+	select (max(salary) - min(salary)) as 차이 from emp;
+	
+
+연습) 전체 직원들 중에 직속상관이 있는 직원의 수를 출력하세요.
+	select count(*)
+	from emp
+	where mgr is not null;
+		
+		
+연습) 사원번호가 1005번에서 1009번 사이에 직원들의 이름, 부서번호, 부서명, 부서위치를 출력
+	select ename, d.dno, dname, dloc
+	from emp e, dept d
+	where (eno between 1005 and 1009) and e.dno = d.dno;
+	
+	
+연습) 서교동에 근무하는 직원들 중에 직급이 '과장'인 사람들의 평균 급여를 출력하세요.
+	select avg(salary)
+	from emp e, dept d
+	where dloc = '서교동' and job = '과장' and e.dno = d.dno;
+
+
+연습) 서교동에 근무하거나 직급이 '과장'인 사람들의 사원번호, 사원명, 부서번호, 부서명, 부서위치, 직급, 급여를 출력하세요.
+	단, 급여가 높은순으로 출력
+	select eno, ename, d.dno, dname, dloc, job, salary
+	from emp e, dept d
+	where (dloc = '서교동' or job = '과장') and e.dno = d.dno
+	order by salary desc;
+
+
+- like는 패턴을 따를 때에 사용
+
+------------------------------------------------------------------------------------------------
+
+* 데이터베이스 학습을 하면서 데이터베이스 연결 프로그램을 웹 환경에서 실험
+
+현재의 컴퓨터를 웹 서버로 꾸미기 위하여 '톰캣'을 설치
+
+tomcat.apache.org
+
+
+
+
+
+
+	
