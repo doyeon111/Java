@@ -12,14 +12,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>°³¹ßÆÀ Á÷¿ø ¸ñ·Ï</h2>
+	<h2>ê°œë°œíŒ€ ì§ì› ëª©ë¡</h2>
 	<hr>
 	
-	<!-- jsp¿¡¼­ ÀÚ¹Ù ¹®¹ıÀ» ½áÁÖ·Á¸é <%%> ¾È¿¡½áÁØ´Ù. -->
+	<!-- jspì—ì„œ ìë°” ë¬¸ë²•ì„ ì¨ì£¼ë ¤ë©´ <%%> ì•ˆì—ì¨ì¤€ë‹¤. -->
 	<%
 		//String sql = "select * from emp where dno in(30, 40)";
 	
-		String sql = "select * from emp e, dept d where dname like '°³¹ß%' and e.dno = d.dno";
+		String sql = "select * from emp e, dept d where dname like 'ê°œë°œ%' and e.dno = d.dno";
 	
 		try{ 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -28,7 +28,7 @@
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				int eno = rs.getInt(1);
+				int eno = rs.getInt(1); 
 				String ename = rs.getString(2);
 				int dno = rs.getInt(3);
 				int salary = rs.getInt(4);
@@ -40,7 +40,7 @@
 				String job = rs.getString(10);
 				
 				
-				out.print(eno + ", " + ename+ ", " + dno + ", " + salary + ", " + comm + ", " + hiredate + ", " + phone + ", " + addr + ", " + mgr + ", " + job +  "<br>"); //ºê¶ó¿ìÀú¿¡ Ãâ·Â
+				out.print(eno + ", " + ename+ ", " + dno + ", " + salary + ", " + comm + ", " + hiredate + ", " + phone + ", " + addr + ", " + mgr + ", " + job +  "<br>"); //ë¸Œë¼ìš°ì €ì— ì¶œë ¥
 			}
 			
 			rs.close();
@@ -49,7 +49,7 @@
 			
 			
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	
 	
