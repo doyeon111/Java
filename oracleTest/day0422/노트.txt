@@ -1,0 +1,863 @@
+연습) 주문하지 않는 고객의 이름 출력 (서브쿼리 이용)
+	select name
+	from customer
+	where custid not in (select custid
+						from orders);
+						
+						
+연습) 주문 금액의 총액과 주문의 평균금액을 출력
+	select sum(saleprice), avg(saleprice)
+	from orders; 
+	
+	
+	
+연습) 고객의 이름과 고객별 총구매액을 출력
+	select name, sum(saleprice)
+	from customer c, orders o
+	where c.custid = o.custid
+	group by name;
+	
+	
+연습) 고객의 이름과 고객이 주문한 도서목록을 출력
+	select name, bookname
+	from customer c, book b, orders o
+	where c.custid = o.custid and b.bookid = o.bookid
+	order by name;
+	
+	
+연습) 도서의 가격과 판매 가격의 차이가 가장 많은 주문을 출력 **
+	select * 
+	from orders o, book b
+	where o.bookid = b.bookid and 
+	price - saleprice = (select max(price - saleprice) 
+							from book b, orders o 
+							where b.bookid = o.bookid);
+							
+		
+연습) 도서의 판매액 평균보다 자신의 구매액 평균이 더 높은 고객의 이름을 출력 **
+	select name, avg(saleprice)
+	from customer c, orders o
+	where c.custid = o.custid
+	group by name;  <== 고객별 평균 구매액
+	
+	select avg(saleprice) from orders; <== 판매액 평균
+	
+	---------------------------------------------
+	
+	select name, avg(saleprice)
+	from customer c, orders o
+	where c.custid = o.custid
+	group by name having avg(saleprice) > (select avg(saleprice) 
+												from orders);
+	
+	
+--------------------------------------------------------------------------
+* 자료를 수정
+	update emp set mgr = 1016 where eno = 1017;
+	
+	
+연습) 관리자보다 입사일이 더 빠른 직원들의 이름, 관리자이름, 입사일, 관리자의 입사일, 부서번호, 부서명을 출력
+	select e.ename, m.ename, e.hiredate, m.hiredate, e.dno, dname
+	from emp e, emp m, dept d
+	where e.mgr = m.eno and e.dno = d.dno and
+	e.hiredate < m.hiredate;
+	
+	
+--> 동일한 테이블에서 참조되는 경우에는 self 조인을 해야하고, 어떠한 경우에는 반드시 서브쿼리를 써야만 문제해결을 할 수 있고,
+	어떤 경우에는 서브쿼리를 써도되고, 조인을 해도 되는 경우가 있다. 반드시 어떤 것을 써라. 라는 것은 없고 선택사항이다.
+	다만, 데이터 양이 많을 때에는 검색 속도 측면에서 서브쿼리가 조인보다 성능이 더 좋다.
+	
+	
+-----------------------------------------------------------------------------
+
+* 데이터베이스 명령어의 종류
+	1. DDL (데이터 정의어)
+	2. DML (중요)
+	3. DCL
+
+* DDL (데이터 정의어)
+	- create
+	- alter
+	- drop
+	
+	* create 문
+		- 테이블을 구성하고, 속성과 속성에 관한 제약을 정의하며, 기본키 및 외래키를 정의하는 명령 (테이블을 생성하는 명령어)
+		- primary key 
+		
+		
+		create table 테이블이름 (
+			컬럼이름 자료형  [제약],
+			...
+		)
+		
+		
+	* alter문
+		- 테이블의 구조를 변경
+		
+	* drop문
+		- 테이블을 삭제하는 명령어
+	
+	
+* 제약의 종류
+	- not null		 : 생략할 수 없음
+	- unique 	 	 : 중복할 수 없다.
+	- check 		 : 조건식을 만족하는 값을 설정 
+	- default		 : 기본 값을 설정
+	- primary key	 : 기본 키를 설정 //다른 레코드와 구별하기 위하여 생략할 수 없고, 중복할 수 없도록 설정
+	- foreign key	 : 참조 키를 설정 //이미 있는 다른 테이블의 값을 반드시 참조해야 하는 것을 말한다.
+	
+	
+	* varchar2(20) ==> 최대 20바이트까지 저장할 수 있다. 한글은 3바이트 차지한다.
+					내가 넣은 데이터가 3바이트라면 3바이트만큼만 차지
+	
+----------------------------------------------------------------------------------
+
+create table newbook (
+	bookid number,
+	bookname varchar2(20) null,
+	publisher varchar2(20) null,
+	price number null
+);
+
+	insert into newbook values(1, '즐거운자바', '쌍용미디어', 30000);
+	insert into newbook values(2, '즐거운오라클', null, null);
+	insert into newbook values(null, null, null, null);
+	
+
+-----------------------------------------------------------------------------------
+
+
+* not null
+	- 중복을 허용
+	- not null인지만 판별 
+
+create table newbook (
+	bookid number not null,
+	bookname varchar2(20) not null,
+	publisher varchar2(20) null,
+	price number null
+);
+
+테이블에 자료를 추가하는 방법
+	insert into 테이블이름 values(값1, 값2,...);
+		--> 값의 수와 순서는 테이블의 구조와 동일해야한다.
+		
+	insert into 테이블이름(컬럼이름1, 컬럼이름2, ..) values(값1, 값2, ..);
+		--> 컬럼이름 순으로 값이 온다.
+		--> not null로 설정된 컬럼의 이름은 반드시 나타나야한다.
+
+	insert into newbook values(1, '즐거운자바', '쌍용미디어', 30000);
+	insert into newbook values(2, '즐거운오라클', null, null);
+	insert into newbook (bookid, bookname) values(3, '신나는자바');
+	insert into newbook (4, null, null, null);  --> 오류, bookname에 not null 제약을 설정하였는데 null을 주었기 때문에 오류가 발생
+	insert into newbook (bookid) values(4); --> 오류
+	
+---------------------------------------------------------------------------------------
+
+* unique
+	- 그 컬럼의 값이 유일해야 할 때 설정하는 제약
+	- null을 허용
+	
+	
+create table newbook (
+	bookid number unique,
+	bookname varchar2(20) not null,
+	publisher varchar2(20),
+	price number
+);
+	
+	insert into newbook values(1, '재미있는 자바', null, null);
+	insert into newbook values(2, '즐거운 자바', null, null);
+	
+	insert into newbook values(1, '즐거운오라클', null, null);
+	-> 1행에 오류:
+	ORA-00001: 무결성 제약 조건(C##SIST.SYS_C008327)에 위배됩니다
+	
+	====> bookid는 unique로 설정되었는데 중복된 값을 넣어서 오류가 발생
+	
+	insert into newbook values(null, '재미있는자바', null, null);
+	==> unique는 유일한지만 판별한다. null을 허용
+	
+	
+------------------------------------------------------------------------------------------
+
+* primary key
+	- not null + unique
+	- null을 허용하지 않고 중복을 허용하지 않는다.
+	- 다른 레코드와의 구별을 위하여 식별자로 사용할 때에 설정
+	- 관계형 데이터베이스에서 모든 테이블에는 반드시 주 식별자를 설정하여야 한다.
+	- 떄로는 두 개 이상의 컬럼이 합쳐져서 주 식별자가 되기도 한다.
+	
+	
+<컬럼 레벨의 설정>
+create table newbook (
+	bookid number primary key,
+	bookname varchar2(20),
+	publisher varchar2(20),
+	price number
+);
+
+
+	insert into newbook values(1, '즐거운자바', null, null);
+	
+	insert into newbook values(1, '즐거운오라클', null, null);
+	1행에 오류:
+	ORA-00001: 무결성 제약 조건(C##SIST.SYS_C008330)에 위배됩니다
+	===> pk로 설정된 bookid에 이미 1번도서가 있는데 중복되었기 때문에 오류가 발생
+	
+	insert into newbook values(null, '즐거운오라클', null, null);
+	1행에 오류:
+	ORA-01400: NULL을 ("C##SIST"."NEWBOOK"."BOOKID") 안에 삽입할 수 없습니다
+	==> pk로 설정된 bookid에 null을 추가할 수 없어 오류가 발생한다.
+----------------------------------------------------------------
+
+<테이블 레벨의 pk설정>
+create table newbook (
+	bookid number,
+	bookname varchar2(20),
+	publisher varchar2(20),
+	price number,
+	primary key(bookid)
+);
+
+	insert into newbook values(1, '즐거운자바', null, null);
+	
+	insert into newbook values(1, '즐거운오라클', null, null);
+	1행에 오류:
+	ORA-00001: 무결성 제약 조건(C##SIST.SYS_C008331)에 위배됩니다
+
+--------------------------------------------------------------------------------------------
+
+* default 제약
+	- 값을 생략할 경우 기본값이 추가된다.
+	
+	
+create table newbook (
+	bookid number primary key,
+	bookname varchar2(20) not null,
+	publisher varchar2(20) default '쌍용미디어',
+	price number
+);
+	
+	insert into newbook values(1, '재미있는자바', default, null); //기본값을 설정
+	insert into newbook values(2, '즐거운오라클', '한빛미디어', null); //값을 설정해주면 기본값을 무시함
+	insert into newbook (bookid, bookname) values(3, '신나는자바'); //기본값으로 나옴
+	
+	
+	BOOKID BOOKNAME        PUBLISHER                                   PRICE
+	------ --------------- ---------------------------------------- --------
+     1 		재미있는자바    	쌍용미디어
+     2 		즐거운오라클    	한빛미디어
+     3 		신나는자바     		쌍용미디어
+	
+--------------------------------------------------------------------------------------------
+
+* check 제약
+	- 컬럼의 값이 특정 조건을 만족해야 하는 경우에 설정
+	
+	
+create table newbook (
+	bookid number primary key,
+	bookname varchar2(20) not null,
+	publisher varchar2(20) default '쌍용미디어',
+	price number default 10000 check(price >= 1000)
+);
+	
+==> price 값이 기본 값은 10000원이고, 값이 무조건 1000원 이상이여야 한다. 라는 제약!
+	
+	
+	insert into newbook values(1, '재미있는자바', default, default);
+	insert into newbook values(2, '즐거운자바', '한빛미디어', 20000);
+	
+	insert into newbook values(3, '신나는자바', '한빛미디어', 500);
+	1행에 오류:
+	ORA-02290: 체크 제약조건(C##SIST.SYS_C008335)이 위배되었습니다
+	===> 1000원 이상이 아닌 500원이기 때문에 오류
+	
+-----------------------------------------------------------------------------------------------
+
+연습) 다음의 제약을 만족하는 member 테이블을 생성해보세요.
+	고객번호는 주 식별자이고, 고객이름은 생략할 수 없고, 주소는 기본값이 '서울'이고, 전화번호는 생략할 수 있으며 유일해야한다. 
+	나이는 20살이상을 만족하고 레코드를 추가
+	
+	create table member (
+		no number primary key,
+		name varchar(20) not null,
+		address varchar(20) default '서울',
+		phone varchar(20) unique,
+		age number check(age >= 20)
+	);
+
+	insert into member values(1, '홍길동', default, '010-1111-1111', 30);
+	
+	insert into member values(2, '홍길숙', default, '010-1111-1111', 30);
+	1행에 오류:
+	ORA-00001: 무결성 제약 조건(C##SIST.SYS_C008340)에 위배됩니다  ==> 오류 전화번호는 유일해야함!
+	
+	insert into member values(2, '홍길숙', default, '010-1111-2222', 10);
+	오류 ==> 나이가 20살 이상이어야 함 !
+	
+-------------------------------------------------------------------------------------------------
+
+** 참조키 설정(foreign key)
+	- 어떤 컬럼의 값이 반드시 이미있는 다른 컬럼의 값을 참조해야하는 경우에 참조키를 설정
+	- 예를들어, 사원테이블의 부서번호는 반드시 부서테이블에 있는 부서번호 이어야 한다.
+	- 또, 주문테이블의 고객번호는 반드시 고객테이블에 있는 고객번호이어야 하고, 주문테이블의 도서번호는 반드시 도서테이블에 있는 도서번호이어야 한다.
+	- 이와 같이 어떤 컬럼의 값이 이미 있는 다른 테이블의 값을 참조해야 하는 경우에 사용하는 것을 '참조키' 라고 한다.
+	- 이 때, 참조되는 이미 있는 테이블을 '부모테이블'이라 하고, 참조하는 테이블을 '자식테이블' 이라고 한다.
+	- '부모테이블'과 '자식테이블'은 서로 참조키로 서로 관계있다 라고 한다.
+	- 그래서 우리가 학습하고 있는 '오라클'을 '관계형데이터베이스'라고 한다. (Relational Database ==> RDB)
+	==> 참조키를 설정할 때에는 반드시 부모테이블의 pk로 설정된 '주식별자'만이 참조키로 설정할 수 있다 !!
+
+
+create table member(
+	id varchar2(20),
+	pwd varchar2(20),
+	name varchar2(20)
+);
+
+create table board (
+	no number primary key,
+	title varchar2(50),
+	id varchar2(20) references member(id),
+	content varchar2(3000)
+);
+==> 위와 같은 방법으로 참조할 수 있다. 하지만 오류가 난다. 부모테이블의 주식별자만 참조할 수 있는데 id는 주식별자가 아니기 때문에 오류발생
+4행에 오류:
+ORA-02270: 이 열목록에 대해 일치하는 고유 또는 기본 키가 없습니다.
+==> 참조키로 설정하려는 컬럼은 반드시 부모테이블의 pk로 설정된 주식별자이어야 한다. 
+
+--------------------------------------------
+
+create table member(
+	id varchar2(20) primary key,
+	pwd varchar2(20),
+	name varchar2(20)
+);
+
+
+create table board (
+	no number primary key,
+	title varchar2(50),
+	id varchar2(20) references member(id),
+	content varchar2(3000)
+);
+
+==> 위와 같이 테이블을 생성하게 되면 member 테이블과 board 테이블은 주종관계(부모, 자식관계)가 성립된다.
+	member = 부모 , board = 자식
+	
+	
+	관계형 데이터베이스 테이블을 개체(Entity)라고도 표현한다.
+	이 때에, 부모테이블에 레코드가 반드시 먼저 insert가 되어야 한다.
+
+
+	insert into member values('tiger', '1234', '김범');
+	insert into member values('lion', '1234', '홍사자');
+
+	insert into board values(1, '안녕', 'tiger', '안녕');
+	insert into board values(2, '금요일', 'lion', '즐거운 금요일입니다.');
+	
+	insert into board values(3, '점심', 'kim', '점심 뭐먹을까요?');
+	ORA-02291: 무결성 제약조건(C##SIST.SYS_C008343)이 위배되었습니다- 부모 키가 없습니다
+	==> 부모테이블에 'kim'이라는 데이터가 없기 때문에 오류가 난다.
+	==> 추가하려는 레코드에 'kim'이라는 아이디가 부모테이블인 member에 존재하지 않는 아이디라서 오류가 발생
+
+--------------------------------------------------------------------------------------------------------
+
+** 개체무결성과 참조무결성
+
+	* 개체무결성
+		- 모든 레코드(튜플)는 pk로 설정된 주 식별자에 의해서 구별이 가능해야함을 말한다.
+		- pk는 null이 될 수 없고, 중복을 허용하지 않는다.
+		- 이것을 만족하지 않는 경우를 "개체무결성에 위배된다" 라고 말한다. ==> pk가 널이 되거나, 중복이 되었구나! 라는 말 
+		
+		
+	* 참조무결성
+		- 참조키로 설정된 컬럼의 값은 반드시 부모테이블의 나타나는 값이어야 한다.
+		- 그렇지 않은 경우를 "참조무결성에 위배된다" 라고 말한다.
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+* 관계에 있는 테이블을 삭제할 때에는 자식테이블을 먼저 삭제해야 한다.
+  참조되고 있는 자식테이블이 있는 부모테이블을 먼저 삭제할 수는 없다.
+
+	1행에 오류:
+	ORA-02449: 외래 키에 의해 참조되는 고유/기본 키가 테이블에 있습니다
+
+----------------------------------------------------------------------------------------------------------
+
+* 기본키(pk)와 참조키(fk)의 설정
+	- 컬럼레벨
+	- 테이블레벨
+
+<컬럼레벨>  ==> 컬럼 옆에 키를 설정
+create table member(
+	id varchar2(20) primary key,
+	pwd varchar2(20),
+	name varchar2(20)
+);
+
+
+create table board (
+	no number primary key,
+	title varchar2(50),
+	id varchar2(20) references member(id),
+	content varchar2(3000)
+);
+-----------------------------------------
+
+<테이블레벨>  ==> 컬럼을 다 설정해준 후에 아래에다가 키를 설정
+
+create table member(
+	id varchar2(20),
+	pwd varchar2(20),
+	name varchar2(20),
+	primary key(id)
+);
+
+
+create table board (
+	no number,
+	title varchar2(50),
+	id varchar2(20),
+	content varchar2(3000),
+	primary key(no),
+	foreign key(id) references member(id)
+);
+
+
+	insert into member values('tiger', '1234', '김범');
+	insert into member values('lion', '1234', '홍사자');
+	
+	insert into member values(null, '1212', '점심');
+	1행에 오류:
+	ORA-01400: NULL을 ("C##SIST"."MEMBER"."ID") 안에 삽입할 수 없습니다
+	
+
+	insert into board values(1, '안녕', 'tiger', '안녕');
+	insert into board values(1, '안녕', 'tiger', '안녕'); //개체무결성 오류
+	insert into board values(2, '금요일', 'lion', '즐거운 금요일입니다.');
+	
+	insert into board values(3, '점심', 'kim', '점심 뭐먹을까요?');//참조무결성 오류
+	1행에 오류:
+	ORA-00001: 무결성 제약 조건(C##SIST.SYS_C008345)에 위배됩니다
+
+
+	delete member where id = 'lion';
+	1행에 오류:
+	ORA-02292: 무결성 제약조건(C##SIST.SYS_C008346)이 위배되었습니다- 자식 레코드가
+	발견되었습니다
+	==> 자식 테이블인 board에 삭제하려고 하는 아이디 lion을 참조하고 있는 레코드가 있어서 삭제를 할 수 없다.
+	==> 자식레코드를 먼저 삭제한 후, 부모 레코드를 삭제할 수 있다.
+	
+	delete board where id = 'lion';
+	delete member where id = 'lion';
+	
+
+	* 이와 같이 관계에 있는 부모테이블의 레코드를 삭제할 때에 연쇄하여 자식의 레코드를 삭제하도록 테이블 생성 시에 옵션을 설정할 수 있다. 
+	테이블을 삭제할 때에 자식테이블 부터 먼저 삭제해야 한다.
+	
+--------------------------------------------------------------------------------------------------
+
+* 이와 같이 관계에 있는 부모테이블의 레코드를 삭제할 때에 연쇄하여 자식의 레코드를 삭제하도록 테이블 생성 시에 옵션을 설정할 수 있다. 
+
+	* on delete cascade
+		- 참조키를 설정할 때에 부모의 참조하고 있는 레코드가 삭제될 때에 연쇄하여 자식의 레코드도 삭제하기 위한 옵션이다.
+		  ==> 자식에다가 적용
+	
+	
+	create table member (
+		id varchar2(20),
+		pwd varchar2(20),
+		name varchar2(20),
+		primary key(id)
+	);
+	
+	create table board (
+		no number,
+		title varchar2(50),
+		id varchar2(20),
+		content varchar2(3000),
+		primary key(no),
+		foreign key(id) references member(id) on delete cascade
+	);
+	
+	연습) member 테이블과 board 테이블에 몇 개의 레코드를 추가한 다음, member 테이블의 레코드를 삭제할 때에 참조되고 있는 
+		 board 테이블에 레코드도 연쇄하여 삭제되는지 실험해보자.
+		 
+		 insert into member values('tiger', '1234', '김호랑');
+		 insert into member values('lion', '1234', '김사자');
+		 
+		 insert into board values(1, '할로', 'tiger', '방가워요');
+		 insert into board values(2, '아스크림', 'lion', '먹고싶어요!');
+		 
+		==> 부모테이블에 레코드 삭제될 때에 참조되고 있는 자식레코드도 삭제.
+		
+----------------------------------------------------------------------------------------------------
+
+* 데이터베이스 명령어
+	1. 데이터 정의어(Data Definition Language) DDL
+	2. 데이터 조작어(Data Manipulation Language) DML
+	3. 데이터 제어어(Data Control Language) DCL
+	
+------------------------------------------------------------------------------------------------------
+
+* 데이터 정의어
+	- 생성 	create
+	- 변경 	alter 	값을 변경하는 것이 아니라 테이블의 구조를 변경
+	- 삭제 	drop
+	
+------------------------------------------------------------------------------------------------------
+
+* alter
+	- 테이블의 구조를 변경하는 명령어
+	- 이미 있는 테이블에 새로운 컬럼을 추가하거나 삭제, 제약을 추가하거나 삭제, 자료형을 변경
+	
+	SQL> desc member;
+	 이름                                      널?      유형
+	 ----------------------------------------- -------- ----------------------------
+	 ID                                        NOT NULL VARCHAR2(20)
+	 PWD                                                VARCHAR2(20)
+	 NAME                                               VARCHAR2(20)
+	
+	- member 테이블에 주소를 위한 컬럼을 추가
+	
+	alter table 테이블이름 add 컬럼명 자료형;
+	
+	
+	==> 이미 레코드가 있는 테이블에 새로운 컬럼을 추가하게 되면 그 컬럼의 값은 모두 null이 된다.
+	
+	
+	alter table member add address varchar2(50);
+	
+	SQL> desc member;
+	 이름                                      널?      유형
+	 ----------------------------------------- -------- ----------------------------
+	 ID                                        NOT NULL VARCHAR2(20)
+	 PWD                                                VARCHAR2(20)
+	 NAME                                               VARCHAR2(20)
+	 ADDRESS                                            VARCHAR2(50)
+	
+	===> 이미 레코드가 있는 상태에서 컬럼을 추가했기 때문에 그 칼럼의 값은 null이 된다. 
+	
+	
+------------------------------------------------------------------------------------------------------
+
+* 컬럼 삭제하기
+	alter table 테이블명 drop column 컬럼명
+	
+	member테이블에서 address 컬럼을 삭제
+	
+	alter table member drop column address;
+	
+--------------------------------------------------------------------------------------------------------
+
+* 테이블의 구조 변경 (alter)
+	- 컬럼 추가 : alter table 테이블명 add 컬럼명 자료형;
+ 	- 컬럼 삭제 : alter table 테이블명 drop column 컬럼명;
+	- 컬럼 자료형 변경 : alter table 테이블명 modify 컬럼명 새로운자료형; 
+	
+--------------------------------------------------------------------------------------------------------
+
+alter table member add addr varchar2(20);
+	
+	
+insert into member values('lee', '1234', '이순신', '서울시 마포구 서교동 풍성빌딩');
+                                                      *
+1행에 오류:
+ORA-12899: "C##SIST"."MEMBER"."ADDR" 열에 대한 값이 너무 큼(실제: 42, 최대값:20)
+===> 테이블의 구조를 변경해야함. 주소는 최대 20인데 입력한 값은 42이기 때문에 오류
+
+alter table member modify addr varchar(50);
+	
+--------------------------------------------------------------------------------------------------------
+
+create table member (
+	id varchar2(20),
+	pwd varchar2(20),
+	name varchar2(20)
+);
+
+** 이미 있는 테이블에 pk 설정하기
+	alter table 테이블명 add primary key (컬럼명);
+	
+	alter table member add primary key(id);
+	
+-----------------------------------------------------------------------------------------------------------
+
+
+create table member (
+	id varchar2(20),
+	pwd varchar2(20),
+	name varchar2(20)
+);
+	
+	
+	insert into member values('kim', '1234', '김유신');
+	insert into member values('lee', '1234', '이순신');
+	insert into member values('kim', '1234', '김철수');
+	
+
+	alter table member add primary key(id);
+	1행에 오류:
+	ORA-02437: (C##SIST.SYS_C008351)을 검증할 수 없습니다 - 잘못된 기본 키입니다
+	==> pk를 설정할 때 컬럼 id에 중복된 값이 있어서 오류가 발생한다.
+	
+	
+	SQL> update member set id = 'kim01' where name = '김철수';
+	1 행이 업데이트되었습니다.
+	// 중복이 되지 않게 아이디를 바꿔준 후에 pk를 설정하면 설정이 가능!
+	
+----------------------------------------------------------------------------------------------------------
+
+create table member (
+	id varchar2(20),
+	pwd varchar2(20),
+	name varchar2(20)
+);
+	
+	insert into member values('kim', '1234', '김유신');
+	insert into member values('lee', '1234', '이순신');
+	insert into member values(null, '1234', '김철수');
+	
+	
+	alter table member add primary key(id);
+	1행에 오류:
+	ORA-01449: 열이 NULL값을 포함하고 있습니다 NOT NULL로 변경할 수 없습니다
+	==> 이미있는 테이블의 구조 변경을 통하여 pk를 설정하려면 그 컬럼의 값이 null을 포함하고 있으면 안 된다.
+		null이 있는 레코드를 삭제하던지, null이 있는 레코드의 값을 다른 값으로 수정한 후에 pk를 설정할 수 있다.
+		
+		delete member where id is null; (O)
+		delete member where id = null; (X)
+	
+----------------------------------------------------------------------------------------------------------
+
+** 이미 있는 테이블에 fk를 설정
+
+	<형식>
+	alter table 테이블명 add foreign key (컬럼명) references 부모테이블(부모테이블컬럼이름);
+	
+
+create table member (
+	id varchar2(20) primary key,
+	pwd varchar2(20),
+	name varchar2(20)
+);
+
+
+create table board (
+	no number primary key,
+	title varchar2(50),
+	id varchar2(20),
+	content varchar2(3000)
+);
+
+
+	<fk 추가해주기>
+	alter table board add foreign key(id) references member(id);
+
+
+	insert into member values('kim', '1234', '김유신');
+	insert into member values('lee', '1234', '이순신');
+	
+	insert into board values(1, '하이', 'kim', '앙뇽항셍');
+	
+	insert into board values(2, '옹앵', 'park', '낑낑');
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+create table member (
+	id varchar2(20),
+	pwd varchar2(20),
+	name varchar2(20)
+);
+
+
+
+create table board (
+	no number primary key,
+	title varchar2(50),
+	id varchar2(20),
+	content varchar2(3000)
+);
+
+	alter table board add foreign key(id) references member(id);
+	1행에 오류:
+	ORA-02270: 이 열목록에 대해 일치하는 고유 또는 기본 키가 없습니다.
+	==> 부모테이블에 참조하는 pk가 없어서 오류
+	
+	위 명령어가 가능하도록 member 테이블의 구조를 변경(pk설정)
+	alter table member add primary key(id);
+
+-------------------------------------------------------------------------------------------------------
+
+<새로운 계정 생성>
+create user c##madang identified by madang;
+
+<권한설정>
+grant connect, resource, dba to c##madang;
+
+	
+-------------------------------------------------------------------------------------------------------
+
+create table dept(
+	dno number,
+	dname varchar2(20),
+	dloc varchar2(20)
+);
+
+create table emp(
+	eno varchar2(20),
+	ename varchar2(20),
+	dno number
+);
+
+
+
+연습) 
+	1) eno의 자료형을 number로 수정
+		alter table emp modify eno number; 
+	
+	2) emp에 salary 컬럼을 추가
+		alter table emp add salary number;
+	
+	3) eno에 pk를 설정
+		alter table emp add primary key(eno);
+	
+	4) emp의 dno에 fk를 설정
+		alter table dept add primary key(dno);
+		alter table emp add foreign key(eno) references dept(dno);
+	
+	5) dept에 다음의 레코드를 추가(부서번호 10, 부서명 '개발1팀', 부서위치 '서울시 마포구 서교동 풍성빌딩')
+		만약, 레코드가 추가되지 않으면 추가되도록 구조를 변경
+		
+		alter table dept modify dloc varchar2(50);
+		insert into dept values(10, '개발1팀', '서울시 마포구 서교동 풍성빌딩');
+		
+
+----------------------------------------------------------------------------------------------------------------
+
+** 테이블의 구조 변경하기
+	- 새로운 컬럼 추가
+		alter table 테이블명 add 컬럼명 자료형;
+		
+	- 컬럼을 삭제
+		alter table 테이블명 drop column 컬럼명;
+	
+	- 컬럼의 자료형 변경
+		alter table 테이블명 modify 컬럼명 변경할자료형;
+	
+	- pk 설정
+		alter table 테이블명 add primary key(컬럼명, [컬럼명2]);
+	
+	- fk 설정
+		alter table 테이블명 add foreign key(컬럼명) references 부모테이블명(부모컬럼명);
+
+
+----------------------------------------------------------------------------------------------------------------
+
+
+* 2개 이상의 컬럼이 합쳐져서 pk 설정하기
+	==> 컬럼레벨 x , 테이블레벨에서 설정하거나 테이블 구조의 변경으로 설정해야 한다.
+	
+	//orderno와 bookid가 pk)
+	create table orderDetail(
+		orderno number,
+		bookid number,
+		qty number,
+		primary key(orderno, bookid)
+	);
+
+
+	insert into orderDetail values(1, 1, 10); //orderno, bookid가 합쳐짐
+	insert into orderDetail values(1, 2, 5);
+	insert into orderDetail values(2, 1, 1);
+	
+	insert into orderDetail values(1, 1, 20);  ==> 오류발생, 개체무결성 오류
+
+
+----------------------------------------------------------------------------------------------------------------
+
+연습) 극장 데이터베이스
+
+
+(고객 테이블) //부모
+	create table customer(
+		cno number primary key,
+		cname varchar2(20),
+		caddr varchar2(20)
+	);
+
+(극장 테이블) //부모
+	create table Theater(
+		tno number primary key,
+		tname varchar2(50),
+		taddr varchar2(20)
+	);
+	
+(상영관 테이블) //부모: 극장, 고객
+	create table play(
+		tno number references Theater(tno),
+		pno number check(pno >= 1 and pno <= 10),
+		title varchar2(100),
+		price number check(price < 20000),
+		seat number,
+		primary key(tno, pno)
+	);
+	
+(예약 테이블) //부모: 상영관, 극장, 고객
+	create table reservation(
+		tno number,
+		pno number,
+		cno number,
+		seatno number,
+		rdate date,
+		primary key(tno, pno, cno),
+		foreign key(tno, pno) references play(tno, pno),
+		foreign key(cno) references customer(cno)
+	);
+	
+	insert into customer values(1, '홍길동', '서울');
+	insert into customer values(2, '이순신', '인천');
+	insert into customer values(3, '김유신', '경기');
+	
+	insert into Theater values(1, '롯데시네마', '서울');
+	insert into Theater values(2, 'CGV', '인천');
+	insert into Theater values(3, '메가박스', '강원');
+	
+	insert into play values(1, 1, '스파이더맨', 13000, 50);
+	insert into play values(2, 3, '극한직업', 15000, 40);
+	insert into play values(3, 5, '신과함께', 18000, 30);
+	
+	insert into reservation values(1, 1, 1, 1, '2022/04/22');
+	insert into reservation values(2, 3, 2, 5, '2022/04/10');
+	insert into reservation values(3, 5, 3, 6, '2022/04/01');
+	insert into reservation values(3, 5, 1, 7, '2022/04/23');
+	
+	
+	select *
+	from reservation r, customer c
+	where r.cno = c.cno and cname = '홍길동';
+	
+	
+	select cname,tname,taddr,title,price,seat,rdate 
+	from customer c,theater t,play p,reservation r 
+	where cname='홍길동' and 
+	c.cno=r.cno and 
+	t.tno=p.tno and
+	r.tno=t.tno and
+	p.pno=r.pno
+	
+
+	
+
+
+
+
+
+
+
