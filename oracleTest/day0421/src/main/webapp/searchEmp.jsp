@@ -12,7 +12,7 @@
 </head>
 <body>
 	<%
-		String sql = "select e.ename from emp e, emp m where e.mgr = m.eno and m.ename = '¼­µ¿Çõ'";
+		String sql = "select e.ename from emp e, emp m where e.mgr = m.eno and m.ename = '김도연'";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -30,9 +30,9 @@
 			stmt.close();
 			conn.close();
 		} catch(Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			System.out.println("예외발생: " + e.getMessage());
 		} 
 	
-	%>
+	%> 
 </body>
 </html>
