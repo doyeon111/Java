@@ -12,29 +12,29 @@
 </head>
 <body>
 	<form action="searchEmpDept_input.jsp" method="post">
-		ºÎ¼­¸í: <input type="text" name="dname"> <input type="submit"
-			value="Á÷¿ø°Ë»ö">
-		<!-- ÀÔ·Â¹ÞÀº °ªÀ» º¸³»±â À§ÇØ¼­ submit -->
+		ë¶€ì„œëª…: <input type="text" name="dname"> <input type="submit"
+			value="ì§ì›ê²€ìƒ‰">
+		<!-- ìž…ë ¥ë°›ì€ ê°’ì„ ë³´ë‚´ê¸° ìœ„í•´ì„œ submit -->
 
 	</form>
 
 	<hr>
 
 	<%
-	//ÀÌ¸§ÀÌ ÇÑ±Û·Î ¿À±â ¶§¹®¿¡ ÇÑ±Û ¼³Á¤À» ÇÑ´Ù.
+	//ì´ë¦„ì´ í•œê¸€ë¡œ ì˜¤ê¸° ë•Œë¬¸ì— í•œê¸€ ì„¤ì •ì„ í•œë‹¤.
 	request.setCharacterEncoding("euc-kr");
 
-	//»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ºÎ¼­¸íÀ» ¹Þ¾Æ¼­ º¯¼ö¿¡ ÀúÀå
+	//ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ ë¶€ì„œëª…ì„ ë°›ì•„ì„œ ë³€ìˆ˜ì— ì €ìž¥
 	String dname = request.getParameter("dname");
 
-	//ºÎ¼­¸íÀÌ nullÀÌ ¾Æ´Ò ¶§ µ¥ÀÌÅÍº£ÀÌ½º ¿¬µ¿
+	//ë¶€ì„œëª…ì´ nullì´ ì•„ë‹ ë•Œ ë°ì´í„°ë² ì´ìŠ¤ ì—°ë™
 	if (dname != null) {
 		String sql = "select ename from dept d, emp e where d.dno = e.dno and dname = '"+ dname + "'";
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@192.168.35.171:1521:XE";
-			String user = "c##sist";
+			String user = "c##sist"; 
 			String pwd = "sist";
 			Connection conn = DriverManager.getConnection(url, user, pwd);
 			Statement stmt = conn.createStatement();
@@ -50,7 +50,7 @@
 			stmt.close();
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 	%>
