@@ -13,23 +13,23 @@
 </head>
 <body>
 	<form action="searchNamePublisher_input.jsp" method="post">
-		°í°´¸í: <input type="text" name="name"> ÃâÆÇ»ç¸í: <input type="text"
-			name="publicsher"> <input type="submit" value="±¸¸Å³»¿ª °Ë»ö">
-		<!-- ÀÔ·Â¹ÞÀº °ªÀ» º¸³»±â À§ÇØ¼­ submit -->
+		ê³ ê°ëª…: <input type="text" name="name"> ì¶œíŒì‚¬ëª…: <input type="text"
+			name="publicsher"> <input type="submit" value="êµ¬ë§¤ë‚´ì—­ ê²€ìƒ‰">
+		<!-- ìž…ë ¥ë°›ì€ ê°’ì„ ë³´ë‚´ê¸° ìœ„í•´ì„œ submit -->
 
-	</form>
+	</form> 
 
 	<hr>
 
 	<%
-	//ÀÌ¸§ÀÌ ÇÑ±Û·Î ¿À±â ¶§¹®¿¡ ÇÑ±Û ¼³Á¤À» ÇÑ´Ù.
+	//ì´ë¦„ì´ í•œê¸€ë¡œ ì˜¤ê¸° ë•Œë¬¸ì— í•œê¸€ ì„¤ì •ì„ í•œë‹¤.
 	request.setCharacterEncoding("euc-kr");
 
-	//»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °í°´¸í°ú ÃâÆÇ»ç¸í ¹Þ¾Æ º¯¼ö¿¡ ÀúÀå
+	//ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ ê³ ê°ëª…ê³¼ ì¶œíŒì‚¬ëª… ë°›ì•„ ë³€ìˆ˜ì— ì €ìž¥
 	String name = request.getParameter("name");
 	String publicsher = request.getParameter("publicsher");
 
-	//°í°´¸í°ú ÃâÆÇ»ç¸íÀÌ nullÀÌ ¾Æ´Ò ¶§ µ¥ÀÌÅÍº£ÀÌ½º ¿¬µ¿
+	//ê³ ê°ëª…ê³¼ ì¶œíŒì‚¬ëª…ì´ nullì´ ì•„ë‹ ë•Œ ë°ì´í„°ë² ì´ìŠ¤ ì—°ë™
 	if (name != null && publicsher != null) {
 		String sql = "select c.custid, name, publicsher, b.bookname, price, saleprice, orderdate " +
 					" from customer c, book b, orders o " +
@@ -63,7 +63,7 @@
 			stmt.close();
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 	%>
