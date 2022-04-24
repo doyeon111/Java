@@ -9,31 +9,31 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>¿¹¾àÁ¤º¸ Ãâ·Â</title>
+<title>ì˜ˆì•½ì •ë³´ ì¶œë ¥</title>
 </head>
 <body>
 	<form action="searchCNameR_input.jsp" method="post">
-		°í°´¸í: <input type="text" name="cname"> <input type="submit" value="¿¹¾àÁ¤º¸°Ë»ö">
-		<!-- ÀÔ·Â¹ÞÀº °ªÀ» º¸³»±â À§ÇØ¼­ submit -->
+		ê³ ê°ëª…: <input type="text" name="cname"> <input type="submit" value="ì˜ˆì•½ì •ë³´ê²€ìƒ‰">
+		<!-- ìž…ë ¥ë°›ì€ ê°’ì„ ë³´ë‚´ê¸° ìœ„í•´ì„œ submit -->
 
 	</form>
 
 	<hr>
 
 	<%
-	//ÀÌ¸§ÀÌ ÇÑ±Û·Î ¿À±â ¶§¹®¿¡ ÇÑ±Û ¼³Á¤À» ÇÑ´Ù.
+	//ì´ë¦„ì´ í•œê¸€ë¡œ ì˜¤ê¸° ë•Œë¬¸ì— í•œê¸€ ì„¤ì •ì„ í•œë‹¤.
 	request.setCharacterEncoding("euc-kr");
 
-	//»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °í°´¸í°ú ÃâÆÇ»ç¸í ¹Þ¾Æ º¯¼ö¿¡ ÀúÀå
+	//ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ ê³ ê°ëª…ì„ ìž…ë ¥ë°›ì•„ ë³€ìˆ˜ì— ì €ìž¥
 	String cname = request.getParameter("cname");
 
-	//°í°´¸í°ú ÃâÆÇ»ç¸íÀÌ nullÀÌ ¾Æ´Ò ¶§ µ¥ÀÌÅÍº£ÀÌ½º ¿¬µ¿
+	//ê³ ê°ëª…ì´ nullì´ ì•„ë‹ ë•Œ ë°ì´í„°ë² ì´ìŠ¤ ì—°ë™
 	if (cname != null) {
 		//String sql = "select * from reservation r, customer c where r.cno = c.cno and cname = '"+ cname +"'";
 		String sql ="select cname,tname,taddr,title,price,seat,rdate from customer c,theater t,play p,reservation r where cname='"+cname+"'"+
 						" and c.cno=r.cno and t.tno=p.tno and r.tno=t.tno and p.pno=r.pno";
 		
-
+ 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@192.168.35.171:1521:XE";
@@ -60,7 +60,7 @@
 			stmt.close();
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 	%>
