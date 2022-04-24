@@ -8,25 +8,25 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>±¸¸ÅÇÏÁö ¾ÊÀº µµ¼­ °Ë»ö</title>
+<title>êµ¬ë§¤í•˜ì§€ ì•Šì€ ë„ì„œ ê²€ìƒ‰</title>
 </head>
 <body>
 	<form action="searchNameBook_input.jsp" method="post">
-		°í°´¸í: <input type="text" name="name"> <input type="submit" value="µµ¼­¸ñ·Ï °Ë»ö">
-		<!-- ÀÔ·Â¹ÞÀº °ªÀ» º¸³»±â À§ÇØ¼­ submit -->
+		ê³ ê°ëª…: <input type="text" name="name"> <input type="submit" value="ë„ì„œëª©ë¡ ê²€ìƒ‰">
+		<!-- ìž…ë ¥ë°›ì€ ê°’ì„ ë³´ë‚´ê¸° ìœ„í•´ì„œ submit -->
 
 	</form>
 
 	<hr>
 
 	<%
-	//ÀÌ¸§ÀÌ ÇÑ±Û·Î ¿À±â ¶§¹®¿¡ ÇÑ±Û ¼³Á¤À» ÇÑ´Ù.
-	request.setCharacterEncoding("euc-kr");
+	//ì´ë¦„ì´ í•œê¸€ë¡œ ì˜¤ê¸° ë•Œë¬¸ì— í•œê¸€ ì„¤ì •ì„ í•œë‹¤.
+	request.setCharacterEncoding("euc-kr"); 
 
-	//»ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ °í°´¸íÀ» ¹Þ¾Æ º¯¼ö¿¡ ÀúÀå
+	//ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ ê³ ê°ëª…ì„ ë°›ì•„ ë³€ìˆ˜ì— ì €ìž¥
 	String name = request.getParameter("name");
 
-	//°í°´¸íÀÌ nullÀÌ ¾Æ´Ò ¶§ µ¥ÀÌÅÍº£ÀÌ½º ¿¬µ¿
+	//ê³ ê°ëª…ì´ nullì´ ì•„ë‹ ë•Œ ë°ì´í„°ë² ì´ìŠ¤ ì—°ë™
 	if (name != null) {
 		String sql = "select bookname" +
 						" from book" +
@@ -58,7 +58,7 @@
 			stmt.close();
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	}
 	%>
