@@ -1,0 +1,684 @@
+* 데이터 정의어
+	- 테이블 생성 			create
+	- 테이블의 구조 변경		alter
+	- 테이블 삭제			drop
+	
+	
+	create table newbook (
+		bookname varchar2(20),
+		publisher varchar2(20),
+		price number,
+		primary key(bookname, publisher)
+	);
+	
+	insert into newbook values('재미있는자바', '한빛', 30000);
+	insert into newbook values('재미있는자바', '쌍용', 32000);
+	insert into newbook values('즐거운자바', '한빛', 35000); //여기까지 모두 중복되어도 가능 둘 중 하나 
+	
+	insert into newbook values('재미있는자바', '한빛', 40000); //이것은 안됨
+	1행에 오류:
+	ORA-00001: 무결성 제약 조건(C##MADANG.SYS_C008373)에 위배됩니다
+
+-------------------------------------------------------------------------------------------	
+	
+* bookname은 null값을 가질 수 없고, publisher는 같은 값이 있으면 안 된다. price에 값이 입력되지 않을 경우
+	  기본 값 10000을 저장한다. 또한 가격은 최소 1000원 이상으로 한다.
+	  
+	create table newbook (
+		bookname varchar2(20) not null,
+		publisher varchar2(20) unique,
+		price number default 10000 check(price >= 1000)
+	);
+	
+	insert into newbook values('재미있는자바', '쌍용', default);
+	insert into newbook values('재미있는자바', '한빛', 2000);
+	insert into newbook values('재미있는자바', null, 1000);
+	
+	insert into newbook values(null, '대림', 2000);
+	1행에 오류:
+	ORA-01400: NULL을 ("C##MADANG"."NEWBOOK"."BOOKNAME") 안에 삽입할 수 없습니다 //null값 x
+	
+	insert into newbook values('즐거운자바', '쌍용', default);
+	1행에 오류:
+	ORA-00001: 무결성 제약 조건(C##MADANG.SYS_C008376)에 위배됩니다 //publisher 중복된 값 x
+	
+	insert into newbook values('즐거운자바', '금성', 500);
+	1행에 오류:
+	ORA-02290: 체크 제약조건(C##MADANG.SYS_C008375)이 위배되었습니다 // 가격이 1000원 이하로 설정되었기 때문에 오류
+	
+	
+-------------------------------------------------------------------------------------------------------
+
+* create 연습
+
+	create table newcustomer (
+		custid number primary key,
+		name varchar2(40),
+		address varchar2(40),
+		phone varchar2(30)
+	);
+
+
+	create table neworders (
+		orderid number, 
+		custid number not null,
+		bookid number not null,
+		saleprice number,
+		orderdate date,
+		primary key(orderid),
+		foreign key(custid) references newcustomer(custid) on delete cascade
+	);
+	
+----------------------------------------------------------------------------------------------------------
+
+
+* alter 연습
+
+연습) newbook 테이블에 varchar2(13)의 자료형을 가진 isbn 속성을 추가
+	alter table newbook add isbn varchar2(13);
+	
+		SQL> desc newbook;
+		 이름                                      널?      유형
+		 ----------------------------------------- -------- ----------------------------
+		 BOOKNAME                                  NOT NULL VARCHAR2(20)
+		 PUBLISHER                                          VARCHAR2(20)
+		 PRICE                                              NUMBER
+		
+		SQL> alter table newbook add isbn varchar2(13);
+		
+		테이블이 변경되었습니다.
+		
+		SQL> desc newbook;
+		 이름                                      널?      유형
+		 ----------------------------------------- -------- ----------------------------
+		 BOOKNAME                                  NOT NULL VARCHAR2(20)
+		 PUBLISHER                                          VARCHAR2(20)
+		 PRICE                                              NUMBER
+		 ISBN                                               VARCHAR2(13)
+		 
+	
+연습) newbook 테이블에 isbn 속성의 데이터타입을 number로 변경
+	alter table newbook modify isbn number;
+	
+	
+연습) newbook 테이블에 isbn의 속성을 삭제
+	alter table newbook drop column isbn;
+	
+
+연습) newbook 테이블에 bookid 속성을 number자료형으로 추가
+	alter table newbook add bookid number;
+	
+
+연습) newbook 테이블에 bookid 속성에 not null 제약조건을 적용
+	alter table newbook modify bookid number not null; 
+	alter table newbook modify bookid not null; //둘 다 오류
+	1행에 오류:
+	ORA-02296: (C##MADANG.) 사용으로 설정 불가 - 널 값이 발견되었습니다.
+	
+
+	==> SQL> select * from newbook;
+
+		BOOKNAME        PUBLISHER          PRICE BOOKID
+		--------------- --------------- -------- ------
+		재미있는자바    	쌍용              10,000
+		재미있는자바   		한빛               2,000
+		재미있는자바        				  1,000
+		
+		=> 이 상태로는 우리가 적용하려는 bookid에 not null을 적용할 수 없다.
+		=> bookid의 값을 설정한 후에 적용하거나, 모든 레코드를 삭제한 후에 적용해야 한다.
+	
+	
+		delete newbook; //데이터를 모두 지움
+	
+		alter table newbook modify bookid number not null; 
+	
+	
+	
+연습) newbook 테이블의 bookid 속성을 기본키로 설정
+	alter table newbook add primary key(bookid);
+	
+	
+-------------------------------------------------------------------------------------------
+
+* drop 연습
+
+	- 데이터만 삭제하려면 delete문(DML)을 사용한다.
+		delete 테이블이름 [where 조건식]
+		
+	- 테이블을 삭제, 테이블의 구조와 데이터를 모두 삭제 drop(DDL)을 사용한다.
+		drop table 테이블이름;
+		==> 자식테이블 부터 먼저 삭제해야 한다.
+	
+	
+연습) newcustomer 테이블을 삭제하세요. 만약 삭제가 거절된다면 원인을 파악하고 관련된 테이블을 같이 삭제하세요.
+	(neworders 테이블이 newcustomer 테이블을 참조하고 있다.)
+	
+	1행에 오류:
+	ORA-02449: 외래 키에 의해 참조되는 고유/기본 키가 테이블에 있습니다
+	===> newcustomer 테이블의 custid는 neworders 테이블의 custid로 참조되고 있기 때문에 newcustomer 테이블을 삭제할 수 없다.
+		 이와 같이 관계에 있을 때에는 자식테이블을 먼저 삭제하고 부모테이블을 삭제할 수 있다.
+	
+		drop table neworders;
+		drop table newcustomer;
+	
+	//여기까지 복습
+	
+	
+	그리고 c##sist 에서 book 테이블에 publicsher ------> publisher로 바꾸어 줬음.
+--------------------------------------------------------------------------------------------
+
+실습을 위하여 사용자 계정을 만들어보자.
+	system/manager에서 만들어준다.
+	
+	create user c##sist01 identified by sist01;
+	grant connect, resource, dba to c##sist01;
+
+실습을 위해 테이블 만든다. (c##sist01 계정)
+
+	create table book (
+		bookid number primary key,
+		bookname varchar2(50),
+		publisher varchar2(30),
+		price number
+	);
+	
+----------------------------------------------------------------------------------------------
+
+* 데이터 조작어(DML) - 삽입, 수정, 삭제
+	- insert : 데이터를 추가하는 명령어
+	- update : 데이터를 수정하는 명령어
+	- delete : 데이터를 삭제하는 명령어
+	
+	* insert 
+		<기본문법>
+		insert into 테이블이름 values (값리스트);
+		==> 이 때, 값리스트는 테이블의 구조와 동일해야 한다.
+		
+		insert into 테이블이름[(속성리스트)] values (값리스트);
+		==> 이 때, 값리스트는 속성리스트와 동일해야 한다.
+		==> not null이나 pk는 반드시 속성리스트에 포함시켜야 한다. 
+
+
+		insert into book values(3, '즐거운오라클', null, null);
+		insert into book(bookid, bookname) values(4, '신나는오라클'); //위의 리스트와 동일
+
+		1) insert into book values(1, '재미있는 자바', '쌍용', 30000); //테이블의 구조와 동일하게 값 리스트 작성
+		2) insert into book(bookname, publisher, price, bookid) values('줄거운자바', '한빛', 40000, 2); //써준 속성리스트와 동일하게 값 리스트 작성
+
+
+
+		<conn c##sist/sist>
+		실습을 위한 새로운 테이블 만들기
+		
+		create table newbook (
+			bookid number primary key,
+			bookname varchar2(50),
+			publisher varchar2(50),
+			price number
+		);
+		
+		* 대량 삽입(bulk insert) / 대량의 데이터 추가하기
+			- 한꺼번에 여러 개의 튜플을 삽입하는 방법
+			- 이미 있는 테이블의 레코드(들)을 검색하여 insert 하기
+			
+			insert into 테이블명([컬럼리스트]) select ~~~; //속성 자리에 select 절이 온다.
+			
+			연습) book테이블의 모든 레코드를 조회하여 newbook 테이블에 insert 하기
+				 insert into newbook select * from book;
+				==> newbook 테이블에 book테이블에 있는 데이터들이 대량으로 삽입됨.
+				
+				
+			<실습을 위해 newbook 테이블의 데이터들을 다 지웠음 delete newbook;>
+	
+			--------------------------------------------------------------------
+			
+			<컬럼리스트 사용하여 하기>
+			insert into 테이블명([컬럼리스트]) select ~~~; //속성 자리에 select 절이 온다. 
+			
+			insert into newbook(bookname, publisher, price, bookid)
+			select bookname, publisher, price, bookid 
+			from book;
+
+---------------------------------------------------------------------------------------------------------
+
+	* update문
+		- 자료의 수정
+		
+		<기본문법>
+		update 테이블명 set 컬럼1=값1 [, 컬럼2=값2, ...]
+		[where 조건식]
+		
+		
+		- 한꺼번에 여러 개의 컬럼을 수정할 수도 있다. 조건식이 없으면 모든 레코드의 값이 수정된다.
+		  조건식이 있으면 조건식을 만족하는 레코드의 값이 수정된다.
+	
+			연습) custid가 5번인 사람의 주소를 '대한민국 부산'으로 변경하기
+				update customer set address='대한민국 부산'; //모든 회원의 주소가 '대한민국 부산'이 된다.
+				update customer set address='대한민국 부산' where custid = 5;
+				
+				
+		<기본문법>
+		update 테이블명 set 컬럼명 = 값 where 조건식 ==> 값이 오는 자리에 서브쿼리가 올 수 있다.
+		update 테이블명 set 컬럼명 = (select ~~~) where 조건식;
+				
+			연습) customer 테이블에서 박세리 고객의 주소를 김연아 고객의 주소로 변경
+				update customer set address = (select address 
+													from customer 
+													where name = '김연아') where name = '박세리';
+
+
+	update book set price='30000' where bookid = 5;
+---------------------------------------------------------------------------------------------------------
+
+* delete문
+	- 테이블에 있는 기존 튜플을 삭제하는 명령
+	
+	<기본문법>
+	delete [from] 테이블명 [where 조건식]; //from은 안써줘도 됨.
+	==> 조건식이 없으면 모든 테이블의 모든 레코드가 삭제됨.
+	==> 조건식이 있으면 조건식을 만족하는 레코드가 삭제됨.
+		
+		
+		연습) customer 테이블에서 고객번호가 5인 고객을 삭제
+			delete customer where custid = 5;
+			1행에 오류:
+			ORA-02292: 무결성 제약조건(C##SIST.SYS_C008319)이 위배되었습니다- 자식 레코드가
+			발견되었습니다 
+			==> 자식테이블인 orders에서 custid 5번을 참조하고 있는 레코드가 있어 삭제할 수 없다 !
+			==> orders 테이블에서 관련 레코드를 삭제하고 customer에서 삭제해야 한다.
+			
+			delete orders where custid = 5;
+			delete customer where custid = 5;
+			
+			모든 고객을 삭제
+			delete customer;
+			1행에 오류:
+			ORA-02292: 무결성 제약조건(C##SIST.SYS_C008319)이 위배되었습니다- 자식 레코드가
+			발견되었습니다
+			==> 각 고객들의 주문내역이 있기 때문에 삭제할 수 없다 !
+			
+			delete orders;
+			delete customer;
+			
+------------------------------------------------------------------------------------------------
+
+* rollback
+	- DML 작업을 가장 최근에 commit 지점까지 취소한다.
+	- 가장 마지막에 commit 했던 이후로 돌아간다.
+	- DCL이나 DDL은 자동 commit이다.
+
+
+연습) 박세리의 주소를 대한민국 서울로 수정
+	update customer set address = '대한민국 서울' where name = '박세리';
+
+	create table test1111(
+		no number,
+		title varchar2(20)
+	);
+	===> 위의 update문을 하고 커밋을 안 한 후에, create문을 사용하여 테이블을 생성하면 자동 커밋이 되기 때문에
+		 이후에 rollback을 하면 아무 의미가 없다. 이미 자동 커밋이 되었기 때문에 롤백이 적용되지 않음.
+
+
+------------------------------------------------------------------------------------------------
+
+연습)
+
+1. 마당서점에서 다음의 심화된 질문에 대해 sql문을 작성하시오.
+	(1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름	
+			1) 박지성이 구매한 도서
+				select distinct publisher
+				from orders o, book b, customer c 
+				where name = '박지성' and 
+				o.bookid = b.bookid and
+				c.custid = o.custid;
+				
+			2) 박지성이 구매한 도서와 같은 출판사에서 도서를 구매한 고객의 이름
+				select distinct name
+				from book b, customer c, orders o
+				where publisher in (select distinct publisher 
+										from orders o, book b, customer c 
+										where name = '박지성' and 
+										o.bookid = b.bookid and
+										c.custid = o.custid) and o.bookid = b.bookid and c.custid = o.custid and name <> '박지성';
+										
+	(2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+			select name, count(distinct publisher)
+			from customer c, book b, orders o
+			where c.custid = o.custid and b.bookid = o.bookid
+			group by name
+			having count(distinct publisher) >= 2;
+	
+	(3) 전체 고객의 30% 이상이 구매한 도서
+		
+		1) 전체 고객의 30%
+			select count(*)*0.3 from customer;
+			
+		2) 도서명별 판매건수
+			select bookname, count(*)
+			from book b, orders o
+			where b.bookid = o.bookid
+			group by bookname;
+			
+		3) 도서명별 판매건수가 전체 고객의 30% 이상인 도서
+			select bookname, count(*)
+			from book b, orders o
+			where b.bookid = o.bookid
+			group by bookname
+			having count(*) >= (select count(*)*0.3 from customer);
+	
+	
+2. 다음 질의에 대해 DML문을 작성하시오.
+	(1) 새로운 도서 ('스포츠 세계', '대한미디어', 10000원)이 마당서점에 입고되었다. 삽입이 안 될 경우 필요한 데이터가 더 있는지 찾아보자.
+		insert into book values('스포츠 세계', '대한미디어', 10000); ==> bookid가 더 필요함.
+		
+		insert into book values(13, '스포츠 세계', '대한미디어', 10000);
+	
+	(2) '삼성당'에서 출판한 도서를 삭제해야 한다.
+		delete book where publisher = '삼성당';
+	
+	(3) '이상미디어'에서 출판한 도서를 삭제해야 한다. 삭제가 안 될 경우 원인을 생각해보자.
+		delete book where publisher = '이상미디어'; ==> 자식레코드가 참조되어 있기 때문에 삭제 불가능
+		=> orders 테이블에 이상미디어에 출간한 도서의 판매내역이 있기 때문에 삭제 불가능
+	
+	(4) 출판사 '대한미디어'가 '대한출판사'로 이름을 바꾸었다.
+		update book set publisher = '대한출판사' where publisher = '대한미디어';
+
+
+------------------------------------------------------------------------------------------------------------------
+
+* 수학과 관련된 함수
+	
+	* abs 함수
+		- 절대값을 알려주는 함수
+		
+		<활용>
+			select abs(-78) from dual; //dual은 가상의 테이블
+			select abs(78) from dual;
+			
+			SQL> select abs(78) from dual;
+
+			   ABS(78)
+			----------
+			        78
+
+
+
+	* ceil 함수
+		- 무조건 올림수를 반환하는 함수 
+		
+		<활용>
+			select ceil(56.11) from dual;
+			
+			SQL> select ceil(56.11) from dual;
+
+			CEIL(56.11)
+			-----------
+			         57
+
+
+	* floor 함수
+		- 무조건 버림수를 반환하는 함수
+		
+		<활용>
+			select floor(56.89) from dual;
+			
+			SQL> select floor(56.89) from dual;
+
+			FLOOR(56.89)
+			------------
+			          56
+	
+	
+	
+	* round(값, 자리수) 함수
+		- 반올림하여 반환하는 함수
+		- 자리수가 0이면 정수부만(1의자리까지만) 표시
+		- 자리수가 1이면 소수점 1째자리까지 표시(소수 둘째자리에서 반올림)
+		- 자리수가 -1이면 10의자리까지 표시(1의자리에서 반올림)
+		
+		<활용>
+			select round(5679.8867, 1) from dual; //소수 1째자리까지 출력, 따라서 소수두번째 자리에서 반올림
+			
+			SQL> select round(5679.8867, 1) from dual;
+
+			ROUND(5679.8867,1)
+			------------------
+			            5679.9
+			            
+			--------------------------------------------------------            
+			            
+			select round(5677.8867, 0) from dual; //소수 첫재짜리에서 반올림
+			
+			SQL> select round(5677.8867, 0) from dual;
+
+			ROUND(5677.8867,0)
+			------------------
+			              5678
+				          
+			-------------------------------------------------------------	          
+				          
+			select round(5677.8867, -1) from dual; //일의 자리에서 반올림
+			
+			SQL> select round(5677.8867, -1) from dual;
+
+			ROUND(5677.8867,-1)
+	 		-------------------
+			               5680
+	
+			--------------------------------------------------------------
+			
+			select round(5677.8867, -2) from dual; //십의 자리에서 반올림
+			
+			SQL> select round(5677.8867, -2) from dual;
+
+			ROUND(5677.8867,-2)
+			-------------------
+			               5700
+			               
+			               
+			               
+			               
+	* power 함수
+		- 숫자를 n 제곱승 하여 반환하는 함수
+		
+		<활용>
+			select power(2,3) from dual; //2를 3제곱하여 반환
+	
+			SQL> select power(2,3) from dual;
+
+			POWER(2,3)
+			----------
+			         8
+			         
+			         
+			         
+	* sqrt 함수
+		- 제곱근을 반환하는 함수
+		
+		<활용>
+			select sqrt(9) from dual;
+	
+			SQL> select sqrt(9) from dual;
+
+			   SQRT(9)
+			----------
+			         3
+	
+----------------------------------------------------------------------------------------------------
+	
+연습) 고객별 평균 주문금액을 백원 단위로 반올림하여 출력
+	
+	select name, round(avg(saleprice), -2) 
+	from customer c, orders o
+	where c.custid = o.custid
+	group by name;
+	
+	NAME       ROUND(AVG(SALEPRICE),-2)
+	---------- ------------------------
+	박지성                        10600
+	김연아                         6800
+	장미란                        10300
+	추신수                        16500
+	박세리                        22000
+	
+	
+------------------------------------------------------------------------------------------------------------------------
+
+* 문자열 관련 함수
+
+	* chr 함수
+		- 정수 아스키 코드값에 해당하는 문자를 반환
+		
+		<활용>
+			select chr(65) from dual; //정수 65에 해당하는 문자 반환
+	
+			SQL> select chr(65) from dual;
+
+			CH
+			--
+			A
+	
+	
+	
+	* concat 함수
+		- 두 개의 문자열을 연결하여 반환하는 함수
+		
+		<활용>
+			select concat('hello', 'java') from dual; //hello와 java를 합쳐 하나의 문자열로 만든다.
+
+			CONCAT('HELLO','JA
+			------------------
+			hellojava
+			
+			
+			
+			
+	* initcap 함수
+		- 단어의 첫 글자를 대문자로 변환
+		
+		<활용>
+			select initcap('hello java') from dual;
+	
+			INITCAP('HELLOJAVA')
+			--------------------
+			Hello Java
+	
+	
+	
+	
+	* lower 함수
+		- 소문자로 변환하는 함수
+		
+		<활용>
+			select lower('HELLO Java') from dual;
+		
+			LOWER('HELLOJAVA')
+			--------------------
+			hello java
+		
+		
+	* upper 함수
+		- 대문자로 변환하는 함수
+	
+		<활용>
+			select upper('HELLO Java') from dual;
+
+			UPPER('HELLOJAVA')
+			--------------------
+			HELLO JAVA
+	
+	
+	
+	* ltrim 함수
+		- 왼쪽 공백을 제거하는 함수
+		
+		<활용>
+			select 
+		
+		
+	* rtrim 함수
+		- 오른쪽 공백을 제거하는 함수
+		
+		<활용>
+		
+		
+		
+	* trim 함수
+		- 좌우의 공백을 제거하는 함수
+		
+		<활용>
+		
+		
+		
+	* length
+		- 문자열의 길이를 반환하는 함수
+	
+		<활용>
+			select length('hello') from dual;
+	
+			LENGTH('HELLO')
+			---------------
+			              5
+			     
+			------------------------------------------
+			              
+			select length('   hello   ') from dual;
+	
+			LENGTH('HELLO')
+			---------------
+			             11
+	
+			------------------------------------------
+	
+			select length(ltrim('   hello   ')) from dual; //왼쪽 공백을 제거한 문자의 길이를 반환
+			
+			LENGTH(LTRIM('HELLO'))
+			----------------------
+			                     8
+	
+			---------------------------------------------
+			
+			select length(trim('   hello   ')) from dual;
+	
+			LENGTH(TRIM('HELLO'))
+			---------------------
+			                    5
+	
+-----------------------------------------------------------------------------------------------------------
+
+<실습을 위한 레코드 추가>
+
+	insert into customer values(8, 'tiger', '대한민국 서울', '1111');
+	insert into customer values(9, 'Tiger', '대한민국 광주', '2222');
+	insert into customer values(10, '   tiger', '대한민국 울산', '3333');
+	insert into customer values(11, 'TIGER  ', '대한민국 전주', '4444');
+
+
+
+
+연습) 이름이 tiger인 사람은 모두 몇명인지 출력
+	select count(*) 
+	from customer 
+	where lower(trim(name)) = 'tiger';
+
+
+
+
+<실습을 위한 레코드 추가>
+	insert into customer values(12, '김훈', '대한민국 서울', '5555');
+	insert into customer values(13, '박민', '대한민국 제주', '6666');
+
+
+
+연습) 이름이 2글자인 사람들의 이름과 주소를 출력
+	select name, address
+	from customer
+	where length(name) = 2;
+
+
+
+
+
+
+
+	
