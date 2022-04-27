@@ -21,7 +21,7 @@
 	</form>
 	
 	<%
-		//한글 설정
+		//한글 설정 
 		request.setCharacterEncoding("UTF-8");
 		try {
 			
