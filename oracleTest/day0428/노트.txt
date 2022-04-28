@@ -1,0 +1,621 @@
+* 뷰(View)
+	- 실제로는 존재 하지 않는 가상의 테이블을 말하며 빈번하게 사용하는 복잡한 sql을 뷰를 만들어 둠으로써 편리하게 사용할 수 있다.
+	- 또, 사용자마다 접근할 수 있는 컬럼을 제한할 수 있다.
+	- 뷰를 통해 추가, 수정, 삭제가 가능하며 
+		with read only 옵션을 통해 읽기 전용의 뷰를 생성할 수 있고, with check option을 설정하여 조건에 맞는 레코드를 추가, 수정할 수 있도록 뷰를 생성할 수 있다.
+	
+	실습을 위하여 시스템 계정에 접속하여 사용자 계정을 만들어 봅시다.
+	
+	//사용자 생성
+	create user c##hong identified by hong;
+	
+	//사용자 권한 부여
+	grant connect, resource to c##hong;
+	
+	
+		연습) c##sist가 자신의 테이블인 emp 중에서 (일부분) 사원번호, 사원이름, 부서번호, 주소, 전화번호만
+			조회할 수 있는 뷰를 생성하여 c##hong에게 권한을 부여해보자.
+			
+			 create view vw_emp as 
+			 select eno, ename, dno, addr, phone
+			 from emp;
+			 
+			 
+	** 권한 부여
+	grant select on vw_emp to c##hong; //select 할 수 있는 권한을 c##hong에게 부여
+	
+	c##hong이 c##sist의 vw_emp를 조회할 수 있다.
+	
+	select * from c##sist.vw_emp; //권한을 부여받았기 때문에 조회할 수 있다.
+	
+	select * from c##sist.emp;
+	1행에 오류:
+	ORA-00942: 테이블 또는 뷰가 존재하지 않습니다 //c##hong에게 dba 권한을 주지 않았기 때문에 emp 테이블은 조회 불가능
+	
+	
+	** 권한 제거
+	revoke select on vw_emp from c##hong; //c##hong으로부터 vw_emp 테이블에 대한 select 권한을 제거
+	
+	select * from c##sist.vw_emp; 
+	1행에 오류:
+	ORA-00942: 테이블 또는 뷰가 존재하지 않습니다
+	==> 권한이 취소되어 뷰에 접근할 수 없다.
+	
+	
+	
+		연습) '대한민국'에 거주하는 고객들로 구성된 뷰를 만들고 조회해보자.
+			create view vw_customer as
+			select * from customer
+			where address like '%대한민국%';
+			
+			select * from vw_customer;
+	
+	
+	** 뷰의 수정
+	create or replace view 뷰이름 as select ~~
+	==> 만약에 동일한 이름의 뷰가 있으면 수정해주고, 없으면 만들어준다.
+	
+	
+		연습) vw_customer는 주소가 '대한민국'인 고객을 보여준다. 
+			이 뷰를 주소가 '영국'인 고객으로 변경해보자. 고객번호, 이름, 주소를 조회하도록 한다.
+			
+			create or replace view vw_customer as
+			select custid, name, address from customer
+			where address like '%영국%';
+	
+	
+		
+		
+		alter table orders drop column bookname;
+	
+		연습) 고객이 주문한 내역에 대하여 주문번호, 고객이름, 도서명, 주문가격, 주문일을 조회하는 뷰를 생성합니다.
+			생성된 뷰를 통해 김연아 고객이 주문한 도서명, 주문가격을 조회해보자.
+			
+			create view vw_orders as
+			select orderid, name, bookname, saleprice, orderdate
+			from orders o, book b, customer c
+			where o.custid = c.custid and b.bookid = o.bookid;
+	
+			select bookname, saleprice
+			from vw_orders
+			where name = '김연아';
+			
+			==> 뷰를 만들고 뷰를 통해 조건에 맞는 원하는 컬럼만 조회할 수 있다
+			
+			
+	** 뷰의 삭제
+	drop view 뷰이름
+	
+	drop view vw_customer;
+	
+------------------------------------------------------------------------------------------------------------
+
+* 시스템 뷰
+	- 오라클이 제공하는 뷰를 말한다. (데이터 사전)
+	
+	* user_objects
+		- 사용자가 만든 모든 객체의 정보를 갖고있다.
+		
+			select object_name from user_objects;
+		
+	* user_tables
+		- 사용자가 만든 모든 테이블의 정보를 갖고있다.
+		
+			//내가 만든 테이블의 이름들을 조회할 수 있다.
+			select table_name from user_tables;
+		
+	* user_constraints
+		- 사용자가 만든 모든 제약의 정보를 갖고있다.
+		
+				이름                                    
+		 ----------------------------------------- 
+		 OWNER                       
+		 CONSTRAINT_NAME            //제약명
+		 CONSTRAINT_TYPE            //제약의종류
+		 TABLE_NAME                 //테이블이름
+		 STATUS					    //제약의 상태(때로는 제약을 활성화, 비활성화 시킬수 있다.)
+	 							
+		 	select constraint_name, CONSTRAINT_TYPE, table_name, status
+		 	from user_constraints;
+		
+	
+	
+		SYS_C008322   R        EMP    ENABLED
+	
+		==> emp 테이블에 참조키에 대한 제약이 활성화된 상태입니다. 
+			즉, emp 테이블의 부서번호는 반드시 dept테이블의 부서번호를 참조해야 한다.
+			
+			
+			insert into emp(eno, ename, dno) values(2002, '홍길순', 10);
+		
+			insert into emp(eno, ename, dno) values(2003, '홍길순', 60); //존재하지 않는 부서번호 
+			1행에 오류:
+			ORA-00001: 무결성 제약 조건(C##SIST.SYS_C008322)에 위배됩니다
+			==> 참조키에 대한 제약이 활성화 되어있기 때문에 부모테이블에 참조되는 키의 값이 없는 레코드는 추가할 수 없다.
+	
+		
+		
+		
+		** 제약의 비활성화
+			alter table 테이블명 disable constraint 제약명;
+			
+			
+				연습) emp 테이블의 참조키에 대한 제약을 비활성화하고, dept에 존재하지 않은 부서번호로 레코드를 추가해본다.
+					
+					select constraint_name, constraint_type, table_name, status
+					from user_constraints
+					where table_name = 'EMP'; //값으로써 테이블이름은 대소문자 구별한다.
+					
+					alter table emp disable constraint SYS_C008323;
+					
+					insert into emp(eno, ename, dno) values(2003, '홍길순', 60);
+					==> dept 테이블에 없는 부서번호로 emp 테이블에 레코드를 추가.
+					==> 제약이 비활성화 되었기 때문에 dept 테이블에 존재하지 않는 부서번호로 레코드들을 추가할 수 있다.
+				
+	
+		** 제약의 활성화
+			alter table 테이블명 enable constraint 제약명;
+	
+			alter table emp enable constraint SYS_C008323;
+			1행에 오류:
+			ORA-02298: 제약 (C##SIST.SYS_C008323)을 사용 가능하게 할 수 없음 - 부모 키가 없습니다
+			==> 제약에 대한 만족하지 않는 데이터가 있기 때문에 제약을 활성화 할 수 없다.
+			
+			- 만족하지 않는 레코드를 삭제
+				delete emp where dno= 50;
+				
+			insert into emp (eno, ename, dno) values(2002, '홍길순', 60);
+			==> 제약을 다시 활성화 했기 때문에 만족하지 않는 레코드를 추가할 수 없다.
+	
+	
+	
+-----------------------------------------------------------------------------------------------------------------------------
+
+* 인덱스
+	- 도서의 맨 뒤에 색인표를 만들어 책 내용을 찾기 쉽도록 하는 것 처럼 테이블의 특정 컬럼에 인덱스를 만들어 검색 속도를 향상시킬 수 있다.
+	- 책의 페이지 수가 많을 때에 색인표가 유용한 것 처럼 레코드의 수가 많을 때에 인덱스가 유용하다.
+	- 만약, 책을 만들고 색인표까지 만들었는데 책 내용이 변경이 되었다면 색인표는 오히려 책 내용을 찾기가 어려워진다.
+	  마찬가지로 인덱스를 만들어두고 레코드의 값의 변경이 있다면 오히려 인덱스가 성능저하의 원인이 된다.
+	  
+	** 인덱스의 생성
+	create index 인덱스이름 on 테이블이름(컬럼이름);
+
+		
+		연습) 사원이름에 대하여 인덱스를 생성
+			create index idx_ename on emp(ename);
+
+			==> 데이터 양이 많을 때에 사원명으로 검색할 때에 검색속도의 향상을 기대할 수 있다.
+				우리가 갖고있는 데이터 양으로는 검색속도 향상을 기대할 수는 없다.
+
+			select * from emp where ename = '이창희';
+
+	
+	** 검색에 자주 사용하는 두 개 이상의 컬럼으로 인덱스 만들기
+	create index 인덱스이름 on 테이블이름(컬럼1, 컬럼2)
+	
+		연습) book테이블의 출판사와 가격을 대상으로 인덱스를 생성
+			create index idx_book on book(publisher, price);
+
+			select * from book 
+			where publisher = '이상미디어' and price >= 5000;
+
+
+		만약에 책을 만들고 책 뒤에 색인표를 만들었는데 책 내용이 변경될 경우에는 색인표도 다시 만들어야 한다.
+		그렇듯이 인덱스를 만들었는데 그 인덱스가 적용된 테이블에 대하여 새로운 레코드가 추가되거나 수정, 삭제가 되었다면 인덱스를 재구성 해주어야 한다.
+
+
+		insert into book values(15, '재미있는 자바', '쌍용미디어', 30000);
+		update book set price = 15000 where bookid = 14;
+
+		인덱스가 구성된 테이블에 레코드의 추가, 수정, 삭제 작업이 있었다면 오히려 인덱스가 성능 저하의 원인이 될 수 있다.
+		이 때는 인덱스를 '재구성' 해주어야 한다.
+		
+		
+	** 인덱스의 재구성
+	alter index 인덱스이름 rebuild;
+	
+	alter index idx_book rebuild;
+
+
+		연습) 고객의 이름을 검색 속도 향상을 위하여 인덱스를 생성
+			create index idx_name on customer(name);
+		
+		연습) 고객이름으로 검색
+			select * from customer where name = '김연아';
+
+
+		연습) 생성한 인덱스를 삭제
+			drop index idx_name;
+		
+
+	테이블 생성 시에 pk로 설정한 컬럼은 자동으로 인덱스가 생성된다.
+	
+	select object_name from user_objects;
+
+	column index_name format a10;
+	column table_name format a10;
+	
+	select index_name, table_name from user_indexes;
+	
+	INDEX_NAME      TABLE_NAME
+	--------------- ----------
+	SYS_C008315     STUDENT
+	SYS_C008316     BOOK
+	SYS_C008317     CUSTOMER
+	SYS_C008318     ORDERS
+	SYS_C008321     DEPT
+	SYS_C008357     BOARD
+	SYS_C008358     MEMBER
+	SYS_C008391     NEWBOOK
+	SYS_C008392     MYBOOK
+	SYS_C008322     EMP
+	IDX_ENAME       EMP
+	
+	INDEX_NAME      TABLE_NAME
+	--------------- ----------
+	IDX_BOOK        BOOK
+
+
+--------------------------------------------------------------------------------------------------
+
+* PL/SQL
+	- 오라클 전용 DB프로그래밍 언어
+	
+	종류
+	
+	* procedure (프로시저)
+		- 자바의 메소드처럼 빈번하게 사용하는 sql 명령어를 프로시저를 만들어두면 쉽게 사용할 수 있다.
+		
+		** 프로시저의 생성
+		create or replace procedure 프로시저이름(변수이름 모드 자료형, )   <--- 모드 in(입력용), out(출력용)
+		as 
+			지역변수 선언
+		begin 
+			프로시저가 해야할 명령어(들)
+		end;
+		/
+		
+			연습) book 테이블에 새로운 레코드를 추가하는 프로시저 생성
+			
+				create or replace procedure
+				insertBook(
+					p_bookid in number,
+					p_bookname in varchar2,
+					p_publisher in varchar2,
+					p_price in number
+				)
+				as
+				begin
+					insert into book(bookid, bookname, publisher, price) 
+					values(p_bookid, p_bookname, p_publisher, p_price);
+				end;
+				/
+				
+				
+				
+				SQL> create or replace procedure
+					  2  insertBook(
+					  3  p_bookid in number,
+					  4  p_bookname in varchar2,
+					  5  p_publisher in varchar2,
+					  6  p_price in number
+					  7  )
+					  8  as
+					  9  begin
+					 10  insert into book(bookid, bookname, publisher, price)
+					 11  values(p_bookidm p_bookname, p_publisher, p_price);
+					 12  end;
+					 13  /
+					
+					경고: 컴파일 오류와 함께 프로시저가 생성되었습니다.
+					
+					==> 일부러 틀릴경우 오류발생!
+						show errors; --> 오류를 확인
+				
+				
+				===> 생성한 프로시저를 통해 레코드 추가
+					exec insertBook(16, '즐거운 오라클', '쌍용미디어', 35000);
+					PL/SQL 처리가 정상적으로 완료되었습니다.
+					
+				---------------------------------------------------------------------------
+					
+					
+				연습) 고객번호, 고객명, 주소, 전화를 매개변수로 전달받아 새로운 고객을 등록하는 프로시저를 만들고, 호출해보자.
+					create or replace procedure
+					insertCustomer(
+						p_custid in number,
+						p_name in varchar2,
+						p_address in varchar2,
+						p_phone in varchar2
+					)
+					as
+					begin
+						insert into customer(custid, name, address, phone)
+						values(p_custid, p_name, p_address, p_phone);
+					end;
+					/
+					
+					exec insertCustomer(18, '홍길순', '대한민국 서울', '010-1111-1111');
+					
+				-------------------------------------------------------------------------
+				
+				
+				연습) 부서번호와 부서위치를 매개변수로 전달받아 해당부서의 위치를 변경하는 프로시저를 만들고 호출해보자.
+		
+					create or replace procedure
+					updateDept(
+						p_dno in number,
+						p_dloc in varchar2
+					)
+					as
+					begin
+						update dept set dloc = p_dloc where dno = p_dno;
+					end;
+					/
+		
+					exec updateDept(10, '판교');
+		
+				---------------------------------------------------------------------------
+				
+				연습) 고객번호를 매개변수로 전달받아 해당 고객의 정보를 삭제하는 프로시저를 만들고 호출해보자.
+				
+					create or replace procedure
+					deleteCustomer(
+						p_custid in number
+					)
+					as
+					begin
+						delete customer where custid = p_custid;
+					end;
+					/
+		
+					exec deleteCustomer(18);
+					rollback; <--- 프로시저를 삭제한 작업을 취소
+					
+					call deleteCustomer(18); //삭제
+					rollback;
+					
+					
+				----------------------------------------------------------------------------
+				
+				연습) 부서번호를 매개변수로 전달받아 해당 부서의 위치를 출력하는 프로시저를 생성
+				
+					create or replace procedure
+					printDloc(
+						p_dno number
+					)
+					as
+						p_dloc varchar2(20);
+					begin
+						select dloc into p_dloc from dept where dno = p_dno;
+						dbms_output.put_line(p_dloc);
+					end;
+					/
+				
+					exec printDloc(10);
+					PL/SQL 처리가 정상적으로 완료되었습니다.
+					==> 프로시저가 동작하였지만 화면에 결과가 출력되지 않았다.
+						dbms_output.put_line으로 출력하려면 다음의 명령어를 먼저 실행해야 한다.
+						
+						set serveroutput on;
+						exec printDloc(10);
+						
+						SQL> exec printDloc(10);
+						판교
+						
+						PL/SQL 처리가 정상적으로 완료되었습니다.
+						
+					
+						
+				----------------------------------------------------------------------------
+				
+				
+				연습) 고객번호를 매개변수로 전달받아 해당 고객의 총 주문금액을 출력하는 프로시저를 만들고 호출해보자.
+				
+					create or replace procedure
+					printTotal(
+						p_custid number
+					)
+					as
+						p_total number;
+					begin
+						select sum(saleprice) into p_total from orders where custid = p_custid; //sum(saleprice의 값을 p_total로 넣어준다.)
+						dbms_output.put_line(p_total);
+					end;
+					/
+					
+					set serveroutput on; //위에서 한 번 해주면 또 안 해 주어도 된다. 창을 새로 켰을 때 해준다.
+					exec printTotal(1);
+					
+				---------------------------------------------------------------------------------
+				
+				연습) 고객번호를 매개변수로 전달받아 해당 고객의 총 주문금액을 반환하는 프로시저를 생성
+				
+					create or replace procedure
+					getTotal(
+						p_custid in number, //in : 입력용
+						p_total out number //out: 출력용
+					)
+					as
+					begin
+						select sum(saleprice) into p_total from orders
+						where custid = p_custid;
+					end;
+					/
+					
+					==> 프로시저 안에서 출력하는 것이 아니기 때문에 프로시저 호출한 결과를 변수에 저장하고
+						그 변수의 내용을 출력해야 한다.
+						
+						이것을 하기 위한 또다른 PL/SQL이 필요하다.
+					
+						declare
+							변수선언
+						begin
+							명령어
+						end;
+						/
+			
+				--------------------------------------------------------------------------------
+				
+				연습) getTotal 프로시저를 호출하는 PL/SQL을 만들어보자
+					
+					declare
+						result number;
+					begin
+						getTotal(1, result);
+						dbms_output.put_line(result);
+					end;
+					/
+	---------------------------------------------------------------------------------------------
+	
+		* cursor의 사용
+			- 프로시저 안에서 select 한 행의 수가 여러 건일 때에는 cursor를 사용해야 한다.
+			
+				select name from customer; 
+				==> 결과가 여러 건
+				
+				
+				연습) 부서위치를 매개변수로 전달받아 그 위치에 근무하는 모든 사원이름을 출력하는 프로시저를 생성하고 호출
+				
+					create or replace procedure
+					printEmp(
+						p_dloc varchar2
+					)
+					as
+						p_ename varchar2(20);
+						cursor c is select ename from emp where dno in (select dno from dept where dloc = p_dloc);
+					begin
+						open c;
+						loop
+							fetch c into p_ename;
+							exit when c%NOTFOUND;
+							dbms_output.put_line(p_ename);
+						end loop;
+						close c;
+					end;
+					/
+			
+					==> open c; // cursor안에 있는 내용을 실행
+					
+					exec printEmp('서교동');
+					
+
+						
+					
+				-----------------------------------------------------------------------------------
+				
+				연습) 관리자 이름을 매개변수로 전달받아 해당 관리자의 부하직원의 이름을 출력하는 프로시저를 만들고 호출해보자.
+				
+					create or replace procedure
+					printStaff(
+						p_mname varchar2
+					)
+					as
+						p_ename varchar2(20);
+						cursor c is select e.ename from emp e, emp m where e.mgr = m.eno and m.ename = p_mname;
+					begin
+						open c; //커저를 동작
+						loop //루프를 돈다.
+							fetch c into p_ename; //커저에 있는 것을 하나씩 뽑아온다.
+							exit when c%NOTFOUND; // 더이상 뽑아올 레코드가 없으면 exit한다.
+							dbms_output.put_line(p_ename); //뽑아올 사원이름을 출력
+						end loop; //루프를 닫아준다.
+						close c; //커저를 닫아준다.
+					end;
+					/
+					
+					exec printStaff('김도연');
+					
+			
+---------------------------------------------------------------------------------------------------
+
+	* trigger (트리거)
+		- SQL에서의 이벤트 처리를 위한 것으로써 어떤 테이블에서 이벤트(insert, update, delete)가 일어날 때에 자동으로 동작하는 프로시저를 말한다.
+		
+		** 트리거 만드는 방법
+		
+		create or replace trigger 트리거이름
+		시점 명령어 on 테이블명 for each row
+		declare
+			변수선언
+		begin
+			트리거가 해야할 명령어(들)
+		end;
+		/
+		
+		- 시점		: before, after가 올 수 있다.
+		- 명령어		: insert, update, delete가 올 수 있다.
+		- :new		: 명령어가 실행된 새로운 레코드를 의미한다. 만약, insert가 일어났다면 insert된 레코드를 의미
+													만약, update가 되었다면 update된 레코드를 의미
+		- :old		: 명령어가 실행되기 전에 레코드를 의미한다. 만약, update가 되었다면 update되기 전의 레코드를 의미
+													만약, delete가 되었다면 delete 되기 전의 레코드를 의미
+		
+		실습을 위하여 dept 테이블을 복사하여 dept_back 테이블을 생성
+		create table dept_back as select * from dept;
+		
+
+			연습) dept 테이블에 insert가 일어나면 자동으로 dept_back에 레코드를 추가하는 트리거를 만들어보자.
+			
+				create or replace trigger 
+				trg_dept_insert 
+				after insert on dept for each row
+				declare
+				begin
+					insert into dept_back values( :new.dno, :new.dname, :new.dloc);
+				end;
+				/
+		
+		
+				insert into dept values(60, '개발4팀', '제주');
+				==> dept_back 테이블에도 추가가 된 것을 확인할 수 있다.
+				
+				
+			-------------------------------------------------------------------------------
+			
+			연습) dept 테이블에 삭제가 일어나면 dept_back에서도 삭제가 되도록 트리거를 생성하고 적용해보자.
+				
+				create or replace trigger
+				trg_dept_delete
+				after delete on dept for each row
+				declare
+				begin
+					delete dept_back where dno = :old.dno;
+				end;
+				/
+		
+				delete dept where dno = 60;
+---------------------------------------------------------------------------------------------------		
+		
+	* function
+		- select 절에서 사용할 수 있는 함수이다.
+		
+		
+
+
+
+		팀별 연습문제) 사원이름 받아서 사원의 전화번호를 출력하기
+		
+			
+						create or replace procedure
+						printEmpname(
+							p_ename varchar2
+						)
+						as
+							p_phone varchar2(50);
+						begin
+							select phone into p_phone from emp where ename = p_ename;
+							dbms_output.put_line(p_phone);
+						end;
+						/
+						
+						exec printEmpname('김도연');
+	
+
+
+
+
+프로시저: 쿼리문을 마치 하나의 메서드 형식으로 만들고 어떠한 동작을 일괄적으로 처리하는 용도로 사용됩니다.
+트리거: 
+	
+	
+	
