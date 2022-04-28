@@ -1,0 +1,577 @@
+<<문자열 함수>>
+	- chr  		: 정수 아스키코드에 해당하는 문자를 반환
+	- concat 	: 두 개의 문자열을 연결하여 반환
+	- initcap 	: 단어의 첫 글자를 대문자로 변환하여 반환
+	- lower		: 소문자로 변환
+	- upper		: 대문자로 변환
+	- ltrim		: 문자열의 왼쪽 공백을 제거하여 반환
+	- rtrim		: 문자열의 오른쪽 공백을 제거하여 반환
+	- trim		: 문자열의 좌,우 공백을 제거하여 반환
+	- length	: 문자열의 길이를 반환하는 함수 
+	
+-------------------------------------------------------------------------------------
+
+* ascii 함수
+	- 문자에 해당하는 아스키 코드값을 반환
+	
+	<활용>
+		select ascii('A') from dual;
+		
+		ASCII('A')
+		----------
+		        65
+		        
+		        
+* instr 함수
+	- 문자열에서 특정 문자열의 위치를 반환
+	
+	<활용>
+		select instr('hello', 'e') from dual; //hello에서 e가 몇번째에 나타나는가?
+		
+		INSTR('HELLO','E')
+		------------------
+		                 2
+		                 
+		===> 오라클에서 인덱스는 1번째부터 시작한다.
+		
+		
+		
+	연습) emp 테이블에 email varchar2(50) 컬럼을 추가
+		alter table emp add email varchar2(50);
+			
+			
+		이메일 변경
+		update emp set email='lby9905@gmail.com' where ename = '김도연';
+			
+		UPDATE EMP SET EMAIL='J2ONGSOO93@GMAIL.COM' WHERE ENAME='박정수';
+		update emp set email='lby9905@gmail.com' where ename = '김도연';
+		update emp set email='mohanhee09@gmail.com' where ename='김한희';
+		update emp set email='lyr@gmail.com' where ename = '이유리';
+		update emp set email='feeljinjoo@naver.com' where ename='이진주';
+		UPDATE emp SET email='test123@naver.com' WHERE ename='이창희';
+		update emp set email = 'reggin4259@naver.com' where ename = '김민혁';
+		update emp set email='sdh7811@naver.com' where ename ='서동혁';
+		update emp set email='sonm446@naver.com' where ename='송승민';
+		update emp set email='jeong0000@naver.com' where ename='정은선';
+		update emp set email= 'dnfla9407@naver.com' where ename ='최우림';
+		update emp set email = 'ohsso98@naver.com' where ename = '김소윤';
+		update emp set email='gyh03194@naver.com' where ename='이희승';
+		update emp set email = 'whxogjs123@naver.com' where ename = '조태헌';
+		update emp set email='lala8524@naver.com' where ename = '고주희';
+		update emp set email='rlaekwjd6412@gmail.com' where ename='김다정';
+		update emp set email='vorangev07@naver.com' where ename='고민지';
+		update emp set email='wl0wn1212@gmail.com' where ename = '백지연';
+		update emp set email ='pvcmatters@gmail.com' where ename ='황예은';
+		
+			
+			
+	연습) 모든 사원의 이름과 이메일 그리고 이메일의 @의 위치를 출력하세요.
+		select ename, email, instr(email, '@') from emp;
+		
+		
+	<기본문법>
+	instr(문자열1, 문자열2)
+		==> 문자열1로부터 문자열2가 나오는 위치를 반환
+	
+	instr(문자열1, 문자열2, 숫자1)
+		==> 문자열1로부터 숫자1인덱스 이후에 나오는 문자열2의 위치를 반환
+			
+	
+	연습) 모든 직원의 이름과 이메일 그리고 이메일로부터 @이 나오는 위치와 이메일로부터 @이 나오는 위치 이후에 나오는 .의 위치를 출력
+		select ename, email, instr(email, '@'), instr(email, '.', instr(email, '@'))
+		from emp;
+		
+		
+		
+		
+		
+		
+* substr 함수
+	- 문자열의 일부분을 잘라서 반환하는 함수
+	
+	<기본문법>
+	substr(문자열, 시작위치, 길이)
+		==> 문자열의 시작위치에서 길이만큼 잘라서 반환
+		
+		
+	연습) 모든 사원의 이름과 사원이름의 첫 글자를 출력해보세요.
+		select ename, substr(ename, 1, 1) from emp;
+		
+		
+	연습) 개발팀에 근무하는 모든 직원들의 사원번호, 이름, 부서번호, 부서명, 관리자명, 사원의 아이디, 관리자의 아이디를 출력하세요.
+		select e.eno, e.ename, e.dno, dname, m.ename, substr(e.email, 1, instr(e.email, '@')-1) e_email, substr(m.email, 1, instr(m.email, '@')-1) m_email
+		from emp e, emp m, dept d
+		where e.mgr = m.eno and e.dno = d.dno and
+		dname like '개발%';
+		
+		
+		
+		
+emp 테이블에 주민번호를 위한 jumin char(14)이라는 컬럼을 추가
+	alter table emp add jumin char(14);
+		
+		update emp set jumin='990417-2123123' where ename='김도연';
+		
+		update emp set JUMIN='801102-1234567' where ename = '박정수';
+		update emp set jumin='990417-2123123' where ename = '김도연';
+		update emp set jumin='000909-010100' where ename='김한희';
+		update emp set jumin='970709-2345678' where ename = '이유리';
+		update emp set jumin='970221-1111111' where ename='이진주';
+		UPDATE emp SET jumin='930405-1199999' WHERE ename ='이창희';
+		update emp set jumin='960515-1234567' where ename ='서동혁';
+		update emp set jumin='901222-1222222' where ename='송승민';
+		update emp set jumin='960900-0000000' where ename='정은선';
+		update emp set jumin='971006-1234567' where ename ='최우림';
+		update emp set jumin='850822-2333333' where ename ='김소윤';
+		update emp set jumin='960911-1001010' where ename='이희승';
+		update emp set jumin='980422-1515151' where ename='조태헌';
+		update emp set jumin='940101-2000000' where ename ='황예은';
+		update emp set jumin='971004-2003051' where ename='고주희';
+		update emp set jumin='951223-2123456' where ename='김다정';
+		update emp set jumin='961102-2382922' where ename='고민지';
+		update emp set jumin='971221-1234567' where ename ='백지연';
+		update emp set jumin ='830925-1111111' where ename = '김민혁';
+		
+		update emp set jumin='000909-4234567' where ename='김한희';
+		update emp set jumin='960900-2345678' where ename='정은선';
+		update emp set jumin = '971221-2234567' where ename ='백지연';
+		update emp set jumin='970221-2111111' where ename='이진주';
+		
+		
+		
+		연습) 서교동에 근무하는 여성직원들의 사원번호, 이름, 관리자명, 사원의 이메일, 관리자의 이메일, 부서번호, 부서명, 연봉을 출력. 
+			단, 부서번호 순으로 출력하고 동일할 때에는 사원이름순으로 출력
+				select e.eno, e.ename, m.ename, e.email, m.email, e.dno, dname, ((e.salary+e.comm) * 12) salary
+				from emp e, emp m, dept d
+				where e.mgr = m.eno and e.dno = d.dno and
+				dloc = '서교동' and (substr(e.jumin, 8, 1) = '2' or substr(e.jumin, 8, 1) = '4')
+				order by e.dno, e.ename;
+				
+		
+		
+		
+* replace(문자열, a, b) 함수
+	- 문자열 중에서 a를 b로 변경하는 함수
+	
+	<활용>
+		select replace('hello java', 'hello', '안녕') from dual; // hello를 안녕으로 바꾸기.
+		
+		REPLACE('HELLOJAVA','H
+		----------------------
+		안녕 java
+		
+		
+		
+* lpad(문자열, 자릿수, 채울글자) 함수
+	- 문자열을 자릿수만큼 칸을 잡아 오른쪽 정렬하여 출력하고 왼쪽 빈칸을 채울 글자로 채워준다.
+		
+
+	
+* rpad(문자열, 자릿수, 채울글자) 함수
+	- 문자열을 자릿수만큼 칸을 잡아 왼쪽 정렬하여 출력하고 오른쪽 빈칸을 채울 글자로 채워준다.
+	
+	
+	
+	연습) 모든 직원의 사원번호, 이름의 첫글자를 출력하세요. 이름의 첫글자는 3칸을 잡아 왼쪽정렬하여 출력하고, 빈칸은 *로 출력한다.
+			select eno, rpad(substr(ename, 1, 1), 3, '*')
+			from emp;
+	
+	
+	
+	연습) '김한희'의 부하직원들의 사원번호, 사원명, 아이디, 주민번호, 실수령액을 출력한다.
+		주민번호는 14자리를 잡아 앞에서 8글자만 출력하고 왼쪽정렬하여 출력하고 빈칸은 *로 출력한다. 또한, 실수령액을 10칸을 잡아 오른쪽정렬하고 빈칸은 0으로 출력
+		실수령액이 높은순으로 출력하고 동일할 때에는 사원명으로 출력
+			select e.eno, e.ename, substr(e.email, 1, instr(e.email, '@')-1) id, 
+			rpad(substr(e.jumin, 1, 8), 14, '*') jumin, 
+			lpad((e.salary+e.comm), 10, 0) salary
+			from emp e, emp m
+			where m.ename = '김한희' and e.mgr = m.eno
+			order by e.salary+e.comm, e.ename;
+	
+	
+	
+	
+	
+	연습) 도서 제목에 '야구'가 포함된 도서명을 '농구'로 변경하여 출력
+		select replace(bookname, '야구', '농구') bookname
+		from book;
+	
+	
+	
+	연습) 같은 성씨를 가진 고객이 몇명이나 되는지 파악하도록 성씨 별 인원수를 출력
+		select substr(name, 1, 1), count(*)
+		from customer
+		group by substr(name, 1, 1);
+	
+	
+		select substr(ename, 1, 1), count(*)
+		from emp
+		group by substr(ename, 1, 1);
+	
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+* 날짜 관련 함수
+	
+	
+	* sysdate
+		- 시스템 설정된 오늘날짜를 알려주는 함수
+		
+		<활용>
+			select sysdate from dual;
+		
+			SYSDATE
+			--------
+			22/04/26
+			
+			
+			select sysdate -1, sysdate, sysdate+1 from dual; // -1하면 어제, +1하면 내일
+			
+			SYSDATE- SYSDATE  SYSDATE+
+			-------- -------- --------
+			22/04/25 22/04/26 22/04/27
+		
+		
+	* to_char
+		- 날짜자료형을 문자로 반환하는 함수
+		
+		<기본문법>
+			to_char(날짜, 형식문자)
+				yyyy yy	연도
+				mm		월
+				d		날
+				hh		시
+				mi		분
+				ss		초	
+	
+	
+		<활용>
+			select to_char(sysdate, 'yyyy') from dual;
+		
+			TO_CHAR(
+			--------
+			2022
+	
+			
+			select to_char(sysdate, 'yyyymm') from dual;
+			
+			TO_CHAR(SYSD
+			------------
+			202204
+	
+	
+			select to_char(sysdate, 'mm') from dual;
+	
+			TO_C
+			----
+			04
+			
+			
+	
+	
+	* to_date
+		- 문자를 날짜로 바꾸어 주는 함수
+		
+		<기본문법>
+			to_date(문자, 형식문자)
+			
+		<활용>
+			select to_date('2022/04/26', 'yyyy/mm/dd') from dual;
+	
+			TO_DATE(
+			--------
+			22/04/26
+			
+			
+			
+			
+			
+
+		연습) 이번달 생일자인 모든 직원들에게 상품권을 지급하려고 한다. 대상자의 사원번호, 사원명, 부서번호, 부서명, 관리자명, 주민번호를 출력
+			주민번호는 14자리를 잡아서 앞에서 8자리만 출력하고 빈칸은 *로 출력.
+			관리자명 순으로 출력하고 동일할 때에는 사원이름 순으로 출력
+			
+			select e.eno, e.ename, e.dno, dname, m.ename, rpad(substr(e.jumin, 1, 8), 14, '*') jumin
+			from emp e, emp m, dept d
+			where e.mgr = m.eno and e.dno = d.dno and
+			to_char(substr(e.jumin, 3, 2)) = '04' // substr(e.jumin, 3, 2) = to_char(sysdate, 'mm')
+			order by m.ename, e.ename;
+	
+	
+
+	
+		연습) 마당서점은 주문일로부터 10일 후 매출을 확정합니다. 각 주문에 대하여 주문번호, 고객번호, 고객명, 도서번호, 도서명, 출판사명, 주문일, 확정일을 출력.
+			최근의 주문확정일 순으로 출력하고 동일할 때에는 주문번호 순으로 출력
+			
+			select orderid, c.custid, name, b.bookid, bookname, publisher, orderdate, (orderdate + 10) 확정일
+			from orders o, customer c, book b
+			where b.bookid = o.bookid and c.custid = o.custid
+			order by (orderdate + 10) desc, orderdate;
+			
+			
+			
+			
+			select to_char(sysdate, 'yyyy/mm/dd d') from dual; //d는 요일에 대한 숫자가 나타남.
+			
+			TO_CHAR(SYSDATE,'YYYY/MM
+			------------------------
+			2022/04/26 3
+			
+			
+			select to_char(sysdate, 'yyyy/mm/dd day') from dual;
+			
+			TO_CHAR(SYSDATE,'YYYY/MM/DDDAY')
+			----------------------------------------------
+			2022/04/26 화요일
+			
+			
+			
+			select to_char(sysdate, 'yyyy/mm/dd dy') from dual; //요일에 대한 약어
+			
+			TO_CHAR(SYSDATE,'YYYY/MM/DDDY'
+			------------------------------
+			2022/04/26 화
+			
+			
+			
+		연습) 2022년 4월 7일에 주문받은 도서의 주문번호, 주문일, 고객번호, 도서번호, 도서명을 출력합니다.
+			단, 주문일을 'yyyy-mm-dd 요일' 형태로 출력한다.
+			
+			select orderid, to_char(orderdate, 'yyyy-mm-dd dy'), c.custid, b.bookid, bookname
+			from customer c, orders o, book b
+			where c.custid = o.custid and b.bookid = o.bookid and
+			to_char(orderdate, 'yyyymmdd') = '20220407';
+			
+			
+			
+		
+	* add_months(날짜, 숫자)
+		- 날짜에 숫자 개월 수 만큼 더해준다.
+		
+		<활용>
+			select add_months(sysdate, 12) from dual;
+			
+			ADD_MONT
+			--------
+			23/04/26
+						
+			
+			
+	* last_day(날짜)
+		- 그 날짜가 속해있는 달의 마지막 날을 반환
+		
+		<활용>
+			select last_day(sysdate) from dual;
+			
+			LAST_DAY
+			--------
+			22/04/30
+			
+			
+	
+	* months_between(날짜1, 날짜2)
+		- 두 날짜 사이의 개월 수를 반환, 날짜1이 더 최근 날짜이어야 한다.
+		
+		
+		
+		연습) 모든 사원의 이름과 근무 개월수를 출력
+			select ename, hiredate, months_between(sysdate, hiredate)
+			from emp;
+			
+			
+			update emp set hiredate = '2020/11/11' where ename = '이진주';
+			
+			
+			
+		연습) 근무년수가 5년이상인 직원들에게 특별 상여금을 지급하려고 합니다. 상여금은 연봉의 50%이다. 
+			대상자의 사원번호, 부서번호, 부서명, 사원명, 관리자명, 입사일, 근무 개월 수, 주민번호, 상여금을 출력합니다.
+			입사일은 연/월/일/요일을 출력하고 근무개월수와 상여금은 반올림하여 정수만 출력.
+			또, 주민번호는 14자리를 잡아서 왼쪽정렬하여 8글자만 출력하고 공백은 *로 출력합니다.
+			근무개월 수가 높은 순으로 출력하고 동일할 때에는 이름순으로 출력
+			
+			select e.eno, d.dno, dname, e.ename, m.ename, to_char(e.hiredate, 'yyyy/mm/dd day') hiredate, 
+			round(months_between(sysdate, e.hiredate), 1) months, rpad(substr(e.jumin, 1, 8), 14, '*') jumin, round((((e.salary+e.comm) * 12) * 0.5), 1) bonus 
+			from emp e, emp m, dept d
+			where e.mgr = m.eno and e.dno = d.dno and 
+			round(months_between(sysdate, e.hiredate), 1) >= 60 
+			order by round(months_between(sysdate, e.hiredate), 1) desc, e.ename;
+			
+			
+			<관리자가 없는사람도 나오게하기>
+			select e.eno, e.dno, dname, e.ename, m.ename, to_char(e.hiredate, 'yyyy/mm/dd day') hiredate, 
+			round(months_between(sysdate, e.hiredate), 1) months, rpad(substr(e.jumin, 1, 8), 14, '*') jumin, round((((e.salary+e.comm) * 12) * 0.5), 1) bonus 
+			from emp e left outer join emp m
+			on e.mgr = m.eno
+			left outer join dept d on e.dno = d.dno
+			where round(months_between(sysdate, e.hiredate), 1) >= 60 
+			order by round(months_between(sysdate, e.hiredate), 1) desc, e.ename;
+
+			
+			
+		연습) 모든 사원의 이름과, 관리자번호, 근무개월수 출력
+			
+			select eno, mgr, months_between (sysdate, hiredate)
+			from emp
+			where months_between(sysdate, hiredate) >= 60;
+			
+---------------------------------------------------------------------------------------------------------------------------------
+
+* outer join(복습)
+	- 왼쪽 테이블이나 오른쪽 테이블의 레코드는 조건을 만족하지 않더라도 무조건 포함시키기 위한 조인
+	
+	<기본문법>
+		select 컬럼1, 컬럼2
+		from 테이블1 left outer join
+		
+		
+		
+	<<3개의 테이블에 대한 outer join>>
+		select 컬럼1, 컬럼2
+		from 테이블1 left outer join 테이블2
+		on 조건식
+		left outer join 테이블3
+		on 조건식
+			
+			
+	
+	<<3개의 테이블에 대한 outer join과 다른 조건식>>
+		select 컬럼1, 컬럼2
+		from 테이블1 left outer join 테이블2
+		on 조건식
+		left outer join 테이블3
+		on 조건식
+		where 조건식
+		
+---------------------------------------------------------------------------------------------------------------------------------
+
+* decode(컬럼, 값1, 결과1, 값2, 결과2, 결과3)
+	- 컬럼의 값이 값1이면 결과1을 반환
+	- 컬럼의 값이 값2이면 결과2를 반환
+	- 그 나머지이면 결과3을 반환
+	- 값과 결과는 쌍을 이루어 얼마든지 나열할 수 있다.
+			
+	
+	
+	연습) 사원이름과 주민번호 성별을 출력합니다.
+		
+		select ename, jumin, decode(substr(jumin, 8, 1), '1', '남', '2', '여', '3', '남', '4', '여')
+		from emp;
+			
+			
+	
+	연습) 모든 직원들의 사원번호, 이름, 주민번호, 나이를 출력합니다.
+		
+		select eno, ename, jumin, 
+		to_char(sysdate, 'yyyy') - 
+		(substr(jumin, 1, 2) + (select decode(substr(jumin, 8, 1), '1', 1900, '2', 1900, '3', 2000, '4', 2000) from emp)) age
+		from emp;
+			
+		==> 오류, 상관서브쿼리로 만들어야 한다.
+		
+		
+			
+		select eno, ename, jumin, 
+		to_char(sysdate, 'yyyy') - 
+		(substr(jumin, 1, 2) + (select decode(substr(jumin, 8, 1), '1', 1900, '2', 1900, '3', 2000, '4', 2000) 
+									from emp e2 where e1.eno = e2.eno)) age
+		from emp e1;
+			
+			
+			
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+	insert into customer values(14, '홍길동', '', '1111');
+	insert into customer values(15, '이순신', null, '2222');
+	insert into customer values(16, '김유신', ' ', '3333');
+			
+	select * from customer where address = null; X
+	-> 선택된 레코드가 없다고 오류가 남.
+	
+	select * from customer where address is null; O
+			
+			
+	' '			---> null과 다르게 취급
+	'', null	---> 동일하게 취급
+			
+			
+			
+	insert into emp(eno, ename, dno, salary, comm) values(1019, '홍길동', 10, 0, 0);
+	insert into emp(eno, ename, dno, salary, comm) values(1020, '김유신', 10, null, null);
+			
+			
+			
+	연습) 모든 사원의 이름과 급여에 10을 더한 값을 출력
+		select ename, salary, salary+10 from emp;
+			
+			
+	연습) 급여가 null인 사원의 이름과 급여를 출력
+		select ename, salart from emp where salary is null;
+		
+	
+	연습) 급여가 0인 사원의 이름과 급여를 출력
+		select ename, salary from emp where salary = 0;
+		==> null과 0은 다르게 처리되는 값이다.
+		
+		
+		
+		select avg(salary) from emp;    		==> 407.5 
+		select sum(salary)/count(*) from emp;   ==> 388.095238    ==> null은 집계함수에 참여하지 않는다.!
+		select sum(salary)/count(salary) from emp; ==> 407.5
+			
+		==> null은 집계함수에 참여하지 않는다.!
+		
+		
+		
+		select count(*), sum(price), avg(price) from book;
+			
+		  COUNT(*) SUM(PRICE) AVG(PRICE)
+		---------- ---------- ----------
+		        14     314500 22464.2857	
+		        
+		        
+		        
+		 select count(*), sum(price), avg(price) from book
+		 where bookid > 100;
+			
+		  COUNT(*) SUM(PRICE) AVG(PRICE)
+		---------- ---------- ----------
+			    0
+			    
+		==> 조건을 만족하는 레코드가 없을 때에 count 함수는 0을 반환하고 나머지 집계함수들은 null을 반환
+		
+		
+		
+* nvl(속성, 대체할 값)
+	- 만약, 속성의 값이 null이면 대체할 값으로 출력
+		
+	select name, nvl(phone, '연락처없음') phone from customer;
+		
+-------------------------------------------------------------------------------------------------------------------------
+
+실습을 위하여 customer를 복사하여 customer100 테이블을 생성
+
+	create table customer100 as select * from customer;
+		
+		
+		
+	연습) customer100에 새로운 회원등록을 위한 회원번호를 검색해본다.
+		select nvl(max(custid), 0) + 1
+		from customer100;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
