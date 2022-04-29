@@ -1,0 +1,455 @@
+* PL/SQL
+	- 오라클 전용 데이터베이스 프로그래밍 언어
+	
+	* 프로시저
+		- 자바의 메소드처럼 어떤 일처리를 위한 서로 관련있는 sql명령어들의 모임
+		
+		<프로시저 만드는 방법>
+		create or replace procedure
+		프로시저이름(매개변수이름 모드 자료형, ...)
+		as
+		begin
+		end;
+		/
+		
+			- 모드에는 	in 		===> 입력용 : 프로시저 실행에 필요한 값을 전달
+						out		===> 출력용 : 프로시저에 구해진 값을 돌려줄 용도로 사용
+			- as와 begin 사이에 프로시저 실행에 필요한 변수를 선언할 수 있다.
+			- begin과 end 사이에 프로시저가 해야할 명령어를 써준다.
+			- 프로시저에서 := 은 대입한다는 의미
+			
+			
+				연습) 부서번호, 부서명, 부서위치를 매개변수로 전달받아 새로운 부서를 등록하는 프로시저를 만들고 호출해보자.
+				
+					create or replace procedure
+					insertDept(
+						p_dno in number,
+						p_dname in varchar2,
+						p_dloc in varchar2
+					)
+					as
+					begin
+						insert into dept values(p_dno, p_dname, p_dloc);
+					end;
+					/
+					
+					exec insertDept(60, '개발4팀', '제주');
+					
+				
+		---------------------------------------------------------------------------------------------------------
+
+		* PL/SQL의 제어문
+					
+			if 조건식 then
+						
+			else
+						
+			end if;
+		
+		
+				연습) 도서번호, 도서명, 출판사, 가격을 매개변수로 전달받아 동일한 도서명의 도서가 이미 있으면 가격을 수정하고 그렇지 않으면
+					도서를 등록하는 프로시저를 만들고 호출해보자.
+					
+					create or replace procedure
+					BookInsertOrUpdate(
+						p_bookid in number,
+						p_bookname in varchar2,
+						p_publisher in varchar2,
+						p_price in number
+					)
+					as
+						mycount number; //도서의 수를 담는다.
+					begin
+						select count(*) into mycount from book 
+						where bookname = p_bookname; //도서테이블로부터 bookname을 p_bookname에 넣고 그것이 있으면 count(*)의 수가 올라간다. 그것을 mycount에 넣기
+						
+						if mycount != 0 then //mycount가 0이 아닌가요? ==> 책이 이미 있다는 것
+							update book set price = p_price where //이미 있다면 도서의 가격을 입력받은 p_price로 수정하자 !
+							bookname = p_bookname;
+						else
+							insert into book values(p_bookid, p_bookname, p_publisher, p_price); //mycount가 0이라면 도서를 등록하자 !
+						end if;
+					end;
+					/
+					
+					==> 같은 도서명이 있으면 그 도서명에 대한 가격을 변경해준다.
+					==> 같은 도서명이 없다면 그 도서를 등록해준다.
+					
+		---------------------------------------------------------------------------------------------------------------
+		
+		* cursor를 사용한 프로시저
+				
+				연습) orders 테이블에 주문내역에 대하여 전체이익금을 계산하여 출력하는 프로시저를 만들어보자.
+					이익금은 판매가격이 30,000원 이상이면 10%, 그렇지 않으면 5%가 이익금이다.
+					
+					create or replace procedure
+					interest //매개변수가 필요없으면 괄호를 안 해도 된다.
+					as
+						price number; //가격에 대한 변수
+						total number; //전체 이익금을 계산하기 위한 변수
+						cursor c is select saleprice from orders; //이 쿼리문의 레코드는 여러 건이기 때문에 cursor를 만들어줘야 한다.
+					begin
+						total := 0; //total의 초기값을 0으로 준다.
+						open c; //cursor에 있는 sql 쿼리가 동작한다.
+						loop //레코드의 값이 여러 건이기 때문에 루프를 돈다.
+							fetch c into price; //c는 cursor에 saleprice를 가리킴. 그것을 price 변수에 저장한다.
+							exit when c%NOTFOUND; //cursor에 더 이상 레코드가 없으면 탈출해라!
+							if price >= 30000 then //price가 30000원보다 크거나 같냐?
+								total := total + price * 0.1; //30000원이면 total에 10% 곱한 값을 누적
+							else
+								total := total + price * 0.05; //30000원이 아니면 total에 5% 곱한 값을 누적
+							end if;
+						end loop;
+						close c; //사용했던 cursor를 닫아줌.
+						dbms_output.put_line('전체 이익 금액 = ' || total); //출력하기
+					end;
+					/
+					
+					==> PL/SQL의 출력에서 ||는 자바에서의 = 와 같은 의미이다.
+					==> dbms_output을 통하여 출력하려면 다음의 명령어를 먼저 실행해야 한다.\
+						set serveroutput on;
+					
+						exec interest();
+					
+						SQL> exec interest();
+						전체 이익 금액 = 17200
+						
+					
+					
+	------------------------------------------------------------------------------------------------------------------------------------
+	
+	* 트리거(trigger)
+		- 어떤 테이블에서 DML이 일어났을 때에 연쇄적(자동)으로 다른 테이블에 sql을 실행시키기 위한 프로시저다.
+		- 데이터의 변경(insert, update, delete)문이 실행될 때에 자동으로 따라서 실행되는 프로시저를 말한다.
+		
+		<데이터 변경문>
+		insert, update, delete
+		
+		<시점>
+		before, after
+		
+		<트리거의 형식>
+		create or replace trigger
+		트리거이름
+		시점 명령어 on 테이블명 for each row
+		declare
+			변수를 선언
+		begin
+			트리거가 해야할 명령어
+		end;
+		/
+		
+		명령어 : insert, update, delete
+		- declare와 begin사이에 변수를 선언
+		- begin과 end 사이에 트리거가 해야할 명령어를 써준다.
+		
+		<트리거에서 사용할 수 있는 키워드>
+		insert, update가 된 레코드를 의미				==> :new
+		delete, update가 되기 전에 레코드를 의미		==> :old
+		
+		
+		
+			새로운 도서를 자동으로 저장되기 위한 book_log 테이블 만들기
+				
+				create table book_log(
+					bookid number,
+					bookname varchar2(50),
+					publisher varchar2(50),
+					price number
+				);
+				
+			
+			연습) 새로운 도서를 삽입하면 자동으로 book_log 테이블에 삽입한 내용을 기록하는 트리거를 만들어보자. (book테이블에 insert가 일어나면 book_log에도 자동으로 기록되고 싶다는 의미)
+			
+				create or replace trigger AfterInsertBook
+				after insert on book for each row //book 테이블에 insert가 일어난다면!
+				declare
+				begin
+					insert into book_log values(:new.bookid, :new.bookname, :new.publisher, :new.price); //book테이블에 insert가 일어나면(after) book_log에도 저러한 컬럼들을 똑같이 넣어줄거야!
+					dbms_output.put_line('삽입 튜플을 book_log에 백업하였습니다.');
+				end;
+				/
+				
+				
+				SQL> insert into book values(18, '재미있는 오라클', '한빛미디어', 30000);
+				삽입 튜플을 book_log에 백업하였습니다.
+				
+				1 개의 행이 만들어졌습니다.
+				
+					
+				SQL> select * from book_log;
+
+				BOOKID BOOKNAME          PUBLISHER          PRICE
+				------ ----------------- --------------- --------
+				    18 재미있는 오라클   	 한빛미디어          30,000	
+				
+			------------------------------------------------------------------------------------------------------------------
+			** 여기서부터 삭제하고 다시만들기.
+			실습을 위한 테이블 만들기
+			
+			create table 상품 (
+				상품번호 number primary key,
+				상품명 varchar2(30),
+				가격 number,
+				재고수량 number
+			);
+			
+			create table 입고 (
+				입고번호 number primary key,
+				상품번호 number references 상품(상품번호),
+				입고수량 number,
+				입고일 date
+			);
+			
+			
+			insert into 상품 values(100, '색종이', 500, 0);
+			insert into 상품 values(200, '삼각자', 700, 0);
+			insert into 상품 values(300, '딱풀', 600, 0);
+			
+			
+			연습) 입고가 되면 입고한 수량만큼 상품테이블의 재고수량을 증가시키는 트리거를 만들고, 결과를 확인해본다.
+			
+				create or replace trigger AfterInsert상품
+				after insert on 입고 for each row //입고 테이블에 insert가 되면 상품에 update가 됨 !
+				declare
+				begin
+					update 상품 set 재고수량 = 재고수량 + :new.입고수량 //입고테이블에 insert가 되면 상품테이블에 갱신이 되고, 재고수량을 현재 재고수량에 더한다!
+					where 상품번호 = :new.상품번호; 
+				end;
+				/
+			
+				insert into 입고 values(1, 100, 10, sysdate);
+				insert into 입고 values(2, 200, 5, sysdate);
+				insert into 입고 
+				insert into 입고 values(3, 300, 10, sysdate);
+			
+	
+column 입고번호 format 9999;
+column 상품번호 format 9999;
+column 입고수량 format 9999;
+column 입고일 format a15;
+column 상품명 format a15;
+column 가격 format 999,999;
+column 재고수량 format 9999;
+
+			연습) 입고 테이블에 레코드가 삭제되면 해당 상품의 재고수량을 감소시키는 트리거를 만들고 결과를 확인해보자.
+			
+				create or replace trigger AfterDelete입고
+				after delete on 입고 for each row //입고 테이블에 delete가 되면 상품에 update가 됨 !
+				declare
+				begin
+					update 상품 set 재고수량 = 재고수량 - :old.입고수량 //입고테이블에 insert가 되면 상품테이블에 갱신이 되고, 재고수량을 현재 재고수량에 뺀다!
+					where 상품번호 = :old.상품번호; 
+				end;
+				/
+			
+				
+				delete 입고 where 입고번호 = 2;
+				
+			------------------------------------------------------------------------------------
+				
+			연습) 입고테이블에 수정이 되면 수정된 입고수량만큼 상품테이블의 재고수량도 수정이 되도록 트리거를 만들고 확인해보자.
+			
+				create or replace trigger AfterUpdate입고
+				after update on 입고 for each row 
+				declare
+				begin
+					update 상품 set 재고수량 = 재고수량 - ( :old.입고수량 - :new.입고수량 )
+					where 상품번호 = :new.상품번호; 
+				end;
+				/
+			
+	
+			==> 입고테이블에 수정이되면 수정이 입고수량의 차이만큼 상품테이블에 재고수량이 수정되었다.
+			
+			-----------------------------------------------------------------------
+			
+			create table 주문(
+				주문번호 number primary key,
+				상품번호 number references 상품(상품번호),
+				고객번호 number,
+				주문수량 number,
+				주문일 date
+			);
+			
+			col 주문번호 format 9999;
+			col 고객번호 format 9999;
+			col 주문수량 format 9999;
+			col 주문일 format a15;
+			
+			
+			연습) 주문이 일어나면(추가되면) 주문수량 만큼 상품의 재고수량을 감소시키는 트리거를 만들고, 결과를 확인
+			
+				create or replace trigger AfterInsert주문
+				after insert on 주문 for each row
+				declare
+				begin
+					update 상품 set 재고수량 = 재고수량 - :new.주문수량
+					where 상품번호 = :new.상품번호;
+				end;
+				/
+				
+				
+			--------------------------------------------------------------------------------------------
+		
+			시점이 반드시 before여야 하는 경우
+			예를들면, 자식테이블에 insert가 일어나는 이벤트인데
+			그 값이 부모테이블에 반드시 참조되는 컬럼인 경우에 부모테이블에 없다면 추가할 수 없겠죠?
+			
+			그 경우에 먼저 실행하여 부모테이블에 레코드를 추가해야 한다면 이때에는 before가 와야한다.
+			
+			
+			--------------------------------------------------------------------------------------------
+	
+	* 함수(function)
+		- select 절에 사용할 수 있는 프로시저
+		- 오라클이 제공하는 함수들이 많이 있다. sum, max, min, count,...
+		  이러한 함수들은 모두 select절에 사용할 수 있다.
+		- 이것들 처럼 사용자가 select 절에 사용할 수 있는 사용자가 필요한 함수를 만들 수 있다.
+		  ==> 사용자 정의함수 (function)
+		  ==> select절에 사용되어야 하니 반드시 반환값이 있어야 한다!
+		
+
+		
+		** 사용자 정의 함수(function) 만드는 방법
+		
+		create or replace function 함수이름(매개변수명 자료형) return 자료형
+		is
+			변수선언
+		begin
+			함수가 해야할 문장(들)
+			return 값;
+		end;
+		/
+		
+			연습) 판매금액을 매개변수로 전달받아 이익금을 반환하는 함수를 만들어보자.
+				판매금액이 30000원이상이면 10%, 그렇지 않으면 5%가 이익금
+				
+				create or replace function margin(saleprice number) return number
+				is
+					result number; 
+				begin
+					if saleprice >= 30000 then
+						result := saleprice * 0.1;
+					else
+						result := saleprice * 0.05;
+					end if;
+					return result;
+				end;
+				/
+		
+				각 주문에 대한 주문번호, 판매금액, 이익금을 출력해볼 수 있다.
+				
+				select orderid, saleprice, margin(saleprice)
+				from orders;
+		
+		
+				연습) 오늘 주문에 대하여 주문번호, 도서번호, 도서명, 고객명, 이익금을 출력해보자.
+				
+					select orderid, b.bookid, bookname, name, margin(saleprice)
+					from orders o, book b, customer c
+					where to_char(orderdate, 'yyyy/mm/dd') = to_char(sysdate, 'yyyy/mm/dd') and
+					o.bookid = b.bookid and c.custid = o.custid;
+		
+		
+				-------------------------------------------------------------------------------
+				
+				연습) 고객번호를 매개변수로 전달받아 그 고객의 총 주문액을 계산하여 총주문액이 20000원 이상이면 '우수',
+					그렇지 않으면 '보통'을 반환하는 grade 함수를 만들고 호출해보자.
+					
+					create or replace function grade(p_custid number) return varchar2
+					is
+						result varchar2(30); //글자를 담기위한 변수
+						total number; //총 주문금액을 담을 변수
+					begin
+						select sum(saleprice) into total 
+						from orders where custid = p_custid; // 뽑아온 고객의 총 주문액을 뽑아온다.
+						if total >= 20000 then
+							result := '우수';
+						else
+							result := '보통';
+						end if;
+						return result;
+					end;
+					/
+		
+					
+					select name, grade(custid) grade from customer;
+		
+		
+				----------------------------------------------------------------------------
+				
+				연습) 고객의 주소를 매개변수로 전달받아 국내에 거주하면 '국내거주' 그렇지 않으면 '국외거주'를 반환하는
+					함수를 만들고 호출해보자.
+					
+					create or replace function live(p_addr varchar2) return varchar2
+					is
+						result varchar2(30);
+					begin
+						if p_addr like '%대한민국%' then
+							result := '국내거주';
+						else
+							result := '국외거주';
+						end if;
+						return result;
+					end;
+					/
+	
+					select name, live(address) address from customer;
+		
+		
+				--------------------------------------------------------------------------------
+				
+				연습) 고객의 이름과 고객의 등급, 국내거주여부를 출력
+					select name, grade(custid) grade, live(address) address from customer;
+		
+		
+					NAME     GRADE      ADDRESS
+					-------- ---------- -------------------------
+					박지성  	 우수         국외거주
+					김연아   	 우수         국내거주
+					장미란     우수         국내거주
+		
+--------------------------------------------------------------------------------------------------------------------------
+
+
+* 데이터 모델링
+	- 애플리케이션을 개발하기에 앞서 먼저 사용자와의 면담을 통하여 사용자의 요구사항을 파악하여 시스템에 필요한 데이터베이스를 먼저 구축해야 한다.
+	- 이 때, 데이터베이스를 구축하기에 필요한 테이블들을 도출하고 또 각 테이블을 어떠한 속성으로 구성되는지 도출하고
+	  또 각 테이블을 어떤 속성으로 관계가 있는지 설계하는 과정을 '데이터 모델링'이라고 한다.
+	
+	- 데이터모델링의 결과의 산출물
+		- 테이블 명세서
+		- 인스턴스 명세서
+		- ER다이어그램(테이블과 테이블 사이의 관계를 그림으로 나타냄)
+
+	* 데이터모델링 과정
+		1) 요구사항 분석
+		2) 논리적 설계
+		3) 물리적 설계
+		4) 데이터베이스 구축
+
+
+
+----------------------------------------------------------------------------------------------------------
+
+팀별연습문제) 다음 설문을 토대로 논리 모델링과 인터턴스 명세서를 작성해 봅니다.
+	1) 학생은 매학기에 수강신청한다.
+	2) 학생은 등록 학기별로 신청학점, 이수학점, 평균학점, 과락 수 등을 관리한다.
+	3) 학생정보에는 학번, 성명, 주민등록번호, 성별, 우편번호, 주소등을 관리한다.
+	4) 수강 신청은 개설된 강의를 신청하는 것으로 신청일자와 변경일자 등을 학기 별로 
+		관리하며 평가를 수행하고 취득한 평점을 관리한다.
+	5) 평가를 위한 시험점수는 중간고사, 기말고사, 출석점수, 과제물점수, 
+		평소점수로 구성된다.
+	6) 강의에는 해당과목이 있으며 과목은 과목코드와 과목명을 포함한다.
+	7) 강의는 강의를 담당하는 교수가 있으며 배정 강의실 번호, 학점수, 
+		수강제한 인원등의 정보를 관리한다.
+
+
+
+
+
+
+
+		
+		
