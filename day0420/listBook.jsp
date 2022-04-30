@@ -11,10 +11,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>µµ¼­¸ñ·Ï</h2>
+	<h2>ë„ì„œëª©ë¡</h2>
 	<hr>
 	
-	<!-- jsp¿¡¼­ ÀÚ¹Ù ¹®¹ıÀ» ½áÁÖ·Á¸é <%%> ¾È¿¡½áÁØ´Ù. -->
+	<!-- jspì—ì„œ ìë°” ë¬¸ë²•ì„ ì¨ì£¼ë ¤ë©´ <%%> ì•ˆì—ì¨ì¤€ë‹¤. -->
 	<%
 		String sql = "select * from book";
 	
@@ -30,8 +30,8 @@
 				String publicsher = rs.getString(3);
 				int price = rs.getInt(4);
 				
-				
-				out.print(bookid + ", " + bookname + ", " + publicsher + ", " + price + "<br>"); //ºê¶ó¿ìÀú¿¡ Ãâ·Â
+				 
+				out.print(bookid + ", " + bookname + ", " + publicsher + ", " + price + "<br>"); //ë¸Œë¼ìš°ì €ì— ì¶œë ¥
 			}
 			
 			rs.close();
@@ -40,7 +40,7 @@
 			
 			
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 	
 	
