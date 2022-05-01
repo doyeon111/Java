@@ -31,7 +31,7 @@
 				String bookname = rs.getString(2);
 				int cnt = rs.getInt(3);
 				out.print(bookid + ", " + bookname + ", " + cnt + "<br>");
-				
+				 
 			}
 			rs.close();
 			stmt.close();
