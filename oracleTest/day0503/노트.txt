@@ -1,0 +1,86 @@
+부모 테이블과 자식테이블을 설정할 때 헷갈리면 어떤 테이블에 레코드가 먼저 들어갈 수 있는지를 판별해본다.
+-----------------------------------------------------------------------------
+
+실습을 위하여 다음의 사용자 계정을 만들어보자.
+
+c##scott/tiger
+
+------------------------------------------------------------------------------
+
+<< 인스턴스 명세서 >>
+customer
+c_no	c_name		c_jumin				c_addr		c_phone				c_email					c_type
+100		김소윤		980827-2234567		인천 			010-8580-0837 		ohsso98@naver.com		회원
+101		이순신		null				null		010-1111-1111		null					비회원
+102		서동혁		960515-1234567		일산			010-9312-2222		dong@naver.com			회원
+
+
+insert into customer values(100, '김소윤', '980827-2234567', '인천', '회원', '010-8580-0837', 'ohsso98@naver.com');
+insert into customer values(101, '이순신', null, null, default, '010-1111-1111', null);
+insert into customer values(102, '서동혁', '960515-1234567', '일산', '회원', '010-9312-2222', 'dong@naver.com');
+
+
+dept
+dno		dname
+10		홍보팀
+20		서비스팀
+30		총무팀
+
+insert into dept values(10, '홍보팀');
+insert into dept values(20, '서비스팀');
+insert into dept values(30, '총무팀');
+
+
+
+emp
+e_no	e_name		e_jumin				e_addr		e_phone				e_hiredate		e_id		e_pwd		e_salary	dno
+1000	이창희		930310-1111111		인천			010-8994-8667		2020/01/05		lee			lee1234		500			10
+1001	김도연		990417-2452342		인천			010-1213-2323		2021/03/05		kim			kim1234		450			30
+1002	이진주		970221-2772981		경기			010-1234-1234		2021/03/05		leejj		lee7777		450			20
+1003	고주희		971004-2452332		서울			010-1213-2323		2021/02/07		kjh			kjh1234		400			20
+
+insert into emp values(1000, '이창희', '930310-1111111', '인천', '010-8994-8667', '2020/01/05', 'lee', 'lee1234', 500, 10);
+insert into emp values(1001, '김도연', '990417-2452342', '인천', '010-1213-2323', '2021/03/05', 'kim', 'kim1234', 450, 30);
+insert into emp values(1002, '이진주', '970221-2772981', '경기', '010-1234-1234', '2021/03/05', 'leejj', 'lee7777', 450, 20);
+insert into emp values(1003, '고주희', '971004-2452332', '서울', '010-1213-2323', '2021/02/07', 'kjh', 'kjh1234', 400, 20);
+
+
+
+
+room
+r_no	r_type		fee
+1		킹			400000
+2 		킹			450000
+3		싱글			100000
+4		더블			200000
+
+insert into room values(1, '킹', 400000);
+insert into room values(2, '킹', 450000);
+insert into room values(3, '싱글', 100000);
+insert into room values(4, '더블', 200000);
+
+
+
+
+reservation
+rv_no	checkin			checkout		cnt		rv_phone		c_no	r_no	total		e_no
+1		2022/05/04		2022/05/08		2		010-2222-2222	100		4		800000		1002
+2		2022/05/13		2022/05/15		1		010-9312-2222	102		3		200000		1003
+
+
+insert into reservation values(1, '2022/05/04', '2022/05/08', 2, '010-2222-2222', 100, 4, 800000, 1002);
+insert into reservation values(2, '2022/05/13', '2022/05/15', 1, '010-9312-2222', 102, 3, 200000, 1003);
+
+
+
+payment
+p_no	p_type		card_no					e_date			a_number	rv_no
+1		카드			5555 8888 9999 5555		08/24			12345678	1
+2		현금			null					null			null		2
+
+insert into payment values(1, '카드', '5555888899995555', to_date('08/24', 'mm/yy'), '12345678', 1);
+insert into payment values(2, '현금', null, null, null, 2);
+
+
+ 
+
