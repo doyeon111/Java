@@ -1,0 +1,133 @@
+체크인 날짜 2022/06/05
+체크아웃 날짜 2022/06/07
+
+- 사용자가 선택한 날짜에 예약된 룸번호 조회
+select r_no
+from reservation
+where to_date('2022/06/05', 'yyyy/mm/dd') between checkin and checkout or 
+to_date('2022/06/07') between checkin and checkout;
+
+
+
+- 전체 룸 번호에서 그 날짜에 예약된 룸번호를 - 해준다.
+select r_no
+from room
+minus
+select r_no
+from reservation
+where to_date('2022/06/05', 'yyyy/mm/dd') between checkin and checkout or 
+to_date('2022/06/07') between checkin and checkout;
+
+
+- 그 룸번호에 대항하는 룸의 모든 정보를 출력
+select r_no, r_type, fee
+from room
+where r_no in (select r_no
+				from room
+				minus
+				select r_no
+				from reservation
+				where to_date('2022/06/05', 'yyyy/mm/dd') between checkin and checkout or 
+				to_date('2022/06/07') between checkin and checkout);
+
+
+
+예약테이블에 레코드가 추가되었을 때 숙박요금을 자동으로 계산하는 트리거를 만들고 싶다.
+
+요금을 계산하기 위해서 알아내야 하는 정보는 무엇인가요
+- 숙박기간
+- 그 방의 요금
+
+select checkout-checkin from reservation;
+
+
+
+create or replace trigger trg_reservation
+after insert on reservation for each row
+declare
+	p_fee number;
+	p_days number;
+	p_total number;
+begin
+	select fee into p_fee from room where r_no = :new.r_no;
+	select checkout-checkin into p_days from reservation
+	where rv_no = :new.rv_no;
+	
+	p_total := p_fee * p_days;
+	update reservation set total = p_total where 
+	rv_no = :new.rv_no;
+end;
+/
+
+
+
+
+
+
+
+
+
+
+
+
+create or replace trigger trg_reservation
+after insert on reservation for each row
+declare
+	p_fee number;
+	p_days number;
+	p_total number;
+begin
+	select p_fee into p_fee from room where r_no= :new.r_no;
+	select checkout-checkin into p_days from reservation
+	where rv_no = :new.rv_no;
+end;
+/
+
+
+==> 현재 insert가 일어나 그 행에 대하여 트리거가 update할 수 없다!
+==> 프로그램에 의해서 숙박요금을 계산하도록 하자.
+
+select to_date('2022/06/05', 'yyyy/mm/dd') - to_date('2022/06/03', 'yyyy/mm/dd') from dual;
+
+
+----------------------------------------------------------------------------------------------
+
+데이터베이스 연결 프로그램을 할 때에 
+	VO(value object)
+		==> 데이터베이스 테이블을 자바객체로 표현하기 위한 클래스
+		
+	DAO(Database Access Object)
+		==> insert, update, delete, select 수행하는 클래스
+
+----------------------------------------------------------------------------------------------
+
+customer 테이블의 자료를 표현하기 위한 
+customerVO 클래스를 만들어본다.
+
+
+모든 고객의 목록을 반환하는 메소드가 있는 customerDAO 클래스를 만들어본다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
