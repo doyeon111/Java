@@ -1,0 +1,82 @@
+<b> : 진하게
+<strong>: 진하게
+<i> : 기울여서
+<em> : 기울여서
+<mark>: 강조 (형광펜)
+<del>: 취소선
+<u>: 아래 밑줄
+<sup>: 위첨자(제곱)
+<sub>: 아래첨자(로그)
+<strike>: 취소선
+
+
+블록태그와 인라인 태그
+
+블록태그 사례: <p>, <h1>, <div>, <ul>
+인라인 태그 사례: <strong>, <a>, <img>, <span>
+
+블록태그
+	- 항상 새 라인에서 시작하여 출력
+	- 양 옆에 다른 콘텐트를 배치하지 않고 한 라인 독점 사용
+	
+	
+	
+	
+	
+리스트 만들기
+리스트 종류
+	- 순서있는 리스트: <ol>
+	- 순서 없는 리스트: <ul> --> 점으로 찍혀서 나온다.
+	
+	
+	
+create table score(
+	name varchar2(20) primary key, 
+	html number,
+	css number
+);
+	
+	
+	insert into score values('홍길동', 100, 90);
+	insert into score values('이순신', 80, 40);
+	insert into score values('유관순', 70, 80);
+	insert into score values('김유신', 60, 70);
+	insert into score values('강감찬', 80, 80);
+	
+	
+	
+
+create table goods(
+	no number primary key,
+	item varchar2(20),
+	qty number,
+	price number,
+	fname varchar2(20)
+);
+	
+	
+	insert into goods values(1, '축구공1', 10, 7000, 'ball1.jpg');
+	insert into goods values(2, '축구공2', 10, 8000, 'ball2.jpg');
+	insert into goods values(3, '축구공3', 10, 9000, 'ball3.jpg');
+	insert into goods values(4, '축구공4', 10, 10000, 'ball4.jpg');
+	insert into goods values(5, '축구공5', 10, 11000, 'ball5.jpg');
+	
+	insert into goods values(6, '유니폼1', 20, 60000, 'cloth1.jpg');
+	insert into goods values(7, '유니폼2', 20, 70000, 'cloth2.jpg');
+	insert into goods values(8, '유니폼3', 20, 80000, 'cloth3.jpg');
+	insert into goods values(9, '유니폼4', 20, 90000, 'cloth4.jpg');
+	insert into goods values(10, '유니폼5', 20, 100000, 'cloth5.jpg');
+	
+	insert into goods values(11, '축구화1', 5, 80000, 'shoe1.jpg');
+	insert into goods values(12, '축구화2', 5, 81000, 'shoe2.jpg');
+	insert into goods values(13, '축구화3', 5, 82000, 'shoe3.jpg');
+	insert into goods values(14, '축구화4', 5, 83000, 'shoe4.jpg');
+	insert into goods values(15, '축구화5', 5, 84000, 'shoe5.jpg');
+	
+	insert into goods values(16, '스타킹1', 10, 2000, 'stock1.jpg');
+	insert into goods values(17, '스타킹2', 10, 3000, 'stock2.jpg');
+	insert into goods values(18, '스타킹3', 10, 4000, 'stock3.jpg');
+	insert into goods values(19, '스타킹4', 10, 5000, 'stock4.jpg');
+	insert into goods values(20, '스타킹5', 10, 6000, 'stock5.jpg');
+	
+	
