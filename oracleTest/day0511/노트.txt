@@ -1,0 +1,12 @@
+create table survey(
+	no number primary key,
+	grade number,
+	gender varchar2(20),
+	interests varchar2(50),
+	course varchar2(50),
+	leave varchar2(1000)
+);
+
+---------------------------------------------------------------------------
+
+select nvl(max(no), 0) + 1 from survey;
