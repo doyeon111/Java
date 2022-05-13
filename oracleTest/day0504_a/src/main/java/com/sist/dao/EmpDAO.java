@@ -34,7 +34,7 @@ public class EmpDAO {
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			//°Ë»öÇÑ °á°ú¸¸Å­ ¹İº¹½ÇÇàÇÏ¿© °´½ÇÀÇ Á¤º¸¸¦ RoomVO·Î ¸¸µé¾î¼­ list¿¡ ´ã´Â´Ù.
+			//ê²€ìƒ‰í•œ ê²°ê³¼ë§Œí¼ ë°˜ë³µì‹¤í–‰í•˜ì—¬ ê°ì‹¤ì˜ ì •ë³´ë¥¼ RoomVOë¡œ ë§Œë“¤ì–´ì„œ listì— ë‹´ëŠ”ë‹¤.
 			while(rs.next()) {
 				list.add(new EmpVO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10)));
 				
@@ -46,9 +46,9 @@ public class EmpDAO {
 			
 			
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 		
 		return list;
 	}
-}
+} 
