@@ -50,7 +50,7 @@
 		}
 		
 		pstmt.close();
-		conn.close();
+		conn.close(); 
 		
 	}catch(Exception e) {
 		System.out.println("예외발생: "+ e.getMessage());
