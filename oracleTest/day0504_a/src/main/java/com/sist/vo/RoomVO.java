@@ -28,7 +28,7 @@ public class RoomVO {
 	}
 	public void setFee(int fee) {
 		this.fee = fee;
-	}
+	} 
 	public RoomVO() {
 		super();
 		// TODO Auto-generated constructor stub
