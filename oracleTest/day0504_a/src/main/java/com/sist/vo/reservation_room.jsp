@@ -31,7 +31,7 @@
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
-		
+		 
 		%>
 		
 		객실번호: <select name="r_no">
