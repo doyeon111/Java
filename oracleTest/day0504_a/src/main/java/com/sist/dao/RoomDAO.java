@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import com.sist.vo.RoomVO;
 
 public class RoomDAO {
-	//Ã¼Å©ÀÎ, Ã¼Å©¾Æ¿ô³¯ÀÚ¸¦ ¸Å°³º¯¼ö·Î Àü´Ş¹Ş¾Æ ¿¹¾à°¡´ÉÇÑ ·ë ¸ñ·ÏÀ» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
+	//ì²´í¬ì¸, ì²´í¬ì•„ì›ƒë‚ ìë¥¼ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ ì˜ˆì•½ê°€ëŠ¥í•œ ë£¸ ëª©ë¡ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
 	// avaliableRoomList
-	//¸Ş¼Òµå ±¸Á¶¸¦ ¸¸µé¾îº¸ÀÚ.
+	//ë©”ì†Œë“œ êµ¬ì¡°ë¥¼ ë§Œë“¤ì–´ë³´ì.
 	
 	String driver ="oracle.jdbc.driver.OracleDriver";
 	String url ="jdbc:oracle:thin:@192.168.35.87:1521:XE";
@@ -27,7 +27,7 @@ public class RoomDAO {
 			String sql = "select r_no, r_type, fee "+
 					"from room "+
 					"where r_no in (select r_no "+
-									"from room "+
+									"from room "+ 
 									"minus "+
 									"select r_no "+
 									"from reservation "+
@@ -43,7 +43,7 @@ public class RoomDAO {
 			
 			ResultSet rs = pstmt.executeQuery();
 			
-			//°Ë»öÇÑ °á°ú¸¸Å­ ¹İº¹½ÇÇàÇÏ¿© °´½ÇÀÇ Á¤º¸¸¦ RoomVO·Î ¸¸µé¾î¼­ list¿¡ ´ã´Â´Ù.
+			//ê²€ìƒ‰í•œ ê²°ê³¼ë§Œí¼ ë°˜ë³µì‹¤í–‰í•˜ì—¬ ê°ì‹¤ì˜ ì •ë³´ë¥¼ RoomVOë¡œ ë§Œë“¤ì–´ì„œ listì— ë‹´ëŠ”ë‹¤.
 			while(rs.next()) {
 				int r_no = rs.getInt(1);
 				String r_type = rs.getString(2);
@@ -52,7 +52,7 @@ public class RoomDAO {
 				room.setR_no(r_no);
 				room.setR_type(r_type);
 				room.setFee(fee);
-				//¸®½ºÆ®¿¡ ´ã´Â´Ù.
+				//ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
 				list.add(room);
 			}
 			
@@ -62,7 +62,7 @@ public class RoomDAO {
 			
 			
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 		
 		return list;
