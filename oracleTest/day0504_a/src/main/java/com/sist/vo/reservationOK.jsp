@@ -24,7 +24,7 @@
 				"values((select nvl(max(rv_no),0) + 1  from reservation),"+ //자동으로 rv_no가 생성될 수 있게 설정
 			"?,?,?,?,?,?,0,?)";
 	
-	try {
+	try { 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		
 		String url = "jdbc:oracle:thin:@192.168.0.7:1521:XE";
