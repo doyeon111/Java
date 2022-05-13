@@ -26,7 +26,7 @@ public class EmpVO {
 		this.e_pwd = e_pwd;
 		this.e_salary = e_salary;
 		this.dno = dno;
-	}
+	} 
 	public int getE_no() {
 		return e_no;
 	}
