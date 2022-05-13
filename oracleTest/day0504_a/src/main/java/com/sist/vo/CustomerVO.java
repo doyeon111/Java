@@ -33,7 +33,7 @@ public class CustomerVO {
 	}
 	public String getC_jumin() {
 		return c_jumin;
-	}
+	} 
 	public void setC_jumin(String c_jumin) {
 		this.c_jumin = c_jumin;
 	}
