@@ -29,7 +29,7 @@ public class ReservationVO {
 		return rv_no;
 	}
 	public void setRv_no(int rv_no) {
-		this.rv_no = rv_no;
+		this.rv_no = rv_no; 
 	}
 	public String getCheckin() {
 		return checkin;
