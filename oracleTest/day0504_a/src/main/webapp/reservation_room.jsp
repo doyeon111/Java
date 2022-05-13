@@ -19,7 +19,7 @@
 </head>
 <body>
 <h2>객실예약</h2>
-<form action="reservationOK.jsp" method="post">
+<form action="reservationOK.jsp" method="post"> 
 
 <%
 	String checkin = request.getParameter("checkin");
