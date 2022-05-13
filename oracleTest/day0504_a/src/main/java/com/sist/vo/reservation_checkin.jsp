@@ -15,4 +15,4 @@
 		<input type="submit" value="객실조회">
 	</form>
 </body>
-</html>
+</html> 
