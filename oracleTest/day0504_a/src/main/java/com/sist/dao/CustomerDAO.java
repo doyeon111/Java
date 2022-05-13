@@ -16,7 +16,7 @@ public class CustomerDAO {
 	String user ="c##scott";
 	String pwd = "tiger";
 	
-	//¸ğµç °í°´ ¸ñ·ÏÀ» ¹İÈ¯ÇÏ´Â ¸Ş¼Òµå¸¦ Á¤ÀÇ
+	//ëª¨ë“  ê³ ê° ëª©ë¡ì„ ë°˜í™˜í•˜ëŠ” ë©”ì†Œë“œë¥¼ ì •ì˜
 	public ArrayList<CustomerVO> customerList() {
 		ArrayList<CustomerVO> list = new ArrayList<CustomerVO>();
 		
@@ -33,7 +33,7 @@ public class CustomerDAO {
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			//°Ë»öÇÑ °á°ú¸¸Å­ ¹İº¹½ÇÇàÇÏ¿© °´½ÇÀÇ Á¤º¸¸¦ RoomVO·Î ¸¸µé¾î¼­ list¿¡ ´ã´Â´Ù.
+			//ê²€ìƒ‰í•œ ê²°ê³¼ë§Œí¼ ë°˜ë³µì‹¤í–‰í•˜ì—¬ ê°ì‹¤ì˜ ì •ë³´ë¥¼ RoomVOë¡œ ë§Œë“¤ì–´ì„œ listì— ë‹´ëŠ”ë‹¤.
 			while(rs.next()) {
 				list.add(new CustomerVO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
 				
@@ -53,18 +53,18 @@ public class CustomerDAO {
 //				c.setC_type(c_type);
 //				c.setC_phone(c_phone);
 //				c.setC_email(c_email);
-//				//¸®½ºÆ®¿¡ ´ã´Â´Ù.
-//				list.add(c);
+//				//ë¦¬ìŠ¤íŠ¸ì— ë‹´ëŠ”ë‹¤.
+//				list.add(c); 
 			}
 			
 			rs.close();
 			stmt.close();
 			conn.close();
 			
-			System.out.println("µ¥ÀÌÅÍ ¼ö:"+list.size());
+			System.out.println("ë°ì´í„° ìˆ˜:"+list.size());
 			
 		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 		
 		return list;
