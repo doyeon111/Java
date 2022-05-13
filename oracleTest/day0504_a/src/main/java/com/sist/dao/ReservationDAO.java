@@ -15,10 +15,10 @@ public class ReservationDAO {
 	String pwd = "tiger";
 	public int insertReservation(ReservationVO r) {
 		
-		//¼÷¹Ú¿ä±İÀ» °è»êÇÏ¿© insert ½ÃÅ²´Ù.
-		//¼÷¹Ú±â°£À» ¾Ë¾Æ¿À´Â sql
+		//ìˆ™ë°•ìš”ê¸ˆì„ ê³„ì‚°í•˜ì—¬ insert ì‹œí‚¨ë‹¤.
+		//ìˆ™ë°•ê¸°ê°„ì„ ì•Œì•„ì˜¤ëŠ” sql
 		String sql1 = "select to_date('"+r.getCheckout()+"', 'yyyy/mm/dd') - to_date('"+r.getCheckin()+"', 'yyyy/mm/dd') from dual";
-		//·ë °¡°İ¿ä±İÀ» ¾Ë¾Æ¿À´Â sql
+		//ë£¸ ê°€ê²©ìš”ê¸ˆì„ ì•Œì•„ì˜¤ëŠ” sql
 		String sql2 = "select fee from room where r_no=" +r.getR_no();
 		
 		int re = -1;
@@ -27,19 +27,19 @@ public class ReservationDAO {
 			Class.forName(driver);
 			Connection conn = DriverManager.getConnection(url, user, pwd);
 			String sql = "insert into reservation(rv_no, checkin, checkout, cnt, rv_phone, c_no, r_no, total, e_no) "+
-						"values((select nvl(max(rv_no),0) + 1  from reservation),"+ //ÀÚµ¿À¸·Î rv_no°¡ »ı¼ºµÉ ¼ö ÀÖ°Ô ¼³Á¤
+						"values((select nvl(max(rv_no),0) + 1  from reservation),"+ //ìë™ìœ¼ë¡œ rv_noê°€ ìƒì„±ë  ìˆ˜ ìˆê²Œ ì„¤ì •
 						"?,?,?,?,?,?,?,?)";
 			
-			//¼÷¹Ú±â°£
-			int days = 0;
+			//ìˆ™ë°•ê¸°ê°„
+			int days = 0; 
 			Statement stmt1 = conn.createStatement();
 			ResultSet rs1 = stmt1.executeQuery(sql1);
-			//rs1ÀÇ °á°ú´Â 1°³ÀÇ ·¹ÄÚµåÀÔ´Ï´Ù.
+			//rs1ì˜ ê²°ê³¼ëŠ” 1ê°œì˜ ë ˆì½”ë“œì…ë‹ˆë‹¤.
 			if(rs1.next()) {
 				days = rs1.getInt(1);
 			}
 			
-			//·ë°¡°İ °®°í¿À±â
+			//ë£¸ê°€ê²© ê°–ê³ ì˜¤ê¸°
 			int fee = 0;
 			Statement stmt2 = conn.createStatement();
 			ResultSet rs2 = stmt2.executeQuery(sql2);
@@ -47,7 +47,7 @@ public class ReservationDAO {
 				fee = rs2.getInt(1);
 			}
 			
-			//¼÷¹Ú¿ä±İ °è»êÇÏ±â
+			//ìˆ™ë°•ìš”ê¸ˆ ê³„ì‚°í•˜ê¸°
 			int total= days * fee;
 			
 			r.setTotal(total);
@@ -74,7 +74,7 @@ public class ReservationDAO {
 			conn.close();
 			
 		}catch(Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 		
 		return re;
