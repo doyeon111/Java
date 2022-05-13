@@ -38,7 +38,7 @@
 	ReservationDAO dao = new ReservationDAO();
 	
 	//dao를 통해 예약테이블에 레코드를 추가하는 메소드를 호출한다.
-	int re = dao.insertReservation(r);
+	int re = dao.insertReservation(r); 
 	
 	if(re == 1) {
 		out.println("예약을 성공하였습니다.");
