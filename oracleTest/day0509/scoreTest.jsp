@@ -30,7 +30,7 @@
 	<%
 		for(ScoreVO s : list) {
 			sumHTML += s.getHtml(); //html의 값 누적
-			sumCSS += s.getCss(); //css의 값 누적
+			sumCSS += s.getCss(); //css의 값 누적 
 			%>
 				<tr>
 					<td><%=s.getName() %></td>
