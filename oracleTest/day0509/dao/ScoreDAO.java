@@ -16,9 +16,9 @@ public class ScoreDAO {
 	String pwd = "sist";
 
 	// select * from score
-	// À§¿Í °°Àº sqlÀ» ½ÇÇàÇÏ´Â ¸Ş¼ÒµåÀÇ ¼±¾ğ¹®À» ÀÛ¼ºÇØº¸ÀÚ.
+	// ìœ„ì™€ ê°™ì€ sqlì„ ì‹¤í–‰í•˜ëŠ” ë©”ì†Œë“œì˜ ì„ ì–¸ë¬¸ì„ ì‘ì„±í•´ë³´ì.
 
-	// ¸Ş¼Òµå¸¦ ¼±¾ğ
+	// ë©”ì†Œë“œë¥¼ ì„ ì–¸
 	public ArrayList<ScoreVO> listScore() {
 
 		ArrayList<ScoreVO> list = new ArrayList<ScoreVO>();
@@ -31,8 +31,8 @@ public class ScoreDAO {
 			while (rs.next()) {
 				list.add(new ScoreVO(rs.getString(1), rs.getInt(2), rs.getInt(3)));
 			}
-		} catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+		} catch (Exception e) { 
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 		return list;
