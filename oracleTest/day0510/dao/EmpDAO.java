@@ -31,8 +31,8 @@ public class EmpDAO {
 			rs.close();
 			stmt.close();
 			conn.close();
-		} catch(Exception e) {
-			System.out.println("���ܹ߻�: " + e.getMessage());
+		} catch(Exception e) { 
+			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
 		}
 		
 		return list;
