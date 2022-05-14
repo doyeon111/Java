@@ -17,7 +17,7 @@
 
 <h2>사원목록</h2>
 <%
-	for(EmpVO e: list) {
+	for(EmpVO e: list) { 
 		%>
 			<details>
 				<summary><%=e.getEname() %></summary>
