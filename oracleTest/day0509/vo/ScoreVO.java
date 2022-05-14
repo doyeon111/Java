@@ -30,7 +30,7 @@ public class ScoreVO {
 		this.css = css;
 	}
 	public ScoreVO() {
-		super();
+		super(); 
 		// TODO Auto-generated constructor stub
 	}
 	
