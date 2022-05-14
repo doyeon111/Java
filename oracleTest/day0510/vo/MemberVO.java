@@ -24,7 +24,7 @@ public class MemberVO {
 	}
 
 	public void setPwd(String pwd) {
-		this.pwd = pwd;
+		this.pwd = pwd; 
 	}
 
 	public String getName() {
