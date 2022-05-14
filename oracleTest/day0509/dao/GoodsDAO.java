@@ -14,7 +14,7 @@ public class GoodsDAO {
 	String user = "c##sist";
 	String pwd = "sist";
 
-	// �޼ҵ带 ����
+	// ¸Þ¼Òµå¸¦ ¼±¾ð
 	public ArrayList<GoodsVO> listGoods() {
 
 		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
@@ -31,8 +31,8 @@ public class GoodsDAO {
 			stmt.close();
 			conn.close();
 		} catch (Exception e) {
-			System.out.println("���ܹ߻�: " + e.getMessage());
-		}
+			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
+		} 
 
 		return list;
 	}
