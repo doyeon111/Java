@@ -28,14 +28,14 @@ public class MemberDAO {
 			pstmt.setString(4, m.getSelf());
 			re = pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 		
 		return re;
 	}
 	
 	
-	
+	 
 	public boolean isMember(String id, String pwd) {
 		boolean re = false;
 		
@@ -56,7 +56,7 @@ public class MemberDAO {
 			}
 		
 			if(rs != null) {
-				rs.close(); //rs°¡ nullÀÌ ¾Æ´Ï¸é close
+				rs.close(); //rsê°€ nullì´ ì•„ë‹ˆë©´ close
 			}
 		
 			if(pstmt != null) {
@@ -69,7 +69,7 @@ public class MemberDAO {
 
 		
 		}catch (Exception e) {
-			System.out.println("¿¹¿Ü¹ß»ı: " + e.getMessage());
+			System.out.println("ì˜ˆì™¸ë°œìƒ: " + e.getMessage());
 		}
 
 		
