@@ -60,7 +60,7 @@ public class EmpVO {
 		return comm;
 	}
 	public void setComm(int comm) {
-		this.comm = comm;
+		this.comm = comm; 
 	}
 	public Date getHiredate() {
 		return hiredate;
