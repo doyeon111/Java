@@ -32,7 +32,7 @@ public class SurveyVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getInterests() {
+	public String getInterests() { 
 		return interests;
 	}
 	public void setInterests(String interests) {
