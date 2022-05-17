@@ -36,10 +36,10 @@ public class SurveyDAO {
 				conn.close();
 			}
 		} catch(Exception e) {
-			System.out.println("���ܹ߻�: " + e.getMessage());
+			System.out.println("¿¹¿Ü¹ß»ý: " + e.getMessage());
 		}
 		
 		
 		return re;
 	}
-}
+} 
